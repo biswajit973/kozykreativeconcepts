@@ -1,0 +1,34 @@
+<section class="app-section" id="app">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="overline" style="justify-content:center">Industries We Support</div>
+      <h2>Built for AI-Led Execution<br>Across Real Industries.</h2>
+      <p>We bring trend-savvy technology and customer-first delivery to sectors where speed, trust, and scale matter daily.</p>
+      <div class="industry-expertise-pill">12+ years of practical delivery across product engineering, cloud, AI, and automation.</div>
+    </div>
+
+    <div class="industry-board-shell reveal d1">
+      <div class="industry-board-fx" aria-hidden="true">
+        <app-particle-field preset="industries" [interactive]="true"></app-particle-field>
+      </div>
+
+      <div class="industry-board">
+        <article
+          class="industry-card"
+          appHoverSpark
+          sparkIntensity="medium"
+          *ngFor="let item of industryHighlights; trackBy: trackIndustry"
+          [ngClass]="'industry-card--' + item.accent">
+          <h3>{{ item.title }}</h3>
+          <p class="industry-focus">{{ item.focusLine }}</p>
+          <p class="industry-win">{{ item.businessWin }}</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="industry-actions reveal d2">
+      <a routerLink="/industries" class="btn btn-sm btn-pri">Explore Industries In Detail</a>
+      <a routerLink="/our-work" class="btn btn-sm btn-out">See What We Built</a>
+    </div>
+  </div>
+</section>

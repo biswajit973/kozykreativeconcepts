@@ -1,0 +1,87 @@
+<div class="careers-page">
+  <app-navbar mode="blogs"></app-navbar>
+  <app-mobile-menu mode="blogs"></app-mobile-menu>
+
+  <section class="careers-hero">
+    <div class="container">
+      <div class="careers-head">
+        <div class="overline">Careers</div>
+        <h1>{{ dataset().company }}</h1>
+        <p>Join a practical technology team building digital products, cloud systems, and automation for real business outcomes.</p>
+        <div class="refresh-row">
+          <span class="refresh-badge">{{ refreshLabel() }}</span>
+          <span class="refresh-period">Current period: {{ refreshPeriod() }}</span>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label class="filter-item">
+          <span>Search role or tag</span>
+          <input
+            type="search"
+            [ngModel]="searchTerm()"
+            (ngModelChange)="onSearchChange($event)"
+            placeholder="Search by title or skill tag" />
+        </label>
+
+        <label class="filter-item">
+          <span>Category</span>
+          <select [ngModel]="selectedCategory()" (ngModelChange)="onCategoryChange($event)">
+            <option value="all">All categories</option>
+            <option *ngFor="let category of categories()" [value]="category">{{ category }}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-list">
+    <div class="container">
+      <div class="loading-state" *ngIf="loading()">Loading careers...</div>
+      <div class="empty-state" *ngIf="!loading() && filteredRoles().length === 0">
+        No roles found for this filter right now.
+      </div>
+
+      <div class="roles-grid" *ngIf="!loading() && filteredRoles().length > 0">
+        <article class="role-card" *ngFor="let role of filteredRoles(); trackBy: trackRole">
+          <header class="role-head">
+            <h2>{{ role.title }}</h2>
+            <span class="role-type">{{ role.type }}</span>
+          </header>
+
+          <div class="role-meta">
+            <span>{{ role.location }}</span>
+            <span>{{ role.experienceLabel }}</span>
+            <span>{{ role.category }}</span>
+          </div>
+
+          <p class="role-summary">{{ role.summary }}</p>
+
+          <section class="role-block">
+            <h3>Responsibilities</h3>
+            <ul>
+              <li *ngFor="let item of role.responsibilities">{{ item }}</li>
+            </ul>
+          </section>
+
+          <section class="role-block">
+            <h3>Requirements</h3>
+            <ul>
+              <li *ngFor="let item of role.requirements">{{ item }}</li>
+            </ul>
+          </section>
+
+          <div class="tag-row">
+            <span class="tag-chip" *ngFor="let tag of role.tags">{{ tag }}</span>
+          </div>
+
+          <a class="apply-link" [href]="getApplyHref()">{{ role.applyCta }}</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

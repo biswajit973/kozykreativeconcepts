@@ -1,0 +1,50 @@
+<div
+  class="infinite-slider"
+  [class.is-paused]="isPaused || !shouldAnimate"
+  [style.--slider-gap.px]="gap"
+  [style.--slider-shift.px]="shiftDistancePx"
+  [style.--slider-duration.s]="animationDurationSec"
+  (mouseenter)="onHoverStart()"
+  (mouseleave)="onHoverEnd()"
+  (touchstart)="onTouchStart()"
+  (touchend)="onTouchEnd()"
+  (touchcancel)="onTouchEnd()"
+  aria-live="off">
+  <div class="infinite-slider-track" [class.reverse]="reverse">
+    <div class="infinite-slider-segment" #segmentRef>
+      <article class="logo-pill" *ngFor="let item of items; trackBy: trackLogo">
+        <img
+          *ngIf="!isAltBroken(item.alt)"
+          class="logo-img"
+          [src]="item.src"
+          [alt]="item.alt"
+          [attr.width]="item.width ?? null"
+          [attr.height]="item.height ?? null"
+          loading="lazy"
+          decoding="async"
+          (error)="onImageError(item.alt)" />
+        <span class="logo-fallback" *ngIf="isAltBroken(item.alt)">
+          {{ item.alt }}
+        </span>
+      </article>
+    </div>
+
+    <div class="infinite-slider-segment" aria-hidden="true">
+      <article class="logo-pill" *ngFor="let item of items; trackBy: trackLogo">
+        <img
+          *ngIf="!isAltBroken(item.alt)"
+          class="logo-img"
+          [src]="item.src"
+          [alt]="item.alt"
+          [attr.width]="item.width ?? null"
+          [attr.height]="item.height ?? null"
+          loading="lazy"
+          decoding="async"
+          (error)="onImageError(item.alt)" />
+        <span class="logo-fallback" *ngIf="isAltBroken(item.alt)">
+          {{ item.alt }}
+        </span>
+      </article>
+    </div>
+  </div>
+</div>

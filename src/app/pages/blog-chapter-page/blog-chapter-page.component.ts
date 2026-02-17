@@ -34,7 +34,7 @@ export class BlogChapterPageComponent implements OnInit, OnDestroy {
   private routeSub: Subscription | null = null;
 
   readonly chapters = BLOG_CHAPTERS;
-  activeChapterId: BlogChapterId = 'term-insurance';
+  activeChapterId: BlogChapterId = 'app-development';
 
   ngOnInit(): void {
     this.routeSub = this.route.paramMap.subscribe((params) => {

@@ -1,0 +1,263 @@
+{
+  "company": "Kozy Kreative Concepts",
+  "featuredSlug": "ai-bubble-vs-dotcom",
+  "topics": [
+    {
+      "slug": "ai-bubble-vs-dotcom",
+      "title": "Dotcom Burst vs AI Hype: Are We Repeating History?",
+      "subtitle": "The honest business view: hype can burst, but useful tech stays.",
+      "summary": "Many founders are asking if AI is just another bubble. My view is simple: weak products will die, practical products will stay and grow.",
+      "readTime": "8 min",
+      "opinionHook": "We should not fear AI. We should fear building without business value.",
+      "sections": [
+        {
+          "heading": "What happened in dotcom era",
+          "paragraphs": [
+            "During dotcom time, many companies had big valuation but no clear revenue model. When market confidence dropped, many collapsed.",
+            "Still, the internet itself did not fail. Strong businesses survived and became global leaders."
+          ]
+        },
+        {
+          "heading": "How AI is similar and different",
+          "paragraphs": [
+            "Similar part: too many companies are adding AI in pitch decks without real customer benefit.",
+            "Different part: AI is already solving real work today in support, coding, content, operations, and analytics."
+          ],
+          "bullets": [
+            "Hype may reduce",
+            "Bad AI products may disappear",
+            "Useful AI workflows will become normal business infrastructure"
+          ]
+        },
+        {
+          "heading": "What smart businesses should do now",
+          "paragraphs": [
+            "Do not invest in AI because everyone is doing it. Invest where AI directly reduces cost, time, or errors in your process.",
+            "Start with one workflow, measure outcome in 30-60 days, then expand only if value is clear."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "Bubble can burst, utility does not burst.",
+        "Measure ROI before scaling AI spend.",
+        "Build for customer pain, not trend chasing."
+      ],
+      "ctaText": "Discuss a practical AI roadmap with Kozy"
+    },
+    {
+      "slug": "why-every-business-needs-landing-page-and-social",
+      "title": "Why Every Business Needs a Landing Page and Social Presence",
+      "subtitle": "If people cannot find you online, many will assume you are not serious.",
+      "summary": "A landing page and social media are no longer optional. They are today\u2019s basic trust signals for every business.",
+      "readTime": "7 min",
+      "opinionHook": "Your business may be excellent, but in digital market, visibility creates first trust.",
+      "sections": [
+        {
+          "heading": "The first check customers do",
+          "paragraphs": [
+            "Before calling you, people search online. They check website, reviews, and social updates.",
+            "If they find nothing, they often choose the competitor who looks more active and transparent."
+          ]
+        },
+        {
+          "heading": "Landing page gives clarity",
+          "paragraphs": [
+            "A good landing page explains what you do, whom you help, and how to contact you. It removes confusion quickly.",
+            "It also helps marketing campaigns convert better because all traffic lands on one clear message."
+          ],
+          "bullets": [
+            "Clear service explanation",
+            "Proof of work and testimonials",
+            "Simple call to action: call, WhatsApp, or form"
+          ]
+        },
+        {
+          "heading": "Social media gives continuity",
+          "paragraphs": [
+            "People trust businesses that communicate regularly. Social posts show you are alive, active, and improving.",
+            "You do not need to post every day. Even 2-3 quality updates per week can build strong credibility."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "Landing page builds clarity.",
+        "Social media builds continuity and trust.",
+        "Together they improve lead quality and conversion."
+      ],
+      "ctaText": "Build your landing + social system with Kozy"
+    },
+    {
+      "slug": "devops-for-onprem-business",
+      "title": "How DevOps Helps Businesses Running On-Prem Servers",
+      "subtitle": "On-prem does not mean old-school. DevOps can still transform speed and stability.",
+      "summary": "Many teams running on-prem think DevOps is only for cloud. That is false. DevOps is a way of working, not a hosting location.",
+      "readTime": "8 min",
+      "opinionHook": "DevOps is not AWS-only. DevOps is discipline, automation, and repeatability.",
+      "sections": [
+        {
+          "heading": "Where on-prem teams struggle",
+          "paragraphs": [
+            "Manual deployments, undocumented server steps, and person-dependent operations create delays and mistakes.",
+            "When one key engineer is absent, release process often gets blocked."
+          ]
+        },
+        {
+          "heading": "DevOps benefits on-prem too",
+          "paragraphs": [
+            "With CI/CD, infrastructure scripts, and monitoring, on-prem teams can release faster with fewer incidents.",
+            "Automated rollback and versioning give confidence during production changes."
+          ],
+          "bullets": [
+            "Standard release pipeline",
+            "Faster incident detection",
+            "Less dependency on one person",
+            "Better audit and compliance trail"
+          ]
+        },
+        {
+          "heading": "Practical migration path",
+          "paragraphs": [
+            "You do not need full transformation in one month. Start with source control + build pipeline + logging standards.",
+            "Then add deployment automation and proactive monitoring in phases."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "DevOps works for on-prem and cloud both.",
+        "Automation reduces human error.",
+        "Incremental DevOps adoption gives long-term stability."
+      ],
+      "ctaText": "Get an on-prem DevOps modernization plan"
+    },
+    {
+      "slug": "ai-agents-in-todays-world",
+      "title": "How AI Agents Are Useful in Today\u2019s World",
+      "subtitle": "AI agents are not magic workers. They are task systems that need boundaries.",
+      "summary": "AI agents can save time in support, operations, and analysis when they are designed with clear rules and human checkpoints.",
+      "readTime": "7 min",
+      "opinionHook": "Treat AI agents like junior team members: useful, fast, but always under process control.",
+      "sections": [
+        {
+          "heading": "What an AI agent actually is",
+          "paragraphs": [
+            "An AI agent is a software workflow that can read context, decide next step, and act through tools.",
+            "Example: collect customer issue, classify urgency, draft response, and open support ticket automatically."
+          ]
+        },
+        {
+          "heading": "Where agents help most",
+          "paragraphs": [
+            "Best use cases are repetitive and rules-based tasks where humans lose time.",
+            "Agents should assist decisions, not replace accountability."
+          ],
+          "bullets": [
+            "Customer support triage",
+            "Lead qualification",
+            "Report generation",
+            "Internal workflow routing"
+          ]
+        },
+        {
+          "heading": "What to avoid",
+          "paragraphs": [
+            "Do not give full autonomy on critical payments, legal decisions, or high-risk actions without approval gates.",
+            "Set logs, approvals, and escalation paths from day one."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "Use agents for repeatable workflows first.",
+        "Keep human approval for risky decisions.",
+        "Track every action with logs and governance."
+      ],
+      "ctaText": "Identify the first AI agent use case for your business"
+    },
+    {
+      "slug": "kozy-kreative-goal",
+      "title": "What Is Kozy Kreative Really Building?",
+      "subtitle": "Our goal is not to sell random services. Our goal is business progress.",
+      "summary": "We want to become a practical transformation partner for companies that need technology results, not just technical buzzwords.",
+      "readTime": "6 min",
+      "opinionHook": "Our success is measured by your operational improvement, not by number of slides in a proposal.",
+      "sections": [
+        {
+          "heading": "Our working belief",
+          "paragraphs": [
+            "Most businesses do not fail because of lack of ideas. They struggle due to poor execution systems.",
+            "So we focus on systems: product, process, cloud, automation, and team capability."
+          ]
+        },
+        {
+          "heading": "How we partner",
+          "paragraphs": [
+            "We start with your business bottlenecks, then define technology roadmap in clear phases.",
+            "Every phase has measurable outcomes so leadership can track value."
+          ],
+          "bullets": [
+            "Clarity first",
+            "Phased execution",
+            "Continuous optimization",
+            "Long-term ownership mindset"
+          ]
+        },
+        {
+          "heading": "What we want long-term",
+          "paragraphs": [
+            "We want companies of all sizes to use modern technology confidently, safely, and profitably.",
+            "Our mission is to make digital transformation understandable and executable for real teams."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "We are outcome-focused, not trend-focused.",
+        "We simplify transformation for business teams.",
+        "We stay as a partner beyond go-live."
+      ],
+      "ctaText": "Talk to us about your 12-month digital growth plan"
+    },
+    {
+      "slug": "ai-agents-for-trading-transaction-risk",
+      "title": "Can We Use AI Agents for Trading, Transactions, and Risk?",
+      "subtitle": "Yes, but only with strict controls, approvals, and governance.",
+      "summary": "AI can improve speed and analysis in high-risk financial workflows, but unchecked automation can create serious losses.",
+      "readTime": "9 min",
+      "opinionHook": "In risk-heavy domains, AI should increase discipline, not remove human responsibility.",
+      "sections": [
+        {
+          "heading": "Where AI can add value",
+          "paragraphs": [
+            "AI agents can monitor market signals, detect anomalies, and prepare decision briefs quickly.",
+            "They can also automate reconciliation, alerting, and rule-based checks in transaction pipelines."
+          ]
+        },
+        {
+          "heading": "Where danger starts",
+          "paragraphs": [
+            "If agents execute trades or move money without robust controls, one bad decision can scale instantly.",
+            "Model drift, wrong assumptions, or data issues can cause major losses if nobody is supervising."
+          ],
+          "bullets": [
+            "Need maker-checker approval",
+            "Need exposure limits",
+            "Need fail-safe and rollback",
+            "Need full audit logs"
+          ]
+        },
+        {
+          "heading": "A safer enterprise pattern",
+          "paragraphs": [
+            "Use AI as co-pilot for analysis and recommendations first. Keep execution under policy engine + human validation.",
+            "Gradually increase autonomy only after proven reliability and compliance sign-off."
+          ]
+        }
+      ],
+      "keyTakeaways": [
+        "AI can support risk operations very well.",
+        "High-risk execution needs layered controls.",
+        "Human accountability must remain clear."
+      ],
+      "ctaText": "Design controlled AI governance with Kozy",
+      "riskDisclaimer": "Important: This article is for educational discussion only. It is not financial advice, trading advice, or investment recommendation. Any real-world trading, transaction approval, or risk decision must include qualified human review, legal/compliance checks, and organization-approved controls."
+    }
+  ]
+}

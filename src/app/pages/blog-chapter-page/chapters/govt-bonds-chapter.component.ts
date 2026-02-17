@@ -12,38 +12,39 @@ import { type ChapterContent } from '../chapter-types';
 })
 export class GovtBondsChapterComponent {
   readonly content: ChapterContent = {
-    id: 'govt-bonds',
-    title: 'Government Bonds: Stability For Your Portfolio',
+    id: 'cloud-devops',
+    title: 'Cloud and DevOps: Build Fast, Deploy Safe',
     subtitle:
-      'Government bonds can reduce portfolio shock when equity market moves sharply.',
+      'Cloud and DevOps help you release features quickly while keeping systems stable and observable.',
     highlight:
-      'If equity is accelerator, bonds are brakes. A safe drive needs both.',
+      'Reliable deployment process reduces launch risk and downtime stress.',
     majorPros: [
-      'Helps reduce total portfolio volatility.',
-      'Supports disciplined asset allocation.',
-      'Can reduce panic decisions during market correction.'
+      'AWS, Azure, and GCP setup based on workload needs.',
+      'CI/CD pipelines improve release consistency.',
+      'Monitoring and alerts improve issue response time.',
+      'Teams collaborate better with clean DevOps workflow.'
     ],
     pages: [
       {
-        heading: 'How Bonds Help In Real Investing',
+        heading: 'Why DevOps Matters In Real Projects',
         paragraphs: [
-          'Bonds generally play a stabilizer role. They are not always highest return products.',
-          'When market fear is high, debt allocation gives emotional and financial balance.',
-          'With proper mix, you can hold growth assets longer without panic exits.'
+          'Many teams can code features but struggle during deployment.',
+          'Without release automation, manual errors and downtime risk increase.',
+          'DevOps creates a repeatable process so every release is safer and faster.'
         ],
-        bulletTitle: 'Simple Discipline',
+        bulletTitle: 'Cloud-DevOps must-haves',
         bullets: [
-          'Fix debt percentage based on your risk comfort.',
-          'Rebalance once or twice a year.',
-          'Do not change allocation from daily market news.'
+          'Environment strategy (dev, staging, production).',
+          'Pipeline checks before deploy.',
+          'Rollback and monitoring plan ready.'
         ]
       }
     ],
     actionTitle: 'Action For This Week',
     actionText:
-      'Write your current asset mix and decide one stable debt allocation target for the next year.',
-    cautionTitle: 'If You Ignore This',
+      'Check your current release process and list manual steps that can be automated with CI/CD.',
+    cautionTitle: 'If You Delay',
     cautionText:
-      'Without a stabilizer, many people sell equity in fear and lock losses at wrong time.'
+      'As product grows, manual deployment risk increases and can cause costly service interruptions.'
   };
 }

@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+
+.logo-cloud-3 {
+  position: relative;
+  border-radius: 16px;
+  padding: 0.7rem 0;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(250, 248, 244, 1) 0%,
+      rgba(250, 248, 244, 0) 11%,
+      rgba(250, 248, 244, 0) 89%,
+      rgba(250, 248, 244, 1) 100%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.4));
+  border: 1px solid rgba(11, 32, 39, 0.08);
+}
+
+.logo-cloud-glow {
+  position: absolute;
+  inset: -18% 8%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 40%, rgba(2, 128, 144, 0.16), transparent 38%),
+    radial-gradient(circle at 82% 60%, rgba(198, 151, 63, 0.12), transparent 40%);
+  filter: blur(26px);
+}
+
+@media (max-width: 768px) {
+  .logo-cloud-3 {
+    border-radius: 14px;
+    padding: 0.58rem 0;
+  }
+}
+
+:host-context([data-theme='dark']) .logo-cloud-3 {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 11%,
+      rgba(0, 0, 0, 0) 89%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    linear-gradient(180deg, rgba(5, 12, 18, 0.96), rgba(2, 7, 11, 0.96));
+  border-color: rgba(140, 201, 218, 0.22);
+}
+
+:host-context([data-theme='dark']) .logo-cloud-glow {
+  background:
+    radial-gradient(circle at 18% 40%, rgba(0, 209, 247, 0.16), transparent 38%),
+    radial-gradient(circle at 82% 60%, rgba(138, 255, 210, 0.14), transparent 40%);
+}

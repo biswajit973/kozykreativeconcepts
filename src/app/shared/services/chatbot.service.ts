@@ -5,86 +5,110 @@ import { KnowledgeEntry } from '../models/types';
 export class ChatbotService {
   readonly knowledgeBase: KnowledgeEntry[] = [
     {
-      keywords: ['service', 'what do you do', 'offer', 'help', 'what can', 'provide'],
-      answer: `We offer 3 simple service categories:<br><br><b>1) Savings and Investment</b><br>• Mutual Funds<br>• Fixed Deposits<br>• Bonds<br><br><b>2) Protection</b><br>• Term Insurance<br>• Health Insurance<br>• Vehicle Insurance<br><br><b>3) Others</b><br>• NPS<br><br>Would you like me to explain any one service with a real-life story?`
+      keywords: ['service', 'what do you do', 'offer', 'help', 'provide', 'solutions'],
+      answer:
+        `We offer complete digital services:<br><br>` +
+        `<b>1) App Development</b><br>• Android App<br>• iOS App<br>• Windows App<br>• Mac App<br><br>` +
+        `<b>2) Web Development</b><br>• Landing Pages<br>• Websites and Web Apps<br>• Gen AI solutions<br>• AI and ML projects<br><br>` +
+        `<b>3) Chatbots and Automation</b><br>• Customer support chatbots<br>• Workflow automation<br>• Agent integration in existing business<br><br>` +
+        `<b>4) Cloud and DevOps</b><br>• AWS, Azure, Google Cloud<br>• Deployment, monitoring, and support<br><br>` +
+        `<b>5) QA Testing and Cybersecurity</b><br>• Manual and automation testing<br>• Security testing support<br><br>` +
+        `<b>6) Digital Marketing</b><br>• SEO, social media, ads, lead generation<br><br>` +
+        `<b>7) Software Trainings</b><br>• Python Full Stack, MERN, AWS, Azure DevOps, AI/ML`
+    },
+    {
+      keywords: ['digitalisation', 'digitalization', 'offline', 'online', 'consulting', 'consultancy'],
+      answer:
+        `Yes, we help offline businesses come online step by step.<br><br>` +
+        `We first understand your business flow, then design practical digital roadmap using product, cloud, and marketing support.`
+    },
+    {
+      keywords: ['workflow', 'automation', 'manual work', 'productivity'],
+      answer:
+        `Workflow Boost is one of our core strengths.<br><br>` +
+        `We automate repetitive daily tasks so your team saves time, reduces errors, and focuses on high-value work.`
+    },
+    {
+      keywords: ['training', 'course', 'upskill', 'python', 'mern', 'aws', 'azure', 'ai', 'ml'],
+      answer:
+        `We provide B2B and B2C trainings in:<br><br>` +
+        `• Python Full Stack<br>` +
+        `• MERN Stack<br>` +
+        `• AWS<br>` +
+        `• Azure DevOps<br>` +
+        `• AI and ML<br><br>` +
+        `Training is practical and project-oriented.`
+    },
+    {
+      keywords: ['industry', 'industries', 'domain', 'worked with'],
+      answer:
+        `We have worked with multiple industries:<br><br>` +
+        `• Finance<br>` +
+        `• Trading<br>` +
+        `• E-commerce<br>` +
+        `• Ed-tech<br>` +
+        `• Manufacturing / Industry<br>` +
+        `• Healthcare`
     },
     {
       keywords: ['contact', 'phone', 'call', 'number', 'reach'],
-      answer: `You can reach us at:<br><br>📞 <b>Phone:</b> (+91) 8072871049<br>📧 <b>Email:</b> <a href='mailto:info@singlepoint.co.in' style='color:var(--c-teal)'>info@singlepoint.co.in</a><br><br>Or chat with us on <a href='https://api.whatsapp.com/send/?phone=918249402832&text&type=phone_number&app_absent=0' target='_blank' style='color:#25D366;font-weight:600'>WhatsApp</a>!`
+      answer:
+        `You can reach us at:<br><br>` +
+        `📞 <b>Customer Service:</b> +91 9000500600<br>` +
+        `📧 <b>Email:</b> <a href='mailto:info@kkreative.in' style='color:var(--c-teal)'>info@kkreative.in</a><br>` +
+        `📧 <b>HR:</b> <a href='mailto:Hr@kkreative.in' style='color:var(--c-teal)'>Hr@kkreative.in</a>`
     },
     {
-      keywords: ['location', 'address', 'office', 'where', 'visit', 'direction'],
-      answer: `Our office is located at:<br><br>📍 <b>31, Kharavela Nagar, Unit 3</b><br>Backside of Ram Mandir<br>Bhubaneswar — 751001, Odisha<br><br>Feel free to visit us during working hours!`
+      keywords: ['linkedin', 'social', 'profile'],
+      answer:
+        `LinkedIn: <b>Kozy Kreative Concepts Pvt Ltd</b><br><br>` +
+        `You can also request a callback from the website and our team will connect with you.`
     },
     {
-      keywords: ['hour', 'timing', 'open', 'when', 'working', 'time', 'schedule'],
-      answer: `Our working hours are:<br><br>🕐 <b>Monday – Friday:</b> 10:00 AM – 5:00 PM<br>🕐 <b>Saturday – Sunday:</b> 10:00 AM – 1:00 PM<br><br>We're here to serve you six days a week!`
+      keywords: ['location', 'address', 'office', 'where', 'visit'],
+      answer:
+        `Our office address:<br><br>` +
+        `<b>KKREATIVE CONCEPTS PRIVATE LIMITED</b><br>` +
+        `White House, 1st & 2nd Floors,<br>` +
+        `Khairatabad, Hyderabad.`
     },
     {
-      keywords: ['about', 'who', 'company', 'single point', 'background', 'history'],
-      answer: `Drawing from <b>15 years of UK expertise</b>, Single Point Wealth Management is expanding into India, dedicated to personalized financial services.<br><br>Our tailored approach respects your individual circumstances and goals. We prioritize your interests over affiliations, remaining <b>independent from any single company</b>.<br><br>Each client's uniqueness is recognized, ensuring customized financial plans align with your needs. Our recommendations are unbiased and driven solely by your financial objectives.`
+      keywords: ['hour', 'timing', 'open', 'when', 'working', 'time'],
+      answer:
+        `Working hours:<br><br>🕐 <b>Mon-Sat:</b> 10:00 AM to 6:00 PM`
     },
     {
-      keywords: ['mutual fund', 'sip', 'equity', 'invest'],
-      answer: `We offer <b>curated high-alpha equity & debt mutual fund baskets</b>, handpicked by our research team.<br><br>💡 You can also use our <b>SIP Calculator</b> on this website to see how your money can grow over time!<br><br>Want me to help you get started with mutual funds?`
+      keywords: ['why choose', 'trust', 'why you', 'benefit'],
+      answer:
+        `Why choose KKREATIVE:<br><br>` +
+        `• Latest tools and updated technology<br>` +
+        `• Team that keeps learning and upgrading<br>` +
+        `• Multi-timezone support as per client requirement<br>` +
+        `• Practical execution, not just theory`
     },
     {
-      keywords: ['insurance', 'life', 'term plan', 'cover', 'health'],
-      answer: `Our protection services are:<br><br>🛡️ <b>Term Insurance</b> — income replacement for family security<br>❤️ <b>Health Insurance</b> — support for medical emergencies<br>🚗 <b>Vehicle Insurance</b> — protection from repair and liability costs<br><br>Would you like a simple story example for any one of these?`
-    },
-    {
-      keywords: ['nps', 'retirement', 'pension', 'old age'],
-      answer: `NPS helps you build a retirement corpus with long-term discipline.<br><br>It is useful if you want structured retirement planning and a pension-focused path.<br><br>Would you like to know how NPS can fit your long-term goal?`
-    },
-    {
-      keywords: ['loan', 'home', 'housing', 'mortgage'],
-      answer: `Our current core offerings focus on Savings and Investment, Protection, and NPS.<br><br>If you still need help with home loan guidance, our advisor can speak with you and share available support options.`
-    },
-    {
-      keywords: ['fd', 'fixed deposit', 'deposit'],
-      answer: `We offer <b>Corporate Fixed Deposits</b> that beat inflation — your capital is always working harder.<br><br>These are carefully selected FDs with strong credit ratings for safety and better returns than traditional bank FDs.`
-    },
-    {
-      keywords: ['bond', 'government', 'sovereign'],
-      answer: `Our <b>Government Bonds</b> service provides sovereign-backed capital protection for your risk-free allocation.<br><br>Perfect for conservative investors looking for guaranteed returns with zero credit risk.`
-    },
-    {
-      keywords: ['whatsapp', 'chat', 'message'],
-      answer: `You can chat with us directly on WhatsApp!<br><br>💬 <a href='https://api.whatsapp.com/send/?phone=918249402832&text&type=phone_number&app_absent=0' target='_blank' style='color:#25D366;font-weight:700'>Click here to chat on WhatsApp</a><br><br>Our team is ready to assist you!`
-    },
-    {
-      keywords: ['calculator', 'tool', 'sip calc', 'target'],
-      answer: `We have two powerful calculators on our website:<br><br>📊 <b>SIP Calculator</b> — See how your monthly investments can grow over time<br>🎯 <b>Target Achiever</b> — Find out how much to invest monthly to reach your dream amount<br><br>You can find them under the <b>Tools</b> menu in the navigation bar!`
-    },
-    {
-      keywords: ['experience', 'trust', 'why', 'choose', 'families'],
-      answer: `Here's why 1,200+ families trust us:<br><br>✅ <b>₹500Cr+</b> Assets Advised<br>✅ <b>30+ Years</b> Combined Experience<br>✅ <b>15 Years UK Expertise</b> now serving India<br>✅ SEBI Regulated, IRDAI Approved, RBI Compliant<br>✅ Independent & unbiased recommendations<br><br>Your wealth deserves a Single Point of Trust!`
-    },
-    {
-      keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'hola'],
-      answer: `Hello! 👋 Welcome to Single Point Wealth Management. I'm here to help you with information about our services, contact details, working hours, and more.<br><br>How can I assist you today?`
+      keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+      answer:
+        `Hello! 👋 Welcome to <b>KKREATIVE CONCEPTS PRIVATE LIMITED</b>.<br><br>` +
+        `How can I help you today with digital services or consultancy?`
     },
     {
       keywords: ['thank', 'thanks', 'bye', 'goodbye', 'see you'],
-      answer: `You're welcome! 😊 If you need anything else, don't hesitate to ask.<br><br>📞 Call us: (+91) 8072871049<br>💬 <a href='https://api.whatsapp.com/send/?phone=918249402832&text&type=phone_number&app_absent=0' target='_blank' style='color:#25D366;font-weight:600'>WhatsApp us</a><br><br>Have a wonderful day! 🌟`
-    },
-    {
-      keywords: ['app', 'mobile', 'dashboard', 'tech', 'technology', 'portal'],
-      answer: `We offer a powerful <b>tech platform</b> to track your wealth in real time:<br><br>💻 <b>Web Dashboard</b> — Portfolio overview, goal tracker & tax centre<br>📱 <b>Mobile App</b> — Portfolio, goals, transactions & smart alerts<br><br>Track every rupee, every goal, every move — from anywhere on the planet!`
-    },
-    {
-      keywords: ['founder', 'team', 'leader', 'director', 'bijaya', 'piyush', 'namrata'],
-      answer: `Our leadership team brings 30+ years of combined expertise:<br><br>👤 <b>Shri Bijaya K. Padhi</b> — Founder & Managing Director (30 yrs experience, Masters in Economics)<br>👤 <b>Shri Piyush K. Mishra</b> — Director (Strategic growth & sustainability leader)<br>👤 <b>Smt. Namrata Panigrahi</b> — Head of Compliance (13 yrs in finance & regulations)<br><br>A team united by one mission: your financial well-being.`
+      answer:
+        `You're welcome! 😊<br><br>` +
+        `📞 Call us: +91 9000500600<br>` +
+        `📧 Email: <a href='mailto:info@kkreative.in' style='color:var(--c-teal)'>info@kkreative.in</a><br><br>` +
+        `Have a great day!`
     }
   ];
 
   readonly quickQuestions = [
     'What services do you offer?',
+    'How do you help offline businesses?',
     'Contact details',
     'Office location',
-    'Working hours',
-    'About Single Point',
-    'Why trust you?'
+    'Software training details',
+    'Why choose KKREATIVE?'
   ];
 
   findAnswer(query: string): string {
@@ -109,6 +133,12 @@ export class ChatbotService {
       return bestMatch.answer;
     }
 
-    return `I appreciate your question! While I may not have the exact answer right now, our team would love to help you.<br><br>📞 <b>Call us:</b> (+91) 8072871049<br>📧 <b>Email:</b> <a href='mailto:info@singlepoint.co.in' style='color:var(--c-teal)'>info@singlepoint.co.in</a><br>💬 <a href='https://api.whatsapp.com/send/?phone=918249402832&text&type=phone_number&app_absent=0' target='_blank' style='color:#25D366;font-weight:600'>Chat on WhatsApp</a><br><br>Or try asking about our services, contact info, location, or working hours!`;
+    return (
+      `Thanks for your question.<br><br>` +
+      `Please connect with our team for exact guidance:<br>` +
+      `📞 <b>+91 9000500600</b><br>` +
+      `📧 <a href='mailto:info@kkreative.in' style='color:var(--c-teal)'>info@kkreative.in</a><br><br>` +
+      `You can also click Request Callback on this page.`
+    );
   }
 }

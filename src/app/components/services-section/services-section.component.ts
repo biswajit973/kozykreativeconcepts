@@ -1,8 +1,11 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnDestroy, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ParticleFieldComponent } from '../ui/particle-field.component';
+import { HoverSparkDirective } from '../../shared/directives/hover-spark.directive';
 
-type ServiceCategoryId = 'savings' | 'protection' | 'others';
+type ServiceCategoryId = 'development' | 'automation' | 'cloud-quality' | 'growth-training';
 type ServiceFilterId = 'all' | ServiceCategoryId;
 
 interface ServiceSubItem {
@@ -52,7 +55,7 @@ interface ServiceStory {
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, ParticleFieldComponent, HoverSparkDirective],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.css',
   animations: [
@@ -90,288 +93,304 @@ export class ServicesSectionComponent implements OnDestroy {
   activeStoryId: string | null = null;
 
   readonly iconByKey: Record<string, string> = {
-    'mutual-funds': '📈',
-    'fixed-deposits': '🏦',
-    bonds: '📜',
-    'term-insurance': '🛡️',
-    'health-insurance': '🩺',
-    'vehicle-insurance': '🚗',
-    nps: '🧓'
+    'app-development': '📱',
+    'web-development': '🌐',
+    'chatbot-automation': '🤖',
+    'cloud-devops': '☁️',
+    'qa-cybersecurity': '🛡️',
+    'digital-marketing': '📣',
+    'business-digitalisation': '🏢',
+    'software-trainings': '🎓'
   };
 
   readonly iconTileClassByKey: Record<string, string> = {
-    'mutual-funds': 'icon-mutual-funds',
-    'term-insurance': 'icon-term-insurance',
-    'fixed-deposits': 'icon-fixed-deposits',
-    'health-insurance': 'icon-health-insurance',
-    bonds: 'icon-bonds',
-    'vehicle-insurance': 'icon-vehicle-insurance',
-    nps: 'icon-nps'
+    'app-development': 'icon-app-development',
+    'web-development': 'icon-web-development',
+    'chatbot-automation': 'icon-chatbot-automation',
+    'cloud-devops': 'icon-cloud-devops',
+    'qa-cybersecurity': 'icon-qa-cybersecurity',
+    'digital-marketing': 'icon-digital-marketing',
+    'business-digitalisation': 'icon-business-digitalisation',
+    'software-trainings': 'icon-software-trainings'
   };
 
   readonly categories: ServiceCategory[] = [
     {
-      id: 'savings',
-      title: 'Savings and Investment',
-      emoji: '💰',
-      intro: 'Build your money in a steady and smart way.',
-      cue: 'Use arrows to slide cards. Click Know More for a simple story.',
+      id: 'development',
+      title: 'App and Web Development',
+      emoji: '💻',
+      intro: 'Build fast, clean, and scalable digital products.',
+      cue: 'Open each card to see simple real business use-cases.',
       items: [
-        { id: 'mutual-funds', name: 'Mutual Funds', hook: 'Start small, grow big over time.' },
-        { id: 'fixed-deposits', name: 'Fixed Deposits', hook: 'Stable returns for peace of mind.' },
-        { id: 'bonds', name: 'Bonds', hook: 'Balance your portfolio with stability.' }
+        { id: 'app-development', name: 'App Development', hook: 'Android, iOS, Windows, and Mac app builds.' },
+        { id: 'web-development', name: 'Web Development', hook: 'Landing pages, websites, and web applications.' }
       ]
     },
     {
-      id: 'protection',
-      title: 'Protection',
-      emoji: '🛡️',
-      intro: 'Protect your family from sudden financial shocks.',
-      cue: 'Pick a protection card and open the full real-life story.',
+      id: 'automation',
+      title: 'Automation and AI',
+      emoji: '🤖',
+      intro: 'Reduce manual work and increase team speed.',
+      cue: 'See how chatbot and business automation save daily effort.',
       items: [
-        { id: 'term-insurance', name: 'Term Insurance', hook: 'Family backup when income stops.' },
-        { id: 'health-insurance', name: 'Health Insurance', hook: 'Save your savings during hospital bills.' },
-        { id: 'vehicle-insurance', name: 'Vehicle Insurance', hook: 'Avoid big accident-related money hits.' }
+        { id: 'chatbot-automation', name: 'Chatbots and Automation', hook: 'Support bots and smart workflow automation.' }
       ]
     },
     {
-      id: 'others',
-      title: 'Others',
-      emoji: '🌱',
-      intro: 'Build long-term retirement confidence.',
-      cue: 'One focused option for retirement planning.',
-      items: [{ id: 'nps', name: 'NPS', hook: 'Retirement planning with yearly discipline.' }]
+      id: 'cloud-quality',
+      title: 'Cloud, DevOps and Quality',
+      emoji: '☁️',
+      intro: 'Deploy with confidence and keep systems stable.',
+      cue: 'Cloud setup, testing, and security from one team.',
+      items: [
+        { id: 'cloud-devops', name: 'Cloud and DevOps', hook: 'AWS, Azure, GCP with deployment and monitoring.' },
+        { id: 'qa-cybersecurity', name: 'QA and Cybersecurity', hook: 'Manual + automation testing and security checks.' }
+      ]
+    },
+    {
+      id: 'growth-training',
+      title: 'Growth and Digitalisation',
+      emoji: '📈',
+      intro: 'Bring offline business online and train teams for growth.',
+      cue: 'From digital marketing to software trainings, we support execution.',
+      items: [
+        { id: 'digital-marketing', name: 'Digital Marketing', hook: 'SEO, social media, ads, and lead generation.' },
+        { id: 'business-digitalisation', name: 'Business Consulting and Digitalisation', hook: 'Step-by-step guidance to go digital.' },
+        { id: 'software-trainings', name: 'Software Trainings', hook: 'B2B and B2C trainings in modern tech stacks.' }
+      ]
     }
   ];
 
   readonly stories: ServiceStory[] = [
     {
-      id: 'mutual-funds',
-      categoryId: 'savings',
-      title: 'Mutual Funds',
-      subtitle: 'Small monthly SIP can build a big future corpus.',
-      iconKey: 'mutual-funds',
-      emoji: '📊',
-      factChips: ['Start from ₹5,000', 'Monthly SIP habit', 'Long-term compounding'],
-      keyLine: 'Start small and stay regular. Time helps your money grow.',
-      highlightWords: ['small', 'regular', 'grow', 'time', 'goal'],
+      id: 'app-development',
+      categoryId: 'development',
+      title: 'App Development',
+      subtitle: 'Android, iOS, Windows, and Mac apps built for real business workflows.',
+      iconKey: 'app-development',
+      emoji: '📱',
+      factChips: ['Android + iOS', 'Desktop support', 'Product-first delivery'],
+      keyLine: 'We build apps that are simple to use, fast to load, and easy to scale.',
+      highlightWords: ['fast', 'simple', 'scale', 'delivery', 'users'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Maya wanted money for her daughter college goal.', 'She could save only a small amount each month.']
+          lines: ['A business had sales teams working on calls, spreadsheets, and manual follow-up.', 'Daily updates were slow and data was scattered.']
         },
         {
-          title: 'What happened',
-          lines: ['She kept money in a normal account for years.', 'Her goal started looking far and difficult.']
+          title: 'What we build',
+          lines: ['We designed a mobile app and admin panel for daily updates.', 'Role-based access and simple dashboards were added.']
         },
         {
-          title: 'What changed',
-          lines: ['She started SIP in mutual funds.', 'She stayed regular and did yearly review.']
+          title: 'How we deliver',
+          lines: ['Sprint-based development with weekly demos.', 'Clear testing checkpoints before each release.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Compounding started helping her.', 'The same monthly habit began building real wealth.']
+          title: 'Business benefit',
+          lines: ['Team updates became real-time.', 'Decision makers got cleaner and faster visibility.']
         }
       ]
     },
     {
-      id: 'fixed-deposits',
-      categoryId: 'savings',
-      title: 'Fixed Deposits',
-      subtitle: 'A clear FD plan can give steady returns and less stress.',
-      iconKey: 'fixed-deposits',
-      emoji: '🏦',
-      factChips: ['Stable return', 'Known maturity date', 'Low stress option'],
-      keyLine: 'If you want steady and predictable growth, FD can be useful.',
-      highlightWords: ['steady', 'predictable', 'safe', 'stress'],
+      id: 'web-development',
+      categoryId: 'development',
+      title: 'Web Development',
+      subtitle: 'Landing pages, websites, web apps, and Gen AI integrations for business growth.',
+      iconKey: 'web-development',
+      emoji: '🌐',
+      factChips: ['Landing pages', 'Web apps', 'AI/ML integration'],
+      keyLine: 'Your website should not just look good. It should convert and support operations.',
+      highlightWords: ['convert', 'website', 'web app', 'performance', 'business'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Prakash wanted safe parking for emergency and short goals.', 'He did not want market ups and downs.']
+          lines: ['A company had traffic but low enquiry conversion.', 'Website pages were slow and forms were not tracked properly.']
         },
         {
-          title: 'What happened',
-          lines: ['He opened random deposits without a plan.', 'He broke them often and lost the structure.']
+          title: 'What we build',
+          lines: ['We redesigned high-intent pages and lead funnels.', 'Tracking, CRM sync, and analytics events were implemented.']
         },
         {
-          title: 'What changed',
-          lines: ['He moved to a planned FD ladder.', 'Each FD was linked to one clear family need.']
+          title: 'Technical layer',
+          lines: ['Modern frontend stack, secure backend APIs, and scalable hosting.', 'Optional AI assistant integration for FAQs and lead capture.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Cash flow became easy to track.', 'He got peace, clarity, and better money discipline.']
+          title: 'Business benefit',
+          lines: ['Better lead quality and higher conversion intent.', 'Teams spend less time chasing incomplete enquiries.']
         }
       ]
     },
     {
-      id: 'bonds',
-      categoryId: 'savings',
-      title: 'Bonds',
-      subtitle: 'Bonds can calm a portfolio when markets move too fast.',
-      iconKey: 'bonds',
-      emoji: '📘',
-      factChips: ['Fixed income layer', 'Lower volatility', 'Better balance'],
-      keyLine: 'Bonds add stability when your portfolio feels too aggressive.',
-      highlightWords: ['calm', 'stability', 'balance', 'confidence'],
+      id: 'chatbot-automation',
+      categoryId: 'automation',
+      title: 'Chatbots and Automation',
+      subtitle: 'Customer support bots and business automations that reduce repetitive work.',
+      iconKey: 'chatbot-automation',
+      emoji: '🤖',
+      factChips: ['24x7 chatbot support', 'Workflow rules', 'Agent integration'],
+      keyLine: 'Automate repetitive tasks so your team can focus on high-value work.',
+      highlightWords: ['automate', 'support', 'save time', 'team', 'workflow'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Neha had most money in equity.', 'One sharp market fall made her worried.']
+          lines: ['Support team answered the same questions every day.', 'Manual ticket sorting consumed too much time.']
         },
         {
-          title: 'What happened',
-          lines: ['She delayed decisions due to fear.', 'Her allocation became unbalanced.']
+          title: 'What we build',
+          lines: ['A chatbot handled common queries and captured user intent.', 'Tickets were auto-routed to the right team using workflows.']
         },
         {
-          title: 'What changed',
-          lines: ['She added bonds as fixed income support.', 'Portfolio risk became closer to her comfort level.']
+          title: 'Integration layer',
+          lines: ['Connected bot with CRM, email, and internal tools.', 'Added handover flow for human agent when needed.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Portfolio swings reduced.', 'She could stay invested with more confidence.']
+          title: 'Business benefit',
+          lines: ['Faster response time and lower manual load.', 'Support quality improved with consistent answers.']
         }
       ]
     },
     {
-      id: 'term-insurance',
-      categoryId: 'protection',
-      title: 'Term Insurance',
-      subtitle: 'One low-cost plan can protect your family life if you are not there.',
-      iconKey: 'term-insurance',
-      emoji: '🛡️',
-      factChips: ['₹10,000/year', 'Age 30 to 60', '₹2 crore cover'],
-      keyLine: 'Term insurance is not for return. It is for family survival.',
-      highlightWords: ['₹10,000', '30 years', '₹2 crore', 'family', 'income', 'survival'],
-      comparison: {
-        left: {
-          name: 'Rakesh',
-          emoji: '✅',
-          tone: 'safe',
-          points: [
-            'Rakesh started term insurance at age 30.',
-            'He paid ₹10,000 per year.',
-            'He paid till age 60, so total 30 years.',
-            'His coverage is ₹2 crore.',
-            'He has a wife and two children.',
-            'If he dies, family gets money support and can continue life.'
-          ]
-        },
-        right: {
-          name: 'Johnny',
-          emoji: '⚠️',
-          tone: 'risk',
-          points: [
-            'Johnny did not take term insurance.',
-            'He also has family responsibilities.',
-            'If he dies, income stops immediately.',
-            'Family may struggle with rent, school fees, and loan EMI.',
-            'They may cut basic needs and sell assets under pressure.'
-          ]
-        }
-      },
+      id: 'cloud-devops',
+      categoryId: 'cloud-quality',
+      title: 'Cloud and DevOps',
+      subtitle: 'AWS, Azure, and Google Cloud setup with deployment, monitoring, and support.',
+      iconKey: 'cloud-devops',
+      emoji: '☁️',
+      factChips: ['AWS • Azure • GCP', 'CI/CD pipelines', 'Monitoring and alerts'],
+      keyLine: 'Reliable infrastructure and clean DevOps reduce release stress.',
+      highlightWords: ['cloud', 'deployment', 'monitoring', 'reliable', 'support'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Both are family earners.', 'Both have regular monthly responsibilities.']
+          lines: ['A team had frequent downtime during new release.', 'Rollback and monitoring process was weak.']
         },
         {
-          title: 'What happened',
-          lines: ['Rakesh planned early.', 'Johnny postponed the decision every year.']
+          title: 'What we build',
+          lines: ['Set up CI/CD pipeline with environment checks.', 'Added logs, uptime tracking, and alerting.']
         },
         {
-          title: 'What changed',
-          lines: ['Rakesh family has a backup plan.', 'Johnny family faces sudden financial shock.']
+          title: 'Operational model',
+          lines: ['Release playbook with backup and rollback plan.', 'Infra changes documented for team continuity.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Small premium can protect a full family future.', 'This is pure protection, not an investment product.']
+          title: 'Business benefit',
+          lines: ['More stable releases and faster issue detection.', 'Product teams can ship with confidence.']
         }
       ]
     },
     {
-      id: 'health-insurance',
-      categoryId: 'protection',
-      title: 'Health Insurance',
-      subtitle: 'One hospital bill can eat many years of savings.',
-      iconKey: 'health-insurance',
-      emoji: '🏥',
-      factChips: ['Medical cost shield', 'Family floater option', 'Protect savings'],
-      keyLine: 'Health policy helps you focus on treatment, not money panic.',
-      highlightWords: ['hospital', 'savings', 'treatment', 'panic', 'family'],
+      id: 'qa-cybersecurity',
+      categoryId: 'cloud-quality',
+      title: 'QA Testing and Cybersecurity',
+      subtitle: 'Manual testing, automation testing, and basic security checks before go-live.',
+      iconKey: 'qa-cybersecurity',
+      emoji: '🧪',
+      factChips: ['Manual + automation QA', 'Security test support', 'Release readiness'],
+      keyLine: 'Quality and security should be part of delivery, not an afterthought.',
+      highlightWords: ['quality', 'security', 'testing', 'bugs', 'release'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Sonia had some savings but no strong health cover.', 'She thought serious bills would not come.']
+          lines: ['Production issues were rising after each release.', 'Critical bugs were found late.']
         },
         {
-          title: 'What happened',
-          lines: ['A sudden hospitalization came.', 'Family paid a large amount from savings.']
+          title: 'What we build',
+          lines: ['Test cases, regression suite, and automation where useful.', 'Basic vulnerability checks and secure coding review support.']
         },
         {
-          title: 'What changed',
-          lines: ['She bought a proper family health policy.', 'Future treatment costs became more manageable.']
+          title: 'Process',
+          lines: ['Pre-release QA gate with severity-based reporting.', 'Clear defect closure and retest cycle.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Savings stayed safer during emergencies.', 'Family could focus on recovery with less stress.']
+          title: 'Business benefit',
+          lines: ['Fewer post-release incidents.', 'Better customer trust and smoother product usage.']
         }
       ]
     },
     {
-      id: 'vehicle-insurance',
-      categoryId: 'protection',
-      title: 'Vehicle Insurance',
-      subtitle: 'Accidents can bring repair cost, legal cost, and third-party cost together.',
-      iconKey: 'vehicle-insurance',
-      emoji: '🚘',
-      factChips: ['Repair cover', 'Third-party cover', 'Lower out-of-pocket shock'],
-      keyLine: 'A good motor policy can save you from sudden big bills.',
-      highlightWords: ['accident', 'repair', 'third-party', 'cost', 'shock'],
+      id: 'digital-marketing',
+      categoryId: 'growth-training',
+      title: 'Digital Marketing',
+      subtitle: 'SEO, social media, ads, lead generation, and online branding support.',
+      iconKey: 'digital-marketing',
+      emoji: '📣',
+      factChips: ['SEO + Ads', 'Lead generation', 'Brand visibility'],
+      keyLine: 'Digital presence should bring business results, not just likes.',
+      highlightWords: ['SEO', 'leads', 'ads', 'branding', 'results'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Arun uses car daily for office and family work.', 'He delayed proper cover to save premium.']
+          lines: ['Brand visibility was low and leads were inconsistent.', 'Campaign spend was not tracked properly.']
         },
         {
-          title: 'What happened',
-          lines: ['After an accident, repair bill was high.', 'Third-party expense added more pressure.']
+          title: 'What we do',
+          lines: ['Set up channel strategy for search, social, and paid campaigns.', 'Built landing funnels and conversion tracking.']
         },
         {
-          title: 'What changed',
-          lines: ['He moved to a better policy with useful add-ons.', 'Claim support reduced cash stress.']
+          title: 'Execution style',
+          lines: ['Weekly reporting with clear KPI dashboard.', 'Campaigns optimized using performance insights.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['He avoided a heavy one-time money hit.', 'Now he drives with more confidence.']
+          title: 'Business benefit',
+          lines: ['Better lead quality and stronger online visibility.', 'Marketing budget gets more accountable outcomes.']
         }
       ]
     },
     {
-      id: 'nps',
-      categoryId: 'others',
-      title: 'NPS',
-      subtitle: 'Retirement planning works best when you start early and stay steady.',
-      iconKey: 'nps',
-      emoji: '🌿',
-      factChips: ['Retirement discipline', 'Long-term corpus', 'Pension-focused path'],
-      keyLine: 'Small yearly discipline today can create a better retired life.',
-      highlightWords: ['retirement', 'early', 'discipline', 'corpus', 'future'],
+      id: 'business-digitalisation',
+      categoryId: 'growth-training',
+      title: 'Business Consulting and Digitalisation',
+      subtitle: 'We help offline businesses come online with practical tech and marketing roadmap.',
+      iconKey: 'business-digitalisation',
+      emoji: '🏭',
+      factChips: ['Offline to online', 'Step-by-step roadmap', 'Practical execution'],
+      keyLine: 'Digital transformation works best when done in clear and simple phases.',
+      highlightWords: ['digital', 'roadmap', 'online', 'process', 'growth'],
       blocks: [
         {
           title: 'Situation',
-          lines: ['Dev wanted future pension support.', 'He had no fixed retirement habit.']
+          lines: ['Business was running fully offline with manual records.', 'Owners wanted growth but did not know where to start.']
         },
         {
-          title: 'What happened',
-          lines: ['He kept postponing retirement planning.', 'Years passed but corpus stayed low.']
+          title: 'What we plan',
+          lines: ['We mapped digital priorities: website, lead flow, operations, and reports.', 'Phased rollout was created based on budget and team readiness.']
         },
         {
-          title: 'What changed',
-          lines: ['He started regular NPS contribution.', 'He added yearly top-up with discipline.']
+          title: 'How we support',
+          lines: ['Team onboarding and process training with simple SOPs.', 'Regular checkpoints to ensure adoption.']
         },
         {
-          title: 'Simple benefit',
-          lines: ['Retirement path became clear.', 'He now has better confidence for later life.']
+          title: 'Business benefit',
+          lines: ['Business became more visible, measurable, and process-driven.', 'Owners got better control over growth decisions.']
+        }
+      ]
+    },
+    {
+      id: 'software-trainings',
+      categoryId: 'growth-training',
+      title: 'Software Trainings (B2B and B2C)',
+      subtitle: 'Practical training programs for Python Full Stack, MERN, AWS, Azure DevOps, and AI/ML.',
+      iconKey: 'software-trainings',
+      emoji: '🎓',
+      factChips: ['Python Full Stack', 'MERN + Cloud', 'AI/ML training'],
+      keyLine: 'Skill upgrade creates long-term team strength and delivery confidence.',
+      highlightWords: ['training', 'skills', 'team', 'cloud', 'AI/ML'],
+      blocks: [
+        {
+          title: 'Who it helps',
+          lines: ['Companies that need job-ready internal teams.', 'Students and professionals who want practical upskilling.']
+        },
+        {
+          title: 'Training format',
+          lines: ['Project-based sessions with clear module structure.', 'Beginner-friendly explanation in simple language.']
+        },
+        {
+          title: 'Tracks we offer',
+          lines: ['Python Full Stack, MERN Stack, AWS, Azure DevOps, AI and ML.', 'Corporate custom tracks based on team role.']
+        },
+        {
+          title: 'Outcome',
+          lines: ['Learners become more confident in real projects.', 'Organizations reduce dependency on external hiring.']
         }
       ]
     }
@@ -404,7 +423,7 @@ export class ServicesSectionComponent implements OnDestroy {
   }
 
   storyHook(storyId: string): string {
-    return this.subItemMap.get(storyId)?.hook ?? 'Simple story that explains the real benefit.';
+    return this.subItemMap.get(storyId)?.hook ?? 'Simple story that explains practical business value.';
   }
 
   iconTileClass(iconKey: string): string {

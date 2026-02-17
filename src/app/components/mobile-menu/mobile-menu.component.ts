@@ -11,7 +11,7 @@ import { UiStateService } from '../../shared/services/ui-state.service';
   styleUrl: './mobile-menu.component.css'
 })
 export class MobileMenuComponent {
-  @Input() mode: 'home' | 'sip' | 'target' | 'blogs' = 'home';
+  @Input() mode: 'home' | 'route' | 'blogs' | 'sip' | 'target' = 'home';
 
   readonly ui = inject(UiStateService);
   private readonly router = inject(Router);
@@ -25,16 +25,6 @@ export class MobileMenuComponent {
     this.ui.openModal(modal);
   }
 
-  openSipPageFromMenu(): void {
-    this.closeMM();
-    this.router.navigate(['/sip-calculator']);
-  }
-
-  openTargetPageFromMenu(): void {
-    this.closeMM();
-    this.router.navigate(['/target-achiever']);
-  }
-
   openHomeFromMenu(): void {
     this.closeMM();
     this.router.navigate(['/']);
@@ -43,5 +33,39 @@ export class MobileMenuComponent {
   openBlogsFromMenu(): void {
     this.closeMM();
     this.router.navigate(['/blogs']);
+  }
+
+  openServicesFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/services']);
+  }
+
+  openWhoWeAreFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/who-we-are']);
+  }
+
+  openIndustriesFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/industries']);
+  }
+
+  openTechnologyFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/technology']);
+  }
+
+  openOurWorkFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/our-work']);
+  }
+
+  openCareersFromMenu(): void {
+    this.closeMM();
+    this.router.navigate(['/careers']);
+  }
+
+  toggleThemeMode(): void {
+    this.ui.toggleThemeMode();
   }
 }

@@ -1,0 +1,58 @@
+<div class="industries-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="industries-hero">
+    <div class="container">
+      <div class="overline">Industries</div>
+      <h1>Industry Context + Technology Execution = Better Business Outcomes.</h1>
+      <p>
+        We do not deliver one generic template for every client.
+        We adapt technology to each industry's ground reality and growth goals.
+      </p>
+    </div>
+  </section>
+
+  <section class="industries-main">
+    <div class="container">
+      <header class="main-head">
+        <h2>Where We Have Delivered</h2>
+        <p>
+          From fintech to manufacturing, we have solved practical challenges with AI-ready, cloud-ready execution.
+        </p>
+      </header>
+
+      <div class="industries-grid">
+        <article class="industry-case" *ngFor="let item of useCases">
+          <h3>{{ item.title }}</h3>
+          <div class="case-line">
+            <span>Challenge:</span>
+            <p>{{ item.challenge }}</p>
+          </div>
+          <div class="case-line">
+            <span>Delivered:</span>
+            <p>{{ item.delivered }}</p>
+          </div>
+          <div class="case-line case-line--result">
+            <span>Result:</span>
+            <p>{{ item.result }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries-actions">
+    <div class="container action-box">
+      <h3>Want to see what this can look like for your business?</h3>
+      <div class="action-row">
+        <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+        <a routerLink="/our-work" class="btn btn-out">See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

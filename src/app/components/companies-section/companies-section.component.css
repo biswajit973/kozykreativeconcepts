@@ -1,0 +1,170 @@
+:host {
+  display: block;
+}
+
+.founders {
+  padding: 5.3rem 0;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(136, 212, 171, 0.1), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(198, 151, 63, 0.1), transparent 44%),
+    linear-gradient(180deg, rgba(247, 245, 240, 0.9) 0%, rgba(250, 248, 244, 0.96) 100%);
+  position: relative;
+  isolation: isolate;
+}
+
+.leaders-context {
+  margin: 0 auto 1rem;
+  text-align: center;
+  max-width: 780px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--c-muted);
+}
+
+.works-logo-board-wrap {
+  position: relative;
+  isolation: isolate;
+  border-radius: 20px;
+  padding: 0.38rem;
+}
+
+.works-logo-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.84;
+  mask-image: radial-gradient(circle at 50% 52%, rgba(0, 0, 0, 0.84), transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at 50% 52%, rgba(0, 0, 0, 0.84), transparent 95%);
+}
+
+.works-logo-board {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.78rem;
+}
+
+.work-logo-item {
+  padding: 0.82rem 0.72rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.56));
+  border: 1px solid rgba(11, 32, 39, 0.07);
+  box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
+  text-align: center;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.work-logo-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(2, 128, 144, 0.2);
+  box-shadow: 0 16px 30px rgba(11, 32, 39, 0.12);
+}
+
+.work-logo-wrap {
+  min-height: 40px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid rgba(11, 32, 39, 0.14);
+  background: linear-gradient(135deg, rgba(17, 75, 95, 0.16), rgba(2, 128, 144, 0.1));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
+}
+
+.work-logo-wrap span {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--c-pri);
+  letter-spacing: 0.03em;
+}
+
+.work-logo-item h3 {
+  margin: 0.5rem 0 0;
+  font-family: var(--f-body);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--c-deep);
+}
+
+.work-logo-item p {
+  margin: 0.3rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--c-muted);
+}
+
+.works-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .works-logo-board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .leaders-context {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .works-logo-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .work-logo-item {
+    padding: 0.72rem 0.62rem;
+  }
+}
+
+:host-context([data-theme='dark']) .founders {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(0, 209, 247, 0.08), transparent 42%),
+    radial-gradient(circle at 84% 86%, rgba(138, 255, 210, 0.08), transparent 44%),
+    linear-gradient(180deg, #000 0%, #000 100%);
+}
+
+:host-context([data-theme='dark']) .works-logo-fx {
+  opacity: 1;
+}
+
+:host-context([data-theme='dark']) .leaders-context {
+  color: #b8d5e1;
+}
+
+:host-context([data-theme='dark']) .work-logo-item {
+  border-color: rgba(140, 206, 223, 0.2);
+  background: linear-gradient(180deg, rgba(9, 18, 27, 0.94), rgba(4, 10, 15, 0.95));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+:host-context([data-theme='dark']) .work-logo-item:hover {
+  border-color: rgba(0, 209, 247, 0.42);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.6);
+}
+
+:host-context([data-theme='dark']) .work-logo-item h3 {
+  color: #ecfbff;
+}
+
+:host-context([data-theme='dark']) .work-logo-item p {
+  color: #b8d5e1;
+}
+
+:host-context([data-theme='dark']) .work-logo-wrap {
+  border-color: rgba(150, 218, 236, 0.28);
+  background: linear-gradient(135deg, rgba(0, 209, 247, 0.16), rgba(8, 18, 28, 0.92));
+}
+
+:host-context([data-theme='dark']) .work-logo-wrap span {
+  color: #9be8f8;
+}

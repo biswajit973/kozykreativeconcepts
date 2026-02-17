@@ -1,0 +1,47 @@
+<div class="services-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="services-hero">
+    <div class="container">
+      <div class="overline">What We Offer</div>
+      <h1>Trend-Smart Digital Services Built Around Customer Outcomes.</h1>
+      <p>
+        We combine engineering, AI, cloud, and growth execution in one delivery model.
+        Our approach is practical: solve business problems, ship fast, and scale safely.
+      </p>
+    </div>
+  </section>
+
+  <section class="services-detail">
+    <div class="container">
+      <div class="services-grid">
+        <article class="service-card" *ngFor="let item of services">
+          <h2>{{ item.title }}</h2>
+          <p class="service-summary">{{ item.summary }}</p>
+          <p class="service-impact">{{ item.impact }}</p>
+          <ul>
+            <li *ngFor="let point of item.points">{{ point }}</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-cta">
+    <div class="container cta-box">
+      <div>
+        <h3>Need a service mix that fits your business stage?</h3>
+        <p>Let us map a simple, execution-first plan for your next quarter.</p>
+      </div>
+      <div class="cta-actions">
+        <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+        <a routerLink="/industries" class="btn btn-out">See Industry Use-Cases</a>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

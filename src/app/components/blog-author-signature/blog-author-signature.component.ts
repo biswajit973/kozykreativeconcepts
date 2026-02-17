@@ -9,9 +9,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './blog-author-signature.component.css'
 })
 export class BlogAuthorSignatureComponent {
-  @Input() authorName = 'Explained by Shri Piyush K. Mishra';
-  @Input() authorTagline = 'Single Point For You';
-  @Input() brandText = 'Single Point';
+  @Input() authorName = 'Explained by KKREATIVE Editorial Team';
+  @Input() authorTagline = 'Kozy Ideas. Kreative Solutions.';
+  @Input() brandText = 'KKREATIVE';
 
   get ariaLabel(): string {
     return `${this.authorName}. ${this.authorTagline}. ${this.brandText} brand signature`;

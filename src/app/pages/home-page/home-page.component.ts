@@ -1,20 +1,19 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, HostListener, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
-import { AppShowcaseComponent } from '../../components/app-showcase/app-showcase.component';
 import { ChatbotWidgetComponent } from '../../components/chatbot-widget/chatbot-widget.component';
+import { CompaniesSectionComponent } from '../../components/companies-section/companies-section.component';
 import { ComplianceStripComponent } from '../../components/compliance-strip/compliance-strip.component';
+import { ConnectSectionComponent } from '../../components/connect-section/connect-section.component';
 import { ContactModalComponent } from '../../components/contact-modal/contact-modal.component';
-import { CtaSectionComponent } from '../../components/cta-section/cta-section.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { FoundersSectionComponent } from '../../components/founders-section/founders-section.component';
 import { HeroComponent } from '../../components/hero/hero.component';
+import { IndustriesSectionComponent } from '../../components/industries-section/industries-section.component';
 import { LightboxComponent } from '../../components/lightbox/lightbox.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { TestimonialsSectionComponent } from '../../components/testimonials-section/testimonials-section.component';
 import { TickerComponent } from '../../components/ticker/ticker.component';
-import { WhatsappFloatComponent } from '../../components/whatsapp-float/whatsapp-float.component';
 import { CalculatorService } from '../../shared/services/calculator.service';
 import { UiStateService } from '../../shared/services/ui-state.service';
 
@@ -28,14 +27,13 @@ import { UiStateService } from '../../shared/services/ui-state.service';
     TickerComponent,
     ComplianceStripComponent,
     ServicesSectionComponent,
-    AppShowcaseComponent,
+    IndustriesSectionComponent,
     TestimonialsSectionComponent,
-    FoundersSectionComponent,
-    CtaSectionComponent,
+    CompaniesSectionComponent,
+    ConnectSectionComponent,
     FooterComponent,
     ContactModalComponent,
     LightboxComponent,
-    WhatsappFloatComponent,
     ChatbotWidgetComponent
   ],
   templateUrl: './home-page.component.html',

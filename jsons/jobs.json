@@ -1,0 +1,682 @@
+{
+    "company": "Kozy Kreative Concepts",
+    "refreshMode": "weekly",
+    "currency": "INR",
+    "apply": {
+      "email": "Hr@kkreative.in",
+      "ctaOpen": "Apply now",
+      "ctaEvergreen": "Join our talent pool"
+    },
+    "roles": [
+      {
+        "roleKey": "desktop_apps",
+        "category": "Engineering",
+        "type": "new",
+        "experienceMinYears": 5,
+        "locations": ["Hyderabad", "Secundarabad", "Remote-India", "Hybrid-Hyderabad"],
+        "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
+        "workMode": ["Hybrid", "WFO", "Remote"],
+        "titleVariants": [
+          "Senior Desktop Application Developer (Electron / Tauri)",
+          "Senior Cross-Platform Desktop Engineer (Windows/macOS)",
+          "Desktop Engineer – Electron.js + Node.js",
+          "Desktop Engineer – Rust (Tauri) + TypeScript",
+          "Senior Desktop Developer – Performance & Reliability",
+          "Desktop Application Developer – Native Integrations",
+          "Senior Software Engineer – Desktop (Electron + C++)",
+          "Cross-Platform Desktop Developer – Tauri + Rust",
+          "Desktop Platform Engineer – Build, Release & Updates",
+          "Desktop Developer – UI Systems & State Management",
+          "Desktop Engineer – Offline-First Apps",
+          "Senior Desktop Engineer – Auto-Update & Packaging",
+          "Desktop Engineer – Security & Local Data",
+          "Desktop App Developer – Windows + macOS Packaging",
+          "Senior Desktop Developer – C++/Qt & Integrations",
+          "Desktop Engineer – Crash Diagnostics & Profiling",
+          "Desktop Engineer – Real-time Apps (IPC/WebSockets)",
+          "Desktop Engineer – Device/OS API Integrations",
+          "Desktop Application Engineer – Installers & Signing",
+          "Lead Desktop Engineer – Architecture & Mentorship"
+        ],
+        "summaryVariants": [
+          "Build fast, stable cross-platform desktop apps with Electron/Tauri and production-grade release workflows.",
+          "Own desktop features end-to-end: UI, local storage, OS integrations, packaging, and auto-updates.",
+          "Design reliable Windows/macOS applications with strong performance, security, and crash resilience.",
+          "Ship polished desktop experiences with robust telemetry, diagnostics, and iterative improvements.",
+          "Build offline-first desktop apps with secure local data, sync, and background processes.",
+          "Create reusable desktop components, patterns, and build pipelines for rapid feature delivery.",
+          "Deliver native OS integrations (notifications, tray, file system, permissions) across platforms.",
+          "Improve startup time, memory footprint, and rendering performance using profiling and benchmarks.",
+          "Build desktop apps that feel native while keeping cross-platform velocity high.",
+          "Own the desktop platform foundation: packaging, signing, updates, and CI for Windows/macOS."
+        ],
+        "overviewVariants": [
+          "You’ll build and maintain cross-platform desktop apps used by customers and internal teams. The role blends UI craft, system engineering, and release discipline.",
+          "This role focuses on delivering desktop applications that are secure, performant, and easy to ship—covering architecture, OS integrations, and stable releases.",
+          "You’ll work across Electron/Tauri and native modules where needed, collaborating with backend and UX to deliver a polished desktop product."
+        ],
+        "responsibilitySets": [
+          [
+            "Develop and maintain cross-platform desktop apps using Electron.js or Tauri",
+            "Build core modules for local storage, auth, sync, and background tasks",
+            "Implement OS integrations (tray/menu, notifications, file system, deep links)",
+            "Design IPC patterns between UI and native/back-end layers",
+            "Write tests and add telemetry for reliability and diagnostics"
+          ],
+          [
+            "Own packaging, signing, and distribution for Windows and macOS",
+            "Implement auto-update strategies (staged rollouts, rollback, versioning)",
+            "Build CI pipelines for desktop builds, artifact publishing, and release notes",
+            "Debug production issues using logs, crash dumps, and telemetry",
+            "Maintain documentation for builds, releases, and troubleshooting"
+          ],
+          [
+            "Optimize startup time, memory, and rendering performance",
+            "Profile hotspots and remove bottlenecks (CPU, I/O, UI rendering)",
+            "Implement caching and offline-first strategies",
+            "Improve accessibility and UX consistency across OSes",
+            "Collaborate with design to deliver polished UI interactions"
+          ],
+          [
+            "Integrate with backend APIs and secure local credential handling",
+            "Implement encryption at rest for sensitive local data",
+            "Harden app security (code signing, sandboxing, permissions, secure IPC)",
+            "Perform dependency audits and patch vulnerabilities",
+            "Add guardrails for safe file handling and permissions"
+          ],
+          [
+            "Build native modules where required (Rust/C++/Node addons)",
+            "Maintain cross-platform compatibility and OS-specific behaviors",
+            "Create reusable UI components and state management patterns",
+            "Ensure stability under network loss, sleep/wake, and low-resource conditions",
+            "Mentor engineers and lead code reviews for desktop components"
+          ],
+          [
+            "Design modular architecture for feature delivery at scale",
+            "Define coding standards and quality gates for desktop apps",
+            "Build observability: structured logging, tracing, metrics",
+            "Coordinate releases with stakeholders and customer support",
+            "Investigate user feedback and drive fixes and improvements"
+          ],
+          [
+            "Implement real-time features using WebSockets and background workers",
+            "Create robust error handling and retry strategies",
+            "Ensure smooth upgrades and data migrations between versions",
+            "Build automated smoke tests for critical flows",
+            "Own compatibility testing across OS versions"
+          ],
+          [
+            "Develop cross-platform UI using web tech while keeping native feel",
+            "Implement theming, layout responsiveness, and keyboard shortcuts",
+            "Build a consistent design system implementation for desktop UI",
+            "Optimize bundling and asset loading",
+            "Collaborate with product for roadmap estimation and delivery"
+          ],
+          [
+            "Handle file import/export, previews, and OS-level associations",
+            "Build sandboxed plugin-like modules if needed",
+            "Implement data sync conflict resolution strategies",
+            "Create internal tooling to speed up dev/release cycles",
+            "Contribute to engineering best practices and docs"
+          ],
+          [
+            "Lead architecture decisions and technical planning",
+            "Mentor team members, onboard new hires, and conduct reviews",
+            "Ensure long-term maintainability and reduce technical debt",
+            "Coordinate security/performance reviews for major releases",
+            "Own roadmap for desktop platform evolution (Electron/Tauri/native)"
+          ]
+        ],
+        "requirementSets": [
+          [
+            "5+ years of software engineering experience with desktop app focus",
+            "Hands-on Electron.js (main/renderer, IPC) or Tauri (Rust + web UI)",
+            "Strong TypeScript/JavaScript fundamentals and debugging ability",
+            "Experience with packaging, signing, installers, and auto-updates",
+            "Comfort working with OS APIs (file system, permissions, notifications)"
+          ],
+          [
+            "5+ years building production software; desktop experience preferred",
+            "Experience with Rust (Tauri) OR Node.js (Electron) OR C++ (Qt/native)",
+            "Solid understanding of app performance profiling and optimization",
+            "CI/CD familiarity for desktop build pipelines",
+            "Ability to design maintainable architectures and reusable components"
+          ],
+          [
+            "Strong understanding of security basics for client apps (secrets, encryption, signing)",
+            "Experience handling offline mode, data migrations, and local persistence",
+            "Good knowledge of networking fundamentals and error handling",
+            "Experience working with REST APIs and auth flows",
+            "Strong communication and ownership mindset"
+          ],
+          [
+            "Experience integrating native modules/addons (Rust/C++/Node)",
+            "Understanding of macOS notarization and Windows signing/distribution",
+            "Familiarity with crash reporting and telemetry systems",
+            "Experience with automated tests for desktop apps",
+            "Ability to collaborate with product and design"
+          ],
+          [
+            "Experience leading features end-to-end in a product team",
+            "Strong code review discipline and mentoring experience",
+            "Ability to prioritize, estimate, and deliver reliably",
+            "Comfort troubleshooting production issues under time pressure",
+            "Willingness to learn and adapt between Electron/Tauri/native"
+          ]
+        ],
+        "skillTags": [
+          ["Electron.js", "Node.js", "TypeScript", "IPC", "Auto-Update", "Packaging", "Windows", "macOS"],
+          ["Rust", "Tauri", "TypeScript", "WebView", "Security", "Performance", "CI/CD"],
+          ["C++", "Qt", "Native Integrations", "Profiling", "Installers", "Crash Diagnostics"],
+          ["Offline-First", "Local Storage", "Encryption", "Sync", "Telemetry", "Observability"],
+          ["Release Engineering", "Code Signing", "Notarization", "Build Pipelines", "Testing"]
+        ],
+        "benefitsVariants": [
+          "Flexible work model (role dependent), health insurance, learning budget, and high-ownership projects.",
+          "Competitive pay, paid time off, mentorship, and a strong engineering culture focused on quality.",
+          "Health coverage, growth opportunities, and a team that values craftsmanship and autonomy."
+        ],
+        "interviewProcessVariants": [
+          "Intro call → Technical round → System/architecture discussion → Culture fit → Offer",
+          "Screening → Take-home/Live coding → Deep dive (desktop/release) → Final discussion",
+          "Recruiter chat → Technical → Problem-solving + debugging → Final round"
+        ]
+      },
+  
+      {
+        "roleKey": "fullstack_python_angular",
+        "category": "Engineering",
+        "type": "3 vacancies",
+        "experienceMinYears": 5,
+        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secundarabad", "Hyderabad"],
+        "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
+        "workMode": ["Hybrid", "Remote", "WFO"],
+        "titleVariants": [
+          "Senior Full Stack Python Developer (Angular)",
+          "Full Stack Engineer – Python + Angular",
+          "Senior Software Engineer – Python Full Stack",
+          "Backend-leaning Full Stack Engineer (Python + Angular)",
+          "Senior Web Engineer – APIs + Angular UI",
+          "Full Stack Developer – FastAPI + Angular",
+          "Senior Engineer – Microservices (Python) + Angular",
+          "Full Stack Engineer – Django/FastAPI + Angular",
+          "Senior Full Stack Engineer – Cloud + Angular",
+          "Full Stack Engineer – Python, SQL, Angular",
+          "Senior Engineer – Platform APIs + Angular",
+          "Full Stack Engineer – Product Delivery (Python)",
+          "Senior Engineer – Data-heavy Apps (Python + Angular)",
+          "Full Stack Engineer – Auth, Payments, Integrations",
+          "Senior Engineer – Performance & Reliability (Python)",
+          "Lead Full Stack Engineer – Python + Angular",
+          "Senior Engineer – Observability & Scaling",
+          "Full Stack Engineer – REST/GraphQL + Angular",
+          "Senior Engineer – CI/CD, Testing, Quality",
+          "Full Stack Engineer – API Design + UI Craft"
+        ],
+        "summaryVariants": [
+          "Build secure, scalable Python services and polished Angular experiences used in real products.",
+          "Own features end-to-end from backend APIs to Angular UI, with strong quality and testing.",
+          "Design clean APIs, optimize databases, and ship user-facing Angular features at speed.",
+          "Deliver reliable services and modern UI with CI/CD, observability, and performance focus.",
+          "Build and scale microservices with Python while delivering crisp UI in Angular.",
+          "Own production systems: debugging, monitoring, and continuous improvements.",
+          "Implement robust authentication, authorization, and secure data flows across stack.",
+          "Build data-heavy apps with smart caching, pagination, and efficient queries.",
+          "Collaborate with product and design to build features that users love.",
+          "Create reusable components and service patterns to accelerate delivery."
+        ],
+        "overviewVariants": [
+          "You’ll work across Python services and Angular UI to ship end-to-end product features with a focus on quality, security, and maintainability.",
+          "This role blends backend depth (API design, data modeling, reliability) with front-end delivery (Angular, UX collaboration, performance).",
+          "You’ll help shape engineering standards, build reusable foundations, and mentor teammates while delivering product outcomes."
+        ],
+        "responsibilitySets": [
+          [
+            "Build REST/GraphQL APIs using FastAPI/Django and write clean, tested code",
+            "Develop Angular UI features with TypeScript and modern component patterns",
+            "Design database schemas and optimize queries (PostgreSQL/MySQL)",
+            "Implement authentication/authorization and security best practices",
+            "Ship with CI/CD and maintain high code quality via reviews"
+          ],
+          [
+            "Own features end-to-end from requirement to production release",
+            "Write unit/integration tests and improve coverage systematically",
+            "Implement caching/background jobs and optimize performance",
+            "Add observability: logs, metrics, tracing, dashboards",
+            "Troubleshoot production incidents and implement durable fixes"
+          ],
+          [
+            "Design microservices and integration patterns (events/queues where needed)",
+            "Build reusable Angular components and shared libraries",
+            "Improve developer experience with tooling and documentation",
+            "Collaborate with UX to ensure polished interfaces and accessibility",
+            "Participate in sprint planning and estimation"
+          ],
+          [
+            "Build data-heavy screens with pagination, filters, search, and exports",
+            "Implement robust validation and error handling across stack",
+            "Ensure backward compatibility and versioned APIs",
+            "Perform code reviews and mentor junior engineers",
+            "Drive improvements in architecture and standards"
+          ],
+          [
+            "Implement secure file handling, uploads, and content delivery flows",
+            "Integrate third-party services and handle webhooks reliably",
+            "Implement async tasks (Celery/RQ) and scheduling",
+            "Optimize frontend performance (bundle, lazy loading, caching)",
+            "Contribute to continuous improvement initiatives"
+          ],
+          [
+            "Build and maintain CI pipelines, quality gates, and release process",
+            "Add feature flags and safe rollout strategies",
+            "Perform performance profiling and database tuning",
+            "Write technical docs and architecture notes",
+            "Work closely with stakeholders to manage priorities"
+          ],
+          [
+            "Improve system reliability: retries, circuit breakers, idempotency",
+            "Implement audit logs and compliance-friendly data handling",
+            "Build dashboards for KPIs and operational metrics",
+            "Reduce technical debt and refactor high-risk modules",
+            "Support cross-functional delivery with QA/product"
+          ],
+          [
+            "Build responsive UI that aligns with design and component standards",
+            "Implement forms and validation with excellent UX",
+            "Integrate API contracts and typed models",
+            "Improve build times and developer tooling",
+            "Contribute to a healthy engineering culture"
+          ],
+          [
+            "Own architecture for a module/service and drive cross-team alignment",
+            "Define data models, API contracts, and UI component strategy",
+            "Mentor team members and lead code reviews",
+            "Help plan roadmaps and manage technical risks",
+            "Deliver features with measurable impact"
+          ],
+          [
+            "Lead end-to-end delivery with high ownership and accountability",
+            "Establish patterns for API development and Angular UI consistency",
+            "Coordinate releases and production readiness checks",
+            "Improve engineering metrics (lead time, defects, reliability)",
+            "Partner with product leadership on priorities"
+          ]
+        ],
+        "requirementSets": [
+          [
+            "5+ years of full stack experience with strong Python depth",
+            "Experience with FastAPI/Django, REST APIs, and SQL databases",
+            "Strong Angular + TypeScript fundamentals (components, routing, RxJS)",
+            "Experience with Docker and CI/CD pipelines",
+            "Comfort debugging production issues and improving reliability"
+          ],
+          [
+            "Experience designing scalable APIs and data models",
+            "Frontend experience with Angular and modern tooling",
+            "Testing mindset: unit/integration tests across stack",
+            "Cloud familiarity (AWS/GCP/Azure) is a plus",
+            "Strong communication and ownership"
+          ],
+          [
+            "Microservices and integration experience (queues/events a plus)",
+            "Performance optimization experience (DB + UI)",
+            "Security best practices for web apps",
+            "Experience with observability tools and logging",
+            "Mentoring or leading features is a plus"
+          ],
+          [
+            "Experience with Postgres/MySQL and query optimization",
+            "Experience with caching/background jobs",
+            "Strong code review discipline",
+            "Ability to translate product needs into technical solutions",
+            "Comfort working in agile teams"
+          ],
+          [
+            "Lead/Staff-level capability to architect modules and guide standards",
+            "Strong backend and frontend fundamentals",
+            "Ability to balance speed with maintainability",
+            "Comfort with ambiguity and iterative delivery",
+            "Bonus: experience building internal platforms or reusable libraries"
+          ]
+        ],
+        "skillTags": [
+          ["Python", "FastAPI", "Django", "PostgreSQL", "Angular", "TypeScript", "RxJS", "Docker"],
+          ["Microservices", "REST APIs", "CI/CD", "Testing", "AWS", "Observability"],
+          ["Celery", "Redis", "Background Jobs", "Caching", "SQL Optimization", "Security"],
+          ["System Design", "API Contracts", "Frontend Performance", "Code Reviews", "Mentorship"],
+          ["GraphQL", "OpenAPI", "Feature Flags", "Tracing", "Dashboards"]
+        ],
+        "benefitsVariants": [
+          "Health insurance, paid leave, learning budget, and high ownership of product outcomes.",
+          "Competitive compensation, mentorship, flexible work model (role dependent), and strong engineering culture.",
+          "Growth opportunities, modern tech stack, and a team that values clean engineering."
+        ],
+        "interviewProcessVariants": [
+          "Recruiter chat → Technical (Python) → Frontend (Angular) → System design → Final round",
+          "Screening → Live coding → Architecture deep dive → Culture fit → Offer",
+          "Intro → Take-home or pair programming → Technical discussion → Final"
+        ]
+      },
+  
+      {
+        "roleKey": "content_creator",
+        "category": "Marketing & Creative",
+        "type": "new",
+        "experienceMinYears": 5,
+        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad"],
+        "employmentType": ["Full Time, Permanent", "Contract (3–6 months)", "Freelance (Retainer)"],
+        "workMode": ["Hybrid", "WFO", "Remote"],
+        "titleVariants": [
+          "Senior Content Creator (Video + Social)",
+          "Content Creator – Reels, Shorts & Storytelling",
+          "Senior Video Content Specialist",
+          "Content Producer – Social First",
+          "Creative Content Lead (Short-form Video)",
+          "Senior Content Creator – Brand & Performance",
+          "Content Creator – Shoot, Edit, Publish",
+          "Senior Creator – Campaigns & Launches",
+          "Content Creator – UGC & Creator Collabs",
+          "Video Editor + Content Creator",
+          "Senior Content Strategist & Creator",
+          "Content Creator – On-camera / Off-camera",
+          "Content Creator – Tech + Product Narratives",
+          "Content Producer – Events & BTS",
+          "Senior Social Content Creator",
+          "Content Creator – Community & Engagement",
+          "Content Creator – Design + Motion Basics",
+          "Creative Producer – Studio & On-site",
+          "Senior Content Creator – Growth Content",
+          "Content Lead – Content Calendar & Execution"
+        ],
+        "summaryVariants": [
+          "Create scroll-stopping short-form content that builds brand and drives measurable outcomes.",
+          "Own content end-to-end: ideation, scripting, shooting, editing, and publishing across platforms.",
+          "Turn product stories into engaging reels, posts, and campaigns that convert attention into trust.",
+          "Build a consistent, high-quality content engine across Instagram, YouTube Shorts, and LinkedIn.",
+          "Create high-volume, high-quality content with a sharp eye for storytelling and editing.",
+          "Lead a content calendar and collaborate with performance marketing to produce winning creatives.",
+          "Make content that feels human, authentic, and on-brand—without compromising quality or speed.",
+          "Craft narratives and visuals that help the audience understand and love the brand.",
+          "Build a content pipeline that supports launches, events, and always-on social presence.",
+          "Create content assets that are reusable across paid ads, organic social, and website."
+        ],
+        "overviewVariants": [
+          "You’ll create social-first content that reflects the brand voice, supports campaigns, and drives growth. You’ll collaborate with marketing, design, and leadership to keep the output consistent and high quality.",
+          "This role blends creativity with execution. You’ll ship content quickly, learn from performance, and iterate on formats that work."
+        ],
+        "responsibilitySets": [
+          [
+            "Ideate and plan content themes and weekly calendars across platforms",
+            "Write hooks, scripts, captions, and basic storyboard outlines",
+            "Shoot and edit reels/shorts with strong pacing and clean visuals",
+            "Publish content and optimize titles, hashtags, and thumbnails",
+            "Maintain an organized library of raw footage and exports"
+          ],
+          [
+            "Create ad-ready creatives aligned with performance marketing briefs",
+            "Deliver multiple variations per concept for A/B testing",
+            "Collaborate with design for brand consistency and templates",
+            "Track performance metrics and iterate on winning formats",
+            "Support landing pages with visuals and micro-copy when needed"
+          ],
+          [
+            "Cover on-site events, behind-the-scenes, and culture content",
+            "Create quick-turn edits for time-sensitive posts",
+            "Coordinate with stakeholders to capture the right moments",
+            "Ensure content adheres to brand guidelines and quality standards",
+            "Repurpose long-form assets into short-form clips"
+          ],
+          [
+            "Build a repeatable content process (pre-pro, production, post, review)",
+            "Own weekly content production targets and deadlines",
+            "Maintain platform-specific best practices and trend tracking",
+            "Engage with community via comments and DMs (as needed)",
+            "Create internal documentation and templates for consistency"
+          ],
+          [
+            "Produce product explainers, tutorials, and feature walkthroughs",
+            "Create motion-lite edits (subtitles, basic transitions, punch-ins)",
+            "Work with subject matter experts to ensure accuracy",
+            "Manage approvals and versioning for edits",
+            "Ensure content is accessible (captions, legibility, pacing)"
+          ],
+          [
+            "Create UGC-style content and coordinate with creators/influencers",
+            "Write briefs for UGC creators and review deliverables",
+            "Build a content bank categorized by use-case and platform",
+            "Maintain brand voice across all formats",
+            "Support campaigns and launches with creative assets"
+          ],
+          [
+            "Develop content series concepts and recurring formats",
+            "Collaborate with marketing lead for monthly themes",
+            "Implement content QA checks before posting",
+            "Maintain posting schedule and coordination with publishing tools",
+            "Build a performance insights report (weekly/monthly)"
+          ],
+          [
+            "Own creative production for paid social creatives",
+            "Deliver fast variations: hooks, thumbnails, opening frames",
+            "Align content to persona pain points and product value props",
+            "Collaborate with growth team to improve CAC/ROAS inputs",
+            "Keep a backlog of tested angles and outcomes"
+          ]
+        ],
+        "requirementSets": [
+          [
+            "5+ years creating social-first content (portfolio required)",
+            "Strong short-form editing skills (Premiere Pro / CapCut / VN / similar)",
+            "Good understanding of hooks, retention, and platform formats",
+            "Ability to work fast without losing quality",
+            "Comfort collaborating with marketing/design stakeholders"
+          ],
+          [
+            "Experience with content calendars, campaigns, and brand consistency",
+            "Strong storytelling and visual composition sense",
+            "Basic copywriting for captions, hooks, and CTA",
+            "Understanding of content performance metrics",
+            "Organized workflow for assets, versions, and deadlines"
+          ],
+          [
+            "Experience creating ad creatives and iterating from performance data",
+            "Ability to produce variations (angles, hooks, formats) quickly",
+            "Familiarity with thumbnails, subtitles, and on-screen text best practices",
+            "Comfort shooting content (mobile camera is fine)",
+            "Bonus: basic motion/animation skills"
+          ],
+          [
+            "Ability to produce both on-camera and off-camera content (either is OK)",
+            "Comfort covering events and behind-the-scenes content",
+            "Good team communication and feedback handling",
+            "Quality-focused mindset and attention to detail",
+            "Bonus: experience in tech/product content"
+          ],
+          [
+            "Strong portfolio demonstrating range (reels, posts, campaigns, ads)",
+            "Leadership/ownership mindset to run the content engine",
+            "Ability to mentor junior creators (optional)",
+            "Comfort with ambiguity and rapid iteration",
+            "Bonus: experience with creator partnerships/UGC"
+          ]
+        ],
+        "skillTags": [
+          ["Reels/Shorts", "CapCut", "Premiere Pro", "Storytelling", "Hooks", "Editing", "Subtitles"],
+          ["Content Calendar", "Copywriting", "Brand Voice", "UGC", "Community", "Trends"],
+          ["Ad Creatives", "A/B Variations", "Retention", "Thumbnails", "Analytics", "Iteration"],
+          ["On-site Coverage", "BTS", "Fast Turnaround", "Asset Management", "Publishing"],
+          ["Product Explainers", "Tutorials", "Motion Basics", "Design Collaboration", "Consistency"]
+        ],
+        "benefitsVariants": [
+          "Creative freedom, fast growth, and a brand that wants to experiment and learn.",
+          "High ownership, supportive feedback loops, and space to build a strong portfolio.",
+          "Flexible engagement options (role dependent), and a team that values craft."
+        ],
+        "interviewProcessVariants": [
+          "Intro → Portfolio review → Practical task → Team round → Offer",
+          "Screening → Reel review + discussion → Trial edit → Final round",
+          "Intro → Portfolio deep dive → Culture fit → Offer"
+        ]
+      },
+  
+      {
+        "roleKey": "digital_marketer",
+        "category": "Marketing",
+        "type": "new",
+        "experienceMinYears": 5,
+        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secundarabad"],
+        "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
+        "workMode": ["Hybrid", "Remote", "WFO"],
+        "titleVariants": [
+          "Senior Digital Marketer (Performance + Growth)",
+          "Performance Marketing Lead (Google/Meta/LinkedIn)",
+          "Growth Marketer – Full Funnel",
+          "Senior Performance Marketing Specialist",
+          "Digital Marketing Manager – Paid + Organic",
+          "Demand Generation Lead (B2B/B2C)",
+          "Growth & Acquisition Specialist",
+          "Senior Digital Marketing Strategist",
+          "Paid Media Lead – Creative Testing",
+          "Marketing Analyst + Performance Marketer",
+          "Growth Marketer – CRO + Landing Pages",
+          "Senior Marketer – Measurement & Attribution",
+          "Digital Marketing Lead – Campaigns & Analytics",
+          "Performance Marketer – Lead Gen",
+          "Growth Marketer – Retargeting & Lifecycle",
+          "Marketing Manager – Growth Content + Ads",
+          "Senior Paid Media Specialist",
+          "Growth Marketer – Experimentation",
+          "Digital Marketer – Ads, SEO, Analytics",
+          "Performance Lead – Scale & Efficiency"
+        ],
+        "summaryVariants": [
+          "Scale acquisition with data-driven campaigns and a strong creative testing engine.",
+          "Own paid growth across Google/Meta/LinkedIn and improve CAC/ROAS with experimentation.",
+          "Build full-funnel marketing: acquisition, conversion, and lifecycle optimization.",
+          "Drive measurable growth through performance marketing, analytics, and CRO.",
+          "Improve lead quality and pipeline with strong targeting, landing pages, and reporting.",
+          "Run marketing experiments weekly, document learnings, and scale winning strategies.",
+          "Build and optimize a multi-channel paid stack with clean measurement and attribution.",
+          "Partner with creative to ship high-performing ad creatives and iteratively improve results.",
+          "Own analytics, tracking, and insights—turn data into better decisions fast.",
+          "Build scalable marketing systems that increase efficiency and consistency."
+        ],
+        "overviewVariants": [
+          "You’ll lead performance marketing and growth experiments across channels. This role blends execution with analytics and tight feedback loops with creative and product.",
+          "You’ll own campaigns end-to-end—from strategy and setup to optimization, reporting, and scaling based on outcomes."
+        ],
+        "responsibilitySets": [
+          [
+            "Plan, launch, and optimize campaigns on Google, Meta, and LinkedIn",
+            "Manage budgets, bidding, audiences, and creative testing cadence",
+            "Improve ROAS/CAC with weekly experiments and structured learnings",
+            "Coordinate with content/design for ad creatives and landing assets",
+            "Maintain dashboards and weekly reporting for stakeholders"
+          ],
+          [
+            "Set up and maintain tracking (pixels, events, UTMs, GA4)",
+            "Own attribution sanity checks and conversion quality monitoring",
+            "Build landing page testing roadmap (A/B tests, copy, layout)",
+            "Optimize funnels from click → lead → qualified conversion",
+            "Work with sales or ops to improve lead handling and follow-up"
+          ],
+          [
+            "Build creative testing frameworks: hooks, angles, formats, audiences",
+            "Generate creative briefs and performance insights for creators/designers",
+            "Run retargeting and lifecycle campaigns to improve LTV",
+            "Conduct competitive research and channel expansion",
+            "Maintain performance playbooks and SOPs"
+          ],
+          [
+            "Own SEO basics: keyword strategy, content briefs, technical hygiene (as applicable)",
+            "Coordinate content distribution strategy across social/email",
+            "Build lead magnets and improve conversion rates",
+            "Create monthly performance reviews and next-step plans",
+            "Ensure brand consistency across marketing touchpoints"
+          ],
+          [
+            "Build reporting automation and insight narratives for leadership",
+            "Monitor cohort performance and experiment outcomes",
+            "Improve campaign structure, naming conventions, and governance",
+            "Reduce waste and increase efficiency via segmentation and exclusions",
+            "Collaborate cross-functionally to align marketing with product positioning"
+          ],
+          [
+            "Run lead-gen campaigns and improve lead quality with better targeting",
+            "Define and track MQL/SQL metrics (if applicable)",
+            "Implement nurture sequences and retargeting strategies",
+            "Test new channels and scale responsibly",
+            "Document learnings and create repeatable growth systems"
+          ],
+          [
+            "Own paid social scaling with performance creative iteration",
+            "Build creative scorecards and keep a winning ads library",
+            "Optimize for conversion events with stable tracking",
+            "Partner with content creator for high-volume variations",
+            "Ship improvements weekly and share insights clearly"
+          ],
+          [
+            "Execute growth experiments across acquisition and conversion",
+            "Build a structured testing pipeline and backlog",
+            "Ensure measurement hygiene and clean reporting",
+            "Coordinate with stakeholders on goals and timelines",
+            "Drive sustainable growth with strong fundamentals"
+          ]
+        ],
+        "requirementSets": [
+          [
+            "5+ years in performance/growth marketing with measurable results",
+            "Hands-on experience with Google Ads, Meta Ads, and/or LinkedIn Ads",
+            "Strong GA4/analytics and reporting skills",
+            "Comfort with experimentation and creative iteration",
+            "Ability to communicate insights to non-marketers"
+          ],
+          [
+            "Experience setting up tracking (pixels, events, UTMs) and validating attribution",
+            "Strong understanding of funnels and conversion optimization",
+            "Experience collaborating with content/design for creatives",
+            "Ability to manage budgets and optimize efficiently",
+            "Bonus: landing page optimization and A/B testing experience"
+          ],
+          [
+            "Experience with lead-gen and improving lead quality",
+            "Strong understanding of audience targeting and segmentation",
+            "Comfort building dashboards and weekly/monthly reports",
+            "Structured approach to testing and documentation",
+            "Bonus: SEO or email marketing exposure"
+          ],
+          [
+            "Strong creative instincts (angles, hooks, offer framing) paired with data discipline",
+            "Experience running high-velocity creative testing",
+            "Ability to build SOPs/playbooks and repeatable systems",
+            "Good stakeholder management and ownership",
+            "Bonus: B2B demand generation experience"
+          ],
+          [
+            "Ability to lead growth initiatives end-to-end",
+            "Comfort prioritizing tasks for impact and speed",
+            "Strong analytical thinking and problem solving",
+            "Experience improving efficiency and reducing CAC over time",
+            "Bonus: marketing ops tools familiarity"
+          ]
+        ],
+        "skillTags": [
+          ["Google Ads", "Meta Ads", "LinkedIn Ads", "GA4", "Attribution", "ROAS", "CAC"],
+          ["Creative Testing", "Funnels", "CRO", "Landing Pages", "A/B Testing", "Dashboards"],
+          ["Lead Gen", "Segmentation", "Retargeting", "Lifecycle", "Reporting", "Experimentation"],
+          ["Measurement", "UTMs", "Pixels", "Conversion Events", "Insights", "Playbooks"],
+          ["SEO (Basic)", "Email (Basic)", "Offer Framing", "Audience Strategy", "Optimization"]
+        ],
+        "benefitsVariants": [
+          "High ownership, room to experiment, and direct impact on growth outcomes.",
+          "Supportive team, learning budget, and a culture that values measurable progress.",
+          "Competitive pay, strong feedback loops, and a fast-moving execution environment."
+        ],
+        "interviewProcessVariants": [
+          "Intro → Case discussion (campaign + metrics) → Practical task → Final round",
+          "Screening → Performance deep dive → Strategy round → Offer",
+          "Intro → Task review → Stakeholder round → Offer"
+        ]
+      }
+    ]
+  }
+  

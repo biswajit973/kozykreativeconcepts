@@ -12,38 +12,39 @@ import { type ChapterContent } from '../chapter-types';
 })
 export class FixedDepositsChapterComponent {
   readonly content: ChapterContent = {
-    id: 'fixed-deposits',
-    title: 'Fixed Deposits: Keep Important Money Safe',
+    id: 'chatbots-automation',
+    title: 'Chatbots and Automation: Save Time Every Day',
     subtitle:
-      'Fixed deposit is useful when money is needed in short term and safety matters more than high growth.',
+      'Automation is not about replacing people. It is about removing repetitive work so teams can do meaningful tasks.',
     highlight:
-      'Not every rupee should chase high return. Some money should stay safe and ready.',
+      'Small workflow automation can create big productivity improvement.',
     majorPros: [
-      'Return is predictable and easy to plan.',
-      'Capital risk is low compared to market-linked products.',
-      'Useful for near goals like school fees or planned expenses.'
+      'Support bots handle repeat questions quickly.',
+      'Automatic routing reduces manual follow-up.',
+      'Teams spend less time on repetitive tasks.',
+      'Business gets faster response and cleaner operations.'
     ],
     pages: [
       {
-        heading: 'Where FD Fits In Real Life',
+        heading: 'Where Automation Gives Fast Results',
         paragraphs: [
-          'FD is a simple tool when you already know when you need money. Example: fee payment after 12 months.',
-          'You lock money for a period and get known return. This helps in calm planning.',
-          'For long-term growth, FD alone may not be enough after inflation. But for short-term goals, it is practical.'
+          'Start from recurring tasks like lead assignment, reminder emails, ticket categorization, and report generation.',
+          'These tasks are rule-based and are perfect for automation.',
+          'Once automated, teams can focus on customer handling, strategy, and growth.'
         ],
-        bulletTitle: 'Good Practice',
+        bulletTitle: 'Start small and expand',
         bullets: [
-          'Use FD ladder: split amount in multiple dates.',
-          'Check post-tax return, not only headline interest rate.',
-          'Do not put emergency money in one long lock-in FD.'
+          'Pick one process with daily repetition.',
+          'Define trigger, action, and owner clearly.',
+          'Measure time saved after automation rollout.'
         ]
       }
     ],
     actionTitle: 'Action For This Week',
     actionText:
-      'List your next 2-year expenses and park that amount in short FDs with staggered maturities.',
-    cautionTitle: 'If You Ignore This',
+      'Identify one repetitive process in sales, support, or operations and document how it currently flows manually.',
+    cautionTitle: 'If You Delay',
     cautionText:
-      'Keeping short-term goal money idle in savings account can reduce value after inflation.'
+      'Manual task overload scales with team size and quietly reduces productivity and speed.'
   };
 }

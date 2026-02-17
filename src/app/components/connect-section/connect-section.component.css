@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.cta-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.cta-box {
+  isolation: isolate;
+}
+
+.cta-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.94;
+  mask-image: radial-gradient(circle at 50% 52%, rgba(0, 0, 0, 0.88), transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at 50% 52%, rgba(0, 0, 0, 0.88), transparent 95%);
+}
+
+.cta-content,
+.cta-actions {
+  position: relative;
+  z-index: 1;
+}
+
+:host-context([data-theme='dark']) .cta-fx {
+  opacity: 1;
+}

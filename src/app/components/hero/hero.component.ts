@@ -59,68 +59,72 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   readonly heroVisualVariant: HeroVisualVariant = 'scanner';
   readonly heroTextEffectMode: HeroTextEffectMode = 'typing';
-  readonly heroTypingPrefix = 'We help you:';
-  readonly heroTypingPhrases = ['Plan today.', 'Protect always.', 'Prosper tomorrow.'];
+  readonly heroTypingPrefix = 'KKREATIVE:';
+  readonly heroTypingPhrases = [
+    'Kozy Ideas. Kreative Solutions.',
+    'Kozy to Work With, Kreative to Deliver.',
+    'Kozy Comfort. Kreative Tech.'
+  ];
   heroTypingDisplay = this.heroTypingPhrases[0];
 
   readonly scannerCards: HeroScannerCard[] = [
     {
       id: 'portfolio-growth',
-      title: 'Complete Financial Planning',
-      badge: 'One-stop',
+      title: 'App Development',
+      badge: 'Android • iOS • Desktop',
       badgeTone: 'mint',
       kind: 'bars',
-      metric: 'Mutual Funds, FD, Bonds',
-      subline: 'Growth and stability in one clear plan.',
+      metric: 'Android, iOS, Windows, Mac',
+      subline: 'User-friendly apps built for real business operations.',
       bars: [36, 52, 44, 66, 58, 82, 74, 92]
     },
     {
       id: 'capital-protected',
-      title: 'Always Protected',
-      badge: 'Cover',
+      title: 'Web and AI Solutions',
+      badge: 'Web + Gen AI',
       badgeTone: 'gold',
       kind: 'shield',
-      metric: 'Term, Health, Vehicle',
-      subline: 'Protect income, health, and lifestyle together.'
+      metric: 'Landing pages, web apps, AI/ML',
+      subline: 'Scalable platforms with practical business workflows.'
     },
     {
       id: 'retirement',
-      title: 'Goal Mapping',
-      badge: 'On Track',
+      title: 'Chatbots and Automation',
+      badge: 'Automation Focus',
       badgeTone: 'teal',
       kind: 'progress',
-      metric: 'Retirement and life goals',
-      subline: 'Clear targets, clear monthly action.',
+      metric: 'Support bots and internal automation',
+      subline: 'Reduce manual work and speed up daily operations.',
       progress: 78
     },
     {
       id: 'goal-health',
-      title: 'Fund Research Desk',
-      badge: 'Screened',
+      title: 'Cloud and DevOps',
+      badge: 'AWS • Azure • GCP',
       badgeTone: 'mint',
       kind: 'ring',
-      metric: 'Quality and risk filters',
-      subline: 'Only goal-fit funds enter your portfolio.',
+      metric: 'Deployment, monitoring, scaling',
+      subline: 'Reliable cloud setup with smooth release pipelines.',
       progress: 84
     },
     {
       id: 'tax-efficiency',
-      title: 'Tax-smart Wealth',
-      badge: 'Optimized',
+      title: 'QA and Cybersecurity',
+      badge: 'Secure by Design',
       badgeTone: 'gold',
       kind: 'tax',
-      metric: 'Tax saving with long-term purpose',
-      subline: 'Save tax while staying aligned to goals.',
+      metric: 'Manual + automation testing',
+      subline: 'Performance, quality, and security checks before launch.',
       progress: 91
     },
     {
       id: 'rebalance-alert',
-      title: 'Review Discipline',
-      badge: 'Monthly',
+      title: 'Marketing and Training',
+      badge: 'Growth Ready',
       badgeTone: 'slate',
       kind: 'alert',
-      metric: 'Review and rebalance',
-      subline: 'Regular reviews keep your plan on course.'
+      metric: 'SEO, ads, lead gen, software training',
+      subline: 'From launch to growth and upskilling, all in one team.'
     }
   ];
 
@@ -213,22 +217,22 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   private buildInsightTitle(card: HeroScannerCard): string {
     if (card.id === 'portfolio-growth') {
-      return 'One-stop financial solution';
+      return 'Mobile and desktop apps';
     }
     if (card.id === 'capital-protected') {
-      return 'Plan today. Protect always.';
+      return 'Web and AI solutions';
     }
     if (card.id === 'retirement') {
-      return 'Goal-based planning';
+      return 'Automation for daily work';
     }
     if (card.id === 'goal-health') {
-      return 'How we shortlist funds';
+      return 'Cloud delivery support';
     }
     if (card.id === 'tax-efficiency') {
-      return 'Tax planning with purpose';
+      return 'Quality and security';
     }
     if (card.id === 'rebalance-alert') {
-      return 'Prosper tomorrow';
+      return 'Growth and digital adoption';
     }
     return 'How we help you';
   }
@@ -237,39 +241,39 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     switch (card.id) {
       case 'portfolio-growth':
         return [
-          'One plan for investment, protection, and goals.',
-          'Mutual Funds, FD, and Bonds matched to your profile.',
-          'Simple advice you can understand and follow.'
+          'Android, iOS, Windows, and Mac development.',
+          'Clear product flow from idea to release.',
+          'Designed for performance and simple user experience.'
         ];
       case 'capital-protected':
         return [
-          'Term, Health, and Vehicle cover under one strategy.',
-          'Right cover amount based on real family needs.',
-          'Your family stays financially safer in hard times.'
+          'Landing pages, websites, and web applications.',
+          'Gen AI and AI/ML modules where useful.',
+          'Built to scale as your business grows.'
         ];
       case 'retirement':
         return [
-          'Clear targets for retirement and life milestones.',
-          'Monthly action plan built around your cash flow.',
-          'Regular tracking so goals stay on schedule.'
+          'Chatbots for support and business workflows.',
+          'Automation reduces repetitive manual tasks.',
+          'Teams get faster response time and better output.'
         ];
       case 'goal-health':
         return [
-          'Funds are screened for quality, cost, and consistency.',
-          'No random trending picks or noise-based decisions.',
-          'Only funds aligned to your goal enter the plan.'
+          'AWS, Azure, and Google Cloud support.',
+          'CI/CD setup, release process, and monitoring.',
+          'Stable environments with lower downtime risk.'
         ];
       case 'tax-efficiency':
         return [
-          'Tax saving is linked to long-term wealth outcomes.',
-          'ELSS and NPS are aligned with your larger goals.',
-          'No last-minute panic decisions at year-end.'
+          'Manual and automation QA testing.',
+          'Basic cybersecurity and security testing support.',
+          'Launch with more confidence and fewer defects.'
         ];
       case 'rebalance-alert':
         return [
-          'Portfolio review happens on a regular discipline.',
-          'Rebalancing controls risk before it drifts too far.',
-          'You get clear updates with practical next steps.'
+          'SEO, social media, and ad campaign execution.',
+          'Digitalisation roadmap for offline businesses.',
+          'B2B and B2C training in modern tech stacks.'
         ];
       default:
         return [

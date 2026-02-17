@@ -34,6 +34,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
 
   private audioCtx: AudioContext | null = null;
   private readonly timers: number[] = [];
+  private messageCounter = 0;
 
   readonly quickQuestions = this.chatbot.quickQuestions;
 
@@ -52,9 +53,9 @@ export class ChatbotWidgetComponent implements OnDestroy {
     if (!this.chatbotInitialized) {
       this.chatbotInitialized = true;
       this.schedule(() => {
-        this.addBotMessage("Hello! 👋 Welcome to <b>Single Point Wealth Management</b>. I'm your virtual assistant.", true);
+        this.addBotMessage("Hello! 👋 Welcome to <b>KKREATIVE CONCEPTS PRIVATE LIMITED</b>. I'm your virtual assistant.", true);
         this.schedule(() => {
-          this.addBotMessage("I can help you with information about our services, contact details, office location, working hours, and more. What would you like to know?");
+          this.addBotMessage('I can help you with our services, contact details, office location, working hours, and digital consulting. What would you like to know?');
           this.schedule(() => this.showQuickReplyButtons(), 1600);
         }, 1400);
       }, 300);
@@ -110,12 +111,13 @@ export class ChatbotWidgetComponent implements OnDestroy {
       const gain = this.audioCtx.createGain();
       osc.connect(gain);
       gain.connect(this.audioCtx.destination);
+
+      osc.type = 'sine';
       osc.frequency.setValueAtTime(880, this.audioCtx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(660, this.audioCtx.currentTime + 0.08);
       osc.frequency.exponentialRampToValueAtTime(880, this.audioCtx.currentTime + 0.15);
       gain.gain.setValueAtTime(0.12, this.audioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, this.audioCtx.currentTime + 0.3);
-      osc.type = 'sine';
       osc.start(this.audioCtx.currentTime);
       osc.stop(this.audioCtx.currentTime + 0.3);
     } catch {
@@ -133,7 +135,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
   }
 
   private addBotMessage(text: string, skipSound = false): void {
-    this.messages.push({ sender: 'bot', html: '', time: '', typing: true });
+    this.messages.push({ id: this.nextMessageId(), sender: 'bot', text: '', html: '', time: '', typing: true });
     this.scrollMessages();
 
     const delay = Math.min(800 + text.length * 5, 2000);
@@ -142,7 +144,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
       if (firstTyping >= 0) {
         this.messages.splice(firstTyping, 1);
       }
-      this.messages.push({ sender: 'bot', html: text, time: this.getTimeStr() });
+      this.messages.push({ id: this.nextMessageId(), sender: 'bot', text, html: text, time: this.getTimeStr() });
       this.scrollMessages();
       if (!skipSound) {
         this.playNotifSound();
@@ -151,7 +153,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
   }
 
   private addUserMessage(text: string): void {
-    this.messages.push({ sender: 'user', html: text, time: this.getTimeStr() });
+    this.messages.push({ id: this.nextMessageId(), sender: 'user', text, html: text, time: this.getTimeStr() });
     this.scrollMessages();
   }
 
@@ -171,6 +173,11 @@ export class ChatbotWidgetComponent implements OnDestroy {
         container.scrollTop = container.scrollHeight;
       }
     }, 0);
+  }
+
+  private nextMessageId(): string {
+    this.messageCounter += 1;
+    return `msg-${this.messageCounter}`;
   }
 
   private schedule(fn: () => void, ms: number): void {

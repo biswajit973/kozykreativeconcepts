@@ -1,0 +1,50 @@
+<div class="technology-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="technology-hero">
+    <div class="container">
+      <div class="overline">Technology</div>
+      <h1>Modern, Trend-Savvy, and Execution-Focused Technology Delivery.</h1>
+      <p>
+        We continuously update our stack so clients can ship faster, stay secure, and compete in an AI-first market.
+      </p>
+    </div>
+  </section>
+
+  <section class="technology-main">
+    <div class="container">
+      <header class="main-head">
+        <h2>How We Build</h2>
+        <p>
+          We combine product thinking, engineering discipline, and cloud-native operations.
+          The result is practical delivery that supports business scale.
+        </p>
+      </header>
+
+      <div class="tech-grid">
+        <article class="tech-card" *ngFor="let item of tracks">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.summary }}</p>
+          <div class="stack-row">
+            <span class="stack-chip" *ngFor="let tech of item.stack">{{ tech }}</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="technology-cta">
+    <div class="container cta-box">
+      <h3>Need the right technology roadmap for your business?</h3>
+      <div class="cta-actions">
+        <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+        <a routerLink="/services" class="btn btn-out">See Services</a>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

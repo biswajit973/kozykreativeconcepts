@@ -1,5 +1,13 @@
 .services {
   padding: 5.5rem 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.svc-head-actions {
+  margin-top: 0.95rem;
+  display: flex;
+  justify-content: center;
 }
 
 .svc-filter-bar {
@@ -37,7 +45,27 @@
   box-shadow: 0 4px 14px rgba(2, 128, 144, 0.2);
 }
 
+.svc-grid-shell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 20px;
+  padding: 0.4rem;
+}
+
+.svc-grid-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.92;
+  mask-image: radial-gradient(circle at 50% 48%, rgba(0, 0, 0, 0.85), transparent 94%);
+  -webkit-mask-image: radial-gradient(circle at 50% 48%, rgba(0, 0, 0, 0.85), transparent 94%);
+}
+
 .svc-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.1rem;
@@ -144,35 +172,44 @@
   transform: scale(1.05);
 }
 
-.svc-icon.icon-mutual-funds,
-.svc-icon.icon-nps {
+.svc-icon.icon-app-development {
   background: rgba(2, 128, 144, 0.06);
   color: var(--c-teal);
 }
 
-.svc-icon.icon-term-insurance {
+.svc-icon.icon-web-development {
   background: rgba(198, 151, 63, 0.06);
   color: var(--c-gold);
 }
 
-.svc-icon.icon-fixed-deposits {
+.svc-icon.icon-chatbot-automation {
   background: rgba(136, 212, 171, 0.08);
   color: #15803d;
 }
 
-.svc-icon.icon-health-insurance {
+.svc-icon.icon-qa-cybersecurity {
   background: rgba(220, 50, 50, 0.05);
   color: #dc3232;
 }
 
-.svc-icon.icon-bonds {
+.svc-icon.icon-cloud-devops {
   background: rgba(17, 75, 95, 0.06);
   color: var(--c-pri);
 }
 
-.svc-icon.icon-vehicle-insurance {
+.svc-icon.icon-software-trainings {
   background: rgba(100, 100, 200, 0.06);
   color: #6464c8;
+}
+
+.svc-icon.icon-digital-marketing {
+  background: rgba(180, 100, 50, 0.06);
+  color: #b46432;
+}
+
+.svc-icon.icon-business-digitalisation {
+  background: rgba(11, 32, 39, 0.06);
+  color: #1f3c47;
 }
 
 .svc-icon.icon-default {
@@ -614,4 +651,106 @@
     transform: translateX(0) rotate(12deg);
     opacity: 0.22;
   }
+}
+
+:host-context([data-theme='dark']) .svc-filter-chip {
+  background: rgba(6, 14, 20, 0.94);
+  color: #d8eef7;
+  border-color: rgba(146, 207, 224, 0.24);
+}
+
+:host-context([data-theme='dark']) .svc-filter-chip:hover {
+  color: #b9f2ff;
+  border-color: rgba(0, 209, 247, 0.46);
+  background: rgba(0, 209, 247, 0.14);
+}
+
+:host-context([data-theme='dark']) .svc-filter-chip.active {
+  color: #031219;
+  background: linear-gradient(135deg, #7de7ff, #8affd2);
+  box-shadow: 0 8px 18px rgba(0, 209, 247, 0.24);
+}
+
+:host-context([data-theme='dark']) .svc-grid-fx {
+  opacity: 1;
+}
+
+:host-context([data-theme='dark']) .svc-card {
+  background: linear-gradient(180deg, rgba(8, 17, 24, 0.96), rgba(2, 8, 12, 0.96));
+  border-color: rgba(145, 205, 222, 0.22);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(160, 220, 238, 0.08);
+}
+
+:host-context([data-theme='dark']) .svc-card::before {
+  background: linear-gradient(
+    112deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(132, 218, 240, 0.02) 35%,
+    rgba(132, 218, 240, 0.16) 48%,
+    rgba(132, 218, 240, 0.06) 64%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.16;
+}
+
+:host-context([data-theme='dark']) .svc-card:hover {
+  border-color: rgba(150, 223, 242, 0.34);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.56),
+    0 0 0 1px rgba(0, 209, 247, 0.2),
+    0 0 24px rgba(0, 209, 247, 0.2);
+}
+
+:host-context([data-theme='dark']) .svc-card:hover::before {
+  opacity: 0.28;
+}
+
+:host-context([data-theme='dark']) .svc-card h4 {
+  color: #effbff;
+}
+
+:host-context([data-theme='dark']) .svc-card p {
+  color: #bcd8e4;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-app-development {
+  background: rgba(0, 209, 247, 0.18);
+  color: #9bf3ff;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-web-development {
+  background: rgba(242, 193, 109, 0.18);
+  color: #f7d08d;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-chatbot-automation {
+  background: rgba(138, 255, 210, 0.17);
+  color: #a7ffd8;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-qa-cybersecurity {
+  background: rgba(251, 113, 133, 0.16);
+  color: #fda4af;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-cloud-devops {
+  background: rgba(125, 231, 255, 0.17);
+  color: #9ce8ff;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-software-trainings {
+  background: rgba(167, 139, 250, 0.18);
+  color: #c4b5fd;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-digital-marketing {
+  background: rgba(253, 186, 116, 0.16);
+  color: #fdc78b;
+}
+
+:host-context([data-theme='dark']) .svc-icon.icon-business-digitalisation {
+  background: rgba(173, 216, 230, 0.13);
+  color: #c7e9f5;
 }

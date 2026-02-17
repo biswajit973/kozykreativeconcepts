@@ -1,0 +1,80 @@
+<div class="blog-topic-page">
+  <header class="reader-header">
+    <a class="reader-logo" routerLink="/blogs" aria-label="Back to blogs">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 18L12 6L18 18"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+          </path>
+        </svg>
+      </span>
+      <span>Kozy Blogs</span>
+    </a>
+
+    <nav class="reader-breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">Home</a>
+      <span>/</span>
+      <a routerLink="/blogs">Blogs</a>
+      <span>/</span>
+      <strong *ngIf="activeTopic() as topic">{{ topic.title }}</strong>
+    </nav>
+  </header>
+
+  <main class="reader-main" *ngIf="activeTopic() as topic; else loadingState">
+    <article class="topic-intro">
+      <div class="topic-meta">
+        <span>{{ topic.readTime }} read</span>
+        <span>Founder Opinion</span>
+      </div>
+      <h1>{{ topic.title }}</h1>
+      <p class="topic-subtitle">{{ topic.subtitle }}</p>
+      <p class="topic-hook">{{ topic.opinionHook }}</p>
+    </article>
+
+    <section class="topic-content">
+      <article class="topic-section" *ngFor="let section of topic.sections; trackBy: trackSection">
+        <h2>{{ section.heading }}</h2>
+        <p *ngFor="let paragraph of section.paragraphs">{{ paragraph }}</p>
+        <ul *ngIf="section.bullets?.length">
+          <li *ngFor="let bullet of section.bullets">{{ bullet }}</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="takeaways" *ngIf="topic.keyTakeaways.length > 0">
+      <h3>Quick Takeaways</h3>
+      <ul>
+        <li *ngFor="let takeaway of topic.keyTakeaways">{{ takeaway }}</li>
+      </ul>
+    </section>
+
+    <section class="risk-disclaimer" *ngIf="topic.riskDisclaimer">
+      <h3>Important Disclaimer</h3>
+      <p>{{ topic.riskDisclaimer }}</p>
+    </section>
+
+    <section class="topic-cta">
+      <p>{{ topic.ctaText }}</p>
+    </section>
+
+    <nav class="topic-nav">
+      <button type="button" (click)="openPreviousTopic()" [disabled]="!previousTopic()">
+        ← {{ previousTopic() ? shortTitle(previousTopic()!.title) : 'Previous' }}
+      </button>
+      <a routerLink="/blogs">Back To All Topics</a>
+      <button type="button" (click)="openNextTopic()" [disabled]="!nextTopic()">
+        {{ nextTopic() ? shortTitle(nextTopic()!.title) : 'Next' }} →
+      </button>
+    </nav>
+  </main>
+
+  <ng-template #loadingState>
+    <div class="loading-state">
+      {{ loading() ? 'Loading topic...' : 'Topic not found. Redirecting to blogs...' }}
+    </div>
+  </ng-template>
+</div>

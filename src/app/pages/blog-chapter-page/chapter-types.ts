@@ -1,11 +1,11 @@
 export type BlogChapterId =
-  | 'term-insurance'
-  | 'mutual-funds'
-  | 'fixed-deposits'
-  | 'govt-bonds'
-  | 'health-cover'
-  | 'vehicle-insurance'
-  | 'nps';
+  | 'app-development'
+  | 'web-development'
+  | 'chatbots-automation'
+  | 'cloud-devops'
+  | 'qa-cybersecurity'
+  | 'digital-marketing'
+  | 'software-trainings';
 
 export interface BlogChapterMeta {
   id: BlogChapterId;
@@ -40,58 +40,58 @@ export interface ChapterContent {
 
 export const BLOG_CHAPTERS: BlogChapterMeta[] = [
   {
-    id: 'term-insurance',
-    title: 'Term Insurance',
-    shortTitle: 'Term Insurance',
-    description: 'Protect your family income if life takes an unexpected turn.',
+    id: 'app-development',
+    title: 'App Development',
+    shortTitle: 'App Development',
+    description: 'How mobile and desktop apps solve real business workflows.',
     readTime: '6 min',
     accent: 'gold'
   },
   {
-    id: 'mutual-funds',
-    title: 'Mutual Funds',
-    shortTitle: 'Mutual Funds',
-    description: 'Build long-term wealth with simple monthly discipline.',
+    id: 'web-development',
+    title: 'Web Development',
+    shortTitle: 'Web Development',
+    description: 'Landing pages, websites, and web apps that convert better.',
     readTime: '6 min',
     accent: 'teal'
   },
   {
-    id: 'fixed-deposits',
-    title: 'Fixed Deposits',
-    shortTitle: 'Fixed Deposits',
-    description: 'Keep short-term money safe and predictable.',
+    id: 'chatbots-automation',
+    title: 'Chatbots and Automation',
+    shortTitle: 'Automation',
+    description: 'Reduce repetitive work and improve support speed.',
     readTime: '4 min',
     accent: 'mint'
   },
   {
-    id: 'govt-bonds',
-    title: 'Bonds',
-    shortTitle: 'Bonds',
-    description: 'Add stability and reduce panic during market swings.',
+    id: 'cloud-devops',
+    title: 'Cloud and DevOps',
+    shortTitle: 'Cloud and DevOps',
+    description: 'Deploy reliably with AWS, Azure, and Google Cloud support.',
     readTime: '4 min',
     accent: 'teal'
   },
   {
-    id: 'health-cover',
-    title: 'Health Insurance',
-    shortTitle: 'Health Insurance',
-    description: 'Stop hospital bills from damaging your life savings.',
+    id: 'qa-cybersecurity',
+    title: 'QA Testing and Cybersecurity',
+    shortTitle: 'QA and Security',
+    description: 'Ship quality software with better security confidence.',
     readTime: '4 min',
     accent: 'gold'
   },
   {
-    id: 'vehicle-insurance',
-    title: 'Vehicle Insurance',
-    shortTitle: 'Vehicle Insurance',
-    description: 'Avoid big repair shocks with the right coverage.',
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    shortTitle: 'Marketing',
+    description: 'SEO, ads, social media, and lead generation that brings results.',
     readTime: '4 min',
     accent: 'mint'
   },
   {
-    id: 'nps',
-    title: 'NPS (National Pension System)',
-    shortTitle: 'NPS',
-    description: 'Build retirement corpus with long-term discipline and tax support.',
+    id: 'software-trainings',
+    title: 'Software Trainings',
+    shortTitle: 'Trainings',
+    description: 'Practical B2B and B2C training in full stack, cloud, and AI/ML.',
     readTime: '5 min',
     accent: 'teal'
   }

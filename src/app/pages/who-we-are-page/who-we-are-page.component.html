@@ -1,0 +1,68 @@
+<div class="who-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="who-hero">
+    <div class="container">
+      <div class="overline">Who We Are</div>
+      <h1>12 Years of Consistent Tech Execution for Real Business Growth.</h1>
+      <p class="hero-sub">
+        We started in 2014 and kept evolving with every major technology wave.
+        Our mission is still the same: help customers move faster, work smarter, and scale with confidence.
+      </p>
+      <p class="legal-line">{{ legalIdentity }}</p>
+    </div>
+  </section>
+
+  <section class="journey-section">
+    <div class="container">
+      <header class="section-head">
+        <h2>How We Evolved, What We Delivered</h2>
+        <p>
+          We did not just watch the industry change.
+          We worked in each phase and helped clients adapt with practical delivery.
+        </p>
+      </header>
+
+      <div class="journey-grid">
+        <article class="journey-card" *ngFor="let item of tracks">
+          <span class="period-chip">{{ item.period }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.focus }}</p>
+          <p class="journey-outcome">{{ item.delivery }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise-section">
+    <div class="container promise-layout">
+      <article class="promise-card">
+        <h2>Our Goal Has Not Changed</h2>
+        <p>
+          Technology changes fast. Client trust is earned through delivery.
+          That is why we keep learning, upgrading, and executing with discipline.
+        </p>
+        <ul>
+          <li *ngFor="let point of promisePoints">{{ point }}</li>
+        </ul>
+      </article>
+
+      <aside class="promise-action">
+        <h3>Ready to Build with a Long-Term Partner?</h3>
+        <p>
+          If you want a team that understands both old systems and modern AI-first delivery,
+          we are ready to work with you.
+        </p>
+        <div class="action-row">
+          <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+          <a routerLink="/our-work" class="btn btn-out">See Our Work</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

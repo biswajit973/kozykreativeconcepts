@@ -1,0 +1,108 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.infinite-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.infinite-slider-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: var(--slider-gap, 42px);
+  animation: slider-marquee var(--slider-duration, 22s) linear infinite;
+  will-change: transform;
+}
+
+.infinite-slider-track.reverse {
+  animation-direction: reverse;
+}
+
+.infinite-slider.is-paused .infinite-slider-track {
+  animation-play-state: paused;
+}
+
+.infinite-slider-segment {
+  display: flex;
+  align-items: center;
+  gap: var(--slider-gap, 42px);
+  width: max-content;
+}
+
+.logo-pill {
+  min-height: 52px;
+  min-width: 140px;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 32, 39, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 248, 250, 0.92));
+  display: grid;
+  place-items: center;
+  padding: 0.6rem 1.05rem;
+  box-shadow: 0 8px 20px rgba(11, 32, 39, 0.08);
+}
+
+.logo-img {
+  display: block;
+  max-height: 22px;
+  width: auto;
+  max-width: 132px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.logo-fallback {
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--c-pri, #114B5F);
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes slider-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-1px * var(--slider-shift, 600)), 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-pill {
+    min-height: 48px;
+    min-width: 120px;
+    padding: 0.52rem 0.88rem;
+  }
+
+  .logo-img {
+    max-height: 20px;
+    max-width: 112px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infinite-slider-track {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+:host-context([data-theme='dark']) .logo-pill {
+  border-color: rgba(143, 205, 222, 0.24);
+  background: linear-gradient(180deg, rgba(229, 244, 250, 0.88), rgba(214, 234, 242, 0.82));
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(129, 196, 214, 0.14);
+}
+
+:host-context([data-theme='dark']) .logo-fallback {
+  color: #0f3a49;
+}

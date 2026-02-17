@@ -2,8 +2,8 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="overline" style="justify-content:center">Client Voice</div>
-      <h2>Trusted by Families Across Eastern India</h2>
-      <p>Short and honest feedback from clients in Odisha, West Bengal, and Jharkhand.</p>
+      <h2>Trusted by Teams Across Industries</h2>
+      <p>Short and honest feedback from finance, trading, e-commerce, ed-tech, manufacturing, and healthcare businesses.</p>
     </div>
 
     <div class="testimonials-shell reveal d1">
@@ -13,11 +13,17 @@
         (mouseleave)="onBoardLeave()"
         (touchstart)="onBoardEnter()"
         (touchend)="onBoardLeave()">
+        <div class="testimonials-board-fx" aria-hidden="true">
+          <app-particle-field preset="testimonials" [interactive]="true"></app-particle-field>
+        </div>
+
         <div class="carousel-viewport" [class.is-paused]="isPaused">
           <div class="carousel-row">
             <div class="carousel-track">
               <article
                 class="testimonial-card"
+                appHoverSpark
+                sparkIntensity="medium"
                 *ngFor="let item of rowOneLoop; trackBy: trackByLoop"
                 [class.is-pressed]="pressedCardId === item.id"
                 (pointerdown)="onCardPress(item.id)"
@@ -47,6 +53,8 @@
             <div class="carousel-track">
               <article
                 class="testimonial-card"
+                appHoverSpark
+                sparkIntensity="medium"
                 *ngFor="let item of rowTwoLoop; trackBy: trackByLoop"
                 [class.is-pressed]="pressedCardId === item.id"
                 (pointerdown)="onCardPress(item.id)"

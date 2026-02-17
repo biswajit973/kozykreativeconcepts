@@ -12,38 +12,39 @@ import { type ChapterContent } from '../chapter-types';
 })
 export class HealthCoverChapterComponent {
   readonly content: ChapterContent = {
-    id: 'health-cover',
-    title: 'Health Insurance: Protect Savings From Hospital Bills',
+    id: 'qa-cybersecurity',
+    title: 'QA Testing and Cybersecurity: Launch With Confidence',
     subtitle:
-      'Medical costs are rising. One serious treatment can disturb family budget and long-term goals.',
+      'Quality and security checks reduce post-release fire-fighting and protect customer trust.',
     highlight:
-      'Health insurance protects your savings during a medical emergency.',
+      'Testing is cheaper before launch and costly after production bugs appear.',
     majorPros: [
-      'Large hospital bills do not break your emergency fund.',
-      'Family can focus on treatment, not money panic.',
-      'Long-term investments stay untouched during health shock.'
+      'Manual and automation testing catch defects early.',
+      'Regression checks reduce repeated bug leakage.',
+      'Security checks improve baseline protection.',
+      'Teams release with better confidence and fewer incidents.'
     ],
     pages: [
       {
-        heading: 'Why Health Cover Is Needed Early',
+        heading: 'Why QA Is Business-Critical',
         paragraphs: [
-          'When you buy health insurance early, waiting periods start early too. This helps future protection.',
-          'If you wait too long, premium can become higher and some conditions may have restrictions.',
-          'A base policy plus super top-up can give stronger cover at better cost.'
+          'A bug in production affects user trust, support load, and brand image.',
+          'With proper QA cycle, many failures are caught before users see them.',
+          'Security checks should run alongside QA, not as last-minute step.'
         ],
-        bulletTitle: 'Before Buying',
+        bulletTitle: 'Release readiness checklist',
         bullets: [
-          'Check waiting period and exclusions.',
-          'Check room-rent limits and claim process.',
-          'Keep family floater sum assured practical for city medical costs.'
+          'Critical user flow test completed.',
+          'Regression suite executed and reviewed.',
+          'Security test observations resolved.'
         ]
       }
     ],
     actionTitle: 'Action For This Week',
     actionText:
-      'Review current health cover amount and compare it with one major hospital event cost in your city.',
+      'Create a release checklist with QA and security gates for every production deployment.',
     cautionTitle: 'If You Delay',
     cautionText:
-      'A sudden hospitalization can force you to break investments or take high-interest debt.'
+      'Late-stage bugs and security issues can cost more than prevention by a large margin.'
   };
 }

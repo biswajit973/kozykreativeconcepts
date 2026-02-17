@@ -1,0 +1,33 @@
+<section class="founders" id="founders">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="overline" style="justify-content:center">Our Works</div>
+      <h2>We have worked with teams from companies like these.</h2>
+      <p>Execution style: customer-first delivery, trend-savvy technology choices, and scale-focused implementation.</p>
+    </div>
+
+    <p class="leaders-context reveal d1">
+      Proven experience across enterprise-grade environments helped us build reliable systems for fast-moving businesses.
+    </p>
+
+    <div class="works-logo-board-wrap reveal d2">
+      <div class="works-logo-fx" aria-hidden="true">
+        <app-particle-field preset="works" [interactive]="true"></app-particle-field>
+      </div>
+
+      <div class="works-logo-board">
+        <article class="work-logo-item" appHoverSpark sparkIntensity="soft" *ngFor="let item of companies; trackBy: trackCompany">
+          <div class="work-logo-wrap">
+            <span>{{ companyInitials(item.name) }}</span>
+          </div>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.focus }}</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="works-actions reveal d3">
+      <a routerLink="/our-work" class="btn btn-sm btn-out">Explore Our Work In Detail</a>
+    </div>
+  </div>
+</section>

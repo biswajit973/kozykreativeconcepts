@@ -2,8 +2,11 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="overline" style="justify-content:center">What We Offer</div>
-      <h2>Every Financial Need,<br>One Trusted Partner.</h2>
-      <p>From your first SIP to your retirement plan, we keep money decisions simple and practical for your family.</p>
+      <h2>Digital Services + AI/ML<br>That Move Business Forward.</h2>
+      <p>From app and web engineering to Gen AI, cloud, automation, quality, marketing, and training, we deliver practical outcomes with 10+ years of hands-on execution.</p>
+      <div class="svc-head-actions">
+        <a routerLink="/services" class="btn btn-sm btn-out">Explore Full Service Details</a>
+      </div>
     </div>
 
     <div class="svc-filter-bar reveal d1" role="tablist" aria-label="Service categories">
@@ -24,48 +27,62 @@
       </button>
     </div>
 
-    <div class="svc-grid reveal d2">
-      <article class="svc-card" *ngFor="let story of visibleStories; trackBy: trackByStoryId">
-        <div class="svc-icon" [ngClass]="iconTileClass(story.iconKey)">
-          <ng-container [ngSwitch]="story.iconKey">
-            <svg *ngSwitchCase="'mutual-funds'" viewBox="0 0 24 24" fill="none">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-            <svg *ngSwitchCase="'term-insurance'" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <svg *ngSwitchCase="'fixed-deposits'" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="6" width="20" height="12" rx="2"/>
-              <path d="M12 12h.01"/>
-              <path d="M6 12h.01M18 12h.01"/>
-            </svg>
-            <svg *ngSwitchCase="'health-insurance'" viewBox="0 0 24 24" fill="none">
-              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-            </svg>
-            <svg *ngSwitchCase="'bonds'" viewBox="0 0 24 24" fill="none">
-              <path d="M2 20h20M4 20V8l4-4h8l4 4v12"/>
-              <path d="M9 20v-6h6v6"/>
-            </svg>
-            <svg *ngSwitchCase="'vehicle-insurance'" viewBox="0 0 24 24" fill="none">
-              <rect x="1" y="3" width="15" height="13" rx="2"/>
-              <path d="M16 8h4a2 2 0 012 2v9a2 2 0 01-2 2H8a2 2 0 01-2-2v-4"/>
-            </svg>
-            <svg *ngSwitchCase="'nps'" viewBox="0 0 24 24" fill="none">
-              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-            </svg>
-            <svg *ngSwitchDefault viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="8"/>
-            </svg>
-          </ng-container>
-        </div>
+    <div class="svc-grid-shell reveal d2">
+      <div class="svc-grid-fx" aria-hidden="true">
+        <app-particle-field preset="services" [interactive]="true"></app-particle-field>
+      </div>
 
-        <h4>{{ story.title }}</h4>
-        <p>{{ storyHook(story.id) }}</p>
+      <div class="svc-grid">
+        <article class="svc-card" appHoverSpark sparkIntensity="medium" *ngFor="let story of visibleStories; trackBy: trackByStoryId">
+          <div class="svc-icon" [ngClass]="iconTileClass(story.iconKey)">
+            <ng-container [ngSwitch]="story.iconKey">
+              <svg *ngSwitchCase="'app-development'" viewBox="0 0 24 24" fill="none">
+                <rect x="6" y="2.5" width="12" height="19" rx="2.4"/>
+                <path d="M10 6h4M12 18h.01"/>
+              </svg>
+              <svg *ngSwitchCase="'web-development'" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="14" rx="2"/>
+                <path d="M8 11l-2 2 2 2M16 11l2 2-2 2"/>
+              </svg>
+              <svg *ngSwitchCase="'chatbot-automation'" viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="5" width="16" height="12" rx="3"/>
+                <path d="M9 11h6M9 14h4M12 5V2M9 2h6"/>
+              </svg>
+              <svg *ngSwitchCase="'cloud-devops'" viewBox="0 0 24 24" fill="none">
+                <path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.7-1.4A3.5 3.5 0 1 1 18 18H7z"/>
+                <path d="M10 18v3M14 18v3"/>
+              </svg>
+              <svg *ngSwitchCase="'qa-cybersecurity'" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s7-3.5 7-8.8V6.7L12 4 5 6.7v5.5C5 17.5 12 21 12 21Z"/>
+                <path d="M10 12l1.8 1.8 3.3-3.3"/>
+              </svg>
+              <svg *ngSwitchCase="'digital-marketing'" viewBox="0 0 24 24" fill="none">
+                <path d="M3 11h4l9-5v12l-9-5H3z"/>
+                <path d="M7 14v5h3"/>
+                <path d="M19 8c1.5 1.1 1.5 6.9 0 8M17.5 10.5c.8.7.8 3.3 0 4"/>
+              </svg>
+              <svg *ngSwitchCase="'business-digitalisation'" viewBox="0 0 24 24" fill="none">
+                <path d="M3 20h18M5 20V8l7-4 7 4v12"/>
+                <path d="M9 12h6M9 16h6"/>
+              </svg>
+              <svg *ngSwitchCase="'software-trainings'" viewBox="0 0 24 24" fill="none">
+                <path d="M3 8l9-4 9 4-9 4-9-4z"/>
+                <path d="M7 10.5V15c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/>
+              </svg>
+              <svg *ngSwitchDefault viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8"/>
+              </svg>
+            </ng-container>
+          </div>
 
-        <div class="svc-card-actions">
-          <button class="svc-know-more" type="button" (click)="openStory(story.id)">Know More</button>
-        </div>
-      </article>
+          <h4>{{ story.title }}</h4>
+          <p>{{ storyHook(story.id) }}</p>
+
+          <div class="svc-card-actions">
+            <button class="svc-know-more" appHoverSpark sparkIntensity="high" type="button" (click)="openStory(story.id)">Know More</button>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 

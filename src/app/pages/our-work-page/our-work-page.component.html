@@ -1,0 +1,63 @@
+<div class="our-work-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="work-hero">
+    <div class="container">
+      <div class="overline">Our Work</div>
+      <h1>Companies and Teams We Have Worked With.</h1>
+      <p>
+        We focus on practical execution for customer outcomes, using modern technology with disciplined delivery.
+      </p>
+    </div>
+  </section>
+
+  <section class="company-section">
+    <div class="container">
+      <header class="section-head">
+        <h2>Representative Company Environments</h2>
+        <p>
+          A few names to show the type of business environments where our delivery approach fits.
+        </p>
+      </header>
+
+      <div class="company-grid">
+        <article class="company-item" *ngFor="let item of companies">
+          <span class="company-initials">{{ companyInitials(item.name) }}</span>
+          <span>{{ item.name }}</span>
+          <small>{{ item.sector }}</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="snapshot-section">
+    <div class="container">
+      <header class="section-head">
+        <h2>What We Delivered</h2>
+      </header>
+
+      <div class="snapshot-grid">
+        <article class="snapshot-card" *ngFor="let item of snapshots">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.brief }}</p>
+          <p class="snapshot-outcome">{{ item.outcome }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="work-actions">
+    <div class="container action-box">
+      <h3>Need a similar outcome for your business?</h3>
+      <div class="action-row">
+        <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+        <a routerLink="/services" class="btn btn-out">See Service Capabilities</a>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

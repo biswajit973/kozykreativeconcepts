@@ -2,49 +2,68 @@
   <div class="container nav-inner">
     <a href="#" class="logo" (click)="onLogoClick($event)">
       <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L12 6L18 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      Single Point
+      KKREATIVE
     </a>
     <ul class="nav-links">
-      <ng-container *ngIf="mode === 'home'; else toolRouteLinks">
-        <li><a href="#services">What We Do</a></li>
-        <li><a href="#founders">Who We Are</a></li>
-        <li><a href="#app">Tech</a></li>
+      <ng-container *ngIf="mode === 'home'; else routeLinks">
+        <li id="whatWeDoMenu">
+          <button type="button" [class.open]="whatWeDoOpen" (click)="toggleWhatWeDo($event)">
+            What We Do
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="drop" [class.active]="whatWeDoOpen">
+            <a routerLink="/services" (click)="onRouteNav()">Our Services</a>
+            <a routerLink="/industries" (click)="onRouteNav()">Industries</a>
+            <a routerLink="/technology" (click)="onRouteNav()">Technologies</a>
+          </div>
+        </li>
+        <li><a routerLink="/who-we-are" (click)="onRouteNav()">Who We Are</a></li>
+        <li><a routerLink="/our-work" (click)="onRouteNav()">Our Work</a></li>
         <li><a routerLink="/blogs" (click)="onRouteNav()">Blogs</a></li>
+        <li><a routerLink="/careers" (click)="onRouteNav()">Careers</a></li>
       </ng-container>
-      <ng-template #toolRouteLinks>
+      <ng-template #routeLinks>
         <li><a routerLink="/" (click)="onRouteNav()">Home</a></li>
+        <li id="whatWeDoMenu">
+          <button type="button" [class.open]="whatWeDoOpen" (click)="toggleWhatWeDo($event)">
+            What We Do
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="drop" [class.active]="whatWeDoOpen">
+            <a routerLink="/services" (click)="onRouteNav()">Our Services</a>
+            <a routerLink="/industries" (click)="onRouteNav()">Industries</a>
+            <a routerLink="/technology" (click)="onRouteNav()">Technologies</a>
+          </div>
+        </li>
+        <li><a routerLink="/who-we-are" (click)="onRouteNav()">Who We Are</a></li>
+        <li><a routerLink="/our-work" (click)="onRouteNav()">Our Work</a></li>
         <li><a routerLink="/blogs" (click)="onRouteNav()">Blogs</a></li>
-        <li><a routerLink="/sip-calculator" (click)="onRouteNav()">SIP Calculator</a></li>
-        <li><a routerLink="/target-achiever" (click)="onRouteNav()">Target Achiever</a></li>
+        <li><a routerLink="/careers" (click)="onRouteNav()">Careers</a></li>
       </ng-template>
-      <li>
-        <button id="toolsToggle" [class.open]="ui.toolsDropOpen()" (click)="onToolsToggle($event)">Tools <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="drop" [class.active]="ui.toolsDropOpen()">
-          <a href="#" (click)="onDropAction($event, 'sipRoute')">
-            <div class="drop-ic" style="background:rgba(2,128,144,.06)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-teal)" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-5 4 3 5-7"/></svg></div>
-            <div><div style="font-weight:600;font-size:.82rem">SIP Calculator</div><div style="font-size:.7rem;color:var(--c-muted)">See your money grow</div></div>
-          </a>
-          <a href="#" (click)="onDropAction($event, 'targetRoute')">
-            <div class="drop-ic" style="background:rgba(198,151,63,.06)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-            <div><div style="font-weight:600;font-size:.82rem">Target Achiever</div><div style="font-size:.7rem;color:var(--c-muted)">Plan your dream amount</div></div>
-          </a>
-        </div>
-      </li>
       <li>
         <a *ngIf="mode === 'home'" href="#contact-section">Contact</a>
         <a *ngIf="mode !== 'home'" href="#" (click)="onDropAction($event, 'contactModal')">Contact</a>
       </li>
     </ul>
     <div class="nav-cta">
-      <button class="btn btn-sm btn-out" (click)="ui.openModal('contactModal')">Request Callback</button>
-      <a
-        href="https://singlepoint.investwell.app/app/#/login"
-        class="btn btn-sm btn-pri"
-        target="_blank"
-        rel="noopener noreferrer"
-        *ngIf="mode === 'home'">
-        Client Login
-      </a>
+      <button
+        type="button"
+        class="theme-toggle"
+        (click)="onThemeToggle()"
+        [attr.aria-label]="ui.isDarkMode() ? 'Switch to light mode' : 'Switch to OLED black mode'">
+        <svg *ngIf="!ui.isDarkMode()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg *ngIf="ui.isDarkMode()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3c0.38 0 0.76 0.03 1.13 0.08a7 7 0 0 0 8.58 9.71c0.05 0.33 0.08 0.66 0.08 1z"></path>
+        </svg>
+      </button>
+      <button class="btn btn-sm btn-pri" type="button" (click)="ui.openModal('contactModal')">Let's Connect</button>
     </div>
     <button class="hamburger" (click)="onOpenMobileMenu()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>

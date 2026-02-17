@@ -6,15 +6,16 @@
           <h3 class="column-title">Email & Address</h3>
           <div>
             <span class="footer-label">Email</span>
-            <a class="footer-value" href="mailto:info@singlepoint.co.in">info@singlepoint.co.in</a>
+            <a class="footer-value" href="mailto:Info@kreative.in">Info@kreative.in</a>
+            <a class="footer-value" href="mailto:Hr@kkreative.in">Hr@kkreative.in</a>
           </div>
 
           <div>
             <span class="footer-label">Address</span>
             <span class="footer-value">
-              31, Kharavela Nagar, Unit 3<br>
-              Backside of Ram Mandir<br>
-              Bhubaneswar, Odisha - 751001
+              KKREATIVE CONCEPTS PRIVATE LIMITED<br>
+              White House, 1st & 2nd Floors,<br>
+              Khairatabad, Hyderabad
             </span>
           </div>
         </article>
@@ -23,13 +24,25 @@
           <h3 class="column-title">Phone & Hours</h3>
           <div>
             <span class="footer-label">Phone</span>
-            <a class="footer-value" href="tel:+918072871049">+91 8072871049</a>
+            <a class="footer-value" href="tel:+919000500600">+91 9000500600</a>
           </div>
 
           <div>
             <span class="footer-label">Hours</span>
             <strong class="footer-value">Mon-Sat, 10:00 AM to 6:00 PM</strong>
           </div>
+        </article>
+
+        <article class="footer-column footer-column--links">
+          <h3 class="column-title">Quick Links</h3>
+          <nav class="footer-links-nav" aria-label="Footer navigation">
+            <a
+              class="footer-link"
+              *ngFor="let item of quickLinks"
+              [routerLink]="item.to">
+              {{ item.label }}
+            </a>
+          </nav>
         </article>
 
         <article class="footer-column footer-column--map">
@@ -39,7 +52,7 @@
             <iframe
               [src]="mapsEmbedSafeUrl"
               loading="lazy"
-              title="Single Point Bhubaneswar office map"
+              title="KKREATIVE Hyderabad office map"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>

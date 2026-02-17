@@ -4,26 +4,27 @@
 
   <section class="blogs-hero">
     <div class="container">
-      <article class="hero-book reveal" appRevealOnScroll>
-        <div class="overline">Blogs</div>
-        <h1>Read One Chapter At A Time, In Simple English</h1>
+      <article class="hero-editorial reveal" appRevealOnScroll>
+        <div class="overline">Founder Opinion</div>
+        <h1>Real Tech Opinions For Real Businesses</h1>
         <p>
-          This blog area is your calm money reading room. Each chapter explains one topic with a real
-          story, daily life examples, and clear steps you can follow.
+          No textbook style language. This blog is written in a practical founder voice
+          so teams can take action quickly.
         </p>
         <p>
-          No pressure. No jargon. Start with one chapter, finish it, and then move to the next chapter
-          only when you are ready.
+          We discuss market hype, AI risk, DevOps realities, and what truly helps businesses grow.
         </p>
 
-        <div class="hero-pill">Start first with: Term Insurance</div>
+        <div class="hero-pill" *ngIf="featuredTopic() as featured">
+          Featured this week: {{ featured.title }}
+        </div>
 
         <div class="hero-actions">
-          <button type="button" class="btn btn-pri" (click)="openFeaturedChapter()">
-            Start Chapter 1
+          <button type="button" class="btn btn-pri" (click)="openFeaturedTopic()">
+            Read Featured Insight
           </button>
-          <button type="button" class="btn btn-out" (click)="scrollToChapterList()">
-            View All Chapters
+          <button type="button" class="btn btn-out" (click)="scrollToTopics()">
+            Explore All Topics
           </button>
           <button type="button" class="btn btn-out" (click)="openConsultation()">
             Ask An Advisor
@@ -33,52 +34,99 @@
     </div>
   </section>
 
-  <main class="chapter-directory" id="chapterDirectory">
+  <section class="news-ticker-wrap" *ngIf="tickerItems().length > 0">
+    <div class="container">
+      <div class="news-ticker" aria-label="Latest tech headlines">
+        <div class="news-track">
+          <a
+            class="ticker-link"
+            *ngFor="let item of tickerLoopItems(); trackBy: trackNews"
+            [href]="item.url"
+            target="_blank"
+            rel="noopener noreferrer">
+            <span class="ticker-dot" aria-hidden="true"></span>
+            {{ item.title }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="topics-directory" id="topicsDirectory">
     <div class="container">
       <header class="directory-head reveal" appRevealOnScroll>
-        <h2>Chapter Directory</h2>
+        <h2>Topic Magazine</h2>
         <p>
-          Pick one chapter based on your need today. Every chapter opens in a focused reader page with
-          breadcrumb and page-by-page flow.
+          Strong opinions, practical examples, and simple language. Pick the topic you care about now.
         </p>
       </header>
 
       <div class="directory-layout">
-        <section class="chapter-grid">
-          <article
-            class="chapter-card reveal"
-            appRevealOnScroll
-            *ngFor="let chapter of chapters; trackBy: trackChapter">
-            <span class="chapter-time">{{ chapter.readTime }} read</span>
-            <h3>{{ chapter.title }}</h3>
-            <p>{{ chapter.description }}</p>
-            <button type="button" class="btn btn-sm btn-pri" (click)="openChapter(chapter.id)">
-              Read {{ chapter.shortTitle }}
+        <section class="topic-column">
+          <div class="loading-state" *ngIf="loadingTopics()">Loading blog topics...</div>
+
+          <article class="featured-card reveal" appRevealOnScroll *ngIf="!loadingTopics() && featuredTopic() as featured">
+            <div class="featured-meta">
+              <span>{{ featured.readTime }} read</span>
+              <span class="featured-badge">Editor Pick</span>
+            </div>
+            <h3>{{ featured.title }}</h3>
+            <p>{{ featured.summary }}</p>
+            <button type="button" class="btn btn-sm btn-pri" (click)="openTopic(featured.slug)">
+              Read Full Insight
             </button>
           </article>
+
+          <div class="topic-grid" *ngIf="!loadingTopics()">
+            <article
+              class="topic-card reveal"
+              appRevealOnScroll
+              *ngFor="let topic of topicCards(); trackBy: trackTopic">
+              <span class="topic-time">{{ topic.readTime }} read</span>
+              <h3>{{ topic.title }}</h3>
+              <p>{{ topic.summary }}</p>
+              <button type="button" class="btn btn-sm btn-out" (click)="openTopic(topic.slug)">
+                Open Topic
+              </button>
+            </article>
+          </div>
         </section>
 
-        <aside class="directory-help reveal" appRevealOnScroll>
-          <h3>Need Quick Help?</h3>
-          <p>If you do not want to read now, you can talk to us directly.</p>
+        <aside class="news-rail reveal" appRevealOnScroll>
+          <h3>Latest Tech News</h3>
+          <p class="rail-sub">Live headlines from Hacker News.</p>
 
-          <button type="button" class="quick-btn quick-btn--wa" (click)="openWhatsApp('term insurance and investment planning')">
-            Ping Advisor on WhatsApp
-          </button>
-          <button type="button" class="quick-btn quick-btn--call" (click)="callAdvisor()">
-            Call Now
-          </button>
+          <ul class="news-list" *ngIf="railItems().length > 0">
+            <li *ngFor="let item of railItems(); trackBy: trackNews">
+              <a [href]="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+              <div class="news-meta">
+                <span>{{ item.author }}</span>
+                <span>{{ formatNewsDate(item.createdAt) }}</span>
+              </div>
+            </li>
+          </ul>
 
-          <small>Mon-Sat, 10:00 AM to 6:00 PM</small>
+          <div class="news-empty" *ngIf="railItems().length === 0">
+            No live headlines right now. Please check again in a few minutes.
+          </div>
+
+          <div class="quick-help">
+            <h4>Need Quick Help?</h4>
+            <button type="button" class="quick-btn quick-btn--wa" (click)="openWhatsApp('AI, DevOps, and digital growth roadmap')">
+              Ping Advisor on WhatsApp
+            </button>
+            <button type="button" class="quick-btn quick-btn--call" (click)="callAdvisor()">
+              Call Now
+            </button>
+            <small>Mon-Sat, 10:00 AM to 6:00 PM</small>
+          </div>
         </aside>
       </div>
     </div>
   </main>
 
-  <app-cta-section></app-cta-section>
+  <app-connect-section></app-connect-section>
   <app-footer></app-footer>
   <app-contact-modal></app-contact-modal>
-
-  <app-whatsapp-float></app-whatsapp-float>
   <app-chatbot-widget></app-chatbot-widget>
 </div>

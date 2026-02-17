@@ -1,0 +1,387 @@
+{
+  "profile": {
+    "companyName": "KKREATIVE CONCEPTS PRIVATE LIMITED",
+    "phone": "+919000500600",
+    "whatsappNumber": "919000500600",
+    "emails": ["Info@kreative.in", "Hr@kkreative.in"],
+    "hours": "Mon-Sat, 10:00 AM to 6:00 PM",
+    "addressLines": [
+      "KKREATIVE CONCEPTS PRIVATE LIMITED",
+      "White House, 1st & 2nd Floors",
+      "Khairatabad, Hyderabad"
+    ]
+  },
+  "quickQuestions": [
+    "What services do you offer?",
+    "How can you help my business go digital?",
+    "Do you work on AI and automation?",
+    "Which industries do you support?",
+    "How can I contact your advisor?",
+    "Tell me about KKREATIVE"
+  ],
+  "clarificationPrompts": [
+    "Do you want help with services, AI, cloud, or consultation?",
+    "I can guide you fast. Tell me if your focus is product, automation, or growth.",
+    "Should I suggest the right service mix for your use case?"
+  ],
+  "fallbackResponses": [
+    {
+      "text": "I may have missed your exact question. I can still guide you quickly.",
+      "bullets": [
+        "Tell me your business goal in one line.",
+        "I will map the best service path.",
+        "Then you can connect by call, WhatsApp, or email."
+      ],
+      "actions": [
+        { "id": "fallback-services", "label": "Know services", "type": "quick", "payload": "What services do you offer?", "style": "secondary" },
+        { "id": "fallback-consult", "label": "Get consultation", "type": "consultation", "style": "primary" },
+        { "id": "fallback-call", "label": "Call now", "type": "call", "style": "ghost" }
+      ]
+    }
+  ],
+  "smallTalk": [
+    {
+      "id": "greeting",
+      "examples": ["hi", "hello", "hey", "good morning", "good evening"],
+      "responses": [
+        {
+          "text": "Hello. Welcome to KKREATIVE. I can help with services, AI, cloud, and consultation.",
+          "actions": [
+            { "id": "greet-services", "label": "Know services", "type": "quick", "payload": "What services do you offer?", "style": "secondary" },
+            { "id": "greet-consult", "label": "Get consultation", "type": "consultation", "style": "primary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thanks",
+      "examples": ["thanks", "thank you", "ok thanks", "bye"],
+      "responses": [
+        {
+          "text": "You are welcome. If you want, I can connect you to our advisor now.",
+          "actions": [
+            { "id": "thanks-whatsapp", "label": "Talk to advisor", "type": "whatsapp", "style": "primary" },
+            { "id": "thanks-call", "label": "Call now", "type": "call", "style": "ghost" }
+          ]
+        }
+      ]
+    }
+  ],
+  "intents": [
+    {
+      "id": "services_overview",
+      "category": "services",
+      "examples": [
+        "what services do you offer",
+        "your services",
+        "what can you build",
+        "how can you help"
+      ],
+      "keywords": [
+        "services",
+        "offer",
+        "app development",
+        "web development",
+        "cloud",
+        "devops",
+        "automation",
+        "digital marketing",
+        "training"
+      ],
+      "tags": ["services", "offering", "solutions"],
+      "responses": [
+        {
+          "text": "We provide end-to-end digital services for growth and scale.",
+          "bullets": [
+            "App and web development",
+            "AI, GenAI, chatbots, and workflow automation",
+            "Cloud and DevOps setup",
+            "QA and cybersecurity support",
+            "Digital marketing and business digitalisation",
+            "Software training for teams"
+          ],
+          "actions": [
+            { "id": "services-page", "label": "Open services page", "type": "navigate", "route": "/services", "style": "primary" },
+            { "id": "services-consult", "label": "Get consultation", "type": "consultation", "style": "secondary" }
+          ]
+        }
+      ],
+      "followUps": [
+        "I can suggest service mix by your business type."
+      ]
+    },
+    {
+      "id": "digitalisation_consulting",
+      "category": "consulting",
+      "examples": [
+        "my business is offline",
+        "how to go digital",
+        "need digital transformation",
+        "consulting support"
+      ],
+      "keywords": [
+        "offline",
+        "online",
+        "digital",
+        "digitalisation",
+        "consulting",
+        "transformation"
+      ],
+      "tags": ["consulting", "digitalisation"],
+      "responses": [
+        {
+          "text": "Yes, we help offline businesses come online in a practical step-by-step way.",
+          "bullets": [
+            "We study your current workflow",
+            "We identify fast digital wins",
+            "We design product + automation + marketing roadmap",
+            "We execute in phases so your team can adopt smoothly"
+          ],
+          "actions": [
+            { "id": "digital-consult", "label": "Start consultation", "type": "consultation", "style": "primary" },
+            { "id": "digital-whatsapp", "label": "Talk on WhatsApp", "type": "whatsapp", "style": "secondary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai_and_automation",
+      "category": "ai",
+      "examples": [
+        "ai solutions",
+        "gen ai",
+        "chatbot for business",
+        "workflow automation"
+      ],
+      "keywords": [
+        "ai",
+        "genai",
+        "gen ai",
+        "automation",
+        "chatbot",
+        "agent",
+        "ml"
+      ],
+      "tags": ["ai", "automation", "chatbot"],
+      "responses": [
+        {
+          "text": "We build AI and automation where it gives real business value, not just hype.",
+          "bullets": [
+            "Support chatbots with human handover",
+            "Workflow automation for repetitive tasks",
+            "GenAI features for search, summarization, and productivity",
+            "AI integration with your current systems"
+          ],
+          "actions": [
+            { "id": "ai-tech", "label": "View technologies", "type": "navigate", "route": "/technology", "style": "secondary" },
+            { "id": "ai-consult", "label": "Get consultation", "type": "consultation", "style": "primary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloud_devops",
+      "category": "cloud",
+      "examples": [
+        "cloud migration",
+        "devops support",
+        "aws azure gcp",
+        "deployment monitoring"
+      ],
+      "keywords": [
+        "cloud",
+        "devops",
+        "aws",
+        "azure",
+        "gcp",
+        "deployment",
+        "monitoring",
+        "ci cd"
+      ],
+      "tags": ["cloud", "platform"],
+      "responses": [
+        {
+          "text": "We support cloud and DevOps delivery for speed, reliability, and control.",
+          "bullets": [
+            "AWS, Azure, and Google Cloud setup",
+            "CI/CD pipelines and release discipline",
+            "Monitoring and incident response readiness",
+            "Security-first configuration baselines"
+          ],
+          "actions": [
+            { "id": "cloud-call", "label": "Call advisor", "type": "call", "style": "secondary" },
+            { "id": "cloud-consult", "label": "Get consultation", "type": "consultation", "style": "primary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "industries",
+      "category": "domain",
+      "examples": [
+        "which industries you support",
+        "your domain experience",
+        "industry use cases"
+      ],
+      "keywords": [
+        "industries",
+        "domains",
+        "finance",
+        "healthcare",
+        "edtech",
+        "ecommerce",
+        "manufacturing",
+        "trading"
+      ],
+      "tags": ["industries"],
+      "responses": [
+        {
+          "text": "We have delivered across multiple business sectors.",
+          "bullets": [
+            "Finance and banking",
+            "Healthcare",
+            "EdTech",
+            "E-commerce",
+            "Manufacturing",
+            "Trading and risk operations"
+          ],
+          "actions": [
+            { "id": "industry-page", "label": "Open industries page", "type": "navigate", "route": "/industries", "style": "primary" },
+            { "id": "industry-work", "label": "See our work", "type": "navigate", "route": "/our-work", "style": "secondary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "who_we_are",
+      "category": "company",
+      "examples": [
+        "tell me about kkreative",
+        "company background",
+        "who are you"
+      ],
+      "keywords": [
+        "about",
+        "company",
+        "who we are",
+        "experience",
+        "12 years",
+        "history"
+      ],
+      "tags": ["company"],
+      "responses": [
+        {
+          "text": "KKREATIVE started in 2014 and has evolved continuously with each technology wave.",
+          "bullets": [
+            "12+ years of practical delivery",
+            "From static web era to cloud and AI-first systems",
+            "Customer-focused execution for startups and enterprise teams"
+          ],
+          "actions": [
+            { "id": "about-page", "label": "Open who we are", "type": "navigate", "route": "/who-we-are", "style": "secondary" },
+            { "id": "about-consult", "label": "Talk to advisor", "type": "whatsapp", "style": "primary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "careers",
+      "category": "careers",
+      "examples": [
+        "are you hiring",
+        "jobs",
+        "career opportunities",
+        "open roles"
+      ],
+      "keywords": [
+        "careers",
+        "jobs",
+        "hiring",
+        "role",
+        "openings"
+      ],
+      "tags": ["careers"],
+      "responses": [
+        {
+          "text": "Yes, we keep featured roles updated. You can check openings on our careers page.",
+          "actions": [
+            { "id": "careers-page", "label": "Open careers", "type": "navigate", "route": "/careers", "style": "primary" },
+            { "id": "careers-email", "label": "Email HR", "type": "email", "payload": "Hr@kkreative.in", "style": "secondary" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "category": "contact",
+      "examples": [
+        "contact details",
+        "phone number",
+        "email",
+        "reach advisor"
+      ],
+      "keywords": [
+        "contact",
+        "phone",
+        "call",
+        "email",
+        "whatsapp",
+        "advisor"
+      ],
+      "tags": ["contact"],
+      "responses": [
+        {
+          "text": "You can connect with us through any channel below.",
+          "bullets": [
+            "Phone: +91 9000500600",
+            "Email: Info@kreative.in / Hr@kkreative.in",
+            "Working hours: Mon-Sat, 10:00 AM to 6:00 PM"
+          ],
+          "actions": [
+            { "id": "contact-call", "label": "Call now", "type": "call", "style": "primary" },
+            { "id": "contact-wa", "label": "WhatsApp", "type": "whatsapp", "style": "secondary" },
+            { "id": "contact-mail", "label": "Email us", "type": "email", "style": "ghost" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "location_hours",
+      "category": "contact",
+      "examples": [
+        "office location",
+        "address",
+        "working hours",
+        "where are you located"
+      ],
+      "keywords": [
+        "location",
+        "address",
+        "office",
+        "hours",
+        "timing"
+      ],
+      "tags": ["contact"],
+      "responses": [
+        {
+          "text": "Our office is in Hyderabad and we are available Monday to Saturday.",
+          "bullets": [
+            "White House, 1st & 2nd Floors, Khairatabad, Hyderabad",
+            "Mon-Sat, 10:00 AM to 6:00 PM"
+          ],
+          "links": [
+            {
+              "label": "Open office location in Google Maps",
+              "href": "https://maps.app.goo.gl/xQ4zWzpsBVgedtWC9",
+              "external": true
+            }
+          ],
+          "actions": [
+            { "id": "location-call", "label": "Call office", "type": "call", "style": "secondary" },
+            { "id": "location-consult", "label": "Get consultation", "type": "consultation", "style": "primary" }
+          ]
+        }
+      ]
+    }
+  ]
+}
