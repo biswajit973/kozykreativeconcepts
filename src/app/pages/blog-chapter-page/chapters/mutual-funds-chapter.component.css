@@ -1,0 +1,97 @@
+:host {
+  display: block;
+}
+
+.chapter-chart {
+  margin-top: 0.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(11, 32, 39, 0.09);
+  background: rgba(249, 252, 253, 0.84);
+  padding: 0.86rem 0.9rem;
+}
+
+.chapter-chart h2 {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 0.79rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: #486068;
+}
+
+.chapter-chart p {
+  margin: 0.38rem 0 0;
+  color: var(--c-text);
+  line-height: 1.58;
+}
+
+.chapter-chart-canvas-wrap {
+  margin-top: 0.58rem;
+  height: 240px;
+  border-radius: 10px;
+  border: 1px solid rgba(11, 32, 39, 0.09);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.55rem;
+}
+
+.chapter-chart-canvas-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.chapter-chart-note {
+  margin-top: 0.58rem;
+  font-size: 0.82rem;
+  color: #60757c;
+  line-height: 1.56;
+}
+
+.chapter-table-wrap {
+  margin-top: 0.58rem;
+  border: 1px solid rgba(11, 32, 39, 0.09);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  overflow-x: auto;
+}
+
+.chapter-table-wrap table {
+  width: 100%;
+  min-width: 430px;
+  border-collapse: collapse;
+}
+
+.chapter-table-wrap th,
+.chapter-table-wrap td {
+  text-align: left;
+  padding: 0.48rem 0.56rem;
+  border-bottom: 1px solid rgba(11, 32, 39, 0.07);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.chapter-table-wrap th {
+  background: rgba(2, 128, 144, 0.06);
+  color: var(--c-deep);
+  font-weight: 800;
+}
+
+.chapter-table-wrap tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.chapter-table-wrap .emphasis {
+  color: var(--c-pri);
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .chapter-chart {
+    padding: 0.78rem 0.75rem;
+  }
+
+  .chapter-chart-canvas-wrap {
+    height: 214px;
+  }
+}

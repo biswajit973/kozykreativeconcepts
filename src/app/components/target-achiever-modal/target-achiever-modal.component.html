@@ -1,0 +1,31 @@
+<div class="modal-overlay" id="targetModal" [class.open]="ui.isModalOpen('targetModal')" (click)="onOverlayClick($event)">
+  <div class="modal calc-modal">
+    <button class="modal-close" (click)="close()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <h2>Target Money Achiever</h2>
+      <p class="modal-sub">Dream big, plan smart. Tell us your target and timeline — we'll tell you the SIP you need.</p>
+      <div class="calc-layout">
+        <div class="calc-controls">
+          <div class="range-group"><label><span>Target Amount</span><span class="range-val" id="tgtAmtVal">{{ calc.tgtAmtVal() }}</span></label><input type="range" class="range-slider" id="tgtAmtSlider" min="50000" max="50000000" step="50000" [value]="calc.tgtAmt()" (input)="calc.updateTgtAmt(+$any($event.target).value)"></div>
+          <div class="range-group"><label><span>Time Period (Years)</span><span class="range-val" id="tgtYrVal">{{ calc.tgtYrVal() }}</span></label><input type="range" class="range-slider" id="tgtYrSlider" min="1" max="30" step="1" [value]="calc.tgtYr()" (input)="calc.updateTgtYr(+$any($event.target).value)"></div>
+          <div class="range-group"><label><span>Expected Return</span><span class="range-val" id="tgtRtVal">{{ calc.tgtRtVal() }}</span></label><input type="range" class="range-slider" id="tgtRtSlider" min="8" max="15" step="0.5" [value]="calc.tgtRt()" (input)="calc.updateTgtRt(+$any($event.target).value)"></div>
+          <div class="calc-nums">
+            <div class="calc-num highlight"><div class="num-label">Monthly SIP Needed</div><div class="num-value" id="tgtSIP">{{ calc.tgtSIP() }}</div></div>
+            <div class="calc-num"><div class="num-label">Total Invested</div><div class="num-value" id="tgtInvested">{{ calc.tgtInvested() }}</div></div>
+            <div class="calc-num"><div class="num-label">Wealth Created</div><div class="num-value" id="tgtWealth">{{ calc.tgtWealth() }}</div></div>
+          </div>
+          <div class="calc-insight" id="tgtInsight">💡 <strong>A disciplined pace of <span id="tgtDaily">{{ calc.tgtDaily() }}</span>/day equivalent</strong> can help you reach <strong id="tgtGoal">{{ calc.tgtGoal() }}</strong> in <strong id="tgtYears">{{ calc.tgtYears() }}</strong>. Start early and stay consistent for stronger outcomes.</div>
+        </div>
+        <div class="calc-chart">
+          <div class="chart-title">Your Journey to the Goal</div>
+          <div class="chart-bars" id="tgtBars" [innerHTML]="calc.tgtBarsHtml()"></div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,var(--c-pri),var(--c-teal))"></div>Projected Value</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#9eaab5"></div>Amount Invested</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,var(--c-gold),var(--c-gold-l))"></div>🎯 Your Target</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

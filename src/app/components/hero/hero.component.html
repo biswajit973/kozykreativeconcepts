@@ -1,0 +1,196 @@
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge reveal app-reveal"><div class="hero-badge-dot"></div>One stop solution for all your financial needs</div>
+      <h1 class="reveal d1 app-reveal">One <span class="accent">Trusted Partner</span><br>for Your Complete<br><span class="gold">Financial Journey.</span></h1>
+      <p class="hero-typing-line reveal d2 app-reveal" [class.is-static]="isHeroTypingStatic" aria-live="polite" aria-atomic="true">
+        <span class="hero-typing-prefix">{{ heroTypingPrefix }}</span>
+        <span class="hero-typing-word" #heroTypingText>{{ heroTypingDisplay }}</span>
+        <!-- LEGACY TYPING CURSOR BACKUP: <span class="hero-typing-caret" aria-hidden="true"></span> -->
+      </p>
+      <p class="hero-lead reveal d2 app-reveal">From investing and insurance to tax and retirement, we build one clear plan, review it regularly, and help you act with confidence.</p>
+      <div class="hero-ctas reveal d2 app-reveal">
+        <button class="btn btn-pri" (click)="ui.openModal('contactModal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Start Your Journey
+        </button>
+        <a href="#services" class="btn btn-out">Explore Services</a>
+      </div>
+      <div class="hero-stats reveal d3 app-reveal">
+        <div class="h-stat"><h4>₹500Cr+</h4><span>Assets Advised</span></div>
+        <div class="h-stat"><h4>1,200+</h4><span>Families Secured</span></div>
+        <div class="h-stat"><h4>30+</h4><span>Years Experience</span></div>
+      </div>
+    </div>
+    <!-- LEGACY HERO VISUAL - DO NOT DELETE -->
+    <div class="hero-visual reveal d3 app-reveal" *ngIf="heroVisualVariant === 'legacy'">
+      <svg class="grid-pattern" viewBox="0 0 400 400"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width=".5"/></pattern></defs><rect width="400" height="400" fill="url(#grid)"/></svg>
+      <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" style="position:absolute;inset:0;z-index:0"><circle cx="200" cy="200" r="170" stroke="var(--c-teal)" stroke-width=".5" stroke-dasharray="6 6" opacity=".15"><animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="80s" repeatCount="indefinite"/></circle><circle cx="200" cy="200" r="120" stroke="var(--c-gold)" stroke-width=".4" opacity=".1"><animateTransform attributeName="transform" type="rotate" from="360 200 200" to="0 200 200" dur="60s" repeatCount="indefinite"/></circle></svg>
+      <div class="hf-card hf-1">
+        <div class="hf-head"><span class="label">Portfolio Growth</span><span class="val val-up">+14.2%</span></div>
+        <div class="hf-body"><div class="mini-bars"><div class="mini-bar" style="height:35%"></div><div class="mini-bar" style="height:50%"></div><div class="mini-bar" style="height:40%"></div><div class="mini-bar" style="height:65%"></div><div class="mini-bar" style="height:55%"></div><div class="mini-bar" style="height:80%"></div><div class="mini-bar" style="height:70%"></div><div class="mini-bar" style="height:92%"></div></div></div>
+      </div>
+      <div class="hf-card hf-2">
+        <div class="hf-head"><span class="label">Capital Protected</span><span class="val val-shield">Active</span></div>
+        <div class="hf-body"><div class="shield-row"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(198,151,63,.1)" stroke="var(--c-gold)" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="var(--c-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="shield-text"><div class="t1">All shields active</div><div class="t2">Risk management on</div></div></div></div>
+      </div>
+      <div class="hf-card hf-3">
+        <div class="hf-head"><span class="label">Retirement</span><span class="val val-pct">78%</span></div>
+        <div class="hf-body"><div class="mini-progress"><div class="mini-progress-fill" style="width:78%;background:linear-gradient(90deg,var(--c-pri),var(--c-teal))"></div></div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual hero-visual--scanner reveal d3 app-reveal" *ngIf="heroVisualVariant === 'scanner'" #scannerRoot>
+      <svg class="grid-pattern" viewBox="0 0 400 400"><defs><pattern id="grid-scanner" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width=".5"/></pattern></defs><rect width="400" height="400" fill="url(#grid-scanner)"/></svg>
+      <!-- LEGACY HALO BACKUP START
+      <div class="hero-scanner-halo hero-scanner-halo--teal"></div>
+      <div class="hero-scanner-halo hero-scanner-halo--gold"></div>
+      LEGACY HALO BACKUP END -->
+      <div class="hero-finance-bg" aria-hidden="true">
+        <svg class="hero-finance-graph hero-finance-graph--trend" viewBox="0 0 260 120" fill="none">
+          <path d="M10 96L66 74L116 82L164 50L250 24" />
+          <path d="M10 106H250" />
+        </svg>
+        <svg class="hero-finance-graph hero-finance-graph--alloc" viewBox="0 0 220 100" fill="none">
+          <path d="M14 76C44 48 80 36 116 44C156 52 184 38 206 20" />
+          <circle cx="116" cy="44" r="20" />
+          <path d="M116 24V64M96 44H136" />
+        </svg>
+        <svg class="hero-finance-graph hero-finance-graph--bars" viewBox="0 0 170 90" fill="none">
+          <path d="M12 78H158" />
+          <rect x="24" y="46" width="16" height="32" rx="3" />
+          <rect x="56" y="36" width="16" height="42" rx="3" />
+          <rect x="88" y="26" width="16" height="52" rx="3" />
+          <rect x="120" y="16" width="16" height="62" rx="3" />
+        </svg>
+
+        <div class="hero-finance-icon hero-finance-icon--rupee">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 7h10M7 11h10M7 7c0 2.2 1.8 4 4 4h1.2c2.2 0 4 1.8 4 4v0M8 17l9 0" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--shield">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s7-3.5 7-8.8V6.7L12 4 5 6.7v5.5C5 17.5 12 21 12 21Z" />
+            <path d="M9.2 12.2l1.8 1.8 3.8-3.8" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--growth">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 19h16" />
+            <path d="M6 14l4-4 3 3 5-6" />
+            <path d="M18 7h-3M18 7v3" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--pie">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v9h9" />
+            <path d="M20 14a8 8 0 1 1-8-11" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--wallet">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="7" width="18" height="12" rx="2" />
+            <path d="M3 10h18" />
+            <circle cx="16.5" cy="14" r="1" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--bars">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 19h16" />
+            <rect x="6" y="11" width="3" height="8" rx="1" />
+            <rect x="11" y="8" width="3" height="11" rx="1" />
+            <rect x="16" y="5" width="3" height="14" rx="1" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--coins">
+          <svg viewBox="0 0 24 24" fill="none">
+            <ellipse cx="9" cy="8" rx="4" ry="2.2" />
+            <path d="M5 8v3.5c0 1.2 1.8 2.2 4 2.2s4-1 4-2.2V8" />
+            <ellipse cx="15.5" cy="14.5" rx="3.5" ry="2" />
+            <path d="M12 14.5V17c0 1.1 1.6 2 3.5 2s3.5-.9 3.5-2v-2.5" />
+          </svg>
+        </div>
+        <div class="hero-finance-icon hero-finance-icon--tax">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 3h7l4 4v14H7z" />
+            <path d="M14 3v4h4" />
+            <path d="M10 12h5M10 16h5" />
+          </svg>
+        </div>
+      </div>
+      <canvas class="hero-scanner-particles" #particleCanvas></canvas>
+      <div class="hero-scanner-beam"></div>
+
+      <div class="hero-scanner-stream">
+        <div class="hero-scanner-line" #cardLine>
+          <article class="hero-scan-card" #scanCard *ngFor="let card of scannerRenderCards; trackBy: trackScannerCard">
+            <div class="hero-scan-layer hero-scan-main">
+              <header class="hero-scan-head">
+                <span class="hero-scan-title">{{ card.title }}</span>
+                <span class="hero-scan-badge" [ngClass]="badgeClass(card.badgeTone)">{{ card.badge }}</span>
+              </header>
+
+              <div class="hero-scan-content" [ngSwitch]="card.kind">
+                <div class="hero-scan-mini-bars" *ngSwitchCase="'bars'">
+                  <span *ngFor="let bar of card.bars" [style.height.%]="bar"></span>
+                </div>
+
+                <div class="hero-scan-shield" *ngSwitchCase="'shield'">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(198,151,63,.1)" stroke="var(--c-gold)" stroke-width="1.5"></path>
+                    <path d="M9 12l2 2 4-4" stroke="var(--c-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <strong>{{ card.metric }}</strong>
+                </div>
+
+                <div class="hero-scan-progress" *ngSwitchCase="'progress'">
+                  <div class="hero-scan-progress-row">
+                    <span>On Track</span>
+                    <strong>{{ card.progress }}%</strong>
+                  </div>
+                  <div class="hero-scan-track">
+                    <div class="hero-scan-track-fill" [style.width.%]="card.progress ?? 0"></div>
+                  </div>
+                </div>
+
+                <div class="hero-scan-progress hero-scan-progress--gold" *ngSwitchCase="'tax'">
+                  <div class="hero-scan-progress-row">
+                    <span>Utilized</span>
+                    <strong>{{ card.progress }}%</strong>
+                  </div>
+                  <div class="hero-scan-track">
+                    <div class="hero-scan-track-fill hero-scan-track-fill--gold" [style.width.%]="card.progress ?? 0"></div>
+                  </div>
+                </div>
+
+                <div class="hero-scan-ring" *ngSwitchCase="'ring'">
+                  <div class="hero-scan-ring-meter"><span>{{ card.progress }}%</span></div>
+                  <strong>{{ card.metric }}</strong>
+                </div>
+
+                <div class="hero-scan-alert" *ngSwitchCase="'alert'">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M15 17h5l-1.4-1.4a2 2 0 0 1-.6-1.4V11a6 6 0 0 0-12 0v3.2a2 2 0 0 1-.6 1.4L4 17h5"></path>
+                    <path d="M10 17a2 2 0 0 0 4 0"></path>
+                  </svg>
+                  <strong>{{ card.metric }}</strong>
+                </div>
+              </div>
+
+              <p class="hero-scan-subline">{{ card.subline }}</p>
+            </div>
+
+            <div class="hero-scan-layer hero-scan-insight">
+              <h5>{{ card.insightTitle }}</h5>
+              <ul>
+                <li *ngFor="let point of card.insightPoints">{{ point }}</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

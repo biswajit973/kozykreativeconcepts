@@ -1,0 +1,46 @@
+<div class="blog-chapter-page">
+  <header class="reader-header">
+    <a class="reader-logo" routerLink="/blogs" aria-label="Back to blogs">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 18L12 6L18 18"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+          </path>
+        </svg>
+      </span>
+      <span>Single Point</span>
+    </a>
+
+    <nav class="reader-breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/blogs">Blogs</a>
+      <span>/</span>
+      <strong>{{ activeChapter?.title }}</strong>
+    </nav>
+  </header>
+
+  <main class="reader-main">
+    <section class="chapter-nav-row">
+      <button type="button" (click)="openPreviousChapter()" [disabled]="!previousChapter">
+        ← {{ previousChapter?.shortTitle || 'Previous' }}
+      </button>
+      <a routerLink="/blogs">All Chapters</a>
+      <button type="button" (click)="openNextChapter()" [disabled]="!nextChapter">
+        {{ nextChapter?.shortTitle || 'Next' }} →
+      </button>
+    </section>
+
+    <ng-container [ngSwitch]="activeChapterId">
+      <app-term-insurance-chapter *ngSwitchCase="'term-insurance'"></app-term-insurance-chapter>
+      <app-mutual-funds-chapter *ngSwitchCase="'mutual-funds'"></app-mutual-funds-chapter>
+      <app-fixed-deposits-chapter *ngSwitchCase="'fixed-deposits'"></app-fixed-deposits-chapter>
+      <app-govt-bonds-chapter *ngSwitchCase="'govt-bonds'"></app-govt-bonds-chapter>
+      <app-health-cover-chapter *ngSwitchCase="'health-cover'"></app-health-cover-chapter>
+      <app-vehicle-insurance-chapter *ngSwitchCase="'vehicle-insurance'"></app-vehicle-insurance-chapter>
+      <app-nps-chapter *ngSwitchCase="'nps'"></app-nps-chapter>
+    </ng-container>
+  </main>
+</div>

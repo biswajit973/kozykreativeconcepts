@@ -1,0 +1,65 @@
+<article class="chapter-reader-card" *ngIf="content as chapter">
+  <header class="chapter-reader-head">
+    <h1>{{ chapter.title }}</h1>
+    <p>{{ chapter.subtitle }}</p>
+  </header>
+
+  <section class="chapter-story" *ngIf="chapter.storyText">
+    <h2>{{ chapter.storyTitle || 'Real Life Story' }}</h2>
+    <p>{{ chapter.storyText }}</p>
+  </section>
+
+  <section class="chapter-highlight">
+    <mark>{{ chapter.highlight }}</mark>
+  </section>
+
+  <section class="chapter-pros" *ngIf="chapter.majorPros.length > 0">
+    <h2>Major Pros For Your Life</h2>
+    <div class="chapter-pros-list">
+      <article class="chapter-pro-item" *ngFor="let pro of chapter.majorPros">
+        <span class="pro-ring" aria-hidden="true"></span>
+        <p>{{ pro }}</p>
+      </article>
+    </div>
+  </section>
+
+  <ng-content select="[chapter-extra]"></ng-content>
+
+  <section class="chapter-page" *ngIf="activePage as page">
+    <h2>{{ page.heading }}</h2>
+    <p *ngFor="let line of page.paragraphs">{{ line }}</p>
+
+    <div class="chapter-bullets" *ngIf="page.bullets?.length">
+      <h3>{{ page.bulletTitle || 'Key Points' }}</h3>
+      <ul>
+        <li *ngFor="let bullet of page.bullets">{{ bullet }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="chapter-page-nav" *ngIf="hasMultiplePages">
+    <button type="button" (click)="previousPage()" [disabled]="!hasPreviousPage">Previous Page</button>
+    <div class="page-dots">
+      <button
+        type="button"
+        *ngFor="let page of content.pages; let i = index"
+        [class.active]="i === activePageIndex"
+        (click)="goToPage(i)"
+        [attr.aria-label]="'Open page ' + (i + 1)">
+      </button>
+    </div>
+    <button type="button" (click)="nextPage()" [disabled]="!hasNextPage">Next Page</button>
+  </nav>
+
+  <section class="chapter-action-block">
+    <h2>{{ chapter.actionTitle }}</h2>
+    <p>{{ chapter.actionText }}</p>
+  </section>
+
+  <section class="chapter-caution-block">
+    <h2>{{ chapter.cautionTitle }}</h2>
+    <p>{{ chapter.cautionText }}</p>
+  </section>
+
+  <app-blog-author-signature></app-blog-author-signature>
+</article>

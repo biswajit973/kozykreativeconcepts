@@ -1,0 +1,58 @@
+<footer class="contact-footer">
+  <div class="container">
+    <section class="footer-merged" aria-label="Contact and office location">
+      <div class="footer-columns">
+        <article class="footer-column footer-column--address">
+          <h3 class="column-title">Email & Address</h3>
+          <div>
+            <span class="footer-label">Email</span>
+            <a class="footer-value" href="mailto:info@singlepoint.co.in">info@singlepoint.co.in</a>
+          </div>
+
+          <div>
+            <span class="footer-label">Address</span>
+            <span class="footer-value">
+              31, Kharavela Nagar, Unit 3<br>
+              Backside of Ram Mandir<br>
+              Bhubaneswar, Odisha - 751001
+            </span>
+          </div>
+        </article>
+
+        <article class="footer-column footer-column--meta">
+          <h3 class="column-title">Phone & Hours</h3>
+          <div>
+            <span class="footer-label">Phone</span>
+            <a class="footer-value" href="tel:+918072871049">+91 8072871049</a>
+          </div>
+
+          <div>
+            <span class="footer-label">Hours</span>
+            <strong class="footer-value">Mon-Sat, 10:00 AM to 6:00 PM</strong>
+          </div>
+        </article>
+
+        <article class="footer-column footer-column--map">
+          <h3 class="column-title">Office Map</h3>
+
+          <div class="map-frame">
+            <iframe
+              [src]="mapsEmbedSafeUrl"
+              loading="lazy"
+              title="Single Point Bhubaneswar office map"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <a
+            class="map-link"
+            [href]="mapsUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open in Google Maps
+          </a>
+        </article>
+      </div>
+    </section>
+  </div>
+</footer>

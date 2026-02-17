@@ -1,0 +1,11 @@
+[build]
+  command = "npm ci && npm run build -- --configuration production && cp public/_redirects dist/spangular/browser/_redirects"
+  publish = "dist/spangular/browser"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

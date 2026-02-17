@@ -1,0 +1,130 @@
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="overline" style="justify-content:center">What We Offer</div>
+      <h2>Every Financial Need,<br>One Trusted Partner.</h2>
+      <p>From your first SIP to your retirement plan, we keep money decisions simple and practical for your family.</p>
+    </div>
+
+    <div class="svc-filter-bar reveal d1" role="tablist" aria-label="Service categories">
+      <button
+        class="svc-filter-chip"
+        type="button"
+        [class.active]="selectedFilter === 'all'"
+        (click)="selectFilter('all')">
+        All
+      </button>
+      <button
+        class="svc-filter-chip"
+        type="button"
+        *ngFor="let category of categories; trackBy: trackByFilter"
+        [class.active]="selectedFilter === category.id"
+        (click)="selectFilter(category.id)">
+        {{ category.title }}
+      </button>
+    </div>
+
+    <div class="svc-grid reveal d2">
+      <article class="svc-card" *ngFor="let story of visibleStories; trackBy: trackByStoryId">
+        <div class="svc-icon" [ngClass]="iconTileClass(story.iconKey)">
+          <ng-container [ngSwitch]="story.iconKey">
+            <svg *ngSwitchCase="'mutual-funds'" viewBox="0 0 24 24" fill="none">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <svg *ngSwitchCase="'term-insurance'" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <svg *ngSwitchCase="'fixed-deposits'" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="6" width="20" height="12" rx="2"/>
+              <path d="M12 12h.01"/>
+              <path d="M6 12h.01M18 12h.01"/>
+            </svg>
+            <svg *ngSwitchCase="'health-insurance'" viewBox="0 0 24 24" fill="none">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+            <svg *ngSwitchCase="'bonds'" viewBox="0 0 24 24" fill="none">
+              <path d="M2 20h20M4 20V8l4-4h8l4 4v12"/>
+              <path d="M9 20v-6h6v6"/>
+            </svg>
+            <svg *ngSwitchCase="'vehicle-insurance'" viewBox="0 0 24 24" fill="none">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4a2 2 0 012 2v9a2 2 0 01-2 2H8a2 2 0 01-2-2v-4"/>
+            </svg>
+            <svg *ngSwitchCase="'nps'" viewBox="0 0 24 24" fill="none">
+              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+            <svg *ngSwitchDefault viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8"/>
+            </svg>
+          </ng-container>
+        </div>
+
+        <h4>{{ story.title }}</h4>
+        <p>{{ storyHook(story.id) }}</p>
+
+        <div class="svc-card-actions">
+          <button class="svc-know-more" type="button" (click)="openStory(story.id)">Know More</button>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div
+    class="offer-story-overlay"
+    *ngIf="activeStory as story"
+    @storyOverlay
+    (click)="onOverlayClick($event)">
+    <article class="offer-story-modal" @storyModal role="dialog" aria-modal="true" [attr.aria-label]="story.title + ' story details'">
+      <button class="offer-story-close" (click)="closeStory()" aria-label="Close story">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <header class="offer-story-head">
+        <div class="offer-story-head-top">
+          <div class="offer-story-icon-wrap" [attr.data-icon]="story.iconKey">
+            <span class="offer-story-icon">{{ iconByKey[story.iconKey] || '•' }}</span>
+            <span class="offer-story-emoji">{{ story.emoji }}</span>
+          </div>
+          <div class="offer-story-heading">
+            <div class="offer-story-chip">{{ categoryTitle(story.categoryId) }}</div>
+            <h3>{{ story.title }}</h3>
+          </div>
+        </div>
+
+        <p class="offer-story-subtitle">{{ story.subtitle }}</p>
+        <p class="story-keyline">{{ story.keyLine }}</p>
+
+        <div class="story-chip-row">
+          <span class="story-chip" *ngFor="let chip of story.factChips">{{ chip }}</span>
+        </div>
+      </header>
+
+      <div class="offer-story-content">
+        <div class="story-compare" *ngIf="story.comparison">
+          <section class="story-person safe" [@storyBlock]>
+            <h4>{{ story.comparison.left.emoji }} {{ story.comparison.left.name }}</h4>
+            <ul>
+              <li *ngFor="let point of story.comparison.left.points" [innerHTML]="highlightLine(point, story.highlightWords)"></li>
+            </ul>
+          </section>
+
+          <section class="story-person risk" [@storyBlock]>
+            <h4>{{ story.comparison.right.emoji }} {{ story.comparison.right.name }}</h4>
+            <ul>
+              <li *ngFor="let point of story.comparison.right.points" [innerHTML]="highlightLine(point, story.highlightWords)"></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="story-block-grid">
+          <article class="story-block" *ngFor="let block of story.blocks; trackBy: trackByStoryBlock" [@storyBlock]>
+            <h5>{{ block.title }}</h5>
+            <p *ngFor="let line of block.lines" [innerHTML]="highlightLine(line, story.highlightWords)"></p>
+          </article>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

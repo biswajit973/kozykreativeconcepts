@@ -1,0 +1,53 @@
+<nav class="nav" id="navbar" [class.scrolled]="ui.navbarScrolled()">
+  <div class="container nav-inner">
+    <a href="#" class="logo" (click)="onLogoClick($event)">
+      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L12 6L18 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      Single Point
+    </a>
+    <ul class="nav-links">
+      <ng-container *ngIf="mode === 'home'; else toolRouteLinks">
+        <li><a href="#services">What We Do</a></li>
+        <li><a href="#founders">Who We Are</a></li>
+        <li><a href="#app">Tech</a></li>
+        <li><a routerLink="/blogs" (click)="onRouteNav()">Blogs</a></li>
+      </ng-container>
+      <ng-template #toolRouteLinks>
+        <li><a routerLink="/" (click)="onRouteNav()">Home</a></li>
+        <li><a routerLink="/blogs" (click)="onRouteNav()">Blogs</a></li>
+        <li><a routerLink="/sip-calculator" (click)="onRouteNav()">SIP Calculator</a></li>
+        <li><a routerLink="/target-achiever" (click)="onRouteNav()">Target Achiever</a></li>
+      </ng-template>
+      <li>
+        <button id="toolsToggle" [class.open]="ui.toolsDropOpen()" (click)="onToolsToggle($event)">Tools <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="drop" [class.active]="ui.toolsDropOpen()">
+          <a href="#" (click)="onDropAction($event, 'sipRoute')">
+            <div class="drop-ic" style="background:rgba(2,128,144,.06)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-teal)" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-5 4 3 5-7"/></svg></div>
+            <div><div style="font-weight:600;font-size:.82rem">SIP Calculator</div><div style="font-size:.7rem;color:var(--c-muted)">See your money grow</div></div>
+          </a>
+          <a href="#" (click)="onDropAction($event, 'targetRoute')">
+            <div class="drop-ic" style="background:rgba(198,151,63,.06)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--c-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <div><div style="font-weight:600;font-size:.82rem">Target Achiever</div><div style="font-size:.7rem;color:var(--c-muted)">Plan your dream amount</div></div>
+          </a>
+        </div>
+      </li>
+      <li>
+        <a *ngIf="mode === 'home'" href="#contact-section">Contact</a>
+        <a *ngIf="mode !== 'home'" href="#" (click)="onDropAction($event, 'contactModal')">Contact</a>
+      </li>
+    </ul>
+    <div class="nav-cta">
+      <button class="btn btn-sm btn-out" (click)="ui.openModal('contactModal')">Request Callback</button>
+      <a
+        href="https://singlepoint.investwell.app/app/#/login"
+        class="btn btn-sm btn-pri"
+        target="_blank"
+        rel="noopener noreferrer"
+        *ngIf="mode === 'home'">
+        Client Login
+      </a>
+    </div>
+    <button class="hamburger" (click)="onOpenMobileMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>

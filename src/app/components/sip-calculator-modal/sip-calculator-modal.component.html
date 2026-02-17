@@ -1,0 +1,42 @@
+<div class="modal-overlay" id="sipModal" [class.open]="ui.isModalOpen('sipModal')" (click)="onOverlayClick($event)">
+  <div class="modal calc-modal">
+    <button class="modal-close" (click)="close()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-body">
+      <h2>SIP / Lumpsum Calculator</h2>
+      <p class="modal-sub">See the power of compounding — your money doesn't just grow, it multiplies.</p>
+      <div class="calc-tabs">
+        <button class="calc-tab" [class.active]="calc.sipMode()==='sip'" (click)="calc.switchSipMode('sip')">Monthly SIP</button>
+        <button class="calc-tab" [class.active]="calc.sipMode()==='lump'" (click)="calc.switchSipMode('lump')">Lumpsum</button>
+      </div>
+      <div class="calc-layout">
+        <div class="calc-controls">
+          <div class="range-group"><label><span id="sipAmtLabel">{{ calc.sipAmtLabel() }}</span><span class="range-val" id="sipAmtVal">{{ calc.sipAmtVal() }}</span></label><input type="range" class="range-slider" id="sipAmtSlider" [min]="calc.sipAmtMin()" [max]="calc.sipAmtMax()" [step]="calc.sipAmtStep()" [value]="calc.sipAmt()" (input)="calc.updateSipAmt(+$any($event.target).value)"></div>
+          <div class="range-group"><label><span>Time Period (Years)</span><span class="range-val" id="sipYrVal">{{ calc.sipYrVal() }}</span></label><input type="range" class="range-slider" id="sipYrSlider" min="1" max="30" step="1" [value]="calc.sipYr()" (input)="calc.updateSipYr(+$any($event.target).value)"></div>
+          <div class="range-group"><label><span>MF Expected Return</span><span class="range-val" id="sipRtVal">{{ calc.sipRtVal() }}</span></label><input type="range" class="range-slider" id="sipRtSlider" min="5" max="15" step="0.5" [value]="calc.sipRt()" (input)="calc.updateSipRt(+$any($event.target).value)"></div>
+          <div class="range-group"><label><span>Traditional Return</span><span class="range-val" id="sipTradRtVal">{{ calc.sipTradRtVal() }}</span></label><input type="range" class="range-slider" id="sipTradRtSlider" min="5" max="8" step="0.1" [value]="calc.sipTradRt()" (input)="calc.updateSipTradRt(+$any($event.target).value)"></div>
+          <div class="calc-nums">
+            <div class="calc-num"><div class="num-label">Invested</div><div class="num-value" id="sipInv">{{ calc.sipInv() }}</div></div>
+            <div class="calc-num highlight"><div class="num-label">Wealth Gained</div><div class="num-value" id="sipGain">{{ calc.sipGain() }}</div></div>
+            <div class="calc-num"><div class="num-label">Total Value</div><div class="num-value" id="sipTotal">{{ calc.sipTotal() }}</div></div>
+          </div>
+          <div class="calc-insight" id="sipInsight">With traditional return at <strong>{{ calc.sipTradRtVal() }}</strong>, your maturity could be <strong id="sipTrad">{{ calc.sipTrad() }}</strong>. At MF return <strong>{{ calc.sipRtVal() }}</strong>, the projected value is <strong>{{ calc.sipTotal() }}</strong>. Missed wealth in traditional route: <strong id="sipDiff">{{ calc.sipDiff() }}</strong>.</div>
+        </div>
+        <div class="calc-chart sip-vertical-chart">
+          <div class="chart-title">Outcome Comparison (3-Bar View)</div>
+          <div class="sip-chartjs-wrap">
+            <canvas #sipChartCanvas id="sipChartCanvas"></canvas>
+          </div>
+          <div class="sip-fomo-callout">
+            <div class="loss-msg">Missed wealth in traditional route: {{ calc.sipDiff() }}.</div>
+            <div class="gain-msg">Mutual funds may potentially create {{ calc.sipGain() }} over the invested amount, based on selected assumptions.</div>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#9eaab5"></div>Invested Amount</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#b45309,#d97706)"></div>Traditional Return</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#0e7490,#028090)"></div>Mutual Fund Return</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

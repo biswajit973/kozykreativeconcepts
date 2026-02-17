@@ -1,0 +1,7 @@
+<div class="lightbox" id="lightbox" [class.open]="ui.lightboxOpen()" (click)="onOverlayClick($event)">
+  <div class="lb-inner">
+    <button class="lb-close" (click)="close()"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="lb-screen" id="lbScreen" [style.background]="ui.lightboxScreenBg()" [innerHTML]="safeScreenHtml()"></div>
+    <div class="lb-info"><h3 id="lbTitle">{{ ui.lightboxTitle() }}</h3><p id="lbDesc">{{ ui.lightboxDesc() }}</p></div>
+  </div>
+</div>

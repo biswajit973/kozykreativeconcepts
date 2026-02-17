@@ -1,0 +1,43 @@
+<app-chapter-reader [content]="content">
+  <section chapter-extra class="chapter-chart">
+    <h2>10-Year Example Chart (Learning Purpose)</h2>
+    <p>
+      Assumption: {{ formatCurrency(monthlyInvestment) }} monthly for {{ years }} years.
+      Return used only for study: Mutual Fund 12%, FD 7%, Savings 3.5%.
+    </p>
+
+    <div class="chapter-chart-canvas-wrap">
+      <canvas
+        #mfChart
+        role="img"
+        aria-label="Line chart comparing mutual fund, fixed deposit, and savings account over 10 years">
+      </canvas>
+    </div>
+
+    <div class="chapter-chart-note">
+      This is not a guarantee. Real returns can change year by year. Use this only to understand how
+      compounding works over long time.
+    </div>
+
+    <div class="chapter-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Mutual Fund</th>
+            <th>Fixed Deposit</th>
+            <th>Savings A/c</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <td>{{ row.year }}</td>
+            <td class="emphasis">{{ formatCurrency(row.mutualFund) }}</td>
+            <td>{{ formatCurrency(row.fixedDeposit) }}</td>
+            <td>{{ formatCurrency(row.savings) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</app-chapter-reader>

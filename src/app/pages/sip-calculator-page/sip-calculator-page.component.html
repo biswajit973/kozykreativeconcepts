@@ -1,0 +1,146 @@
+<div class="sip-workspace">
+  <app-navbar mode="sip"></app-navbar>
+  <app-mobile-menu mode="sip"></app-mobile-menu>
+
+  <header class="sip-breadcrumb-bar">
+    <div class="sip-breadcrumb-inner">
+      <a routerLink="/">Home</a>
+      <span>/</span>
+      <a routerLink="/">Tools</a>
+      <span>/</span>
+      <strong>SIP Calculator</strong>
+    </div>
+  </header>
+
+  <main class="sip-shell-main">
+    <div class="sip-workspace-grid">
+      <section class="sip-controls-panel">
+        <div class="calc-tabs">
+          <button class="calc-tab" [class.active]="calc.sipMode()==='sip'" (click)="calc.switchSipMode('sip')">Monthly SIP</button>
+          <button class="calc-tab" [class.active]="calc.sipMode()==='lump'" (click)="calc.switchSipMode('lump')">Lumpsum</button>
+        </div>
+
+        <div class="range-group">
+          <label><span>{{ calc.sipAmtLabel() }}</span><span class="range-val">{{ calc.sipAmtVal() }}</span></label>
+          <div class="range-row">
+            <input
+              type="range"
+              class="range-slider"
+              [min]="calc.sipAmtMin()"
+              [max]="calc.sipAmtMax()"
+              [step]="calc.sipAmtStep()"
+              [value]="calc.sipAmt()"
+              (input)="onSipAmountInput($any($event.target).value)">
+            <input
+              type="number"
+              class="range-number"
+              inputmode="numeric"
+              [min]="calc.sipAmtMin()"
+              [max]="calc.sipAmtMax()"
+              [step]="calc.sipAmtStep()"
+              [value]="calc.sipAmt()"
+              (input)="onSipAmountInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>Time Period (Years)</span><span class="range-val">{{ calc.sipYrVal() }}</span></label>
+          <div class="range-row">
+            <input type="range" class="range-slider" min="1" max="30" step="1" [value]="calc.sipYr()" (input)="onSipYearsInput($any($event.target).value)">
+            <input type="number" class="range-number" inputmode="numeric" min="1" max="30" step="1" [value]="calc.sipYr()" (input)="onSipYearsInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>MF Expected Return</span><span class="range-val">{{ calc.sipRtVal() }}</span></label>
+          <div class="range-row">
+            <input type="range" class="range-slider" min="5" max="15" step="1" [value]="calc.sipRt()" (input)="onSipMfRoiInput($any($event.target).value)">
+            <input type="number" class="range-number" inputmode="numeric" min="5" max="15" step="1" [value]="calc.sipRt()" (input)="onSipMfRoiInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>Traditional Return</span><span class="range-val">{{ calc.sipTradRtVal() }}</span></label>
+          <div class="range-row">
+            <input type="range" class="range-slider" min="5" max="8" step="1" [value]="calc.sipTradRt()" (input)="onSipTradRoiInput($any($event.target).value)">
+            <input type="number" class="range-number" inputmode="numeric" min="5" max="8" step="1" [value]="calc.sipTradRt()" (input)="onSipTradRoiInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="sip-metrics-grid" [class.no-extra]="!showExtraGain">
+          <article class="sip-metric-card">
+            <span>Total Invested</span>
+            <strong>{{ calc.sipInv() }}</strong>
+          </article>
+          <article class="sip-metric-card">
+            <span>Traditional Return</span>
+            <strong>{{ calc.sipTrad() }}</strong>
+          </article>
+          <article class="sip-metric-card focus">
+            <span>MF Return</span>
+            <strong>{{ calc.sipTotal() }}</strong>
+          </article>
+          <article class="sip-metric-card extra" *ngIf="showExtraGain">
+            <span>Extra Gain over Traditional investment</span>
+            <strong>{{ calc.sipDiff() }}</strong>
+          </article>
+          <article class="sip-metric-card uplift" *ngIf="showExtraGain">
+            <span>MF Uplift</span>
+            <strong>{{ sipUpliftPct }}</strong>
+          </article>
+        </div>
+
+        <div class="sip-insight">
+          <ng-container *ngIf="showExtraGain; else baseProjectionInsight">
+            Extra Gain over Traditional investment: <strong>{{ calc.sipDiff() }}</strong>. At MF return
+            <strong>{{ calc.sipRtVal() }}</strong>, projected maturity may reach <strong>{{ calc.sipTotal() }}</strong>.
+          </ng-container>
+          <ng-template #baseProjectionInsight>
+            At MF return <strong>{{ calc.sipRtVal() }}</strong>, projected maturity may reach
+            <strong>{{ calc.sipTotal() }}</strong> based on selected assumptions.
+          </ng-template>
+        </div>
+      </section>
+
+      <section class="sip-charts-panel">
+        <article class="sip-core-chart-card">
+          <div class="sip-chart-head">
+            <div class="chart-title">{{ activeChartView === 'core' ? 'Core Outcome Comparison (Always Visible)' : 'Performance Trajectory (Yearly)' }}</div>
+            <button class="sip-toggle-trend" (click)="toggleTrend()">
+              {{ activeChartView === 'core' ? 'Show detailed trend' : 'Back to core 3-bar view' }}
+            </button>
+          </div>
+
+          <div class="sip-chart-slot" [class.trend-active]="activeChartView === 'trend'">
+            <div class="sip-core-chart-wrap" [class.hidden]="activeChartView !== 'core'">
+              <canvas #coreChartCanvas></canvas>
+            </div>
+            <div class="sip-trend-chart-wrap" [class.hidden]="activeChartView !== 'trend'">
+              <canvas #trendChartCanvas></canvas>
+            </div>
+          </div>
+
+          <div class="sip-fomo-callout" [class.hidden]="activeChartView !== 'core' || !showExtraGain">
+            <div class="extra-msg">Extra Gain over Traditional investment: {{ calc.sipDiff() }}.</div>
+            <div class="wealth-msg">Mutual funds may potentially create {{ calc.sipGain() }} over invested amount based on selected assumptions.</div>
+          </div>
+
+          <div class="chart-legend" [class.hidden]="activeChartView !== 'core'">
+            <div class="legend-item"><div class="legend-dot" style="background:#475569"></div>Total Invested</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#b45309,#d97706)"></div>Traditional Return</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#0f766e,#0ea5a3)"></div>MF Return</div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="sip-shell-footer">
+    <div class="sip-shell-footer-inner">
+      <span>Projection for educational planning. Returns are not guaranteed.</span>
+      <span>Single Point</span>
+    </div>
+  </footer>
+
+  <app-contact-modal></app-contact-modal>
+</div>

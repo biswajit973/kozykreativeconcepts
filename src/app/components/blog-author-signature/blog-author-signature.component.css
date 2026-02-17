@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
+
+:host {
+  display: block;
+}
+
+.blog-author-signature {
+  border-radius: 12px;
+  border: 1px solid rgba(11, 32, 39, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(249, 246, 239, 0.94)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(17, 75, 95, 0.02) 0,
+      rgba(17, 75, 95, 0.02) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  box-shadow: 0 10px 24px rgba(11, 32, 39, 0.07);
+  padding: 0.7rem 0.76rem;
+  display: grid;
+  gap: 0.34rem;
+}
+
+.signature-top {
+  display: flex;
+  align-items: center;
+  gap: 0.44rem;
+}
+
+.pen-chip {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 32, 39, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  display: grid;
+  place-items: center;
+  color: #5c6f76;
+  flex-shrink: 0;
+}
+
+.pen-chip svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.signature-author {
+  margin: 0;
+  color: var(--c-pri);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.signature-tagline {
+  margin: 0;
+  color: #27474f;
+  font-family: 'Caveat', 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+}
+
+.signature-brand {
+  margin-top: 0.08rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signature-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.signature-logo svg {
+  width: 16px;
+  height: 16px;
+}
+
+.brand-text {
+  color: var(--c-deep);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-author-signature {
+    transition: none;
+  }
+}

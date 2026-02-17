@@ -1,0 +1,78 @@
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="overline" style="justify-content:center">Client Voice</div>
+      <h2>Trusted by Families Across Eastern India</h2>
+      <p>Short and honest feedback from clients in Odisha, West Bengal, and Jharkhand.</p>
+    </div>
+
+    <div class="testimonials-shell reveal d1">
+      <div
+        class="testimonials-board"
+        (mouseenter)="onBoardEnter()"
+        (mouseleave)="onBoardLeave()"
+        (touchstart)="onBoardEnter()"
+        (touchend)="onBoardLeave()">
+        <div class="carousel-viewport" [class.is-paused]="isPaused">
+          <div class="carousel-row">
+            <div class="carousel-track">
+              <article
+                class="testimonial-card"
+                *ngFor="let item of rowOneLoop; trackBy: trackByLoop"
+                [class.is-pressed]="pressedCardId === item.id"
+                (pointerdown)="onCardPress(item.id)"
+                (pointerup)="onCardRelease()"
+                (pointerleave)="onCardRelease()"
+                (pointercancel)="onCardRelease()">
+                <header class="testimonial-top">
+                  <div class="testimonial-person">
+                    <div class="testimonial-photo" [ngClass]="'photo-' + item.tone">
+                      <img [src]="item.photoUrl" [alt]="item.name + ' profile placeholder'" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="testimonial-meta">
+                      <h4>{{ item.name }}</h4>
+                      <p>{{ item.location }}, {{ item.state }}</p>
+                    </div>
+                  </div>
+                  <span class="testimonial-rating" aria-label="5 out of 5">★★★★★</span>
+                </header>
+
+                <p class="testimonial-text">“{{ item.review }}”</p>
+                <div class="testimonial-chip">{{ item.service }}</div>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel-row carousel-row--reverse">
+            <div class="carousel-track">
+              <article
+                class="testimonial-card"
+                *ngFor="let item of rowTwoLoop; trackBy: trackByLoop"
+                [class.is-pressed]="pressedCardId === item.id"
+                (pointerdown)="onCardPress(item.id)"
+                (pointerup)="onCardRelease()"
+                (pointerleave)="onCardRelease()"
+                (pointercancel)="onCardRelease()">
+                <header class="testimonial-top">
+                  <div class="testimonial-person">
+                    <div class="testimonial-photo" [ngClass]="'photo-' + item.tone">
+                      <img [src]="item.photoUrl" [alt]="item.name + ' profile placeholder'" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="testimonial-meta">
+                      <h4>{{ item.name }}</h4>
+                      <p>{{ item.location }}, {{ item.state }}</p>
+                    </div>
+                  </div>
+                  <span class="testimonial-rating" aria-label="5 out of 5">★★★★★</span>
+                </header>
+
+                <p class="testimonial-text">“{{ item.review }}”</p>
+                <div class="testimonial-chip">{{ item.service }}</div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

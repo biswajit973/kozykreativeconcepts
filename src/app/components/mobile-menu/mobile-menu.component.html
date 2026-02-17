@@ -1,0 +1,39 @@
+<div class="mobile-menu" id="mobileMenu" [class.open]="ui.mobileMenuOpen()">
+  <div class="mm-head">
+    <span class="logo" style="font-size:1.1rem">
+      <div class="logo-mark" style="width:32px;height:32px"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L12 6L18 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      Single Point
+    </span>
+    <button class="mm-close" (click)="closeMM()">✕</button>
+  </div>
+  <ng-container *ngIf="mode === 'home'; else toolModeLinks">
+    <a href="#services" (click)="closeMM()">What We Do</a>
+    <a href="#founders" (click)="closeMM()">Who We Are</a>
+    <a href="#app" (click)="closeMM()">Tech & App</a>
+    <a href="#" (click)="$event.preventDefault(); openBlogsFromMenu()">Blogs</a>
+  </ng-container>
+  <ng-template #toolModeLinks>
+    <a href="#" (click)="$event.preventDefault(); openHomeFromMenu()">Home</a>
+    <a href="#" (click)="$event.preventDefault(); openBlogsFromMenu()">Blogs</a>
+    <a href="#" (click)="$event.preventDefault(); openSipPageFromMenu()">SIP Calculator</a>
+    <a href="#" (click)="$event.preventDefault(); openTargetPageFromMenu()">Target Achiever</a>
+  </ng-template>
+  <button class="mm-link" style="pointer-events:none;color:var(--c-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;padding-bottom:.3rem;border:none">Tools</button>
+  <div class="mm-sub">
+    <a href="#" (click)="$event.preventDefault(); openSipPageFromMenu()">SIP Calculator</a>
+    <a href="#" (click)="$event.preventDefault(); openTargetPageFromMenu()">Target Achiever</a>
+  </div>
+  <a href="#" (click)="$event.preventDefault(); openModalFromMenu('contactModal')">Request Callback</a>
+  <a *ngIf="mode === 'home'" href="#contact-section" (click)="closeMM()">Contact Us</a>
+  <a *ngIf="mode !== 'home'" href="#" (click)="$event.preventDefault(); openModalFromMenu('contactModal')">Contact Us</a>
+  <div style="margin-top:auto;padding-top:1.5rem" *ngIf="mode === 'home'">
+    <a
+      href="https://singlepoint.investwell.app/app/#/login"
+      class="btn btn-pri"
+      style="width:100%"
+      target="_blank"
+      rel="noopener noreferrer">
+      Client Login
+    </a>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="blogs-page">
+  <app-navbar mode="blogs"></app-navbar>
+  <app-mobile-menu mode="blogs"></app-mobile-menu>
+
+  <section class="blogs-hero">
+    <div class="container">
+      <article class="hero-book reveal" appRevealOnScroll>
+        <div class="overline">Blogs</div>
+        <h1>Read One Chapter At A Time, In Simple English</h1>
+        <p>
+          This blog area is your calm money reading room. Each chapter explains one topic with a real
+          story, daily life examples, and clear steps you can follow.
+        </p>
+        <p>
+          No pressure. No jargon. Start with one chapter, finish it, and then move to the next chapter
+          only when you are ready.
+        </p>
+
+        <div class="hero-pill">Start first with: Term Insurance</div>
+
+        <div class="hero-actions">
+          <button type="button" class="btn btn-pri" (click)="openFeaturedChapter()">
+            Start Chapter 1
+          </button>
+          <button type="button" class="btn btn-out" (click)="scrollToChapterList()">
+            View All Chapters
+          </button>
+          <button type="button" class="btn btn-out" (click)="openConsultation()">
+            Ask An Advisor
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <main class="chapter-directory" id="chapterDirectory">
+    <div class="container">
+      <header class="directory-head reveal" appRevealOnScroll>
+        <h2>Chapter Directory</h2>
+        <p>
+          Pick one chapter based on your need today. Every chapter opens in a focused reader page with
+          breadcrumb and page-by-page flow.
+        </p>
+      </header>
+
+      <div class="directory-layout">
+        <section class="chapter-grid">
+          <article
+            class="chapter-card reveal"
+            appRevealOnScroll
+            *ngFor="let chapter of chapters; trackBy: trackChapter">
+            <span class="chapter-time">{{ chapter.readTime }} read</span>
+            <h3>{{ chapter.title }}</h3>
+            <p>{{ chapter.description }}</p>
+            <button type="button" class="btn btn-sm btn-pri" (click)="openChapter(chapter.id)">
+              Read {{ chapter.shortTitle }}
+            </button>
+          </article>
+        </section>
+
+        <aside class="directory-help reveal" appRevealOnScroll>
+          <h3>Need Quick Help?</h3>
+          <p>If you do not want to read now, you can talk to us directly.</p>
+
+          <button type="button" class="quick-btn quick-btn--wa" (click)="openWhatsApp('term insurance and investment planning')">
+            Ping Advisor on WhatsApp
+          </button>
+          <button type="button" class="quick-btn quick-btn--call" (click)="callAdvisor()">
+            Call Now
+          </button>
+
+          <small>Mon-Sat, 10:00 AM to 6:00 PM</small>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <app-cta-section></app-cta-section>
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+
+  <app-whatsapp-float></app-whatsapp-float>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

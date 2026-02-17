@@ -1,0 +1,185 @@
+<div class="target-workspace">
+  <app-navbar mode="target"></app-navbar>
+  <app-mobile-menu mode="target"></app-mobile-menu>
+
+  <header class="target-breadcrumb-bar">
+    <div class="target-breadcrumb-inner">
+      <a routerLink="/">Home</a>
+      <span>/</span>
+      <a routerLink="/">Tools</a>
+      <span>/</span>
+      <strong>Target Achiever</strong>
+    </div>
+  </header>
+
+  <main class="target-shell-main">
+    <div class="target-workspace-grid">
+      <section class="target-controls-panel">
+        <div class="range-group">
+          <label><span>Target Amount</span><span class="range-val">{{ calc.tgtAmtVal() }}</span></label>
+          <div class="range-row">
+            <input
+              type="range"
+              class="range-slider"
+              min="50000"
+              max="50000000"
+              step="50000"
+              [value]="calc.tgtAmt()"
+              (input)="onTargetAmtInput($any($event.target).value)">
+            <input
+              type="number"
+              class="range-number"
+              inputmode="numeric"
+              min="50000"
+              max="50000000"
+              step="50000"
+              [value]="calc.tgtAmt()"
+              (input)="onTargetAmtInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>Time Period (Years)</span><span class="range-val">{{ calc.tgtYrVal() }}</span></label>
+          <div class="range-row">
+            <input
+              type="range"
+              class="range-slider"
+              min="1"
+              max="30"
+              step="1"
+              [value]="calc.tgtYr()"
+              (input)="onTargetYearsInput($any($event.target).value)">
+            <input
+              type="number"
+              class="range-number"
+              inputmode="numeric"
+              min="1"
+              max="30"
+              step="1"
+              [value]="calc.tgtYr()"
+              (input)="onTargetYearsInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>MF Expected Return</span><span class="range-val">{{ calc.tgtRtVal() }}</span></label>
+          <div class="range-row">
+            <input
+              type="range"
+              class="range-slider"
+              min="8"
+              max="15"
+              step="1"
+              [value]="calc.tgtRt()"
+              (input)="onTargetMfRoiInput($any($event.target).value)">
+            <input
+              type="number"
+              class="range-number"
+              inputmode="numeric"
+              min="8"
+              max="15"
+              step="1"
+              [value]="calc.tgtRt()"
+              (input)="onTargetMfRoiInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label><span>FD Return</span><span class="range-val">{{ calc.tgtFdRtVal() }}</span></label>
+          <div class="range-row">
+            <input
+              type="range"
+              class="range-slider"
+              min="5"
+              max="8"
+              step="1"
+              [value]="calc.tgtFdRt()"
+              (input)="onTargetFdRoiInput($any($event.target).value)">
+            <input
+              type="number"
+              class="range-number"
+              inputmode="numeric"
+              min="5"
+              max="8"
+              step="1"
+              [value]="calc.tgtFdRt()"
+              (input)="onTargetFdRoiInput($any($event.target).value)">
+          </div>
+        </div>
+
+        <div class="target-metrics-grid">
+          <article class="target-metric-card focus">
+            <span>MF Monthly SIP Needed</span>
+            <strong>{{ calc.tgtMfSip() }}</strong>
+          </article>
+          <article class="target-metric-card fd-card">
+            <span>FD Monthly SIP Needed</span>
+            <strong>{{ calc.tgtFdSip() }}</strong>
+          </article>
+          <article class="target-metric-card" [class.neutral]="!hasFdBurden" [class.burden]="hasFdBurden">
+            <span>Extra Monthly Needed in FD</span>
+            <strong>{{ calc.tgtExtraMonthly() }}</strong>
+          </article>
+          <article class="target-metric-card" [class.neutral]="!hasFdBurden" [class.burden]="hasFdBurden">
+            <span>Extra Total Needed in FD</span>
+            <strong>{{ calc.tgtExtraTotal() }}</strong>
+          </article>
+          <article class="target-metric-card efficiency">
+            <span>MF Efficiency</span>
+            <strong>{{ calc.tgtEfficiency() }}</strong>
+          </article>
+        </div>
+
+        <div class="target-insight" [class.neutral]="!hasFdBurden">
+          <ng-container *ngIf="hasFdBurden; else neutralInsight">
+            To reach <strong>{{ calc.tgtGoal() }}</strong> in <strong>{{ calc.tgtYears() }}</strong>, FD route needs
+            <strong>{{ calc.tgtExtraMonthly() }}/month</strong> more and
+            <strong>{{ calc.tgtExtraTotal() }}</strong> more total outflow (based on selected assumptions).
+          </ng-container>
+          <ng-template #neutralInsight>
+            FD and MF assumptions currently imply no monthly burden difference for
+            <strong>{{ calc.tgtGoal() }}</strong> in <strong>{{ calc.tgtYears() }}</strong>.
+          </ng-template>
+        </div>
+      </section>
+
+      <section class="target-charts-panel">
+        <article class="target-core-chart-card">
+          <div class="target-chart-head">
+            <div class="chart-title">Core Monthly Burden Comparison (Always Visible)</div>
+          </div>
+
+          <div class="target-chart-slot">
+            <div class="target-core-chart-wrap">
+              <canvas #targetCoreChartCanvas></canvas>
+            </div>
+          </div>
+
+          <div class="target-callout" [class.neutral]="!hasFdBurden">
+            <ng-container *ngIf="hasFdBurden; else calloutNeutral">
+              FD needs <strong>{{ calc.tgtExtraMonthly() }}/month</strong> more than MF for the same target.
+            </ng-container>
+            <ng-template #calloutNeutral>
+              FD and MF monthly requirement is currently equal based on selected inputs.
+            </ng-template>
+          </div>
+
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#0f766e,#0ea5a3)"></div>MF Monthly SIP Needed</div>
+            <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(90deg,#b45309,#d97706)"></div>FD Monthly SIP Needed</div>
+            <div class="legend-item"><div class="legend-dot" [style.background]="hasFdBurden ? 'linear-gradient(90deg,#dc2626,#ef4444)' : 'linear-gradient(90deg,#64748b,#94a3b8)'"></div>Extra FD Monthly Needed</div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="target-shell-footer">
+    <div class="target-shell-footer-inner">
+      <span>Projection for educational planning. Returns are not guaranteed.</span>
+      <span>Single Point</span>
+    </div>
+  </footer>
+
+  <app-contact-modal></app-contact-modal>
+</div>
