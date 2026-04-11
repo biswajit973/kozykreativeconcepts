@@ -1730,7 +1730,11 @@ LEGACY HALO BACKUP END */
   }
   .hero-typing-line { justify-content: center; display: flex; }
   .hero-badge { margin-bottom: 1.65rem; }
-  .hero-context { margin-bottom: .48rem; }
+  .hero-context {
+    width: fit-content;
+    margin: 0 auto .48rem;
+    text-align: center;
+  }
   .hero h1 {
     max-width: 14.5ch;
     font-size: clamp(2.15rem, 4.2vw, 2.7rem);
@@ -1775,6 +1779,9 @@ LEGACY HALO BACKUP END */
 @media (max-width: 900px) {
   .hero-grid > div:first-child {
     width: min(100%, 39rem);
+  }
+  .hero-context {
+    margin-bottom: .48rem;
   }
   .hero h1 {
     max-width: 16ch;
