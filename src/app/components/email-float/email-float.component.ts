@@ -18,8 +18,8 @@ export class EmailFloatComponent {
 
   readonly isOpen = signal(false);
   readonly emails: SupportEmail[] = [
-    { label: 'Info@kreative.in', href: 'mailto:Info@kreative.in' },
-    { label: 'Hr@kkreative.in', href: 'mailto:Hr@kkreative.in' }
+    { label: 'info@kkreative.in', href: 'mailto:info@kkreative.in' },
+    { label: 'hr@kkreative.in', href: 'mailto:hr@kkreative.in' }
   ];
 
   toggleMenu(event: Event): void {

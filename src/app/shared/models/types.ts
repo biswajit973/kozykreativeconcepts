@@ -1,4 +1,4 @@
-export type ModalId = 'contactModal' | 'sipModal' | 'targetModal' | null;
+export type ModalId = 'contactModal' | 'sipModal' | 'targetModal' | 'applyModal' | null;
 
 export type GalleryType = 'web' | 'mob';
 
@@ -98,7 +98,6 @@ export interface ChatSessionState {
 export interface ChatMessage {
   id: string;
   sender: 'bot' | 'user';
-  html?: string;
   text?: string;
   bullets?: string[];
   links?: ChatMessageLink[];

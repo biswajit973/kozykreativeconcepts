@@ -50,48 +50,107 @@
 
 .company-grid {
   margin-top: 1.35rem;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(11, 32, 39, 0.08);
+  box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
+}
+
+.company-grid::before,
+.company-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.company-grid::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(247, 245, 240, 0.98), rgba(247, 245, 240, 0));
+}
+
+.company-grid::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(247, 245, 240, 0.98), rgba(247, 245, 240, 0));
+}
+
+.company-marquee {
+  overflow: hidden;
+}
+
+.company-marquee + .company-marquee {
+  margin-top: 0.95rem;
+}
+
+.company-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  animation: company-logos-slide-left 34s linear infinite;
+  will-change: transform;
+}
+
+.company-marquee--reverse .company-track {
+  animation-name: company-logos-slide-right;
+  animation-duration: 38s;
+}
+
+.company-grid:hover .company-track {
+  animation-play-state: paused;
 }
 
 .company-item {
-  border-radius: 16px;
+  width: clamp(170px, 18vw, 210px);
+  min-width: clamp(170px, 18vw, 210px);
+  height: 104px;
+  border-radius: 18px;
   border: 1px solid rgba(11, 32, 39, 0.08);
   background: rgba(255, 255, 255, 0.84);
   box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
-  padding: 0.85rem 0.65rem;
-  display: grid;
-  justify-items: center;
-  gap: 0.52rem;
-}
-
-.company-item span {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--c-text);
-  text-align: center;
-}
-
-.company-initials {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+  padding: 1rem 1.15rem;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, rgba(17, 75, 95, 0.18), rgba(2, 128, 144, 0.12));
-  border: 1px solid rgba(11, 32, 39, 0.14);
-  color: var(--c-pri);
-  font-weight: 800 !important;
-  font-size: 0.74rem !important;
-  letter-spacing: 0.03em;
 }
 
-.company-item small {
-  margin-top: -0.12rem;
-  font-size: 0.66rem;
-  color: var(--c-muted);
-  text-align: center;
+.company-logo-image {
+  display: block;
+  width: 100%;
+  max-width: 176px;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+@keyframes company-logos-slide-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes company-logos-slide-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-track {
+    animation: none;
+  }
 }
 
 .snapshot-grid {
@@ -161,8 +220,9 @@
 }
 
 @media (max-width: 1024px) {
-  .company-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .company-item {
+    width: 180px;
+    min-width: 180px;
   }
 }
 
@@ -178,7 +238,24 @@
   }
 
   .company-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0.82rem;
+  }
+
+  .company-grid::before,
+  .company-grid::after {
+    width: 44px;
+  }
+
+  .company-item {
+    width: 148px;
+    min-width: 148px;
+    height: 88px;
+    padding: 0.78rem 0.9rem;
+  }
+
+  .company-logo-image {
+    max-width: 130px;
+    max-height: 48px;
   }
 }
 
@@ -206,20 +283,21 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.52);
 }
 
-:host-context([data-theme='dark']) .company-item span,
 :host-context([data-theme='dark']) .snapshot-card h3,
 :host-context([data-theme='dark']) .action-box h3 {
   color: #ebf8ff;
 }
 
-:host-context([data-theme='dark']) .company-item small {
-  color: #b8d5e1;
+:host-context([data-theme='dark']) .company-grid {
+  background: linear-gradient(180deg, rgba(8, 17, 26, 0.94), rgba(3, 9, 14, 0.95));
 }
 
-:host-context([data-theme='dark']) .company-initials {
-  border-color: rgba(150, 218, 236, 0.28);
-  background: linear-gradient(135deg, rgba(0, 209, 247, 0.18), rgba(8, 18, 28, 0.92));
-  color: #9be8f8 !important;
+:host-context([data-theme='dark']) .company-grid::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0));
+}
+
+:host-context([data-theme='dark']) .company-grid::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0));
 }
 
 :host-context([data-theme='dark']) .snapshot-card p {

@@ -28,6 +28,38 @@
   z-index: 1;
 }
 
+.cta-culture {
+  display: grid;
+  gap: 0.18rem;
+  margin-top: 1rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.cta-culture strong {
+  color: rgba(255, 255, 255, 0.98);
+  font-size: 0.84rem;
+  letter-spacing: 0.01em;
+}
+
+.cta-culture span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
 :host-context([data-theme='dark']) .cta-fx {
   opacity: 1;
+}
+
+:host-context([data-theme='dark']) .cta-culture {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(138, 255, 210, 0.14);
+}
+
+:host-context([data-theme='dark']) .cta-culture span {
+  color: rgba(216, 250, 255, 0.76);
 }

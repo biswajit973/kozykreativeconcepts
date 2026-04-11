@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, HostListener, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { ChatbotWidgetComponent } from '../../components/chatbot-widget/chatbot-widget.component';
 import { CompaniesSectionComponent } from '../../components/companies-section/companies-section.component';
 import { ComplianceStripComponent } from '../../components/compliance-strip/compliance-strip.component';
@@ -15,6 +15,7 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
 import { TestimonialsSectionComponent } from '../../components/testimonials-section/testimonials-section.component';
 import { TickerComponent } from '../../components/ticker/ticker.component';
 import { CalculatorService } from '../../shared/services/calculator.service';
+import { SeoService } from '../../shared/services/seo.service';
 import { UiStateService } from '../../shared/services/ui-state.service';
 
 @Component({
@@ -39,15 +40,27 @@ import { UiStateService } from '../../shared/services/ui-state.service';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent implements AfterViewInit, OnDestroy {
+export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly doc = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
   private readonly ui = inject(UiStateService);
   private readonly calc = inject(CalculatorService);
+  private readonly seo = inject(SeoService);
 
   private revealObs: IntersectionObserver | null = null;
   private resizeTimeout: number | null = null;
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'KKreative — Top Software Development Company in Hyderabad | Kozy Kreative Concepts Pvt Ltd',
+      description:
+        'KKREATIVE CONCEPTS PRIVATE LIMITED (Kozy Kreative Concepts) is a top software development company in Hyderabad since 2014. Apps, websites, AI, cloud, DevOps, digital marketing, and IT consulting. Visit kkreative.in or call +91 9000500600.',
+      path: '/',
+      keywords:
+        'KKreative, Kkreative.in, Kozy Kreative Concepts, Kozy Kreative Concepts Pvt Ltd, Kozy Kreative Hyderabad, KKreative Concepts, KKREATIVE CONCEPTS PRIVATE LIMITED, Option Perks, software development company Hyderabad, web development company Hyderabad, app development company Hyderabad, AI company Hyderabad, cloud consulting Hyderabad, DevOps Hyderabad, digital marketing Hyderabad, IT company Hyderabad, best software company Telangana, Khairatabad IT company, software company India since 2014'
+    });
+  }
 
   ngAfterViewInit(): void {
     if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {

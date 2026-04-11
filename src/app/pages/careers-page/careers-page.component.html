@@ -7,10 +7,21 @@
       <div class="careers-head">
         <div class="overline">Careers</div>
         <h1>{{ dataset().company }}</h1>
-        <p>Join a practical technology team building digital products, cloud systems, and automation for real business outcomes.</p>
+        <p>Join a team with {{ yearsOfExperience }} years of hands-on delivery since {{ foundingYear }}, working on websites, apps, cloud systems, automation, and digital products for real businesses.</p>
         <div class="refresh-row">
           <span class="refresh-badge">{{ refreshLabel() }}</span>
           <span class="refresh-period">Current period: {{ refreshPeriod() }}</span>
+        </div>
+      </div>
+
+      <div class="culture-strip">
+        <div class="culture-copy">
+          <strong>Why people choose Kozy</strong>
+          <p>Kozy to work with. Kreative to deliver. We keep the team remote-first, flexible with time, and serious about thoughtful creative output.</p>
+        </div>
+
+        <div class="culture-chips">
+          <span class="culture-chip" *ngFor="let item of workBenefits">{{ item }}</span>
         </div>
       </div>
 
@@ -75,7 +86,7 @@
             <span class="tag-chip" *ngFor="let tag of role.tags">{{ tag }}</span>
           </div>
 
-          <a class="apply-link" [href]="getApplyHref()">{{ role.applyCta }}</a>
+          <button type="button" class="apply-link" (click)="openApplyModal()">{{ role.applyCta }}</button>
         </article>
       </div>
     </div>
@@ -83,5 +94,6 @@
 
   <app-footer></app-footer>
   <app-contact-modal></app-contact-modal>
+  <app-apply-modal></app-apply-modal>
   <app-chatbot-widget></app-chatbot-widget>
 </div>

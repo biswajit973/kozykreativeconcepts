@@ -3,6 +3,7 @@ import { Component, DestroyRef, OnInit, PLATFORM_ID, computed, inject, signal } 
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SeoService } from '../../shared/services/seo.service';
 import { BlogTopic, BlogTopicSection } from './blog-topic.models';
 import { BlogTopicsService } from '../blogs-page/blog-topics.service';
 
@@ -17,6 +18,7 @@ export class BlogTopicPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly topicsService = inject(BlogTopicsService);
+  private readonly seo = inject(SeoService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
@@ -71,6 +73,18 @@ export class BlogTopicPageComponent implements OnInit {
         if (!hasTopic) {
           this.router.navigate(['/blogs'], { replaceUrl: true });
           return;
+        }
+
+        const activeTopic = dataset.topics.find((topic) => topic.slug === slug);
+        if (activeTopic) {
+          this.seo.update({
+            title: `${activeTopic.title} | KKREATIVE Blog`,
+            description:
+              `${activeTopic.summary} Read the full article from KKREATIVE, a Hyderabad-based software, AI, and digital consulting team.`,
+            path: `/blogs/${activeTopic.slug}`,
+            type: 'article',
+            keywords: `KKREATIVE blog, Hyderabad technology blog, ${activeTopic.title}`
+          });
         }
 
         this.scrollToTop();

@@ -1,23 +1,50 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { BlogsPageComponent } from './pages/blogs-page/blogs-page.component';
-import { BlogTopicPageComponent } from './pages/blog-topic-page/blog-topic-page.component';
-import { CareersPageComponent } from './pages/careers-page/careers-page.component';
-import { ServicesPageComponent } from './pages/services-page/services-page.component';
-import { WhoWeArePageComponent } from './pages/who-we-are-page/who-we-are-page.component';
-import { IndustriesPageComponent } from './pages/industries-page/industries-page.component';
-import { TechnologyPageComponent } from './pages/technology-page/technology-page.component';
-import { OurWorkPageComponent } from './pages/our-work-page/our-work-page.component';
 
 export const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'services', component: ServicesPageComponent },
-  { path: 'who-we-are', component: WhoWeArePageComponent },
-  { path: 'industries', component: IndustriesPageComponent },
-  { path: 'technology', component: TechnologyPageComponent },
-  { path: 'our-work', component: OurWorkPageComponent },
-  { path: 'blogs', component: BlogsPageComponent },
-  { path: 'blogs/:slug', component: BlogTopicPageComponent },
-  { path: 'careers', component: CareersPageComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/home-page/home-page.component').then((m) => m.HomePageComponent)
+  },
+  {
+    path: 'services',
+    loadComponent: () =>
+      import('./pages/services-page/services-page.component').then((m) => m.ServicesPageComponent)
+  },
+  {
+    path: 'who-we-are',
+    loadComponent: () =>
+      import('./pages/who-we-are-page/who-we-are-page.component').then((m) => m.WhoWeArePageComponent)
+  },
+  {
+    path: 'industries',
+    loadComponent: () =>
+      import('./pages/industries-page/industries-page.component').then((m) => m.IndustriesPageComponent)
+  },
+  {
+    path: 'technology',
+    loadComponent: () =>
+      import('./pages/technology-page/technology-page.component').then((m) => m.TechnologyPageComponent)
+  },
+  {
+    path: 'our-work',
+    loadComponent: () =>
+      import('./pages/our-work-page/our-work-page.component').then((m) => m.OurWorkPageComponent)
+  },
+  {
+    path: 'blogs',
+    loadComponent: () =>
+      import('./pages/blogs-page/blogs-page.component').then((m) => m.BlogsPageComponent)
+  },
+  {
+    path: 'blogs/:slug',
+    loadComponent: () =>
+      import('./pages/blog-topic-page/blog-topic-page.component').then((m) => m.BlogTopicPageComponent)
+  },
+  {
+    path: 'careers',
+    loadComponent: () =>
+      import('./pages/careers-page/careers-page.component').then((m) => m.CareersPageComponent)
+  },
   { path: '**', redirectTo: '' }
 ];

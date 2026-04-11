@@ -117,10 +117,10 @@ export class ServicesSectionComponent implements OnDestroy {
   readonly categories: ServiceCategory[] = [
     {
       id: 'development',
-      title: 'App and Web Development',
+      title: 'Apps and Websites',
       emoji: '💻',
-      intro: 'Build fast, clean, and scalable digital products.',
-      cue: 'Open each card to see simple real business use-cases.',
+      intro: 'Build useful products for customers and internal teams.',
+      cue: 'Open a card to see the kind of business problem it usually solves.',
       items: [
         { id: 'app-development', name: 'App Development', hook: 'Android, iOS, Windows, and Mac app builds.' },
         { id: 'web-development', name: 'Web Development', hook: 'Landing pages, websites, and web applications.' }
@@ -130,8 +130,8 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'automation',
       title: 'Automation and AI',
       emoji: '🤖',
-      intro: 'Reduce manual work and increase team speed.',
-      cue: 'See how chatbot and business automation save daily effort.',
+      intro: 'Use AI and automation where it saves time and reduces repetition.',
+      cue: 'See how we simplify support and daily operations.',
       items: [
         { id: 'chatbot-automation', name: 'Chatbots and Automation', hook: 'Support bots and smart workflow automation.' }
       ]
@@ -140,8 +140,8 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'cloud-quality',
       title: 'Cloud, DevOps and Quality',
       emoji: '☁️',
-      intro: 'Deploy with confidence and keep systems stable.',
-      cue: 'Cloud setup, testing, and security from one team.',
+      intro: 'Keep releases stable and systems secure.',
+      cue: 'Cloud setup, testing, and security support from one team.',
       items: [
         { id: 'cloud-devops', name: 'Cloud and DevOps', hook: 'AWS, Azure, GCP with deployment and monitoring.' },
         { id: 'qa-cybersecurity', name: 'QA and Cybersecurity', hook: 'Manual + automation testing and security checks.' }
@@ -151,8 +151,8 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'growth-training',
       title: 'Growth and Digitalisation',
       emoji: '📈',
-      intro: 'Bring offline business online and train teams for growth.',
-      cue: 'From digital marketing to software trainings, we support execution.',
+      intro: 'Help the business get noticed and help the team learn.',
+      cue: 'Marketing, digital setup, and training explained in plain business language.',
       items: [
         { id: 'digital-marketing', name: 'Digital Marketing', hook: 'SEO, social media, ads, and lead generation.' },
         { id: 'business-digitalisation', name: 'Business Consulting and Digitalisation', hook: 'Step-by-step guidance to go digital.' },
@@ -166,11 +166,11 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'app-development',
       categoryId: 'development',
       title: 'App Development',
-      subtitle: 'Android, iOS, Windows, and Mac apps built for real business workflows.',
+      subtitle: 'Android, iOS, Windows, and Mac apps built around day-to-day business work.',
       iconKey: 'app-development',
       emoji: '📱',
-      factChips: ['Android + iOS', 'Desktop support', 'Product-first delivery'],
-      keyLine: 'We build apps that are simple to use, fast to load, and easy to scale.',
+      factChips: ['Android + iOS', 'Desktop apps', 'Weekly demos'],
+      keyLine: 'A good app should make work easier from the first week of use.',
       highlightWords: ['fast', 'simple', 'scale', 'delivery', 'users'],
       blocks: [
         {
@@ -195,11 +195,11 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'web-development',
       categoryId: 'development',
       title: 'Web Development',
-      subtitle: 'Landing pages, websites, web apps, and Gen AI integrations for business growth.',
+      subtitle: 'Landing pages, websites, web apps, and useful AI features where they genuinely help.',
       iconKey: 'web-development',
       emoji: '🌐',
-      factChips: ['Landing pages', 'Web apps', 'AI/ML integration'],
-      keyLine: 'Your website should not just look good. It should convert and support operations.',
+      factChips: ['Landing pages', 'Web apps', 'Useful AI features'],
+      keyLine: 'A website should explain the business clearly and make the next step easy.',
       highlightWords: ['convert', 'website', 'web app', 'performance', 'business'],
       blocks: [
         {
@@ -224,11 +224,11 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'chatbot-automation',
       categoryId: 'automation',
       title: 'Chatbots and Automation',
-      subtitle: 'Customer support bots and business automations that reduce repetitive work.',
+      subtitle: 'Chat support and workflow automation for the tasks teams repeat every day.',
       iconKey: 'chatbot-automation',
       emoji: '🤖',
-      factChips: ['24x7 chatbot support', 'Workflow rules', 'Agent integration'],
-      keyLine: 'Automate repetitive tasks so your team can focus on high-value work.',
+      factChips: ['Chat support', 'Workflow rules', 'Human handover'],
+      keyLine: 'Automation should remove repeated work, not create more confusion.',
       highlightWords: ['automate', 'support', 'save time', 'team', 'workflow'],
       blocks: [
         {
@@ -253,11 +253,11 @@ export class ServicesSectionComponent implements OnDestroy {
       id: 'cloud-devops',
       categoryId: 'cloud-quality',
       title: 'Cloud and DevOps',
-      subtitle: 'AWS, Azure, and Google Cloud setup with deployment, monitoring, and support.',
+      subtitle: 'AWS, Azure, and Google Cloud support for deployment, monitoring, and release flow.',
       iconKey: 'cloud-devops',
       emoji: '☁️',
       factChips: ['AWS • Azure • GCP', 'CI/CD pipelines', 'Monitoring and alerts'],
-      keyLine: 'Reliable infrastructure and clean DevOps reduce release stress.',
+      keyLine: 'Cloud work should help the team release with less stress and fewer surprises.',
       highlightWords: ['cloud', 'deployment', 'monitoring', 'reliable', 'support'],
       blocks: [
         {
@@ -286,7 +286,7 @@ export class ServicesSectionComponent implements OnDestroy {
       iconKey: 'qa-cybersecurity',
       emoji: '🧪',
       factChips: ['Manual + automation QA', 'Security test support', 'Release readiness'],
-      keyLine: 'Quality and security should be part of delivery, not an afterthought.',
+      keyLine: 'Testing and security checks should happen before the customer finds the problem.',
       highlightWords: ['quality', 'security', 'testing', 'bugs', 'release'],
       blocks: [
         {
@@ -315,7 +315,7 @@ export class ServicesSectionComponent implements OnDestroy {
       iconKey: 'digital-marketing',
       emoji: '📣',
       factChips: ['SEO + Ads', 'Lead generation', 'Brand visibility'],
-      keyLine: 'Digital presence should bring business results, not just likes.',
+      keyLine: 'Marketing should bring calls, enquiries, and sales, not only impressions.',
       highlightWords: ['SEO', 'leads', 'ads', 'branding', 'results'],
       blocks: [
         {
@@ -327,24 +327,24 @@ export class ServicesSectionComponent implements OnDestroy {
           lines: ['Set up channel strategy for search, social, and paid campaigns.', 'Built landing funnels and conversion tracking.']
         },
         {
-          title: 'Execution style',
-          lines: ['Weekly reporting with clear KPI dashboard.', 'Campaigns optimized using performance insights.']
+          title: 'How we run it',
+          lines: ['Weekly reporting with clear numbers.', 'Campaigns adjusted based on what is actually working.']
         },
         {
           title: 'Business benefit',
-          lines: ['Better lead quality and stronger online visibility.', 'Marketing budget gets more accountable outcomes.']
+          lines: ['Better lead quality and stronger online visibility.', 'Marketing budget becomes easier to review and control.']
         }
       ]
     },
     {
       id: 'business-digitalisation',
       categoryId: 'growth-training',
-      title: 'Business Consulting and Digitalisation',
-      subtitle: 'We help offline businesses come online with practical tech and marketing roadmap.',
+      title: 'Business Consulting and Digital Setup',
+      subtitle: 'We help offline businesses come online in steps that fit the team and budget.',
       iconKey: 'business-digitalisation',
       emoji: '🏭',
-      factChips: ['Offline to online', 'Step-by-step roadmap', 'Practical execution'],
-      keyLine: 'Digital transformation works best when done in clear and simple phases.',
+      factChips: ['Offline to online', 'Simple rollout', 'Team adoption'],
+      keyLine: 'Going digital works better when the steps are clear and manageable.',
       highlightWords: ['digital', 'roadmap', 'online', 'process', 'growth'],
       blocks: [
         {
@@ -373,7 +373,7 @@ export class ServicesSectionComponent implements OnDestroy {
       iconKey: 'software-trainings',
       emoji: '🎓',
       factChips: ['Python Full Stack', 'MERN + Cloud', 'AI/ML training'],
-      keyLine: 'Skill upgrade creates long-term team strength and delivery confidence.',
+      keyLine: 'Good training helps people do the work with more confidence.',
       highlightWords: ['training', 'skills', 'team', 'cloud', 'AI/ML'],
       blocks: [
         {
@@ -423,7 +423,7 @@ export class ServicesSectionComponent implements OnDestroy {
   }
 
   storyHook(storyId: string): string {
-    return this.subItemMap.get(storyId)?.hook ?? 'Simple story that explains practical business value.';
+    return this.subItemMap.get(storyId)?.hook ?? 'Simple explanation of how this service helps the business.';
   }
 
   iconTileClass(iconKey: string): string {

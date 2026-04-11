@@ -1,54 +1,43 @@
 <div class="mobile-menu" id="mobileMenu" [class.open]="ui.mobileMenuOpen()">
   <div class="mm-head">
     <span class="logo" style="font-size:1.1rem">
-      <div class="logo-mark" style="width:32px;height:32px"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L12 6L18 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="logo-mark logo-mark--image" style="width:32px;height:32px">
+        <img src="/work-logos/Logo.png" alt="KKREATIVE logo" loading="eager" decoding="async" />
+      </div>
       KKREATIVE
     </span>
     <button class="mm-close" (click)="closeMM()">✕</button>
   </div>
-  <button
-    type="button"
-    class="mm-theme-toggle"
-    (click)="toggleThemeMode()"
-    [attr.aria-label]="ui.isDarkMode() ? 'Switch to light mode' : 'Switch to OLED black mode'">
-    <svg *ngIf="!ui.isDarkMode()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="4"></circle>
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-    </svg>
-    <svg *ngIf="ui.isDarkMode()" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3c0.38 0 0.76 0.03 1.13 0.08a7 7 0 0 0 8.58 9.71c0.05 0.33 0.08 0.66 0.08 1z"></path>
-    </svg>
-  </button>
   <ng-container *ngIf="mode === 'home'; else routeModeLinks">
     <button class="mm-link" type="button" style="pointer-events:none;color:var(--c-muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;padding-bottom:.3rem;border:none">
       What We Do
     </button>
     <div class="mm-sub">
-      <a href="#" (click)="$event.preventDefault(); openServicesFromMenu()">Our Services</a>
-      <a href="#" (click)="$event.preventDefault(); openIndustriesFromMenu()">Industries</a>
-      <a href="#" (click)="$event.preventDefault(); openTechnologyFromMenu()">Technologies</a>
+      <a routerLink="/services" (click)="closeMM()">Our Services</a>
+      <a routerLink="/industries" (click)="closeMM()">Industries</a>
+      <a routerLink="/technology" (click)="closeMM()">Technologies</a>
     </div>
-    <a href="#" (click)="$event.preventDefault(); openWhoWeAreFromMenu()">Who We Are</a>
-    <a href="#" (click)="$event.preventDefault(); openOurWorkFromMenu()">Our Work</a>
-    <a href="#" (click)="$event.preventDefault(); openBlogsFromMenu()">Blogs</a>
-    <a href="#" (click)="$event.preventDefault(); openCareersFromMenu()">Careers</a>
+    <a routerLink="/who-we-are" (click)="closeMM()">Who We Are</a>
+    <a routerLink="/our-work" (click)="closeMM()">Our Work</a>
+    <a routerLink="/blogs" (click)="closeMM()">Blogs</a>
+    <a routerLink="/careers" (click)="closeMM()">Careers</a>
   </ng-container>
   <ng-template #routeModeLinks>
-    <a href="#" (click)="$event.preventDefault(); openHomeFromMenu()">Home</a>
+    <a routerLink="/" (click)="closeMM()">Home</a>
     <button class="mm-link" type="button" style="pointer-events:none;color:var(--c-muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;padding-bottom:.3rem;border:none">
       What We Do
     </button>
     <div class="mm-sub">
-      <a href="#" (click)="$event.preventDefault(); openServicesFromMenu()">Our Services</a>
-      <a href="#" (click)="$event.preventDefault(); openIndustriesFromMenu()">Industries</a>
-      <a href="#" (click)="$event.preventDefault(); openTechnologyFromMenu()">Technologies</a>
+      <a routerLink="/services" (click)="closeMM()">Our Services</a>
+      <a routerLink="/industries" (click)="closeMM()">Industries</a>
+      <a routerLink="/technology" (click)="closeMM()">Technologies</a>
     </div>
-    <a href="#" (click)="$event.preventDefault(); openWhoWeAreFromMenu()">Who We Are</a>
-    <a href="#" (click)="$event.preventDefault(); openOurWorkFromMenu()">Our Work</a>
-    <a href="#" (click)="$event.preventDefault(); openBlogsFromMenu()">Blogs</a>
-    <a href="#" (click)="$event.preventDefault(); openCareersFromMenu()">Careers</a>
+    <a routerLink="/who-we-are" (click)="closeMM()">Who We Are</a>
+    <a routerLink="/our-work" (click)="closeMM()">Our Work</a>
+    <a routerLink="/blogs" (click)="closeMM()">Blogs</a>
+    <a routerLink="/careers" (click)="closeMM()">Careers</a>
   </ng-template>
-  <a href="#" (click)="$event.preventDefault(); openModalFromMenu('contactModal')">Let's Connect</a>
-  <a *ngIf="mode === 'home'" href="#contact-section" (click)="closeMM()">Contact Us</a>
-  <a *ngIf="mode !== 'home'" href="#" (click)="$event.preventDefault(); openModalFromMenu('contactModal')">Contact Us</a>
+  <button type="button" class="mm-link" (click)="openModalFromMenu('contactModal')">Let's Connect</button>
+  <a *ngIf="mode === 'home'" routerLink="/" fragment="contact-section" (click)="closeMM()">Contact Us</a>
+  <button *ngIf="mode !== 'home'" type="button" class="mm-link" (click)="openModalFromMenu('contactModal')">Contact Us</button>
 </div>

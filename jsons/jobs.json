@@ -3,7 +3,7 @@
     "refreshMode": "weekly",
     "currency": "INR",
     "apply": {
-      "email": "Hr@kkreative.in",
+      "email": "hr@kkreative.in",
       "ctaOpen": "Apply now",
       "ctaEvergreen": "Join our talent pool"
     },
@@ -40,7 +40,7 @@
         ],
         "summaryVariants": [
           "Build fast, stable cross-platform desktop apps with Electron/Tauri and production-grade release workflows.",
-          "Own desktop features end-to-end: UI, local storage, OS integrations, packaging, and auto-updates.",
+          "Own desktop features start-to-finish: UI, local storage, OS integrations, packaging, and auto-updates.",
           "Design reliable Windows/macOS applications with strong performance, security, and crash resilience.",
           "Ship polished desktop experiences with robust telemetry, diagnostics, and iterative improvements.",
           "Build offline-first desktop apps with secure local data, sync, and background processes.",
@@ -157,7 +157,7 @@
             "Ability to collaborate with product and design"
           ],
           [
-            "Experience leading features end-to-end in a product team",
+            "Experience leading features start-to-finish in a product team",
             "Strong code review discipline and mentoring experience",
             "Ability to prioritize, estimate, and deliver reliably",
             "Comfort troubleshooting production issues under time pressure",
@@ -215,7 +215,7 @@
         ],
         "summaryVariants": [
           "Build secure, scalable Python services and polished Angular experiences used in real products.",
-          "Own features end-to-end from backend APIs to Angular UI, with strong quality and testing.",
+          "Own features start-to-finish from backend APIs to Angular UI, with strong quality and testing.",
           "Design clean APIs, optimize databases, and ship user-facing Angular features at speed.",
           "Deliver reliable services and modern UI with CI/CD, observability, and performance focus.",
           "Build and scale microservices with Python while delivering crisp UI in Angular.",
@@ -226,9 +226,9 @@
           "Create reusable components and service patterns to accelerate delivery."
         ],
         "overviewVariants": [
-          "You’ll work across Python services and Angular UI to ship end-to-end product features with a focus on quality, security, and maintainability.",
+          "You’ll work across Python services and Angular UI to ship start-to-finish product features with a focus on quality, security, and maintainability.",
           "This role blends backend depth (API design, data modeling, reliability) with front-end delivery (Angular, UX collaboration, performance).",
-          "You’ll help shape engineering standards, build reusable foundations, and mentor teammates while delivering product outcomes."
+          "You’ll help shape engineering standards, build reusable foundations, and mentor teammates while delivering product results."
         ],
         "responsibilitySets": [
           [
@@ -239,7 +239,7 @@
             "Ship with CI/CD and maintain high code quality via reviews"
           ],
           [
-            "Own features end-to-end from requirement to production release",
+            "Own features start-to-finish from requirement to production release",
             "Write unit/integration tests and improve coverage systematically",
             "Implement caching/background jobs and optimize performance",
             "Add observability: logs, metrics, tracing, dashboards",
@@ -295,7 +295,7 @@
             "Deliver features with measurable impact"
           ],
           [
-            "Lead end-to-end delivery with high ownership and accountability",
+            "Lead start-to-finish delivery with high ownership and accountability",
             "Establish patterns for API development and Angular UI consistency",
             "Coordinate releases and production readiness checks",
             "Improve engineering metrics (lead time, defects, reliability)",
@@ -347,7 +347,7 @@
           ["GraphQL", "OpenAPI", "Feature Flags", "Tracing", "Dashboards"]
         ],
         "benefitsVariants": [
-          "Health insurance, paid leave, learning budget, and high ownership of product outcomes.",
+          "Health insurance, paid leave, learning budget, and high ownership of product results.",
           "Competitive compensation, mentorship, flexible work model (role dependent), and strong engineering culture.",
           "Growth opportunities, modern tech stack, and a team that values clean engineering."
         ],
@@ -389,8 +389,8 @@
           "Content Lead – Content Calendar & Execution"
         ],
         "summaryVariants": [
-          "Create scroll-stopping short-form content that builds brand and drives measurable outcomes.",
-          "Own content end-to-end: ideation, scripting, shooting, editing, and publishing across platforms.",
+          "Create scroll-stopping short-form content that builds brand and drives measurable results.",
+          "Own content start-to-finish: ideation, scripting, shooting, editing, and publishing across platforms.",
           "Turn product stories into engaging reels, posts, and campaigns that convert attention into trust.",
           "Build a consistent, high-quality content engine across Instagram, YouTube Shorts, and LinkedIn.",
           "Create high-volume, high-quality content with a sharp eye for storytelling and editing.",
@@ -459,7 +459,7 @@
             "Deliver fast variations: hooks, thumbnails, opening frames",
             "Align content to persona pain points and product value props",
             "Collaborate with growth team to improve CAC/ROAS inputs",
-            "Keep a backlog of tested angles and outcomes"
+            "Keep a backlog of tested angles and results"
           ]
         ],
         "requirementSets": [
@@ -562,7 +562,7 @@
         ],
         "overviewVariants": [
           "You’ll lead performance marketing and growth experiments across channels. This role blends execution with analytics and tight feedback loops with creative and product.",
-          "You’ll own campaigns end-to-end—from strategy and setup to optimization, reporting, and scaling based on outcomes."
+          "You’ll own campaigns start-to-finish—from strategy and setup to optimization, reporting, and scaling based on results."
         ],
         "responsibilitySets": [
           [
@@ -595,7 +595,7 @@
           ],
           [
             "Build reporting automation and insight narratives for leadership",
-            "Monitor cohort performance and experiment outcomes",
+            "Monitor cohort performance and experiment results",
             "Improve campaign structure, naming conventions, and governance",
             "Reduce waste and increase efficiency via segmentation and exclusions",
             "Collaborate cross-functionally to align marketing with product positioning"
@@ -652,7 +652,7 @@
             "Bonus: B2B demand generation experience"
           ],
           [
-            "Ability to lead growth initiatives end-to-end",
+            "Ability to lead growth initiatives start-to-finish",
             "Comfort prioritizing tasks for impact and speed",
             "Strong analytical thinking and problem solving",
             "Experience improving efficiency and reducing CAC over time",
@@ -667,7 +667,7 @@
           ["SEO (Basic)", "Email (Basic)", "Offer Framing", "Audience Strategy", "Optimization"]
         ],
         "benefitsVariants": [
-          "High ownership, room to experiment, and direct impact on growth outcomes.",
+          "High ownership, room to experiment, and direct impact on growth results.",
           "Supportive team, learning budget, and a culture that values measurable progress.",
           "Competitive pay, strong feedback loops, and a fast-moving execution environment."
         ],

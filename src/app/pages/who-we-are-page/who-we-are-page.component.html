@@ -5,10 +5,9 @@
   <section class="who-hero">
     <div class="container">
       <div class="overline">Who We Are</div>
-      <h1>12 Years of Consistent Tech Execution for Real Business Growth.</h1>
+      <h1>{{ yearsOfExperience }} Years of Steady Work Through Changing Tech Cycles.</h1>
       <p class="hero-sub">
-        We started in 2014 and kept evolving with every major technology wave.
-        Our mission is still the same: help customers move faster, work smarter, and scale with confidence.
+        We started in {{ foundingYear }}. Since then, tools have changed many times, but our job has stayed the same: build useful systems, stay dependable for the client, and keep improving with the market.
       </p>
       <p class="legal-line">{{ legalIdentity }}</p>
     </div>
@@ -17,10 +16,9 @@
   <section class="journey-section">
     <div class="container">
       <header class="section-head">
-        <h2>How We Evolved, What We Delivered</h2>
+        <h2>How Our Work Grew Over Time</h2>
         <p>
-          We did not just watch the industry change.
-          We worked in each phase and helped clients adapt with practical delivery.
+          We kept working through each technology shift and learned what actually helps a business move forward.
         </p>
       </header>
 
@@ -40,8 +38,7 @@
       <article class="promise-card">
         <h2>Our Goal Has Not Changed</h2>
         <p>
-          Technology changes fast. Client trust is earned through delivery.
-          That is why we keep learning, upgrading, and executing with discipline.
+          Technology changes fast, but clients still want the same things: clear communication, dependable work, and systems that make their business easier to run.
         </p>
         <ul>
           <li *ngFor="let point of promisePoints">{{ point }}</li>
@@ -49,10 +46,9 @@
       </article>
 
       <aside class="promise-action">
-        <h3>Ready to Build with a Long-Term Partner?</h3>
+        <h3>Need a team that can understand both old systems and new tools?</h3>
         <p>
-          If you want a team that understands both old systems and modern AI-first delivery,
-          we are ready to work with you.
+          That is where our experience helps. We can work with what you already have and still move the business forward.
         </p>
         <div class="action-row">
           <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>

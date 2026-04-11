@@ -2,25 +2,31 @@
   <div class="hero-bg"></div>
   <div class="container hero-grid">
     <div>
-      <div class="hero-badge reveal app-reveal"><div class="hero-badge-dot"></div>Next-generation digital services and consulting</div>
-      <h1 class="reveal d1 app-reveal">One <span class="accent">Digital Partner</span><br>for Your Complete<br><span class="gold">Business Growth.</span></h1>
-      <p class="hero-typing-line reveal d2 app-reveal" [class.is-static]="isHeroTypingStatic" aria-live="polite" aria-atomic="true">
-        <span class="hero-typing-prefix">{{ heroTypingPrefix }}</span>
-        <span class="hero-typing-word" #heroTypingText>{{ heroTypingDisplay }}</span>
-        <!-- LEGACY TYPING CURSOR BACKUP: <span class="hero-typing-caret" aria-hidden="true"></span> -->
+      <div class="hero-badge reveal app-reveal">
+        <div class="hero-badge-dot"></div>
+        <span>Since {{ foundingYear }}</span>
+        <span class="hero-badge-sep" aria-hidden="true">·</span>
+        <span class="hero-badge-highlight">{{ yearsOfExperience }} Years of Expertise</span>
+      </div>
+      <p class="hero-context reveal d1 app-reveal">Our name is our promise</p>
+      <h1 class="reveal d1 app-reveal">
+        Kozy to work with.<br>
+        <span class="gold">Kreative in everything<br>we deliver.</span>
+      </h1>
+      <p class="hero-lead reveal d2 app-reveal">
+        We are a 100% remote, borderless team built on flexible schedules and connected across multiple time zones, proving that world-class creative quality does not need rigid ways of working.
       </p>
-      <p class="hero-lead reveal d2 app-reveal">From app and web engineering to AI/ML, Gen AI, cloud, automation, testing, and growth marketing, we help your business go digital in a practical way.</p>
       <div class="hero-ctas reveal d2 app-reveal">
         <button class="btn btn-pri" (click)="ui.openModal('contactModal')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           Let's Connect
         </button>
-        <a href="#services" class="btn btn-out">Explore Solutions</a>
+        <a href="#services" class="btn btn-out">See Our Services</a>
       </div>
       <div class="hero-stats reveal d3 app-reveal">
-        <div class="h-stat"><h4>10+</h4><span>Years of Expertise</span></div>
-        <div class="h-stat"><h4>AI/ML</h4><span>Gen AI Delivery</span></div>
-        <div class="h-stat"><h4>Global</h4><span>Timezone Flexibility</span></div>
+        <div class="h-stat"><h4>{{ yearsOfExperience }}+</h4><span>Years of Expertise</span></div>
+        <div class="h-stat"><h4>Apps + AI</h4><span>Product and Automation</span></div>
+        <div class="h-stat"><h4>Cloud + Growth</h4><span>Build and Scale Support</span></div>
       </div>
     </div>
     <!-- LEGACY HERO VISUAL - DO NOT DELETE -->

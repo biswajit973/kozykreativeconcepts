@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { animate, type JSAnimation } from 'animejs';
 import { UiStateService } from '../../shared/services/ui-state.service';
+import { FOUNDATION_YEAR, getYearsOfExperience } from '../../shared/constants/brand.constants';
 
 type HeroVisualVariant = 'legacy' | 'scanner';
 type HeroTextEffectMode = 'typing' | 'static';
@@ -56,14 +57,16 @@ interface ScannerParticle {
 export class HeroComponent implements AfterViewInit, OnDestroy {
   readonly ui = inject(UiStateService);
   private readonly zone = inject(NgZone);
+  readonly foundingYear = FOUNDATION_YEAR;
+  readonly yearsOfExperience = getYearsOfExperience();
 
   readonly heroVisualVariant: HeroVisualVariant = 'scanner';
   readonly heroTextEffectMode: HeroTextEffectMode = 'typing';
-  readonly heroTypingPrefix = 'KKREATIVE:';
+  readonly heroTypingPrefix = 'KKREATIVE';
   readonly heroTypingPhrases = [
-    'Kozy Ideas. Kreative Solutions.',
-    'Kozy to Work With, Kreative to Deliver.',
-    'Kozy Comfort. Kreative Tech.'
+    'Built to be seen. Built to work.',
+    'Look sharper. Run smoother.',
+    'Useful systems. Real growth.'
   ];
   heroTypingDisplay = this.heroTypingPhrases[0];
 
@@ -75,56 +78,37 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
       badgeTone: 'mint',
       kind: 'bars',
       metric: 'Android, iOS, Windows, Mac',
-      subline: 'User-friendly apps built for real business operations.',
+      subline: 'Apps built for customers, staff, and day-to-day business work.',
       bars: [36, 52, 44, 66, 58, 82, 74, 92]
     },
     {
       id: 'capital-protected',
       title: 'Web and AI Solutions',
-      badge: 'Web + Gen AI',
+      badge: 'Web • Portal • AI',
       badgeTone: 'gold',
       kind: 'shield',
-      metric: 'Landing pages, web apps, AI/ML',
-      subline: 'Scalable platforms with practical business workflows.'
+      metric: 'Websites, portals, AI features',
+      subline: 'Web systems that explain the business clearly and support real work.'
     },
     {
       id: 'retirement',
       title: 'Chatbots and Automation',
-      badge: 'Automation Focus',
+      badge: 'Support • Workflow',
       badgeTone: 'teal',
       kind: 'progress',
-      metric: 'Support bots and internal automation',
-      subline: 'Reduce manual work and speed up daily operations.',
+      metric: 'Chat, follow-up, internal tasks',
+      subline: 'Useful automation for repeated work that slows teams down.',
       progress: 78
     },
     {
       id: 'goal-health',
       title: 'Cloud and DevOps',
-      badge: 'AWS • Azure • GCP',
+      badge: 'AWS · Azure · GCP',
       badgeTone: 'mint',
       kind: 'ring',
-      metric: 'Deployment, monitoring, scaling',
-      subline: 'Reliable cloud setup with smooth release pipelines.',
+      metric: 'Deployments, monitoring, uptime',
+      subline: 'Cloud setup and release flow that teams can trust.',
       progress: 84
-    },
-    {
-      id: 'tax-efficiency',
-      title: 'QA and Cybersecurity',
-      badge: 'Secure by Design',
-      badgeTone: 'gold',
-      kind: 'tax',
-      metric: 'Manual + automation testing',
-      subline: 'Performance, quality, and security checks before launch.',
-      progress: 91
-    },
-    {
-      id: 'rebalance-alert',
-      title: 'Marketing and Training',
-      badge: 'Growth Ready',
-      badgeTone: 'slate',
-      kind: 'alert',
-      metric: 'SEO, ads, lead gen, software training',
-      subline: 'From launch to growth and upskilling, all in one team.'
     }
   ];
 
@@ -158,7 +142,7 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   private particles: ScannerParticle[] = [];
   private canvasWidth = 0;
   private canvasHeight = 0;
-  private readonly particleCount = 120;
+  private readonly particleCount = 80;
 
   ngAfterViewInit(): void {
     if (typeof window === 'undefined') {
@@ -217,22 +201,22 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   private buildInsightTitle(card: HeroScannerCard): string {
     if (card.id === 'portfolio-growth') {
-      return 'Mobile and desktop apps';
+      return 'Apps for day-to-day work';
     }
     if (card.id === 'capital-protected') {
-      return 'Web and AI solutions';
+      return 'Websites and web tools';
     }
     if (card.id === 'retirement') {
-      return 'Automation for daily work';
+      return 'Automation for repeated tasks';
     }
     if (card.id === 'goal-health') {
-      return 'Cloud delivery support';
+      return 'Cloud setup and release flow';
     }
     if (card.id === 'tax-efficiency') {
-      return 'Quality and security';
+      return 'Testing before launch';
     }
     if (card.id === 'rebalance-alert') {
-      return 'Growth and digital adoption';
+      return 'Marketing and team training';
     }
     return 'How we help you';
   }
@@ -242,38 +226,38 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
       case 'portfolio-growth':
         return [
           'Android, iOS, Windows, and Mac development.',
-          'Clear product flow from idea to release.',
-          'Designed for performance and simple user experience.'
+          'Built around the people who will actually use them.',
+          'Release planning kept simple and steady.'
         ];
       case 'capital-protected':
         return [
-          'Landing pages, websites, and web applications.',
-          'Gen AI and AI/ML modules where useful.',
-          'Built to scale as your business grows.'
+          'Landing pages, websites, and internal web tools.',
+          'AI features only where they help the work.',
+          'Built to stay clear, fast, and maintainable.'
         ];
       case 'retirement':
         return [
-          'Chatbots for support and business workflows.',
-          'Automation reduces repetitive manual tasks.',
-          'Teams get faster response time and better output.'
+          'Support chat and enquiry routing.',
+          'Repeated manual steps turned into simple rules and flows.',
+          'Teams get more time for real work.'
         ];
       case 'goal-health':
         return [
-          'AWS, Azure, and Google Cloud support.',
-          'CI/CD setup, release process, and monitoring.',
-          'Stable environments with lower downtime risk.'
+          'Deployment, monitoring, and release support.',
+          'Clear process for updates and rollback.',
+          'Less confusion when systems grow.'
         ];
       case 'tax-efficiency':
         return [
-          'Manual and automation QA testing.',
-          'Basic cybersecurity and security testing support.',
-          'Launch with more confidence and fewer defects.'
+          'Manual and automation testing.',
+          'Security checks before go-live.',
+          'Fewer issues reaching customers.'
         ];
       case 'rebalance-alert':
         return [
           'SEO, social media, and ad campaign execution.',
-          'Digitalisation roadmap for offline businesses.',
-          'B2B and B2C training in modern tech stacks.'
+          'Training when teams need help using new systems.',
+          'One partner instead of many disconnected vendors.'
         ];
       default:
         return [
@@ -548,7 +532,7 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
     const glow = ctx.createLinearGradient(beamX - 34, 0, beamX + 34, 0);
     glow.addColorStop(0, 'rgba(136,212,171,0)');
-    glow.addColorStop(0.5, 'rgba(136,212,171,0.28)');
+    glow.addColorStop(0.5, 'rgba(136,212,171,0.18)');
     glow.addColorStop(1, 'rgba(136,212,171,0)');
     ctx.fillStyle = glow;
     ctx.fillRect(beamX - 34, 0, 68, this.canvasHeight);

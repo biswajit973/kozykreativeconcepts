@@ -7,7 +7,7 @@
       <div class="overline">Our Work</div>
       <h1>Companies and Teams We Have Worked With.</h1>
       <p>
-        We focus on practical execution for customer outcomes, using modern technology with disciplined delivery.
+        We try to keep the work clear, dependable, and useful for the business instead of making it more complicated.
       </p>
     </div>
   </section>
@@ -15,18 +15,28 @@
   <section class="company-section">
     <div class="container">
       <header class="section-head">
-        <h2>Representative Company Environments</h2>
+        <h2>Some Of The Teams We Have Worked With</h2>
         <p>
-          A few names to show the type of business environments where our delivery approach fits.
+          These logos reflect businesses and teams we have supported across different kinds of work.
         </p>
       </header>
 
       <div class="company-grid">
-        <article class="company-item" *ngFor="let item of companies">
-          <span class="company-initials">{{ companyInitials(item.name) }}</span>
-          <span>{{ item.name }}</span>
-          <small>{{ item.sector }}</small>
-        </article>
+        <div class="company-marquee">
+          <div class="company-track">
+            <article class="company-item" aria-hidden="true" *ngFor="let item of rowOneLoop; trackBy: trackLogo">
+              <img class="company-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
+            </article>
+          </div>
+        </div>
+
+        <div class="company-marquee company-marquee--reverse">
+          <div class="company-track">
+            <article class="company-item" aria-hidden="true" *ngFor="let item of rowTwoLoop; trackBy: trackLogo">
+              <img class="company-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -34,7 +44,10 @@
   <section class="snapshot-section">
     <div class="container">
       <header class="section-head">
-        <h2>What We Delivered</h2>
+        <h2>Where We Commonly Add Value</h2>
+        <p>
+          Clients usually come to us when they need clearer systems, better digital journeys, or more dependable delivery.
+        </p>
       </header>
 
       <div class="snapshot-grid">
@@ -49,7 +62,7 @@
 
   <section class="work-actions">
     <div class="container action-box">
-      <h3>Need a similar outcome for your business?</h3>
+      <h3>Need help with similar work in your business?</h3>
       <div class="action-row">
         <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
         <a routerLink="/services" class="btn btn-out">See Service Capabilities</a>

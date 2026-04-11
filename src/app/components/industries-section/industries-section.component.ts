@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FOUNDATION_YEAR, getYearsOfExperience } from '../../shared/constants/brand.constants';
 import { HoverSparkDirective } from '../../shared/directives/hover-spark.directive';
 import { ParticleFieldComponent } from '../ui/particle-field.component';
 
@@ -20,47 +21,50 @@ interface IndustryItem {
   styleUrl: './industries-section.component.css'
 })
 export class IndustriesSectionComponent {
+  readonly foundingYear = FOUNDATION_YEAR;
+  readonly yearsOfExperience = getYearsOfExperience();
+
   readonly industryHighlights: IndustryItem[] = [
     {
       id: 'finance',
       title: 'Finance and Banking',
-      focusLine: 'Secure workflows, reporting, and AI-assisted operations.',
-      businessWin: 'Faster approvals and cleaner compliance visibility.',
+      focusLine: 'Approval flows, reporting, and support processes that need accuracy.',
+      businessWin: 'Faster internal processing and clearer visibility for leadership.',
       accent: 'teal'
     },
     {
       id: 'healthcare',
       title: 'Healthcare',
-      focusLine: 'Privacy-aware systems and reliability-focused release cycles.',
-      businessWin: 'Safer process execution with less operational friction.',
+      focusLine: 'Systems that need privacy, reliability, and role-based access.',
+      businessWin: 'Less operational friction and better day-to-day control.',
       accent: 'mint'
     },
     {
       id: 'edtech',
       title: 'EdTech',
-      focusLine: 'Learning platforms with analytics and automation support.',
-      businessWin: 'Better learner engagement and reduced manual admin work.',
+      focusLine: 'Learning products, admin workflows, and student communication.',
+      businessWin: 'Better learner experience and less manual admin effort.',
       accent: 'gold'
     },
     {
       id: 'ecommerce',
       title: 'E-commerce',
-      focusLine: 'Conversion-led web journeys, chatbot support, and campaign insight.',
-      businessWin: 'Stronger lead quality and better checkout confidence.',
+      focusLine: 'Website flow, support load, and campaign tracking.',
+      businessWin: 'Better enquiry quality and smoother buying journeys.',
       accent: 'teal'
     },
     {
       id: 'manufacturing',
       title: 'Manufacturing',
-      focusLine: 'Production workflows, dashboarding, and process automation.',
-      businessWin: 'Improved team coordination with real-time decision data.',
+      focusLine: 'Production updates, approvals, dashboards, and internal tracking.',
+      businessWin: 'Better team coordination and faster decisions.',
       accent: 'mint'
     },
     {
       id: 'trading',
       title: 'Trading and Risk Ops',
-      focusLine: 'Alert-driven monitoring and structured operational controls.',
-      businessWin: 'Faster action on high-speed risk-sensitive events.',
+      focusLine: 'Fast-moving operations that depend on alerts and control points.',
+      businessWin: 'Quicker response when timing and accuracy matter.',
       accent: 'gold'
     }
   ];

@@ -1,18 +1,55 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { UiStateService } from '../../shared/services/ui-state.service';
+import { COMPANY_EMAIL, COMPANY_HR_EMAIL, COMPANY_PHONE } from '../../shared/constants/brand.constants';
+
+interface ContactRequestForm {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-contact-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact-modal.component.html',
-  styleUrl: './contact-modal.component.css'
+  styleUrls: ['./contact-modal.component.css']
 })
-export class ContactModalComponent {
+export class ContactModalComponent implements OnDestroy {
   readonly ui = inject(UiStateService);
 
+  readonly companyEmail = COMPANY_EMAIL;
+  readonly companyHrEmail = COMPANY_HR_EMAIL;
+  readonly companyPhoneDisplay = '+91 9000500600';
+  readonly companyPhoneHref = `tel:${COMPANY_PHONE}`;
+  readonly serviceOptions = [
+    'App Development',
+    'Web Development',
+    'Chatbots and Automation',
+    'Cloud and DevOps',
+    'QA Testing and Cybersecurity',
+    'Digital Marketing',
+    'Business Consulting and Digitalisation',
+    'Software Trainings',
+    'Other'
+  ];
+
+  submitAttempted = false;
+  isSubmitting = false;
+  submitSuccess = false;
+  formData: ContactRequestForm = this.createEmptyForm();
+  private submitTimer: ReturnType<typeof setTimeout> | null = null;
+
+  ngOnDestroy(): void {
+    this.clearSubmitTimer();
+  }
+
   close(): void {
+    this.resetState();
     this.ui.closeModal('contactModal');
   }
 
@@ -22,9 +59,94 @@ export class ContactModalComponent {
     }
   }
 
-  onSubmit(event: Event): void {
+  onSubmit(form: NgForm, event: Event): void {
     event.preventDefault();
-    window.alert('Thank you! Our advisor will contact you within 24 hours.');
-    this.close();
+    this.submitAttempted = true;
+
+    if (this.isSubmitting || !form.valid || this.phoneInvalid() || this.messageInvalid()) {
+      return;
+    }
+
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.clearSubmitTimer();
+    this.submitTimer = setTimeout(() => {
+      this.isSubmitting = false;
+      this.submitSuccess = true;
+      this.submitTimer = null;
+    }, 1600);
+  }
+
+  showFieldError(control: NgModel | null, extraInvalid = false): boolean {
+    return !!control && (control.touched || this.submitAttempted) && (control.invalid || extraInvalid);
+  }
+
+  phoneInvalid(): boolean {
+    return !this.isPhoneValid(this.formData.phone);
+  }
+
+  messageInvalid(): boolean {
+    return this.formData.message.trim().length < 20;
+  }
+
+  openFastReplyEmail(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.location.href = this.buildMailtoHref();
+  }
+
+  openFastReplyCall(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.location.href = this.companyPhoneHref;
+  }
+
+  private buildMailtoHref(): string {
+    const subject = encodeURIComponent(`New enquiry from ${this.formData.name} - ${this.formData.service}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${this.formData.name}`,
+        `Email: ${this.formData.email}`,
+        `Phone: ${this.formData.phone}`,
+        `Service: ${this.formData.service}`,
+        '',
+        'Requirement:',
+        this.formData.message.trim()
+      ].join('\n')
+    );
+
+    return `mailto:${this.companyEmail}?cc=${this.companyHrEmail}&subject=${subject}&body=${body}`;
+  }
+
+  private isPhoneValid(value: string): boolean {
+    const digits = value.replace(/\D/g, '');
+    return digits.length >= 10 && digits.length <= 14;
+  }
+
+  private resetState(): void {
+    this.clearSubmitTimer();
+    this.submitAttempted = false;
+    this.isSubmitting = false;
+    this.submitSuccess = false;
+    this.formData = this.createEmptyForm();
+  }
+
+  private clearSubmitTimer(): void {
+    if (this.submitTimer) {
+      clearTimeout(this.submitTimer);
+      this.submitTimer = null;
+    }
+  }
+
+  private createEmptyForm(): ContactRequestForm {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    };
   }
 }

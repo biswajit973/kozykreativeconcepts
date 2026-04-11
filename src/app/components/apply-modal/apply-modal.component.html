@@ -1,0 +1,114 @@
+<div class="modal" [class.active]="ui.isModalOpen('applyModal')">
+  <div class="modal-bg" (click)="closeModal()"></div>
+  <div class="modal-content">
+    <button type="button" class="modal-close" (click)="closeModal()" aria-label="Close modal">✕</button>
+
+    <!-- FORM STATE -->
+    <ng-container *ngIf="state === 'form'">
+      <header class="modal-head">
+        <h2>Apply for this role</h2>
+        <p>Tell us about yourself and we will get back to you shortly.</p>
+      </header>
+
+      <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" class="apply-form">
+        <!-- Name & Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" formControlName="fullName" class="form-input" placeholder="e.g. Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" formControlName="email" class="form-input" placeholder="jane@example.com">
+          </div>
+        </div>
+
+        <!-- Contact & Org -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" formControlName="contact" class="form-input" placeholder="+91 9000000000">
+          </div>
+          <div class="form-group">
+            <label for="currentOrg">Current Organisation</label>
+            <input type="text" id="currentOrg" formControlName="currentOrg" class="form-input" placeholder="Where do you work?">
+          </div>
+        </div>
+
+        <!-- Notice Period & Resume -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="noticePeriod">Notice Period</label>
+            <select id="noticePeriod" formControlName="noticePeriod" class="form-input">
+              <option value="">Select notice period</option>
+              <option value="Immediate">Immediate / Serving Notice</option>
+              <option value="15 Days">15 Days</option>
+              <option value="30 Days">30 Days</option>
+              <option value="60+ Days">60+ Days</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Resume (PDF/Doc)</label>
+            <div class="file-upload-wrapper">
+              <label class="file-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                Upload File
+                <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx">
+              </label>
+              <span class="file-name" *ngIf="fileName">{{ fileName }}</span>
+              <span class="file-name" *ngIf="!fileName">No file chosen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTC -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="currentCtc">Current CTC (in Lakhs)</label>
+            <input type="number" id="currentCtc" formControlName="currentCtc" class="form-input" step="0.1" min="0">
+          </div>
+          <div class="form-group">
+            <label for="expectedCtc">Expected CTC (in Lakhs)</label>
+            <input type="number" id="expectedCtc" formControlName="expectedCtc" class="form-input" step="0.1" min="0">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-pri submit-btn" [disabled]="applyForm.invalid || !fileName">
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </ng-container>
+
+    <!-- PROGRESS STATE -->
+    <ng-container *ngIf="state === 'loading'">
+      <div class="progress-state">
+        <div class="progress-spinner"></div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" [style.width.%]="progressDots"></div>
+        </div>
+        <div class="progress-text">{{ loadingMessage }}</div>
+        <div class="progress-sub">Please don't close this window</div>
+      </div>
+    </ng-container>
+
+    <!-- SUCCESS STATE -->
+    <ng-container *ngIf="state === 'success'">
+      <div class="success-state">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <h2>Application Received!</h2>
+        <p>Thank you for showing interest in joining Kozy Kreative. Your details and resume have been securely uploaded to our system.</p>
+        <p>You can follow up on your application status anytime by emailing us at <br><strong>info&#64;kkreative.in</strong></p>
+        <button type="button" class="btn btn-out" (click)="closeModal()" style="margin-top:1rem; width: 100%; justify-content: center;">
+          Return to Careers
+        </button>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

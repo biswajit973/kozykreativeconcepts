@@ -1,7 +1,10 @@
-<button class="chatbot-trigger" id="chatbotTrigger" (click)="toggleChatbot()" aria-label="Open Chatbot" [class.active]="isOpen">
+<button class="chatbot-trigger" id="chatbotTrigger" (click)="onTriggerClick()" aria-label="Open Chatbot" [class.active]="isOpen" [class.playing]="isAudioPlaying">
   <div class="notif-dot"></div>
   <svg class="chat-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
   <svg class="close-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+  <div class="chatbot-wave-ring" *ngIf="isAudioPlaying">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 </button>
 
 <div class="chatbot-window" id="chatbotWindow" [class.open]="isOpen">
@@ -11,14 +14,14 @@
     </div>
     <div class="cb-header-info">
       <h4>KKREATIVE Assistant</h4>
-      <span><span class="cb-online-dot"></span> Always here to help</span>
+      <span><span class="cb-online-dot"></span> Quick help, real team behind it</span>
     </div>
   </div>
   <div class="cb-messages" id="cbMessages" #cbMessages>
     <div class="cb-msg" [class.bot]="msg.sender==='bot'" [class.user]="msg.sender==='user'" *ngFor="let msg of messages; trackBy: trackByIndex">
       <div class="cb-typing" *ngIf="msg.typing"><span></span><span></span><span></span></div>
       <ng-container *ngIf="!msg.typing">
-        <div class="cb-bubble" [innerHTML]="msg.html || msg.text"></div>
+        <div class="cb-bubble">{{ msg.text }}</div>
         <div class="cb-time">{{ msg.time }}</div>
       </ng-container>
     </div>
@@ -33,5 +36,5 @@
       <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     </button>
   </div>
-  <div class="cb-powered">Powered by KKREATIVE CONCEPTS PRIVATE LIMITED</div>
+  <div class="cb-powered">KKREATIVE team help</div>
 </div>

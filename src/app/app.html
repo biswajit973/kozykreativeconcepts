@@ -1,36 +1,4 @@
-<div class="app-root" [class.dark-cursor-on]="showOledEffects()">
-  <div class="oled-particles" *ngIf="ui.isDarkMode()" aria-hidden="true">
-    <span
-      class="oled-particle"
-      *ngFor="let particle of particles(); trackBy: trackParticle"
-      [class.hue-teal]="particle.hue === 'teal'"
-      [class.hue-mint]="particle.hue === 'mint'"
-      [class.hue-gold]="particle.hue === 'gold'"
-      [style.left.%]="particle.x"
-      [style.top.%]="particle.y"
-      [style.width.px]="particle.size"
-      [style.height.px]="particle.size"
-      [style.animation-duration.s]="particle.duration"
-      [style.animation-delay.s]="particle.delay">
-    </span>
-  </div>
-
-  <div class="oled-cursor-layer" *ngIf="showOledEffects() && cursorVisible()" aria-hidden="true">
-    <span class="oled-cursor-ring" [style.left.px]="ringX()" [style.top.px]="ringY()"></span>
-    <span class="oled-cursor-dot" [style.left.px]="cursorX()" [style.top.px]="cursorY()"></span>
-    <span
-      class="oled-cursor-pulse"
-      *ngFor="let pulse of cursorPulses(); trackBy: trackPulse"
-      [style.left.px]="pulse.x"
-      [style.top.px]="pulse.y">
-    </span>
-  </div>
-
-  <div class="theme-transition-loader" *ngIf="ui.themeTransitioning()">
-    <div class="theme-loader-orb"></div>
-    <p>{{ ui.isDarkMode() ? 'Switching to OLED black...' : 'Switching to light mode...' }}</p>
-  </div>
-
+<div class="app-root">
   <div class="route-shell">
     <router-outlet></router-outlet>
   </div>

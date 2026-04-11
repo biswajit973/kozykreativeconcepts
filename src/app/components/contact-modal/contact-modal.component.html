@@ -1,21 +1,146 @@
 <div class="modal-overlay" id="contactModal" [class.open]="ui.isModalOpen('contactModal')" (click)="onOverlayClick($event)">
   <div class="modal contact-modal">
-    <button class="modal-close" (click)="close()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="modal-close" type="button" (click)="close()" aria-label="Close contact form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <h2>Let's Connect</h2>
-      <p class="modal-sub">Share your business need. Our team will contact you within 24 hours with a clear and practical roadmap.</p>
-      <form (submit)="onSubmit($event)">
+      <p class="modal-sub" *ngIf="!submitSuccess && !isSubmitting">Share what you need. Our team will review it and get back to you with a simple next step.</p>
+      <p class="modal-sub" *ngIf="isSubmitting">Request sending. Please wait a moment while we prepare your handoff.</p>
+
+      <form *ngIf="!submitSuccess && !isSubmitting; else modalState" #contactForm="ngForm" novalidate (submit)="onSubmit(contactForm, $event)">
         <div class="form-row">
-          <div class="form-group"><label>Full Name</label><input type="text" class="form-input" placeholder="Your name" required></div>
-          <div class="form-group"><label>Email</label><input type="email" class="form-input" placeholder="you@email.com" required></div>
+          <div class="form-group">
+            <label for="contactName">Full Name</label>
+            <input
+              id="contactName"
+              name="name"
+              type="text"
+              class="form-input"
+              [class.is-invalid]="showFieldError(nameModel)"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+              minlength="2"
+              [(ngModel)]="formData.name"
+              #nameModel="ngModel">
+            <small class="form-error" *ngIf="showFieldError(nameModel)">Please enter your full name.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input
+              id="contactEmail"
+              name="email"
+              type="email"
+              class="form-input"
+              [class.is-invalid]="showFieldError(emailModel)"
+              placeholder="you@email.com"
+              autocomplete="email"
+              required
+              email
+              [(ngModel)]="formData.email"
+              #emailModel="ngModel">
+            <small class="form-error" *ngIf="showFieldError(emailModel)">Please enter a valid email address.</small>
+          </div>
         </div>
+
         <div class="form-row">
-          <div class="form-group"><label>Phone</label><input type="tel" class="form-input" placeholder="(+91) 9000500600" required></div>
-          <div class="form-group"><label>Service</label><select class="form-select" required><option value="" disabled selected>Choose a service</option><option>App Development</option><option>Web Development</option><option>Chatbots and Automation</option><option>Cloud and DevOps</option><option>QA Testing and Cybersecurity</option><option>Digital Marketing</option><option>Business Consulting and Digitalisation</option><option>Software Trainings</option><option>Other</option></select></div>
+          <div class="form-group">
+            <label for="contactPhone">Phone</label>
+            <input
+              id="contactPhone"
+              name="phone"
+              type="tel"
+              class="form-input"
+              [class.is-invalid]="showFieldError(phoneModel, phoneInvalid())"
+              placeholder="(+91) 9000500600"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+              [(ngModel)]="formData.phone"
+              #phoneModel="ngModel">
+            <small class="form-error" *ngIf="showFieldError(phoneModel, phoneInvalid())">Please enter a valid phone number.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="contactService">Service</label>
+            <select
+              id="contactService"
+              name="service"
+              class="form-select"
+              [class.is-invalid]="showFieldError(serviceModel)"
+              required
+              [(ngModel)]="formData.service"
+              #serviceModel="ngModel">
+              <option value="" disabled>Choose a service</option>
+              <option *ngFor="let item of serviceOptions" [value]="item">{{ item }}</option>
+            </select>
+            <small class="form-error" *ngIf="showFieldError(serviceModel)">Please choose the service you need help with.</small>
+          </div>
         </div>
-        <div class="form-group"><label>Tell us about your requirement</label><textarea class="form-textarea" placeholder="What business problem do you want to solve?"></textarea></div>
-        <button type="submit" class="btn btn-pri" style="width:100%;margin-top:.25rem">Submit Request</button>
+
+        <div class="form-group">
+          <label for="contactMessage">Tell us about your requirement</label>
+          <textarea
+            id="contactMessage"
+            name="message"
+            class="form-textarea"
+            [class.is-invalid]="showFieldError(messageModel, messageInvalid())"
+            placeholder="What business problem do you want to solve?"
+            required
+            minlength="20"
+            [(ngModel)]="formData.message"
+            #messageModel="ngModel"></textarea>
+          <small class="form-error" *ngIf="showFieldError(messageModel, messageInvalid())">Please add a little more detail so our team can respond properly.</small>
+          <small class="form-note">The more context you share, the better we can guide the first conversation.</small>
+        </div>
+
+        <button type="submit" class="btn btn-pri contact-submit">Submit Request</button>
       </form>
+
+      <ng-template #modalState>
+        <div *ngIf="isSubmitting; else successState" class="contact-loader" aria-live="polite" aria-busy="true">
+          <div class="contact-loader-orb" aria-hidden="true">
+            <span class="contact-loader-ring contact-loader-ring--outer"></span>
+            <span class="contact-loader-ring contact-loader-ring--inner"></span>
+            <span class="contact-loader-core"></span>
+          </div>
+          <span class="contact-loader-badge">Sending request</span>
+          <h3>Request sending. Please wait.</h3>
+          <p>We are packaging your details for the team so the first reply is easier and more relevant.</p>
+          <div class="contact-loader-steps" aria-hidden="true">
+            <span>Reviewing details</span>
+            <span>Preparing handoff</span>
+            <span>Finalising contact options</span>
+          </div>
+        </div>
+
+        <ng-template #successState>
+          <div class="contact-success" aria-live="polite">
+            <span class="contact-success-badge">Request ready</span>
+            <h3>Thank you. We have your request details ready.</h3>
+            <p>
+              Our team usually replies within <strong>48 to 72 hours</strong> after reviewing the requirement and routing it to the right team.
+            </p>
+            <p class="contact-success-note">
+              If the matter is time-sensitive, call us or send the email directly for a faster response.
+            </p>
+
+            <div class="contact-success-actions">
+              <button type="button" class="btn btn-pri" (click)="openFastReplyEmail()">Send Email Now</button>
+              <button type="button" class="btn btn-out" (click)="openFastReplyCall()">Call {{ companyPhoneDisplay }}</button>
+            </div>
+
+            <div class="contact-success-meta">
+              <span>Email: {{ companyEmail }}</span>
+              <span>CC: {{ companyHrEmail }}</span>
+            </div>
+
+            <div class="contact-success-tip">
+              <strong>For a faster reply:</strong> mention your business type, timeline, and the result you want from this project.
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
     </div>
   </div>
 </div>

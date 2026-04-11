@@ -4,9 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { take } from 'rxjs';
 import { ChatbotWidgetComponent } from '../../components/chatbot-widget/chatbot-widget.component';
 import { ContactModalComponent } from '../../components/contact-modal/contact-modal.component';
+import { ApplyModalComponent } from '../../components/apply-modal/apply-modal.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { FOUNDATION_YEAR, getYearsOfExperience } from '../../shared/constants/brand.constants';
+import { SeoService } from '../../shared/services/seo.service';
+import { UiStateService } from '../../shared/services/ui-state.service';
 import { FeaturedRole, JobsDataset } from './careers.models';
 import { CareersService } from './careers.service';
 import { createEmptyDataset, rotateFeaturedRoles } from './utils/careers-rotation.util';
@@ -21,6 +25,7 @@ import { createEmptyDataset, rotateFeaturedRoles } from './utils/careers-rotatio
     MobileMenuComponent,
     FooterComponent,
     ContactModalComponent,
+    ApplyModalComponent,
     ChatbotWidgetComponent
   ],
   templateUrl: './careers-page.component.html',
@@ -28,6 +33,17 @@ import { createEmptyDataset, rotateFeaturedRoles } from './utils/careers-rotatio
 })
 export class CareersPageComponent implements OnInit {
   private readonly careersService = inject(CareersService);
+  private readonly seo = inject(SeoService);
+  readonly ui = inject(UiStateService);
+  
+  readonly foundingYear = FOUNDATION_YEAR;
+  readonly yearsOfExperience = getYearsOfExperience();
+  readonly workBenefits = [
+    '100% remote work model',
+    'Flexible timings with clear ownership',
+    'Teams collaborating across multiple time zones',
+    'Kozy to work with. Kreative to deliver.'
+  ];
 
   readonly loading = signal(true);
   readonly dataset = signal<JobsDataset>(createEmptyDataset());
@@ -64,6 +80,15 @@ export class CareersPageComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'Careers at KKREATIVE | Software Jobs in Hyderabad and Remote',
+      description:
+        'Explore software, product, content, and delivery careers at KKREATIVE with a remote-first culture, flexible timings, and practical product-focused work.',
+      path: '/careers',
+      keywords:
+        'software jobs Hyderabad, careers Hyderabad software company, remote software jobs India, KKREATIVE careers'
+    });
+
     this.careersService
       .getJobsDataset()
       .pipe(take(1))
@@ -85,8 +110,8 @@ export class CareersPageComponent implements OnInit {
     this.selectedCategory.set(value);
   }
 
-  getApplyHref(): string {
-    return `mailto:${this.dataset().apply.email}`;
+  openApplyModal(): void {
+    this.ui.openModal('applyModal');
   }
 
   trackRole(_: number, role: FeaturedRole): string {

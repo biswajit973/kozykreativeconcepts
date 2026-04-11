@@ -1,6 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Input, OnInit, PLATFORM_ID, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { UiStateService } from '../../shared/services/ui-state.service';
 
 @Component({
@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit {
   @Input() mode: 'home' | 'route' | 'blogs' | 'sip' | 'target' = 'home';
 
   readonly ui = inject(UiStateService);
-  private readonly router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
   whatWeDoOpen = false;
@@ -37,11 +36,21 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogoClick(event: Event): void {
-    if (this.mode === 'home') {
+    this.onRouteNav();
+
+    if (this.mode !== 'home') {
       return;
     }
+
     event.preventDefault();
-    this.router.navigate(['/']);
+    if (!this.isBrowser) {
+      return;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
   }
 
   onRouteNav(): void {
@@ -59,9 +68,8 @@ export class NavbarComponent implements OnInit {
     this.ui.openMobileMenu();
   }
 
-  onThemeToggle(): void {
-    this.ui.toggleThemeMode();
-  }
+
+
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {

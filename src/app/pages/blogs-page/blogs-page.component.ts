@@ -9,6 +9,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { SeoService } from '../../shared/services/seo.service';
 import { UiStateService } from '../../shared/services/ui-state.service';
 import { BlogTopic, BlogTopicDataset, TechNewsItem } from './blog-topics.models';
 import { BlogTopicsService } from './blog-topics.service';
@@ -36,6 +37,7 @@ export class BlogsPageComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly topicsService = inject(BlogTopicsService);
   private readonly techNewsService = inject(TechNewsService);
+  private readonly seo = inject(SeoService);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   readonly dataset = signal<BlogTopicDataset | null>(null);
@@ -72,6 +74,15 @@ export class BlogsPageComponent implements OnInit {
   readonly railItems = computed(() => this.latestNews().slice(0, 6));
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'Tech and Business Blogs | KKREATIVE Hyderabad',
+      description:
+        'Read practical blogs from KKREATIVE on AI, websites, DevOps, digital growth, and business technology decisions from a Hyderabad delivery perspective.',
+      path: '/blogs',
+      keywords:
+        'technology blog Hyderabad, AI blog Hyderabad, DevOps blog Hyderabad, digital growth blog Hyderabad'
+    });
+
     this.topicsService
       .getTopicsDataset()
       .pipe(take(1))

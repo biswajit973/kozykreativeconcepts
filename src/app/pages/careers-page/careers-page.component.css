@@ -44,6 +44,52 @@
   font-weight: 600;
 }
 
+.culture-strip {
+  margin-top: 1.15rem;
+  display: grid;
+  gap: .8rem;
+  padding: .95rem 1rem;
+  border: 1px solid rgba(11,32,39,.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.76);
+  box-shadow: 0 10px 28px rgba(11,32,39,.05);
+}
+
+.culture-copy {
+  display: grid;
+  gap: .24rem;
+}
+
+.culture-copy strong {
+  color: var(--c-deep);
+  font-size: .86rem;
+  letter-spacing: .01em;
+}
+
+.culture-copy p {
+  margin: 0;
+  color: var(--c-muted);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.culture-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.culture-chip {
+  padding: .34rem .7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(17,75,95,.12);
+  background: rgba(17,75,95,.07);
+  color: var(--c-pri);
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .filter-row {
   margin-top: 1.5rem;
   display: grid;
@@ -223,5 +269,9 @@
 
   .filter-row {
     grid-template-columns: 1fr;
+  }
+
+  .culture-strip {
+    padding: .85rem .9rem;
   }
 }

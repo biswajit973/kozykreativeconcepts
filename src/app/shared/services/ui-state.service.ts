@@ -2,9 +2,7 @@ import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
-import { GalleryType, ModalId, ThemeMode } from '../models/types';
-
-const THEME_STORAGE_KEY = 'kk_theme_mode';
+import { GalleryType, ModalId } from '../models/types';
 
 @Injectable({ providedIn: 'root' })
 export class UiStateService {
@@ -17,9 +15,10 @@ export class UiStateService {
   readonly toolsDropOpen = signal(false);
   readonly activeGallery = signal<GalleryType>('web');
   readonly navbarScrolled = signal(false);
-  readonly themeMode = signal<ThemeMode>('light');
+
+  /** Always light mode — dark mode has been removed */
+  readonly isDarkMode = computed(() => false);
   readonly themeTransitioning = signal(false);
-  readonly isDarkMode = computed(() => this.themeMode() === 'dark');
 
   readonly lightboxOpen = signal(false);
   readonly lightboxScreenHtml = signal('');
@@ -28,35 +27,13 @@ export class UiStateService {
   readonly lightboxDesc = signal('');
 
   readonly shouldLockBody = computed(() => this.activeModal() !== null || this.lightboxOpen());
-  private themeTransitionTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
-    if (this.isBrowser) {
-      this.themeMode.set(this.resolveInitialTheme());
-    }
-
     effect(() => {
       if (!this.isBrowser) {
         return;
       }
       this.doc.body.style.overflow = this.shouldLockBody() ? 'hidden' : '';
-    });
-
-    effect(() => {
-      if (!this.isBrowser) {
-        return;
-      }
-
-      const mode = this.themeMode();
-      const root = this.doc.documentElement;
-      root.setAttribute('data-theme', mode);
-      root.style.colorScheme = mode;
-
-      try {
-        window.localStorage.setItem(THEME_STORAGE_KEY, mode);
-      } catch {
-        // noop
-      }
     });
   }
 
@@ -85,15 +62,6 @@ export class UiStateService {
 
   closeMobileMenu(): void {
     this.mobileMenuOpen.set(false);
-  }
-
-  setThemeMode(mode: ThemeMode): void {
-    this.themeMode.set(mode);
-  }
-
-  toggleThemeMode(): void {
-    this.triggerThemeTransition();
-    this.themeMode.set(this.isDarkMode() ? 'light' : 'dark');
   }
 
   toggleToolsDrop(event?: Event): void {
@@ -127,33 +95,5 @@ export class UiStateService {
 
   closeLightbox(): void {
     this.lightboxOpen.set(false);
-  }
-
-  private resolveInitialTheme(): ThemeMode {
-    try {
-      const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-      if (stored === 'dark' || stored === 'light') {
-        return stored;
-      }
-    } catch {
-      // noop
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  private triggerThemeTransition(): void {
-    if (!this.isBrowser) {
-      return;
-    }
-
-    this.themeTransitioning.set(true);
-    if (this.themeTransitionTimer) {
-      clearTimeout(this.themeTransitionTimer);
-    }
-    this.themeTransitionTimer = setTimeout(() => {
-      this.themeTransitioning.set(false);
-      this.themeTransitionTimer = null;
-    }, 520);
   }
 }

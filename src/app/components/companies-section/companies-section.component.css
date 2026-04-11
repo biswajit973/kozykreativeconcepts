@@ -24,8 +24,8 @@
 .works-logo-board-wrap {
   position: relative;
   isolation: isolate;
-  border-radius: 20px;
-  padding: 0.38rem;
+  border-radius: 24px;
+  padding: 0.4rem;
 }
 
 .works-logo-fx {
@@ -42,18 +42,72 @@
 .works-logo-board {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.78rem;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.55));
+  border: 1px solid rgba(11, 32, 39, 0.08);
+  box-shadow: 0 16px 34px rgba(11, 32, 39, 0.08);
+}
+
+.works-logo-board::before,
+.works-logo-board::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.works-logo-board::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(249, 247, 242, 0.96), rgba(249, 247, 242, 0));
+}
+
+.works-logo-board::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(249, 247, 242, 0.96), rgba(249, 247, 242, 0));
+}
+
+.logo-marquee {
+  overflow: hidden;
+}
+
+.logo-marquee + .logo-marquee {
+  margin-top: 0.95rem;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  animation: work-logos-slide-left 34s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee--reverse .logo-track {
+  animation-name: work-logos-slide-right;
+  animation-duration: 38s;
+}
+
+.works-logo-board:hover .logo-track {
+  animation-play-state: paused;
 }
 
 .work-logo-item {
-  padding: 0.82rem 0.72rem;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.56));
-  border: 1px solid rgba(11, 32, 39, 0.07);
+  width: clamp(170px, 18vw, 210px);
+  min-width: clamp(170px, 18vw, 210px);
+  height: 104px;
+  padding: 1rem 1.15rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
+  border: 1px solid rgba(11, 32, 39, 0.06);
   box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
-  text-align: center;
+  display: grid;
+  place-items: center;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
@@ -63,51 +117,45 @@
   box-shadow: 0 16px 30px rgba(11, 32, 39, 0.12);
 }
 
-.work-logo-wrap {
-  min-height: 40px;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 1px solid rgba(11, 32, 39, 0.14);
-  background: linear-gradient(135deg, rgba(17, 75, 95, 0.16), rgba(2, 128, 144, 0.1));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
+.work-logo-image {
+  display: block;
+  width: 100%;
+  max-width: 176px;
+  max-height: 58px;
+  object-fit: contain;
+  filter: saturate(1.02) contrast(1.02);
 }
 
-.work-logo-wrap span {
-  font-size: 0.74rem;
-  font-weight: 800;
-  color: var(--c-pri);
-  letter-spacing: 0.03em;
+@keyframes work-logos-slide-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-.work-logo-item h3 {
-  margin: 0.5rem 0 0;
-  font-family: var(--f-body);
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--c-deep);
+@keyframes work-logos-slide-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
-.work-logo-item p {
-  margin: 0.3rem 0 0;
-  font-size: 0.72rem;
-  line-height: 1.4;
-  color: var(--c-muted);
+@media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+  }
 }
 
 .works-actions {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .works-logo-board {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 768px) {
@@ -117,12 +165,24 @@
   }
 
   .works-logo-board {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.65rem;
+    padding: 0.82rem;
   }
 
   .work-logo-item {
-    padding: 0.72rem 0.62rem;
+    width: 148px;
+    min-width: 148px;
+    height: 88px;
+    padding: 0.78rem 0.9rem;
+  }
+
+  .work-logo-image {
+    max-width: 130px;
+    max-height: 48px;
+  }
+
+  .works-logo-board::before,
+  .works-logo-board::after {
+    width: 48px;
   }
 }
 
@@ -152,19 +212,20 @@
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.6);
 }
 
-:host-context([data-theme='dark']) .work-logo-item h3 {
-  color: #ecfbff;
+:host-context([data-theme='dark']) .works-logo-board {
+  background: linear-gradient(180deg, rgba(4, 10, 14, 0.84), rgba(2, 7, 11, 0.88));
+  border-color: rgba(140, 206, 223, 0.16);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.44);
 }
 
-:host-context([data-theme='dark']) .work-logo-item p {
-  color: #b8d5e1;
+:host-context([data-theme='dark']) .works-logo-board::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0));
 }
 
-:host-context([data-theme='dark']) .work-logo-wrap {
-  border-color: rgba(150, 218, 236, 0.28);
-  background: linear-gradient(135deg, rgba(0, 209, 247, 0.16), rgba(8, 18, 28, 0.92));
+:host-context([data-theme='dark']) .works-logo-board::after {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0));
 }
 
-:host-context([data-theme='dark']) .work-logo-wrap span {
-  color: #9be8f8;
+:host-context([data-theme='dark']) .work-logo-image {
+  filter: brightness(0.96) saturate(0.98) contrast(1.04);
 }

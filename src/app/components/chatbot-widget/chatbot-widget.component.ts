@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { ChatMessage } from '../../shared/models/types';
 import { ChatbotService } from '../../shared/services/chatbot.service';
 
+const KOZYBOT_PLAYED_KEY = 'kozybot_audio_played';
+
 @Component({
   selector: 'app-chatbot-widget',
   standalone: true,
@@ -31,8 +33,10 @@ export class ChatbotWidgetComponent implements OnDestroy {
   inputText = '';
   messages: ChatMessage[] = [];
   showQuickReplies = false;
+  isAudioPlaying = false;
 
   private audioCtx: AudioContext | null = null;
+  private kozybotAudio: HTMLAudioElement | null = null;
   private readonly timers: number[] = [];
   private messageCounter = 0;
 
@@ -42,18 +46,109 @@ export class ChatbotWidgetComponent implements OnDestroy {
     return index;
   }
 
-  toggleChatbot(): void {
-    const wasOpen = this.isOpen;
-    this.isOpen = !this.isOpen;
-
-    if (wasOpen) {
+  /** New entry point: handles first-time audio or direct open */
+  onTriggerClick(): void {
+    if (this.isAudioPlaying) {
+      // If audio is currently playing and user clicks again, stop audio and open immediately
+      this.stopKozybotAudio();
+      this.markAudioPlayed();
+      this.openChatbot();
       return;
     }
+
+    if (this.isOpen) {
+      // Closing the chatbot
+      this.isOpen = false;
+      return;
+    }
+
+    // Check if kozybot audio has already been played this session
+    if (this.shouldPlayKozybotAudio()) {
+      this.playKozybotAudio();
+    } else {
+      this.openChatbot();
+    }
+  }
+
+  private shouldPlayKozybotAudio(): boolean {
+    if (!isPlatformBrowser(this.platformId)) {
+      return false;
+    }
+    try {
+      return sessionStorage.getItem(KOZYBOT_PLAYED_KEY) !== 'true';
+    } catch {
+      return false;
+    }
+  }
+
+  private markAudioPlayed(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    try {
+      sessionStorage.setItem(KOZYBOT_PLAYED_KEY, 'true');
+    } catch {
+      // noop — private browsing may block sessionStorage
+    }
+  }
+
+  private playKozybotAudio(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      this.openChatbot();
+      return;
+    }
+
+    this.isAudioPlaying = true;
+
+    try {
+      this.kozybotAudio = new Audio('work-logos/kozyBot.mp3');
+      this.kozybotAudio.volume = 0.85;
+
+      this.kozybotAudio.addEventListener('ended', () => {
+        this.isAudioPlaying = false;
+        this.markAudioPlayed();
+        this.openChatbot();
+      });
+
+      this.kozybotAudio.addEventListener('error', () => {
+        // If audio fails to load/play, just open the chatbot directly
+        this.isAudioPlaying = false;
+        this.markAudioPlayed();
+        this.openChatbot();
+      });
+
+      const playPromise = this.kozybotAudio.play();
+      if (playPromise) {
+        playPromise.catch(() => {
+          // Autoplay blocked — open chatbot directly
+          this.isAudioPlaying = false;
+          this.markAudioPlayed();
+          this.openChatbot();
+        });
+      }
+    } catch {
+      this.isAudioPlaying = false;
+      this.markAudioPlayed();
+      this.openChatbot();
+    }
+  }
+
+  private stopKozybotAudio(): void {
+    if (this.kozybotAudio) {
+      this.kozybotAudio.pause();
+      this.kozybotAudio.currentTime = 0;
+      this.kozybotAudio = null;
+    }
+    this.isAudioPlaying = false;
+  }
+
+  private openChatbot(): void {
+    this.isOpen = true;
 
     if (!this.chatbotInitialized) {
       this.chatbotInitialized = true;
       this.schedule(() => {
-        this.addBotMessage("Hello! 👋 Welcome to <b>KKREATIVE CONCEPTS PRIVATE LIMITED</b>. I'm your virtual assistant.", true);
+        this.addBotMessage("Hello! Welcome to KKREATIVE CONCEPTS PRIVATE LIMITED. I'm your virtual assistant.", true);
         this.schedule(() => {
           this.addBotMessage('I can help you with our services, contact details, office location, working hours, and digital consulting. What would you like to know?');
           this.schedule(() => this.showQuickReplyButtons(), 1600);
@@ -135,7 +230,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
   }
 
   private addBotMessage(text: string, skipSound = false): void {
-    this.messages.push({ id: this.nextMessageId(), sender: 'bot', text: '', html: '', time: '', typing: true });
+    this.messages.push({ id: this.nextMessageId(), sender: 'bot', text: '', time: '', typing: true });
     this.scrollMessages();
 
     const delay = Math.min(800 + text.length * 5, 2000);
@@ -144,7 +239,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
       if (firstTyping >= 0) {
         this.messages.splice(firstTyping, 1);
       }
-      this.messages.push({ id: this.nextMessageId(), sender: 'bot', text, html: text, time: this.getTimeStr() });
+      this.messages.push({ id: this.nextMessageId(), sender: 'bot', text, time: this.getTimeStr() });
       this.scrollMessages();
       if (!skipSound) {
         this.playNotifSound();
@@ -153,7 +248,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
   }
 
   private addUserMessage(text: string): void {
-    this.messages.push({ id: this.nextMessageId(), sender: 'user', text, html: text, time: this.getTimeStr() });
+    this.messages.push({ id: this.nextMessageId(), sender: 'user', text, time: this.getTimeStr() });
     this.scrollMessages();
   }
 
@@ -188,11 +283,12 @@ export class ChatbotWidgetComponent implements OnDestroy {
   @HostListener('document:keydown', ['$event'])
   onDocumentKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape' && this.isOpen) {
-      this.toggleChatbot();
+      this.isOpen = false;
     }
   }
 
   ngOnDestroy(): void {
+    this.stopKozybotAudio();
     this.timers.forEach((id) => clearTimeout(id));
   }
 }

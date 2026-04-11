@@ -1,44 +1,40 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { HoverSparkDirective } from '../../shared/directives/hover-spark.directive';
 import { ParticleFieldComponent } from '../ui/particle-field.component';
 
-interface WorkCompany {
+interface WorkLogo {
   id: string;
-  name: string;
-  focus: string;
+  src: string;
 }
 
 @Component({
   selector: 'app-companies-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, ParticleFieldComponent, HoverSparkDirective],
+  imports: [CommonModule, RouterLink, ParticleFieldComponent],
   templateUrl: './companies-section.component.html',
   styleUrl: './companies-section.component.css'
 })
 export class CompaniesSectionComponent {
-  readonly companies: WorkCompany[] = [
-    { id: 'virtusa', name: 'Virtusa', focus: 'Digital engineering and enterprise delivery workflows' },
-    { id: 'dubai-euro-group', name: 'Dubai Euro Group', focus: 'Business platform modernization and automation support' },
-    { id: 'datatec', name: 'Datatec South Africa', focus: 'Cloud-first operations and secure digital process control' },
-    { id: 'general-pharma', name: 'General Pharma', focus: 'Quality-driven healthcare technology and workflow systems' },
-    { id: 'divis-labs', name: 'Divis Labs', focus: 'Process visibility and operations-led application support' },
-    { id: 'boeing', name: 'Boeing', focus: 'Large-scale systems thinking and disciplined engineering standards' },
-    { id: 'jpmorgan', name: 'JPMorgan', focus: 'High-trust finance workflows and risk-aware digital execution' },
-    { id: 'accenture', name: 'Accenture', focus: 'Enterprise-grade delivery patterns and scalable transformation' }
+  readonly logos: WorkLogo[] = [
+    { id: 'logo-1', src: '/work-logos/1.png' },
+    { id: 'logo-2', src: '/work-logos/2.png' },
+    { id: 'logo-3', src: '/work-logos/3.png' },
+    { id: 'logo-4', src: '/work-logos/4.png' },
+    { id: 'logo-5', src: '/work-logos/5.png' },
+    { id: 'logo-6', src: '/work-logos/6.png' },
+    { id: 'logo-7', src: '/work-logos/7.png' },
+    { id: 'logo-8', src: '/work-logos/8.jpg' },
+    { id: 'logo-9', src: '/work-logos/9.jpeg' }
   ];
 
-  trackCompany(_index: number, item: WorkCompany): string {
-    return item.id;
-  }
+  private readonly splitIndex = Math.ceil(this.logos.length / 2);
+  readonly rowOne = this.logos.slice(0, this.splitIndex);
+  readonly rowTwo = this.logos.slice(this.splitIndex);
+  readonly rowOneLoop = [...this.rowOne, ...this.rowOne];
+  readonly rowTwoLoop = [...this.rowTwo, ...this.rowTwo];
 
-  companyInitials(name: string): string {
-    return name
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0]?.toUpperCase() ?? '')
-      .join('');
+  trackLogo(index: number, item: WorkLogo): string {
+    return `${item.id}-${index}`;
   }
 }

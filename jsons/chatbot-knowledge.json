@@ -3,7 +3,7 @@
     "companyName": "KKREATIVE CONCEPTS PRIVATE LIMITED",
     "phone": "+919000500600",
     "whatsappNumber": "919000500600",
-    "emails": ["Info@kreative.in", "Hr@kkreative.in"],
+    "emails": ["info@kkreative.in", "hr@kkreative.in"],
     "hours": "Mon-Sat, 10:00 AM to 6:00 PM",
     "addressLines": [
       "KKREATIVE CONCEPTS PRIVATE LIMITED",
@@ -16,7 +16,7 @@
     "How can you help my business go digital?",
     "Do you work on AI and automation?",
     "Which industries do you support?",
-    "How can I contact your advisor?",
+    "How can I contact your team?",
     "Tell me about KKREATIVE"
   ],
   "clarificationPrompts": [
@@ -58,9 +58,9 @@
       "examples": ["thanks", "thank you", "ok thanks", "bye"],
       "responses": [
         {
-          "text": "You are welcome. If you want, I can connect you to our advisor now.",
+          "text": "You are welcome. If you want, I can connect you to our team now.",
           "actions": [
-            { "id": "thanks-whatsapp", "label": "Talk to advisor", "type": "whatsapp", "style": "primary" },
+            { "id": "thanks-whatsapp", "label": "Talk to team", "type": "whatsapp", "style": "primary" },
             { "id": "thanks-call", "label": "Call now", "type": "call", "style": "ghost" }
           ]
         }
@@ -91,13 +91,13 @@
       "tags": ["services", "offering", "solutions"],
       "responses": [
         {
-          "text": "We provide end-to-end digital services for growth and scale.",
+          "text": "We help businesses with the digital work they usually need when they want to build, improve, or grow online.",
           "bullets": [
             "App and web development",
             "AI, GenAI, chatbots, and workflow automation",
             "Cloud and DevOps setup",
             "QA and cybersecurity support",
-            "Digital marketing and business digitalisation",
+            "Digital marketing and business setup support",
             "Software training for teams"
           ],
           "actions": [
@@ -209,7 +209,7 @@
             "Security-first configuration baselines"
           ],
           "actions": [
-            { "id": "cloud-call", "label": "Call advisor", "type": "call", "style": "secondary" },
+            { "id": "cloud-call", "label": "Call team", "type": "call", "style": "secondary" },
             { "id": "cloud-consult", "label": "Get consultation", "type": "consultation", "style": "primary" }
           ]
         }
@@ -271,15 +271,15 @@
       "tags": ["company"],
       "responses": [
         {
-          "text": "KKREATIVE started in 2014 and has evolved continuously with each technology wave.",
+          "text": "KKREATIVE started in 2014 and has kept working through each major technology shift since then.",
           "bullets": [
-            "12+ years of practical delivery",
-            "From static web era to cloud and AI-first systems",
-            "Customer-focused execution for startups and enterprise teams"
+            "12+ years of hands-on work",
+            "Experience from early websites to cloud and AI systems",
+            "Work delivered for both growing businesses and larger teams"
           ],
           "actions": [
             { "id": "about-page", "label": "Open who we are", "type": "navigate", "route": "/who-we-are", "style": "secondary" },
-            { "id": "about-consult", "label": "Talk to advisor", "type": "whatsapp", "style": "primary" }
+            { "id": "about-consult", "label": "Talk to team", "type": "whatsapp", "style": "primary" }
           ]
         }
       ]
@@ -306,7 +306,7 @@
           "text": "Yes, we keep featured roles updated. You can check openings on our careers page.",
           "actions": [
             { "id": "careers-page", "label": "Open careers", "type": "navigate", "route": "/careers", "style": "primary" },
-            { "id": "careers-email", "label": "Email HR", "type": "email", "payload": "Hr@kkreative.in", "style": "secondary" }
+            { "id": "careers-email", "label": "Email HR", "type": "email", "payload": "hr@kkreative.in", "style": "secondary" }
           ]
         }
       ]
@@ -318,7 +318,7 @@
         "contact details",
         "phone number",
         "email",
-        "reach advisor"
+        "reach team"
       ],
       "keywords": [
         "contact",
@@ -326,7 +326,7 @@
         "call",
         "email",
         "whatsapp",
-        "advisor"
+        "team"
       ],
       "tags": ["contact"],
       "responses": [
@@ -334,7 +334,7 @@
           "text": "You can connect with us through any channel below.",
           "bullets": [
             "Phone: +91 9000500600",
-            "Email: Info@kreative.in / Hr@kkreative.in",
+            "Email: info@kkreative.in / hr@kkreative.in",
             "Working hours: Mon-Sat, 10:00 AM to 6:00 PM"
           ],
           "actions": [

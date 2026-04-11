@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ChatbotWidgetComponent } from '../../components/chatbot-widget/chatbot-widget.component';
 import { ContactModalComponent } from '../../components/contact-modal/contact-modal.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { SeoService } from '../../shared/services/seo.service';
 import { UiStateService } from '../../shared/services/ui-state.service';
 
 interface ServiceDetail {
@@ -30,8 +31,20 @@ interface ServiceDetail {
   templateUrl: './services-page.component.html',
   styleUrl: './services-page.component.css'
 })
-export class ServicesPageComponent {
+export class ServicesPageComponent implements OnInit {
   readonly ui = inject(UiStateService);
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Software Development Services in Hyderabad | Apps, Websites, AI and Cloud',
+      description:
+        'Explore KKREATIVE software development services in Hyderabad including app development, websites, AI features, automation, cloud, DevOps, testing, and digital marketing support.',
+      path: '/services',
+      keywords:
+        'software services Hyderabad, app development Hyderabad, web development Hyderabad, AI automation Hyderabad, DevOps company Hyderabad'
+    });
+  }
 
   readonly services: ServiceDetail[] = [
     {
@@ -41,10 +54,10 @@ export class ServicesPageComponent {
       points: ['Product-first UX', 'Secure API integration', 'Scalable release planning']
     },
     {
-      title: 'Web Development + GenAI',
-      summary: 'Landing pages, websites, and web apps with AI-ready architecture.',
-      impact: 'We build conversion-focused web systems that support growth.',
-      points: ['High-performance frontend', 'Modern backend delivery', 'GenAI integration where it adds value']
+      title: 'Web Development and AI Features',
+      summary: 'Landing pages, websites, and web apps, with AI features added only where they are useful.',
+      impact: 'We build web systems that help businesses explain their work, capture leads, and run daily operations.',
+      points: ['Fast frontend', 'Reliable backend work', 'AI features where they genuinely help']
     },
     {
       title: 'Chatbots and Automation',
@@ -55,7 +68,7 @@ export class ServicesPageComponent {
     {
       title: 'Cloud and DevOps',
       summary: 'AWS, Azure, and Google Cloud setup with deployment and monitoring support.',
-      impact: 'Reliable operations with controlled release cycles.',
+      impact: 'More stable operations and less release-day stress.',
       points: ['CI/CD pipelines', 'Cloud infrastructure hardening', 'Monitoring and incident response']
     },
     {
@@ -65,16 +78,16 @@ export class ServicesPageComponent {
       points: ['Regression and automation suites', 'Critical path test strategy', 'Security hygiene checks']
     },
     {
-      title: 'Digital Marketing and Growth',
-      summary: 'SEO, paid media, social, and lead funnel optimization.',
-      impact: 'Better visibility, better lead quality, and clearer ROI tracking.',
-      points: ['Campaign analytics', 'Performance landing pages', 'Conversion-first optimization']
+      title: 'Digital Marketing',
+      summary: 'SEO, paid media, social media, and lead funnel improvements.',
+      impact: 'Better visibility, better lead quality, and clearer campaign tracking.',
+      points: ['Campaign analytics', 'Landing page support', 'Lead-focused improvement']
     },
     {
-      title: 'Business Digitalisation + Trainings',
-      summary: 'We help offline businesses go digital and train teams on modern stacks.',
-      impact: 'Smooth adoption, stronger internal capability, and sustainable growth.',
-      points: ['Step-by-step transformation roadmap', 'B2B/B2C training programs', 'AI and cloud readiness']
+      title: 'Business Consulting and Training',
+      summary: 'We help offline businesses go digital and train teams on the tools they need to use.',
+      impact: 'Smoother adoption, stronger internal capability, and better long-term use of the systems we build.',
+      points: ['Step-by-step rollout plan', 'B2B and B2C training programs', 'Cloud and AI learning support']
     }
   ];
 }
