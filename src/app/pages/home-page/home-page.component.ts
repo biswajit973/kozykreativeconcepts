@@ -11,6 +11,7 @@ import { IndustriesSectionComponent } from '../../components/industries-section/
 import { LightboxComponent } from '../../components/lightbox/lightbox.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { OptionPerksSectionComponent } from '../../components/option-perks-section/option-perks-section.component';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { TestimonialsSectionComponent } from '../../components/testimonials-section/testimonials-section.component';
 import { TickerComponent } from '../../components/ticker/ticker.component';
@@ -31,6 +32,7 @@ import { UiStateService } from '../../shared/services/ui-state.service';
     IndustriesSectionComponent,
     TestimonialsSectionComponent,
     CompaniesSectionComponent,
+    OptionPerksSectionComponent,
     ConnectSectionComponent,
     FooterComponent,
     ContactModalComponent,

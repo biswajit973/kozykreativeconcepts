@@ -1,0 +1,120 @@
+.cookie-consent-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: calc(100% - 2rem);
+  max-width: 800px;
+  background: var(--c-off);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  border-radius: var(--r-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-consent-wrapper.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cc-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.cc-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: rgba(0, 209, 247, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-pri);
+}
+
+.cc-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cc-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-deep);
+  margin-bottom: 0.25rem;
+}
+
+.cc-text p {
+  font-size: 0.85rem;
+  color: var(--c-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cc-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.btn-accept {
+  padding: 0.75rem 2rem;
+  border-radius: var(--r-full);
+  background: var(--c-deep);
+  color: var(--c-white);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-accept:hover {
+  background: var(--c-pri);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 209, 247, 0.2);
+}
+
+.btn-manage {
+  font-size: 0.85rem;
+  color: var(--c-muted);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-manage:hover {
+  color: var(--c-deep);
+}
+
+@media (max-width: 768px) {
+  .cookie-consent-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .cc-actions {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+  .btn-accept {
+    width: 100%;
+  }
+}

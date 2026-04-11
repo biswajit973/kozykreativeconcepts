@@ -1,0 +1,18 @@
+<div class="cookie-consent-wrapper" [class.show]="isVisible()">
+  <div class="cc-content">
+    <div class="cc-icon">
+      <!-- Cookie / Shield Icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div class="cc-text">
+      <h4>We value your privacy</h4>
+      <p>We use essential cookies and caching to ensure our website functions properly and provides the best possible experience. By clicking "Okay", you agree to our use of these technologies.</p>
+    </div>
+  </div>
+  <div class="cc-actions">
+    <button class="btn-manage" (click)="accept()">Only Essential</button>
+    <button class="btn-accept" (click)="accept()">Okay, I Understand</button>
+  </div>
+</div>
