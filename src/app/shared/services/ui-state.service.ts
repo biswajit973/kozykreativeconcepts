@@ -15,6 +15,7 @@ export class UiStateService {
   readonly toolsDropOpen = signal(false);
   readonly activeGallery = signal<GalleryType>('web');
   readonly navbarScrolled = signal(false);
+  readonly chatbotOpen = signal(false);
 
   /** Always light mode — dark mode has been removed */
   readonly isDarkMode = computed(() => false);
@@ -39,6 +40,10 @@ export class UiStateService {
 
   setNavbarScrolled(scrolled: boolean): void {
     this.navbarScrolled.set(scrolled);
+  }
+
+  setChatbotOpen(open: boolean): void {
+    this.chatbotOpen.set(open);
   }
 
   openModal(id: Exclude<ModalId, null>): void {

@@ -11,6 +11,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { ChatMessage } from '../../shared/models/types';
 import { ChatbotService } from '../../shared/services/chatbot.service';
+import { UiStateService } from '../../shared/services/ui-state.service';
 
 const KOZYBOT_PLAYED_KEY = 'kozybot_audio_played';
 
@@ -23,6 +24,7 @@ const KOZYBOT_PLAYED_KEY = 'kozybot_audio_played';
 })
 export class ChatbotWidgetComponent implements OnDestroy {
   private readonly chatbot = inject(ChatbotService);
+  private readonly ui = inject(UiStateService);
   private readonly platformId = inject(PLATFORM_ID);
 
   @ViewChild('cbMessages') private cbMessages?: ElementRef<HTMLDivElement>;
@@ -59,6 +61,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
     if (this.isOpen) {
       // Closing the chatbot
       this.isOpen = false;
+      this.ui.setChatbotOpen(false);
       return;
     }
 
@@ -144,6 +147,7 @@ export class ChatbotWidgetComponent implements OnDestroy {
 
   private openChatbot(): void {
     this.isOpen = true;
+    this.ui.setChatbotOpen(true);
 
     if (!this.chatbotInitialized) {
       this.chatbotInitialized = true;
@@ -284,10 +288,12 @@ export class ChatbotWidgetComponent implements OnDestroy {
   onDocumentKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape' && this.isOpen) {
       this.isOpen = false;
+      this.ui.setChatbotOpen(false);
     }
   }
 
   ngOnDestroy(): void {
+    this.ui.setChatbotOpen(false);
     this.stopKozybotAudio();
     this.timers.forEach((id) => clearTimeout(id));
   }

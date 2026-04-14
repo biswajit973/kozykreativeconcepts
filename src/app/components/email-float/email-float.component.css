@@ -1,7 +1,7 @@
 :host {
   position: fixed;
-  left: 24px;
-  bottom: 24px;
+  left: 28px;
+  bottom: 28px;
   z-index: 1498;
 }
 
@@ -85,19 +85,50 @@
   color: #9be8f8;
 }
 
+@media (max-width: 1100px) {
+  :host {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .email-trigger {
+    width: 56px;
+    height: 56px;
+  }
+
+  .email-trigger svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
 @media (max-width: 768px) {
   :host {
-    left: 16px;
+    left: 18px;
     bottom: 18px;
   }
 
   .email-trigger {
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
   }
 
   .email-trigger svg {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
+  }
+
+  .email-float.is-chatbot-open {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.94);
+    transition: opacity .24s ease, transform .24s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    left: 16px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 86px);
   }
 }

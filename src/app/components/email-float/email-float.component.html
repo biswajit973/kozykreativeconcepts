@@ -1,4 +1,4 @@
-<div class="email-float" [class.open]="isOpen()">
+<div class="email-float" [class.open]="isOpen()" [class.is-chatbot-open]="ui.chatbotOpen()">
   <div class="email-popover" *ngIf="isOpen()">
     <a
       *ngFor="let item of emails"

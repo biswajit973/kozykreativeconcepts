@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { UiStateService } from '../../shared/services/ui-state.service';
 
 interface SupportEmail {
   label: string;
@@ -15,6 +16,7 @@ interface SupportEmail {
 })
 export class EmailFloatComponent {
   private readonly hostRef = inject(ElementRef<HTMLElement>);
+  readonly ui = inject(UiStateService);
 
   readonly isOpen = signal(false);
   readonly emails: SupportEmail[] = [

@@ -7,6 +7,58 @@
   margin-top: 0.25rem;
 }
 
+.contact-direct-note {
+  margin-bottom: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 245, 240, 0.92));
+  border: 1px solid rgba(17, 75, 95, 0.1);
+  box-shadow: 0 10px 24px rgba(11, 32, 39, 0.06);
+}
+
+.contact-direct-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-pri);
+}
+
+.contact-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.7rem;
+}
+
+.contact-direct-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(2, 128, 144, 0.08);
+  border: 1px solid rgba(2, 128, 144, 0.14);
+  color: var(--c-pri);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-direct-links a:hover {
+  background: rgba(2, 128, 144, 0.12);
+  border-color: rgba(2, 128, 144, 0.24);
+  transform: translateY(-1px);
+}
+
+.contact-direct-copy {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--c-muted);
+}
+
 .form-input.is-invalid,
 .form-select.is-invalid,
 .form-textarea.is-invalid {
@@ -195,6 +247,26 @@
   box-shadow: 0 0 0 3px rgba(255, 123, 123, 0.14);
 }
 
+:host-context([data-theme='dark']) .contact-direct-note {
+  background: linear-gradient(180deg, rgba(7, 15, 21, 0.96), rgba(3, 8, 12, 0.96));
+  border-color: rgba(130, 199, 218, 0.18);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+}
+
+:host-context([data-theme='dark']) .contact-direct-title,
+:host-context([data-theme='dark']) .contact-direct-links a {
+  color: #dff9ff;
+}
+
+:host-context([data-theme='dark']) .contact-direct-links a {
+  background: rgba(0, 209, 247, 0.1);
+  border-color: rgba(138, 255, 210, 0.16);
+}
+
+:host-context([data-theme='dark']) .contact-direct-copy {
+  color: #b9d3de;
+}
+
 :host-context([data-theme='dark']) .form-error {
   color: #ffaaaa;
 }
@@ -234,6 +306,14 @@
 }
 
 @media (max-width: 768px) {
+  .contact-direct-note {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .contact-direct-links {
+    display: grid;
+  }
+
   .contact-loader,
   .contact-success {
     padding: 1rem 0.95rem;

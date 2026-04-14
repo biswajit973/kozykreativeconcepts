@@ -7,6 +7,15 @@
       <p class="modal-sub" *ngIf="isSubmitting">Request sending. Please wait a moment while we prepare your handoff.</p>
 
       <form *ngIf="!submitSuccess && !isSubmitting; else modalState" #contactForm="ngForm" novalidate (submit)="onSubmit(contactForm, $event)">
+        <div class="contact-direct-note" aria-label="Direct email options">
+          <p class="contact-direct-title">Prefer email</p>
+          <div class="contact-direct-links">
+            <a [href]="'mailto:' + companyEmail">Info@Kkreative.in</a>
+            <a [href]="'mailto:' + companyHrEmail">Hr@Kkreative.in</a>
+          </div>
+          <p class="contact-direct-copy">Use Info for project enquiries and Hr for careers or hiring follow-ups.</p>
+        </div>
+
         <div class="form-row">
           <div class="form-group">
             <label for="contactName">Full Name</label>
