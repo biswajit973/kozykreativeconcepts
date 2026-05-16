@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Meta, Title } from '@angular/platform-browser';
@@ -88,7 +88,8 @@ export class BgvPageComponent implements OnInit, OnDestroy {
   constructor(
     private http: HttpClient,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
@@ -207,7 +208,7 @@ export class BgvPageComponent implements OnInit, OnDestroy {
   }
 
   async downloadReport(): Promise<void> {
-    if (!this.result || this.isDownloading) return;
+    if (!isPlatformBrowser(this.platformId) || !this.result || this.isDownloading) return;
     
     this.isDownloading = true;
     
