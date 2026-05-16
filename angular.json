@@ -35,7 +35,9 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "prerender": false,
+            "ssr": false
           },
           "configurations": {
             "production": {
@@ -51,6 +53,16 @@
                   "maximumError": "16kB"
                 }
               ],
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": {
+                  "inline": false
+                }
+              },
               "outputHashing": "all"
             },
             "development": {
