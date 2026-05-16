@@ -1,20 +1,22 @@
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video class="hero-bg-video" src="/video2.mp4" poster="/test2.webp" autoplay muted loop playsinline></video>
+  </div>
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <div class="hero-badge reveal app-reveal">
         <div class="hero-badge-dot"></div>
-        <span>Since {{ foundingYear }}</span>
+        <span>Kkreative</span>
         <span class="hero-badge-sep" aria-hidden="true">·</span>
-        <span class="hero-badge-highlight">{{ yearsOfExperience }} Years of Expertise</span>
+        <span class="hero-badge-highlight">Kozy Kreative Concepts</span>
       </div>
-      <p class="hero-context reveal d1 app-reveal">Our name is our promise</p>
+      <p class="hero-context reveal d1 app-reveal">Inspiring Innovations.</p>
       <h1 class="reveal d1 app-reveal">
-        Kozy to work with.<br>
-        <span class="gold">Kreative in everything we deliver.</span>
+        <span class="hero-title-line">Bigger Problems,</span>
+        <span class="hero-title-line gold">Simple Solutions.</span>
       </h1>
       <p class="hero-lead reveal d2 app-reveal">
-        We are a 100% remote, borderless team built on flexible schedules and connected across multiple time zones, proving that world-class creative quality does not need rigid ways of working.
+        Kozy Kreative Concepts does it in its own unique style and makes problems easier.
       </p>
       <div class="hero-ctas reveal d2 app-reveal">
         <button class="btn btn-pri" (click)="ui.openModal('contactModal')">
@@ -24,7 +26,7 @@
         <a href="#services" class="btn btn-out">See Our Services</a>
       </div>
       <div class="hero-stats reveal d3 app-reveal">
-        <div class="h-stat"><h4>{{ yearsOfExperience }}+</h4><span>Years of Expertise</span></div>
+        <div class="h-stat h-stat--active"><h4>{{ yearsOfExperience }}+</h4><span>Years of Expertise</span></div>
         <div class="h-stat"><h4>Apps + AI</h4><span>Product and Automation</span></div>
         <div class="h-stat"><h4>Cloud + Growth</h4><span>Build and Scale Support</span></div>
       </div>
@@ -48,6 +50,12 @@
     </div>
 
     <div class="hero-visual hero-visual--scanner reveal d3 app-reveal" *ngIf="heroVisualVariant === 'scanner'" #scannerRoot>
+      <video class="hero-media-video" src="/video1.mp4" poster="/test2.webp" autoplay muted loop playsinline></video>
+      <div class="hero-media-shade"></div>
+      <div class="hero-media-label">
+        <span>Kozy Kreative Concepts</span>
+        <strong>Strategy, technology, and service in motion.</strong>
+      </div>
       <svg class="grid-pattern" viewBox="0 0 400 400"><defs><pattern id="grid-scanner" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width=".5"/></pattern></defs><rect width="400" height="400" fill="url(#grid-scanner)"/></svg>
       <!-- LEGACY HALO BACKUP START
       <div class="hero-scanner-halo hero-scanner-halo--teal"></div>

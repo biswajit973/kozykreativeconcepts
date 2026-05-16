@@ -36,35 +36,40 @@ export class TechnologyPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'AI, Cloud, Web and DevOps Company in Hyderabad | KKREATIVE Technology',
+      title: 'Technologies and Capabilities | Kkreative',
       description:
-        'KKREATIVE provides web engineering, cloud delivery, AI integration, automation, QA, security, and DevOps support for businesses looking for practical technology execution in Hyderabad.',
+        'Kozy Kreative Concepts capabilities include SOA, scalable architecture, .Net MVC, Java, PHP CodeIgniter, Joomla, Magento, AWS, Azure, Android, and iOS.',
       path: '/technology',
       keywords:
-        'AI company in Hyderabad, cloud company Hyderabad, DevOps company Hyderabad, web engineering Hyderabad, automation company Hyderabad'
+        'SOA architecture Hyderabad, .Net MVC Java PHP CodeIgniter, Joomla Magento, AWS Azure cloud management, Android iOS development'
     });
   }
 
   readonly tracks: TechnologyTrack[] = [
     {
-      title: 'Web and Product Engineering',
-      summary: 'Customer-facing websites, internal tools, and APIs that teams can rely on every day.',
-      stack: ['React', 'Angular', 'Node.js', 'Express', 'Django', 'FastAPI']
+      title: 'Architecture',
+      summary: 'Service-Oriented Architecture and scalable, robust architecture development with industry best practices.',
+      stack: ['SOA', 'Scalable Architecture', 'Robust Architecture', 'Industry Best Practices']
     },
     {
-      title: 'Cloud and Platform Delivery',
-      summary: 'Cloud infrastructure, release flow, and monitoring that help systems stay stable.',
-      stack: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes', 'CI/CD']
+      title: 'Enterprise Technologies',
+      summary: 'Enterprise application delivery using established frameworks and business-ready platforms.',
+      stack: ['.Net MVC', 'Java', 'PHP', 'CodeIgniter']
     },
     {
-      title: 'AI, GenAI, and Automation',
-      summary: 'AI features and automation added where they save time or improve service.',
-      stack: ['LLM integration', 'RAG workflows', 'AI agents', 'Automation pipelines', 'Analytics']
+      title: 'Web Platforms',
+      summary: 'Web platform capability for content, commerce, and managed digital experiences.',
+      stack: ['Joomla', 'Magento']
     },
     {
-      title: 'Quality, Security, and Governance',
-      summary: 'Testing, security checks, and release discipline that help avoid avoidable issues.',
-      stack: ['Manual + automation QA', 'Security checks', 'Monitoring', 'Compliance workflows']
+      title: 'Cloud Management and Monitoring',
+      summary: 'Cloud management setup using latest technologies such as Amazon Web Services and Azure.',
+      stack: ['AWS', 'Azure', 'Cloud Management', 'Monitoring']
+    },
+    {
+      title: 'Mobile Platforms',
+      summary: 'Mobile capability for customer and business applications.',
+      stack: ['Android', 'iOS']
     }
   ];
 }

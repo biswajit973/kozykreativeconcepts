@@ -5,8 +5,8 @@
 .testimonials {
   padding: 5.5rem 0;
   background:
-    radial-gradient(circle at 18% 12%, rgba(136, 212, 171, 0.12), transparent 45%),
-    radial-gradient(circle at 82% 86%, rgba(198, 151, 63, 0.1), transparent 48%),
+    radial-gradient(circle at 18% 12%, rgba(200, 16, 46, 0.08), transparent 45%),
+    radial-gradient(circle at 82% 86%, rgba(10, 16, 20, 0.06), transparent 48%),
     linear-gradient(180deg, var(--c-off) 0%, var(--c-cream) 100%);
   position: relative;
   isolation: isolate;
@@ -14,7 +14,7 @@
 
 .testimonials-shell {
   position: relative;
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 0.9rem;
   background: rgba(255, 255, 255, 0.62);
   box-shadow: 0 18px 44px rgba(11, 32, 39, 0.08);
@@ -24,7 +24,7 @@
 }
 
 .testimonials-board {
-  border-radius: 18px;
+  border-radius: 10px;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(247, 245, 240, 0.95) 0%, rgba(250, 248, 244, 0.9) 100%);
   border: 1px solid rgba(11, 32, 39, 0.05);
@@ -54,7 +54,7 @@
 .testimonial-card {
   min-height: 244px;
   padding: 1.1rem 1.1rem 1rem;
-  border-radius: 16px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(17, 75, 95, 0.08);
   box-shadow: 0 10px 24px rgba(11, 32, 39, 0.07);
@@ -66,7 +66,7 @@
 .testimonial-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 28px rgba(11, 32, 39, 0.12);
-  border-color: rgba(2, 128, 144, 0.22);
+  border-color: rgba(200, 16, 46, 0.22);
 }
 
 .testimonial-top {
@@ -107,11 +107,11 @@
 }
 
 .photo-mint {
-  background: linear-gradient(135deg, #2e8a7e, var(--c-mint));
+  background: linear-gradient(135deg, #3A424A, var(--c-teal));
 }
 
 .photo-gold {
-  background: linear-gradient(135deg, var(--c-gold), #d4a84b);
+  background: linear-gradient(135deg, #111820, var(--c-gold));
 }
 
 .testimonial-meta {
@@ -163,7 +163,7 @@
   justify-self: start;
   border-radius: var(--r-full);
   padding: 0.3rem 0.72rem;
-  background: rgba(2, 128, 144, 0.1);
+  background: rgba(200, 16, 46, 0.08);
   color: var(--c-pri);
   font-size: 0.7rem;
   font-weight: 700;

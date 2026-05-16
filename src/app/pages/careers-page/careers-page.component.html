@@ -4,13 +4,19 @@
 
   <section class="careers-hero">
     <div class="container">
-      <div class="careers-head">
-        <div class="overline">Careers</div>
-        <h1>{{ dataset().company }}</h1>
-        <p>Join a team with {{ yearsOfExperience }} years of hands-on delivery since {{ foundingYear }}, working on websites, apps, cloud systems, automation, and digital products for real businesses.</p>
-        <div class="refresh-row">
-          <span class="refresh-badge">{{ refreshLabel() }}</span>
-          <span class="refresh-period">Current period: {{ refreshPeriod() }}</span>
+      <div class="careers-hero-grid">
+        <div class="careers-head">
+          <div class="overline">Careers</div>
+          <h1>{{ dataset().company }}</h1>
+          <p>Join a team with {{ yearsOfExperience }} years of hands-on delivery since {{ foundingYear }}, working on websites, apps, cloud systems, automation, and digital products for real businesses.</p>
+          <div class="refresh-row">
+            <span class="refresh-badge">{{ refreshLabel() }}</span>
+            <span class="refresh-period">Current period: {{ refreshPeriod() }}</span>
+          </div>
+        </div>
+
+        <div class="careers-portrait" aria-hidden="true">
+          <img src="/carriersbgremoved.webp" alt="">
         </div>
       </div>
 

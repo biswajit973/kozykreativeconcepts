@@ -3,7 +3,7 @@
     <button class="modal-close" type="button" (click)="close()" aria-label="Close contact form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     <div class="modal-body">
       <h2>Let's Connect</h2>
-      <p class="modal-sub" *ngIf="!submitSuccess && !isSubmitting">Share what you need. Our team will review it and get back to you with a simple next step.</p>
+      <p class="modal-sub" *ngIf="!submitSuccess && !isSubmitting">Share what you need. Kozy Kreative Concepts will review it and get back with a simple next step.</p>
       <p class="modal-sub" *ngIf="isSubmitting">Request sending. Please wait a moment while we prepare your handoff.</p>
 
       <form *ngIf="!submitSuccess && !isSubmitting; else modalState" #contactForm="ngForm" novalidate (submit)="onSubmit(contactForm, $event)">
@@ -12,8 +12,9 @@
           <div class="contact-direct-links">
             <a [href]="'mailto:' + companyEmail">Info@Kkreative.in</a>
             <a [href]="'mailto:' + companyHrEmail">Hr@Kkreative.in</a>
+            <a [href]="'mailto:' + companyDirectEmail">naveent@kkreative.in</a>
           </div>
-          <p class="contact-direct-copy">Use Info for project enquiries and Hr for careers or hiring follow-ups.</p>
+          <p class="contact-direct-copy">Use Info for general sales, Hr for careers, and the direct email for focused business contact.</p>
         </div>
 
         <div class="form-row">
@@ -141,7 +142,9 @@
 
             <div class="contact-success-meta">
               <span>Email: {{ companyEmail }}</span>
-              <span>CC: {{ companyHrEmail }}</span>
+              <span>HR: {{ companyHrEmail }}</span>
+              <span>Direct: {{ companyDirectEmail }}</span>
+              <span>Phone: {{ companyPhoneDisplay }} | {{ companySecondaryPhoneDisplay }}</span>
             </div>
 
             <div class="contact-success-tip">

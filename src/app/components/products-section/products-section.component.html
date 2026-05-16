@@ -1,0 +1,24 @@
+<section class="products-section reveal" id="products">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="overline" style="justify-content:center">Our Products</div>
+      <h2>Product Platforms Built For Practical Business Operations.</h2>
+      <p>
+        Kozy Kreative Concepts has built focused products for restaurant management, residential communities, and telecom operations.
+      </p>
+      <div class="products-head-actions">
+        <a routerLink="/products" class="btn btn-sm btn-out">Explore Product Details</a>
+      </div>
+    </div>
+
+    <div class="products-grid reveal d1">
+      <article class="product-card" *ngFor="let product of products; trackBy: trackProduct">
+        <span class="product-kicker">{{ product.title }}</span>
+        <h3>{{ product.summary }}</h3>
+        <ul>
+          <li *ngFor="let point of product.points">{{ point }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

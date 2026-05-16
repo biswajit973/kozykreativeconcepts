@@ -1,13 +1,13 @@
 <section class="founders" id="founders">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="overline" style="justify-content:center">Our Works</div>
-      <h2>Businesses and teams we have supported over the years.</h2>
-      <p>Our work has covered different industries, operating styles, and delivery needs.</p>
+      <div class="overline" style="justify-content:center">Our Global Clients</div>
+      <h2>Client Relationships Across India, USA, Singapore, And South Africa.</h2>
+      <p>Kozy Kreative Concepts has supported regional and global teams across different industries and delivery needs.</p>
     </div>
 
     <p class="leaders-context reveal d1">
-      A moving view of selected work marks from businesses and teams we have supported.
+      Selected client groups from the document provided by the client.
     </p>
 
     <div class="works-logo-board-wrap reveal d2">
@@ -15,22 +15,11 @@
         <app-particle-field preset="works" [interactive]="true"></app-particle-field>
       </div>
 
-      <div class="works-logo-board">
-        <div class="logo-marquee">
-          <div class="logo-track">
-            <article class="work-logo-item" aria-hidden="true" *ngFor="let item of rowOneLoop; trackBy: trackLogo">
-              <img class="work-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
-            </article>
-          </div>
-        </div>
-
-        <div class="logo-marquee logo-marquee--reverse">
-          <div class="logo-track">
-            <article class="work-logo-item" aria-hidden="true" *ngFor="let item of rowTwoLoop; trackBy: trackLogo">
-              <img class="work-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
-            </article>
-          </div>
-        </div>
+      <div class="works-logo-board clients-board">
+        <article class="client-group-card" *ngFor="let group of clientGroups; trackBy: trackClientGroup">
+          <h3>{{ group.country }}</h3>
+          <p>{{ group.clients.join(', ') }}</p>
+        </article>
       </div>
     </div>
 

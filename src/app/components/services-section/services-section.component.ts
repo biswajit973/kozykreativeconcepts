@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { ParticleFieldComponent } from '../ui/particle-field.component';
 import { HoverSparkDirective } from '../../shared/directives/hover-spark.directive';
 
-type ServiceCategoryId = 'development' | 'automation' | 'cloud-quality' | 'growth-training';
+type ServiceCategoryId = 'development' | 'consulting' | 'training' | 'growth';
 type ServiceFilterId = 'all' | ServiceCategoryId;
 
 interface ServiceSubItem {
@@ -117,280 +117,196 @@ export class ServicesSectionComponent implements OnDestroy {
   readonly categories: ServiceCategory[] = [
     {
       id: 'development',
-      title: 'Apps and Websites',
+      title: 'Development',
       emoji: '💻',
-      intro: 'Build useful products for customers and internal teams.',
-      cue: 'Open a card to see the kind of business problem it usually solves.',
+      intro: 'Custom web and mobile application development.',
+      cue: 'Open a card to see how we simplify software delivery.',
       items: [
-        { id: 'app-development', name: 'App Development', hook: 'Android, iOS, Windows, and Mac app builds.' },
-        { id: 'web-development', name: 'Web Development', hook: 'Landing pages, websites, and web applications.' }
+        { id: 'software-development', name: 'Software Development', hook: 'Custom web and mobile application development.' }
       ]
     },
     {
-      id: 'automation',
-      title: 'Automation and AI',
-      emoji: '🤖',
-      intro: 'Use AI and automation where it saves time and reduces repetition.',
-      cue: 'See how we simplify support and daily operations.',
+      id: 'consulting',
+      title: 'Consulting',
+      emoji: '🧭',
+      intro: 'Research, business consulting, resource consulting, and startup advisory.',
+      cue: 'See how we help teams choose the right next move.',
       items: [
-        { id: 'chatbot-automation', name: 'Chatbots and Automation', hook: 'Support bots and smart workflow automation.' }
+        { id: 'research-business-consulting', name: 'Research and Business Consulting', hook: 'Feasibility Study, SWOT Analysis, and Market Mindset.' },
+        { id: 'resource-consulting', name: 'Resource Consulting', hook: 'Support for finding and shaping the right delivery resources.' },
+        { id: 'startup-advisory', name: 'Startup Advisory and Incubator Setup Help', hook: 'Guidance for startup planning and incubator setup.' }
       ]
     },
     {
-      id: 'cloud-quality',
-      title: 'Cloud, DevOps and Quality',
-      emoji: '☁️',
-      intro: 'Keep releases stable and systems secure.',
-      cue: 'Cloud setup, testing, and security support from one team.',
+      id: 'training',
+      title: 'Training',
+      emoji: '🎓',
+      intro: 'Skill development programs for teams and professionals.',
+      cue: 'Training options that strengthen practical capability.',
       items: [
-        { id: 'cloud-devops', name: 'Cloud and DevOps', hook: 'AWS, Azure, GCP with deployment and monitoring.' },
-        { id: 'qa-cybersecurity', name: 'QA and Cybersecurity', hook: 'Manual + automation testing and security checks.' }
+        { id: 'training-skill-development', name: 'Training and Skill Development', hook: 'PMP, Ethical Hacking, Testing, and Team Building.' }
       ]
     },
     {
-      id: 'growth-training',
-      title: 'Growth and Digitalisation',
+      id: 'growth',
+      title: 'Digital Growth',
       emoji: '📈',
-      intro: 'Help the business get noticed and help the team learn.',
-      cue: 'Marketing, digital setup, and training explained in plain business language.',
+      intro: 'Digital marketing support for visibility and growth.',
+      cue: 'Marketing support focused on business outcomes.',
       items: [
-        { id: 'digital-marketing', name: 'Digital Marketing', hook: 'SEO, social media, ads, and lead generation.' },
-        { id: 'business-digitalisation', name: 'Business Consulting and Digitalisation', hook: 'Step-by-step guidance to go digital.' },
-        { id: 'software-trainings', name: 'Software Trainings', hook: 'B2B and B2C trainings in modern tech stacks.' }
+        { id: 'digital-marketing', name: 'Digital Marketing', hook: 'Online visibility, campaigns, and lead-focused marketing.' }
       ]
     }
   ];
 
   readonly stories: ServiceStory[] = [
     {
-      id: 'app-development',
+      id: 'software-development',
       categoryId: 'development',
-      title: 'App Development',
-      subtitle: 'Android, iOS, Windows, and Mac apps built around day-to-day business work.',
-      iconKey: 'app-development',
+      title: 'Software Development',
+      subtitle: 'Custom web and mobile application development for customers and internal teams.',
+      iconKey: 'web-development',
       emoji: '📱',
-      factChips: ['Android + iOS', 'Desktop apps', 'Weekly demos'],
-      keyLine: 'A good app should make work easier from the first week of use.',
-      highlightWords: ['fast', 'simple', 'scale', 'delivery', 'users'],
+      factChips: ['Web applications', 'Mobile applications', 'Custom development'],
+      keyLine: 'Software should make business work easier, clearer, and more dependable.',
+      highlightWords: ['web', 'mobile', 'custom', 'simple', 'business'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['A business had sales teams working on calls, spreadsheets, and manual follow-up.', 'Daily updates were slow and data was scattered.']
-        },
-        {
           title: 'What we build',
-          lines: ['We designed a mobile app and admin panel for daily updates.', 'Role-based access and simple dashboards were added.']
+          lines: ['Custom web applications for business operations and customer journeys.', 'Mobile applications that support staff, customers, and daily service flows.']
         },
         {
           title: 'How we deliver',
-          lines: ['Sprint-based development with weekly demos.', 'Clear testing checkpoints before each release.']
+          lines: ['We keep the workflow simple and service-oriented.', 'The solution is planned around the real business problem, not extra complexity.']
         },
         {
           title: 'Business benefit',
-          lines: ['Team updates became real-time.', 'Decision makers got cleaner and faster visibility.']
+          lines: ['Customers get software that fits how they work.', 'Teams get clearer systems for everyday use.']
         }
       ]
     },
     {
-      id: 'web-development',
-      categoryId: 'development',
-      title: 'Web Development',
-      subtitle: 'Landing pages, websites, web apps, and useful AI features where they genuinely help.',
-      iconKey: 'web-development',
-      emoji: '🌐',
-      factChips: ['Landing pages', 'Web apps', 'Useful AI features'],
-      keyLine: 'A website should explain the business clearly and make the next step easy.',
-      highlightWords: ['convert', 'website', 'web app', 'performance', 'business'],
+      id: 'research-business-consulting',
+      categoryId: 'consulting',
+      title: 'Research and Business Consulting',
+      subtitle: 'Feasibility Study, SWOT Analysis, and Market Mindset support.',
+      iconKey: 'business-digitalisation',
+      emoji: '🧭',
+      factChips: ['Feasibility Study', 'SWOT Analysis', 'Market Mindset'],
+      keyLine: 'Good consulting helps a team see the opportunity and the risk before building.',
+      highlightWords: ['feasibility', 'SWOT', 'market', 'business'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['A company had traffic but low enquiry conversion.', 'Website pages were slow and forms were not tracked properly.']
+          title: 'Research layer',
+          lines: ['We study feasibility before major product or business decisions.', 'We use SWOT Analysis to clarify strengths, risks, and gaps.']
         },
         {
-          title: 'What we build',
-          lines: ['We redesigned high-intent pages and lead funnels.', 'Tracking, CRM sync, and analytics events were implemented.']
-        },
-        {
-          title: 'Technical layer',
-          lines: ['Modern frontend stack, secure backend APIs, and scalable hosting.', 'Optional AI assistant integration for FAQs and lead capture.']
+          title: 'Business view',
+          lines: ['Market Mindset support helps the team understand customers and positioning.', 'The output is practical guidance for the next business step.']
         },
         {
           title: 'Business benefit',
-          lines: ['Better lead quality and higher conversion intent.', 'Teams spend less time chasing incomplete enquiries.']
+          lines: ['Teams make decisions with more clarity.', 'Projects begin with stronger direction and fewer avoidable assumptions.']
         }
       ]
     },
     {
-      id: 'chatbot-automation',
-      categoryId: 'automation',
-      title: 'Chatbots and Automation',
-      subtitle: 'Chat support and workflow automation for the tasks teams repeat every day.',
-      iconKey: 'chatbot-automation',
-      emoji: '🤖',
-      factChips: ['Chat support', 'Workflow rules', 'Human handover'],
-      keyLine: 'Automation should remove repeated work, not create more confusion.',
-      highlightWords: ['automate', 'support', 'save time', 'team', 'workflow'],
+      id: 'training-skill-development',
+      categoryId: 'training',
+      title: 'Training and Skill Development',
+      subtitle: 'PMP, Ethical Hacking, Testing, and Team Building programs.',
+      iconKey: 'software-trainings',
+      emoji: '🎓',
+      factChips: ['PMP', 'Ethical Hacking', 'Testing', 'Team Building'],
+      keyLine: 'Skill development should make teams more capable in real work.',
+      highlightWords: ['training', 'skills', 'PMP', 'testing', 'team'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['Support team answered the same questions every day.', 'Manual ticket sorting consumed too much time.']
+          title: 'Training areas',
+          lines: ['Project Management Certification support through PMP-oriented training.', 'Ethical Hacking and Testing programs for technology teams.']
         },
         {
-          title: 'What we build',
-          lines: ['A chatbot handled common queries and captured user intent.', 'Tickets were auto-routed to the right team using workflows.']
-        },
-        {
-          title: 'Integration layer',
-          lines: ['Connected bot with CRM, email, and internal tools.', 'Added handover flow for human agent when needed.']
+          title: 'Team capability',
+          lines: ['Team Building programs support collaboration and delivery confidence.', 'Programs can be shaped for business teams or technical teams.']
         },
         {
           title: 'Business benefit',
-          lines: ['Faster response time and lower manual load.', 'Support quality improved with consistent answers.']
+          lines: ['Teams become more confident and prepared.', 'Organizations strengthen internal capability instead of depending only on outside support.']
         }
       ]
     },
     {
-      id: 'cloud-devops',
-      categoryId: 'cloud-quality',
-      title: 'Cloud and DevOps',
-      subtitle: 'AWS, Azure, and Google Cloud support for deployment, monitoring, and release flow.',
+      id: 'resource-consulting',
+      categoryId: 'consulting',
+      title: 'Resource Consulting',
+      subtitle: 'Support for identifying, planning, and aligning the resources needed for delivery.',
       iconKey: 'cloud-devops',
       emoji: '☁️',
-      factChips: ['AWS • Azure • GCP', 'CI/CD pipelines', 'Monitoring and alerts'],
-      keyLine: 'Cloud work should help the team release with less stress and fewer surprises.',
-      highlightWords: ['cloud', 'deployment', 'monitoring', 'reliable', 'support'],
+      factChips: ['Resource planning', 'Capability matching', 'Delivery support'],
+      keyLine: 'The right resources help a project move with less friction.',
+      highlightWords: ['resource', 'planning', 'delivery', 'support'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['A team had frequent downtime during new release.', 'Rollback and monitoring process was weak.']
+          title: 'Planning',
+          lines: ['We help identify what kind of resource support the work needs.', 'The focus is on capability, fit, and delivery readiness.']
         },
         {
-          title: 'What we build',
-          lines: ['Set up CI/CD pipeline with environment checks.', 'Added logs, uptime tracking, and alerting.']
-        },
-        {
-          title: 'Operational model',
-          lines: ['Release playbook with backup and rollback plan.', 'Infra changes documented for team continuity.']
+          title: 'Execution support',
+          lines: ['Resource consulting can support project teams, product teams, and operational teams.', 'The aim is to reduce gaps between business need and delivery capacity.']
         },
         {
           title: 'Business benefit',
-          lines: ['More stable releases and faster issue detection.', 'Product teams can ship with confidence.']
-        }
-      ]
-    },
-    {
-      id: 'qa-cybersecurity',
-      categoryId: 'cloud-quality',
-      title: 'QA Testing and Cybersecurity',
-      subtitle: 'Manual testing, automation testing, and basic security checks before go-live.',
-      iconKey: 'qa-cybersecurity',
-      emoji: '🧪',
-      factChips: ['Manual + automation QA', 'Security test support', 'Release readiness'],
-      keyLine: 'Testing and security checks should happen before the customer finds the problem.',
-      highlightWords: ['quality', 'security', 'testing', 'bugs', 'release'],
-      blocks: [
-        {
-          title: 'Situation',
-          lines: ['Production issues were rising after each release.', 'Critical bugs were found late.']
-        },
-        {
-          title: 'What we build',
-          lines: ['Test cases, regression suite, and automation where useful.', 'Basic vulnerability checks and secure coding review support.']
-        },
-        {
-          title: 'Process',
-          lines: ['Pre-release QA gate with severity-based reporting.', 'Clear defect closure and retest cycle.']
-        },
-        {
-          title: 'Business benefit',
-          lines: ['Fewer post-release incidents.', 'Better customer trust and smoother product usage.']
+          lines: ['Clients get a clearer view of the people and skills needed.', 'Project execution becomes easier to plan and manage.']
         }
       ]
     },
     {
       id: 'digital-marketing',
-      categoryId: 'growth-training',
+      categoryId: 'growth',
       title: 'Digital Marketing',
-      subtitle: 'SEO, social media, ads, lead generation, and online branding support.',
+      subtitle: 'Digital marketing support for online visibility, campaigns, and customer reach.',
       iconKey: 'digital-marketing',
       emoji: '📣',
-      factChips: ['SEO + Ads', 'Lead generation', 'Brand visibility'],
-      keyLine: 'Marketing should bring calls, enquiries, and sales, not only impressions.',
-      highlightWords: ['SEO', 'leads', 'ads', 'branding', 'results'],
+      factChips: ['Online visibility', 'Campaign support', 'Customer reach'],
+      keyLine: 'Marketing should help the business become easier to discover and easier to contact.',
+      highlightWords: ['digital', 'marketing', 'visibility', 'customers'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['Brand visibility was low and leads were inconsistent.', 'Campaign spend was not tracked properly.']
+          title: 'What we support',
+          lines: ['Digital presence and campaign support for business growth.', 'Messaging and online channels shaped around the customer mindset.']
         },
         {
-          title: 'What we do',
-          lines: ['Set up channel strategy for search, social, and paid campaigns.', 'Built landing funnels and conversion tracking.']
-        },
-        {
-          title: 'How we run it',
-          lines: ['Weekly reporting with clear numbers.', 'Campaigns adjusted based on what is actually working.']
+          title: 'How we think',
+          lines: ['Marketing activity should connect visibility with enquiries.', 'The digital story should be simple for customers to understand.']
         },
         {
           title: 'Business benefit',
-          lines: ['Better lead quality and stronger online visibility.', 'Marketing budget becomes easier to review and control.']
+          lines: ['Improved reach and clearer customer communication.', 'Better support for sales and brand awareness.']
         }
       ]
     },
     {
-      id: 'business-digitalisation',
-      categoryId: 'growth-training',
-      title: 'Business Consulting and Digital Setup',
-      subtitle: 'We help offline businesses come online in steps that fit the team and budget.',
-      iconKey: 'business-digitalisation',
-      emoji: '🏭',
-      factChips: ['Offline to online', 'Simple rollout', 'Team adoption'],
-      keyLine: 'Going digital works better when the steps are clear and manageable.',
-      highlightWords: ['digital', 'roadmap', 'online', 'process', 'growth'],
+      id: 'startup-advisory',
+      categoryId: 'consulting',
+      title: 'Startup Advisory and Incubator Setup Help',
+      subtitle: 'Guidance for startup planning, business direction, and incubator setup help.',
+      iconKey: 'chatbot-automation',
+      emoji: '🚀',
+      factChips: ['Startup advisory', 'Incubator setup', 'Business direction'],
+      keyLine: 'Startups need simple, grounded support before scaling the idea.',
+      highlightWords: ['startup', 'incubator', 'business', 'simple'],
       blocks: [
         {
-          title: 'Situation',
-          lines: ['Business was running fully offline with manual records.', 'Owners wanted growth but did not know where to start.']
+          title: 'Startup support',
+          lines: ['We help founders think through early business and technology choices.', 'The goal is to make the starting path clearer and easier to act on.']
         },
         {
-          title: 'What we plan',
-          lines: ['We mapped digital priorities: website, lead flow, operations, and reports.', 'Phased rollout was created based on budget and team readiness.']
-        },
-        {
-          title: 'How we support',
-          lines: ['Team onboarding and process training with simple SOPs.', 'Regular checkpoints to ensure adoption.']
+          title: 'Incubator setup',
+          lines: ['We support the planning mindset needed for incubator setup help.', 'The guidance stays practical, simple, and service-oriented.']
         },
         {
           title: 'Business benefit',
-          lines: ['Business became more visible, measurable, and process-driven.', 'Owners got better control over growth decisions.']
-        }
-      ]
-    },
-    {
-      id: 'software-trainings',
-      categoryId: 'growth-training',
-      title: 'Software Trainings (B2B and B2C)',
-      subtitle: 'Practical training programs for Python Full Stack, MERN, AWS, Azure DevOps, and AI/ML.',
-      iconKey: 'software-trainings',
-      emoji: '🎓',
-      factChips: ['Python Full Stack', 'MERN + Cloud', 'AI/ML training'],
-      keyLine: 'Good training helps people do the work with more confidence.',
-      highlightWords: ['training', 'skills', 'team', 'cloud', 'AI/ML'],
-      blocks: [
-        {
-          title: 'Who it helps',
-          lines: ['Companies that need job-ready internal teams.', 'Students and professionals who want practical upskilling.']
-        },
-        {
-          title: 'Training format',
-          lines: ['Project-based sessions with clear module structure.', 'Beginner-friendly explanation in simple language.']
-        },
-        {
-          title: 'Tracks we offer',
-          lines: ['Python Full Stack, MERN Stack, AWS, Azure DevOps, AI and ML.', 'Corporate custom tracks based on team role.']
-        },
-        {
-          title: 'Outcome',
-          lines: ['Learners become more confident in real projects.', 'Organizations reduce dependency on external hiring.']
+          lines: ['Founders get clearer direction before investing too much time or money.', 'The idea becomes easier to explain, validate, and build.']
         }
       ]
     }

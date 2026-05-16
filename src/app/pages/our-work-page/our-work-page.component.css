@@ -8,10 +8,11 @@
 }
 
 .work-hero {
-  padding: 8.4rem 0 2.8rem;
+  padding: 8.4rem 0 3.8rem;
   background:
-    radial-gradient(circle at 14% 14%, rgba(2, 128, 144, 0.12), transparent 42%),
-    radial-gradient(circle at 88% 82%, rgba(136, 212, 171, 0.12), transparent 44%),
+    linear-gradient(90deg, rgba(250, 248, 244, 0.96) 0%, rgba(250, 248, 244, 0.86) 54%, rgba(250, 248, 244, 0.72) 100%),
+    url('/43792-fromhypetohardvalue-1440x810.webp') right center / cover no-repeat,
+    radial-gradient(circle at 14% 14%, rgba(200, 16, 46, 0.1), transparent 42%),
     linear-gradient(180deg, rgba(250, 248, 244, 0.96) 0%, rgba(247, 245, 240, 0.9) 100%);
 }
 
@@ -30,7 +31,58 @@
 
 .company-section,
 .snapshot-section {
-  padding: 0 0 2.7rem;
+  padding: 2.2rem 0 2.7rem;
+}
+
+.work-media-banner {
+  position: relative;
+  height: clamp(260px, 28vw, 340px);
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  background: #080b0f;
+  box-shadow: 0 20px 48px rgba(10, 16, 20, 0.12);
+}
+
+.work-media-banner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.work-media-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 11, 15, 0.82), rgba(8, 11, 15, 0.18) 55%, rgba(8, 11, 15, 0.68));
+}
+
+.work-media-banner div {
+  position: absolute;
+  left: 1.35rem;
+  right: 1.35rem;
+  bottom: 1.25rem;
+  z-index: 1;
+  max-width: 620px;
+  color: #fff;
+}
+
+.work-media-banner span {
+  display: block;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.work-media-banner strong {
+  display: block;
+  margin-top: 0.34rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.65rem);
+  line-height: 1.22;
 }
 
 .section-head {
@@ -57,6 +109,35 @@
   background: rgba(255, 255, 255, 0.84);
   border: 1px solid rgba(11, 32, 39, 0.08);
   box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
+}
+
+.client-country-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.client-country-card {
+  border-radius: 10px;
+  border: 1px solid rgba(11, 32, 39, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 12px 28px rgba(11, 32, 39, 0.08);
+  padding: 1rem 1.05rem;
+}
+
+.client-country-card h3 {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 1rem;
+  color: var(--c-deep);
+}
+
+.client-country-card p {
+  margin: 0.55rem 0 0;
+  color: var(--c-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 .company-grid::before,
@@ -161,7 +242,7 @@
 }
 
 .snapshot-card {
-  border-radius: 18px;
+  border-radius: 10px;
   border: 1px solid rgba(11, 32, 39, 0.08);
   background: rgba(255, 255, 255, 0.84);
   box-shadow: 0 12px 28px rgba(11, 32, 39, 0.08);
@@ -224,17 +305,25 @@
     width: 180px;
     min-width: 180px;
   }
+
+  .client-country-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
   .snapshot-grid {
     grid-template-columns: 1fr;
   }
+
+  .client-country-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .work-hero {
-    padding-top: 7.8rem;
+    padding: 7.8rem 0 3rem;
   }
 
   .company-grid {
@@ -259,6 +348,18 @@
   }
 }
 
+@media (max-width: 560px) {
+  .work-hero h1 {
+    max-width: 11ch;
+    font-size: 1.92rem;
+    line-height: 1.08;
+  }
+
+  .work-hero p {
+    max-width: 30ch;
+  }
+}
+
 :host-context([data-theme='dark']) .our-work-page {
   background: #000;
 }
@@ -276,6 +377,7 @@
 }
 
 :host-context([data-theme='dark']) .company-item,
+:host-context([data-theme='dark']) .client-country-card,
 :host-context([data-theme='dark']) .snapshot-card,
 :host-context([data-theme='dark']) .action-box {
   border-color: rgba(150, 218, 236, 0.22);
@@ -284,6 +386,7 @@
 }
 
 :host-context([data-theme='dark']) .snapshot-card h3,
+:host-context([data-theme='dark']) .client-country-card h3,
 :host-context([data-theme='dark']) .action-box h3 {
   color: #ebf8ff;
 }
@@ -300,7 +403,8 @@
   background: linear-gradient(270deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0));
 }
 
-:host-context([data-theme='dark']) .snapshot-card p {
+:host-context([data-theme='dark']) .snapshot-card p,
+:host-context([data-theme='dark']) .client-country-card p {
   color: #b8d5e1;
 }
 

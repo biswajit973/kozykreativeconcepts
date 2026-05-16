@@ -8,10 +8,11 @@
 }
 
 .technology-hero {
-  padding: 8.4rem 0 2.8rem;
+  padding: 8.4rem 0 3.8rem;
   background:
-    radial-gradient(circle at 14% 14%, rgba(2, 128, 144, 0.12), transparent 42%),
-    radial-gradient(circle at 88% 84%, rgba(136, 212, 171, 0.12), transparent 44%),
+    linear-gradient(90deg, rgba(250, 248, 244, 0.96) 0%, rgba(250, 248, 244, 0.86) 54%, rgba(250, 248, 244, 0.72) 100%),
+    url('/44466_agenteconomy-brief1-hero_1440x810-16-9.webp') right center / cover no-repeat,
+    radial-gradient(circle at 14% 14%, rgba(200, 16, 46, 0.1), transparent 42%),
     linear-gradient(180deg, rgba(250, 248, 244, 0.96) 0%, rgba(247, 245, 240, 0.9) 100%);
 }
 
@@ -29,7 +30,46 @@
 }
 
 .technology-main {
-  padding: 0 0 3rem;
+  padding: 2.2rem 0 3rem;
+}
+
+.technology-feature {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.technology-feature figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  min-height: 260px;
+  background: #080b0f;
+  box-shadow: 0 20px 48px rgba(10, 16, 20, 0.12);
+}
+
+.technology-feature img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  object-fit: cover;
+}
+
+.technology-feature h2 {
+  margin: 0.7rem 0 0;
+  max-width: 740px;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.14;
+}
+
+.technology-feature p {
+  margin: 0.9rem 0 0;
+  max-width: 680px;
+  color: var(--c-muted);
+  line-height: 1.7;
 }
 
 .main-head {
@@ -55,7 +95,7 @@
 }
 
 .tech-card {
-  border-radius: 18px;
+  border-radius: 10px;
   border: 1px solid rgba(11, 32, 39, 0.08);
   background: rgba(255, 255, 255, 0.84);
   box-shadow: 0 12px 28px rgba(11, 32, 39, 0.08);
@@ -128,6 +168,10 @@
 }
 
 @media (max-width: 900px) {
+  .technology-feature {
+    grid-template-columns: 1fr;
+  }
+
   .tech-grid {
     grid-template-columns: 1fr;
   }
@@ -135,7 +179,19 @@
 
 @media (max-width: 768px) {
   .technology-hero {
-    padding-top: 7.8rem;
+    padding: 7.8rem 0 3rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .technology-hero h1 {
+    max-width: 11ch;
+    font-size: 1.92rem;
+    line-height: 1.08;
+  }
+
+  .technology-hero p {
+    max-width: 30ch;
   }
 }
 

@@ -37,57 +37,51 @@ export class ServicesPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Software Development Services in Hyderabad | Apps, Websites, AI and Cloud',
+      title: 'Services | Software Development, Consulting, Training and Digital Marketing | Kkreative',
       description:
-        'Explore KKREATIVE software development services in Hyderabad including app development, websites, AI features, automation, cloud, DevOps, testing, and digital marketing support.',
+        'Explore Kozy Kreative Concepts services including custom software development, research and business consulting, training, resource consulting, digital marketing, and startup advisory.',
       path: '/services',
       keywords:
-        'software services Hyderabad, app development Hyderabad, web development Hyderabad, AI automation Hyderabad, DevOps company Hyderabad'
+        'software development Hyderabad, business consulting Hyderabad, PMP training, ethical hacking training, resource consulting, digital marketing Hyderabad, startup advisory Hyderabad'
     });
   }
 
   readonly services: ServiceDetail[] = [
     {
-      title: 'App Development',
-      summary: 'Android, iOS, Windows, and Mac applications designed for daily business use.',
-      impact: 'We help teams move faster with stable, user-friendly apps.',
-      points: ['Product-first UX', 'Secure API integration', 'Scalable release planning']
+      title: 'Software Development',
+      summary: 'Custom web and mobile application development.',
+      impact: 'We build practical software that makes customer and internal workflows easier.',
+      points: ['Custom web applications', 'Mobile application development', 'Simple service-oriented delivery']
     },
     {
-      title: 'Web Development and AI Features',
-      summary: 'Landing pages, websites, and web apps, with AI features added only where they are useful.',
-      impact: 'We build web systems that help businesses explain their work, capture leads, and run daily operations.',
-      points: ['Fast frontend', 'Reliable backend work', 'AI features where they genuinely help']
+      title: 'Research and Business Consulting',
+      summary: 'Feasibility Study, SWOT Analysis, and Market Mindset support.',
+      impact: 'We help teams understand the opportunity, risk, and customer direction before they move.',
+      points: ['Feasibility Study', 'SWOT Analysis', 'Market Mindset']
     },
     {
-      title: 'Chatbots and Automation',
-      summary: 'Intelligent support bots and process automation for repetitive workflows.',
-      impact: 'Less manual work, faster response, and consistent customer support.',
-      points: ['Business workflow mapping', 'Tool and CRM integration', 'Human handover safeguards']
+      title: 'Training and Skill Development',
+      summary: 'Training support for PMP, Ethical Hacking, Testing, and Team Building.',
+      impact: 'We help people and teams become more capable for real project work.',
+      points: ['PMP Project Management Certification support', 'Ethical Hacking and Testing', 'Team Building programs']
     },
     {
-      title: 'Cloud and DevOps',
-      summary: 'AWS, Azure, and Google Cloud setup with deployment and monitoring support.',
-      impact: 'More stable operations and less release-day stress.',
-      points: ['CI/CD pipelines', 'Cloud infrastructure hardening', 'Monitoring and incident response']
-    },
-    {
-      title: 'QA Testing and Cybersecurity',
-      summary: 'Manual + automation testing and baseline security validation.',
-      impact: 'Fewer production issues and stronger release confidence.',
-      points: ['Regression and automation suites', 'Critical path test strategy', 'Security hygiene checks']
+      title: 'Resource Consulting',
+      summary: 'Consulting support for identifying and aligning the right delivery resources.',
+      impact: 'We help clients close capability gaps and plan delivery with more confidence.',
+      points: ['Resource planning', 'Capability matching', 'Delivery readiness support']
     },
     {
       title: 'Digital Marketing',
-      summary: 'SEO, paid media, social media, and lead funnel improvements.',
-      impact: 'Better visibility, better lead quality, and clearer campaign tracking.',
-      points: ['Campaign analytics', 'Landing page support', 'Lead-focused improvement']
+      summary: 'Digital marketing support for visibility, reach, and customer communication.',
+      impact: 'We help the business become easier to discover and easier to contact.',
+      points: ['Online visibility', 'Campaign support', 'Lead and enquiry support']
     },
     {
-      title: 'Business Consulting and Training',
-      summary: 'We help offline businesses go digital and train teams on the tools they need to use.',
-      impact: 'Smoother adoption, stronger internal capability, and better long-term use of the systems we build.',
-      points: ['Step-by-step rollout plan', 'B2B and B2C training programs', 'Cloud and AI learning support']
+      title: 'Startup Advisory and Incubator Setup Help',
+      summary: 'Guidance for startups and incubator setup planning.',
+      impact: 'We help early ideas become clearer, more practical, and easier to act on.',
+      points: ['Startup planning', 'Incubator setup help', 'Business and technology direction']
     }
   ];
 }

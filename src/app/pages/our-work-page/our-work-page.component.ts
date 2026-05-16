@@ -6,6 +6,7 @@ import { ContactModalComponent } from '../../components/contact-modal/contact-mo
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { GLOBAL_CLIENTS } from '../../shared/content/client-content';
 import { SeoService } from '../../shared/services/seo.service';
 import { UiStateService } from '../../shared/services/ui-state.service';
 
@@ -41,14 +42,16 @@ export class OurWorkPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Our Work | Software, Cloud and AI Delivery Support in Hyderabad',
+      title: 'Featured Projects and Global Clients | Kkreative',
       description:
-        'See the kinds of software, cloud, automation, website, and delivery support work KKREATIVE has handled for businesses and teams from Hyderabad and beyond.',
+        'Explore Kozy Kreative Concepts featured projects including Loanyantra, Shopwhich, Rushforme, South African regional systems, and global clients across India, USA, Singapore, and South Africa.',
       path: '/our-work',
       keywords:
-        'software company portfolio Hyderabad, web and app work Hyderabad, cloud delivery Hyderabad, automation projects Hyderabad'
+        'Loanyantra, Shopwhich, Rushforme, Multichoice Africa, Tabsquare, MD Manage, Kozy Kreative clients, Kkreative projects'
     });
   }
+
+  readonly clientGroups = GLOBAL_CLIENTS;
 
   readonly logos: WorkLogo[] = [
     { id: 'logo-1', src: '/work-logos/1.png' },
@@ -69,24 +72,29 @@ export class OurWorkPageComponent implements OnInit {
 
   readonly snapshots: DeliverySnapshot[] = [
     {
-      title: 'Customer Support and Service Flows',
-      brief: 'We help businesses simplify how customer questions, escalations, and follow-ups are handled across channels.',
-      outcome: 'Better response consistency and less manual operational pressure.'
+      title: 'Loanyantra',
+      brief: 'Bank Loan Integration System.',
+      outcome: 'A focused platform for connecting and managing loan-related banking workflows.'
     },
     {
-      title: 'Cloud, Release, and Stability Improvements',
-      brief: 'We support teams in making deployments smoother, monitoring clearer, and infrastructure easier to manage.',
-      outcome: 'Stronger uptime visibility and more reliable release cycles.'
+      title: 'Shopwhich',
+      brief: 'Marketplace for the Textile Industry.',
+      outcome: 'A digital marketplace model shaped around textile industry discovery and transactions.'
     },
     {
-      title: 'Website and Lead Generation Journeys',
-      brief: 'From messaging to forms and user flow, we improve how digital visitors understand, trust, and contact a business.',
-      outcome: 'A clearer path from visitor interest to real enquiry.'
+      title: 'Rushforme',
+      brief: 'Pickup and Delivery Services with agent and customer apps.',
+      outcome: 'Mobile-led service flows for customers, delivery agents, and operational tracking.'
     },
     {
-      title: 'Internal Automation and Reporting',
-      brief: 'We streamline repetitive approvals, updates, and reporting so teams spend less time on manual follow-up.',
-      outcome: 'Faster internal turnaround and fewer avoidable process errors.'
+      title: 'South African Regional Projects',
+      brief: 'Budget Management System, Vendor Management System, Integrated Payment Platform, and Feedback Management System.',
+      outcome: 'Business systems for regional operations, vendor workflows, payments, and feedback.'
+    },
+    {
+      title: 'Other Integrations',
+      brief: 'Bioenable, Payme, Stellar, and NTPL customer, CMS, and loyalty integrations.',
+      outcome: 'Integration support across customer management, CMS workflows, and loyalty needs.'
     }
   ];
 

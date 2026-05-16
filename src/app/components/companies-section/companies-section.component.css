@@ -5,8 +5,8 @@
 .founders {
   padding: 5.3rem 0;
   background:
-    radial-gradient(circle at 12% 12%, rgba(136, 212, 171, 0.1), transparent 42%),
-    radial-gradient(circle at 88% 84%, rgba(198, 151, 63, 0.1), transparent 44%),
+    radial-gradient(circle at 12% 12%, rgba(200, 16, 46, 0.08), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(10, 16, 20, 0.06), transparent 44%),
     linear-gradient(180deg, rgba(247, 245, 240, 0.9) 0%, rgba(250, 248, 244, 0.96) 100%);
   position: relative;
   isolation: isolate;
@@ -24,7 +24,7 @@
 .works-logo-board-wrap {
   position: relative;
   isolation: isolate;
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 0.4rem;
 }
 
@@ -43,11 +43,45 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 1rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.55));
   border: 1px solid rgba(11, 32, 39, 0.08);
   box-shadow: 0 16px 34px rgba(11, 32, 39, 0.08);
+}
+
+.clients-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.clients-board::before,
+.clients-board::after {
+  display: none;
+}
+
+.client-group-card {
+  border-radius: 10px;
+  border: 1px solid rgba(11, 32, 39, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
+  padding: 1rem 1.05rem;
+}
+
+.client-group-card h3 {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--c-deep);
+}
+
+.client-group-card p {
+  margin: 0.55rem 0 0;
+  color: var(--c-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 .works-logo-board::before,
@@ -102,7 +136,7 @@
   min-width: clamp(170px, 18vw, 210px);
   height: 104px;
   padding: 1rem 1.15rem;
-  border-radius: 18px;
+  border-radius: 10px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
   border: 1px solid rgba(11, 32, 39, 0.06);
   box-shadow: 0 10px 24px rgba(11, 32, 39, 0.08);
@@ -113,7 +147,7 @@
 
 .work-logo-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(2, 128, 144, 0.2);
+  border-color: rgba(200, 16, 46, 0.2);
   box-shadow: 0 16px 30px rgba(11, 32, 39, 0.12);
 }
 
@@ -168,6 +202,10 @@
     padding: 0.82rem;
   }
 
+  .clients-board {
+    grid-template-columns: 1fr;
+  }
+
   .work-logo-item {
     width: 148px;
     min-width: 148px;
@@ -205,6 +243,20 @@
   border-color: rgba(140, 206, 223, 0.2);
   background: linear-gradient(180deg, rgba(9, 18, 27, 0.94), rgba(4, 10, 15, 0.95));
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+:host-context([data-theme='dark']) .client-group-card {
+  border-color: rgba(140, 206, 223, 0.2);
+  background: linear-gradient(180deg, rgba(9, 18, 27, 0.94), rgba(4, 10, 15, 0.95));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+:host-context([data-theme='dark']) .client-group-card h3 {
+  color: #ebf8ff;
+}
+
+:host-context([data-theme='dark']) .client-group-card p {
+  color: #b8d5e1;
 }
 
 :host-context([data-theme='dark']) .work-logo-item:hover {

@@ -7,56 +7,64 @@ export class ChatbotService {
     {
       keywords: ['service', 'what do you do', 'offer', 'help', 'provide', 'solutions'],
       answer:
-        `We help businesses with the digital work they usually need:\n\n` +
-        `1) App Development\n• Android App\n• iOS App\n• Windows App\n• Mac App\n\n` +
-        `2) Web Development\n• Landing Pages\n• Websites and Web Apps\n• Gen AI solutions\n• AI and ML projects\n\n` +
-        `3) Chatbots and Automation\n• Customer support chatbots\n• Workflow automation\n• Agent integration in existing business\n\n` +
-        `4) Cloud and DevOps\n• AWS, Azure, Google Cloud\n• Deployment, monitoring, and support\n\n` +
-        `5) QA Testing and Cybersecurity\n• Manual and automation testing\n• Security testing support\n\n` +
-        `6) Digital Marketing\n• SEO, social media, ads, lead generation\n\n` +
-        `7) Software Trainings\n• Python Full Stack\n• MERN\n• AWS\n• Azure DevOps\n• AI and ML`
+        `We help businesses with:\n\n` +
+        `1) Software Development\n• Custom web applications\n• Mobile application development\n\n` +
+        `2) Research and Business Consulting\n• Feasibility Study\n• SWOT Analysis\n• Market Mindset\n\n` +
+        `3) Training and Skill Development\n• PMP\n• Ethical Hacking\n• Testing\n• Team Building\n\n` +
+        `4) Resource Consulting\n• Resource planning\n• Capability matching\n\n` +
+        `5) Digital Marketing\n• Online visibility\n• Campaign and enquiry support\n\n` +
+        `6) Startup Advisory and Incubator Setup Help`
     },
     {
       keywords: ['digitalisation', 'digitalization', 'offline', 'online', 'consulting', 'consultancy'],
       answer:
-        `Yes. We help offline businesses come online step by step.\n\n` +
-        `We first understand how the business works today, then suggest a simple plan for website, process, marketing, or automation support.`
+        `Yes. We support business consulting through Feasibility Study, SWOT Analysis, and Market Mindset.\n\n` +
+        `The goal is to make the next business or technology step simpler and clearer.`
     },
     {
       keywords: ['workflow', 'automation', 'manual work', 'productivity'],
       answer:
-        `Yes, we help reduce repeated manual work.\n\n` +
-        `We set up chatbots, workflow rules, alerts, and tool integrations so the team saves time and makes fewer avoidable mistakes.`
+        `Yes. Automation is one of the industries and solution areas we support.\n\n` +
+        `We look for repeated manual work and suggest practical software-led ways to simplify it.`
+    },
+    {
+      keywords: ['product', 'products', 'quickorder', 'safehome', 'telecom suite', 'telecom product'],
+      answer:
+        `Our products include:\n\n` +
+        `• Quickorder: Restaurant Management Mobile/Tab-based POS Solution\n` +
+        `• Safehome: Smart security and management software for apartments, gated communities, and housing societies\n` +
+        `• Telecom Product Suite: USSD, Number Management System, Bulk SMS, IVRS, Support Management Tool, GPRS Activation System, and Missed Call Solution`
     },
     {
       keywords: ['training', 'course', 'upskill', 'python', 'mern', 'aws', 'azure', 'ai', 'ml'],
       answer:
-        `We provide B2B and B2C trainings in:\n\n` +
-        `• Python Full Stack\n` +
-        `• MERN Stack\n` +
-        `• AWS\n` +
-        `• Azure DevOps\n` +
-        `• AI and ML\n\n` +
-        `Training is practical and project-oriented.`
+        `We provide training and skill development in:\n\n` +
+        `• PMP Project Management Certification support\n` +
+        `• Ethical Hacking\n` +
+        `• Testing\n` +
+        `• Team Building\n\n` +
+        `Training is shaped around practical capability.`
     },
     {
       keywords: ['industry', 'industries', 'domain', 'worked with'],
       answer:
         `We have supported teams across multiple industries:\n\n` +
-        `• Finance\n` +
-        `• Trading\n` +
         `• E-commerce\n` +
-        `• Ed-tech\n` +
-        `• Manufacturing / Industry\n` +
-        `• Healthcare`
+        `• Telecom\n` +
+        `• Healthcare\n` +
+        `• Banking and Finance\n` +
+        `• Retail\n` +
+        `• Insurance\n` +
+        `• Automation`
     },
     {
       keywords: ['contact', 'phone', 'call', 'number', 'reach'],
       answer:
         `You can reach us at:\n\n` +
-        `Customer Service: +91 9000500600\n` +
+        `Phone: +91 9000500600 | +91 9642424545\n` +
         `Email: info@kkreative.in\n` +
-        `HR: hr@kkreative.in`
+        `HR: hr@kkreative.in\n` +
+        `Direct: naveent@kkreative.in`
     },
     {
       keywords: ['linkedin', 'social', 'profile'],
@@ -70,8 +78,8 @@ export class ChatbotService {
       answer:
         `Our office address:\n\n` +
         `KKREATIVE CONCEPTS PRIVATE LIMITED\n` +
-        `White House, 1st & 2nd Floors,\n` +
-        `Khairatabad, Hyderabad.`
+        `Head Office: #6-2-659/3/2/1, White House, 1st & 2nd Floor, Khairtabad, Hyderabad - 500004\n\n` +
+        `Sales Office: #402, Block B, MVV Aurum, Hi-Tech City, Kondapur, Hyderabad.`
     },
     {
       keywords: ['hour', 'timing', 'open', 'when', 'working', 'time'],
@@ -82,10 +90,10 @@ export class ChatbotService {
       keywords: ['why choose', 'trust', 'why you', 'benefit'],
       answer:
         `Why choose KKREATIVE:\n\n` +
-        `• We try to keep things clear and practical\n` +
-        `• We work across product, cloud, AI, and growth support\n` +
-        `• We can support clients across different time zones\n` +
-        `• We care about delivery after launch, not only launch day`
+        `• Bigger Problems, Simple Solutions\n` +
+        `• Innovative, simple, and service-oriented process\n` +
+        `• 10+ years across telecom, ecommerce, healthcare, media, and more\n` +
+        `• Build Relation -> Serve Customer -> Happy Customer`
     },
     {
       keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
@@ -97,18 +105,19 @@ export class ChatbotService {
       keywords: ['thank', 'thanks', 'bye', 'goodbye', 'see you'],
       answer:
         `You're welcome!\n\n` +
-        `Call us: +91 9000500600\n` +
-        `Email: info@kkreative.in\n\n` +
+      `Call us: +91 9000500600\n` +
+      `Alternate: +91 9642424545\n` +
+      `Email: info@kkreative.in\n\n` +
         `Have a great day!`
     }
   ];
 
   readonly quickQuestions = [
     'What services do you offer?',
-    'How do you help offline businesses go online?',
+    'What products do you offer?',
     'Contact details',
     'Office location',
-    'Software training details',
+    'Training details',
     'Why choose KKREATIVE?'
   ];
 

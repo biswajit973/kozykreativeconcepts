@@ -1,12 +1,12 @@
-<nav class="nav" id="navbar" [class.scrolled]="ui.navbarScrolled()">
+<nav class="nav" id="navbar" [class.scrolled]="ui.navbarScrolled()" [class.nav--home]="mode === 'home'">
   <div class="container nav-inner">
     <a routerLink="/" class="logo" (click)="onLogoClick($event)" aria-label="Go to KKREATIVE home">
       <div class="logo-mark logo-mark--image">
         <img src="/work-logos/Logo.png" alt="KKREATIVE logo" loading="eager" decoding="async" />
       </div>
       <span class="logo-copy">
-        <span class="logo-name">KKREATIVE</span>
-        <span class="logo-tagline">inspiring innovations</span>
+        <span class="logo-name">Kkreative</span>
+        <span class="logo-tagline">Inspiring Innovations.</span>
       </span>
     </a>
     <ul class="nav-links">
@@ -20,6 +20,7 @@
           </button>
           <div class="drop" [class.active]="whatWeDoOpen">
             <a routerLink="/services" (click)="onRouteNav()">Our Services</a>
+            <a routerLink="/products" (click)="onRouteNav()">Products</a>
             <a routerLink="/industries" (click)="onRouteNav()">Industries</a>
             <a routerLink="/technology" (click)="onRouteNav()">Technologies</a>
           </div>
@@ -40,6 +41,7 @@
           </button>
           <div class="drop" [class.active]="whatWeDoOpen">
             <a routerLink="/services" (click)="onRouteNav()">Our Services</a>
+            <a routerLink="/products" (click)="onRouteNav()">Products</a>
             <a routerLink="/industries" (click)="onRouteNav()">Industries</a>
             <a routerLink="/technology" (click)="onRouteNav()">Technologies</a>
           </div>
@@ -57,7 +59,7 @@
     <div class="nav-cta">
       <button class="btn btn-sm btn-pri" type="button" (click)="ui.openModal('contactModal')">Let's Connect</button>
     </div>
-    <button class="hamburger" (click)="onOpenMobileMenu()">
+    <button class="hamburger" (click)="onOpenMobileMenu()" aria-label="Open navigation menu" [attr.aria-expanded]="ui.mobileMenuOpen()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
   </div>

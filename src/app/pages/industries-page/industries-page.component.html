@@ -5,9 +5,9 @@
   <section class="industries-hero">
     <div class="container">
       <div class="overline">Industries</div>
-      <h1>Technology Work That Fits The Industry You Are In.</h1>
+      <h1>Industries We Serve With Simple, Practical Technology.</h1>
       <p>
-        We do not push the same setup for every client. We look at how the business runs, where the delays are, and what will help most.
+        Kozy Kreative Concepts supports E-Commerce, Telecom, Healthcare, Banking and Finance, Retail, Insurance, and Automation.
       </p>
     </div>
   </section>
@@ -15,14 +15,18 @@
   <section class="industries-main">
     <div class="container">
       <header class="main-head">
-        <h2>Industries We Commonly Support</h2>
+        <h2>Industries We Serve</h2>
         <p>
-          We have worked with finance, healthcare, education, commerce, manufacturing, and operations-heavy teams. The details change, but the goal stays the same: better work, clearer visibility, and fewer bottlenecks.
+          Every vertical has its own operating style. We shape the technology around the actual process, customer need, and delivery pressure.
         </p>
       </header>
 
       <div class="industries-grid">
         <article class="industry-case" *ngFor="let item of useCases">
+          <div class="industry-media" *ngIf="item.mediaUrl">
+            <video [src]="item.mediaUrl" autoplay muted loop playsinline preload="metadata"></video>
+            <span>{{ item.mediaLabel }}</span>
+          </div>
           <h3>{{ item.title }}</h3>
           <div class="case-line">
             <span>Challenge:</span>

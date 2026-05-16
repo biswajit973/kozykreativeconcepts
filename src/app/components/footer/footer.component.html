@@ -1,39 +1,52 @@
 <footer class="contact-footer">
   <div class="container">
+    <div class="footer-brand-row">
+      <a routerLink="/" class="footer-brand" aria-label="Kkreative home">
+        <img src="/work-logos/Logo.png" alt="" loading="lazy" decoding="async">
+        <span>Kkreative</span>
+      </a>
+      <div class="footer-socials" aria-label="Social links">
+        <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer">in</a>
+      </div>
+    </div>
+
     <section class="footer-minimal" aria-label="Footer">
       <article class="footer-block footer-block--brand">
         <span class="footer-kicker">Company</span>
-        <p class="footer-title">Kozy Kreative Concepts Private Limited</p>
+        <p class="footer-title">KOZY KREATIVE CONCEPTS PRIVATE LIMITED</p>
         <div class="footer-list">
-          <span class="footer-text">White House, 1st &amp; 2nd Floors, Khairatabad, Hyderabad</span>
-          <span class="footer-text">Since {{ foundingYear }} · {{ yearsOfExperience }} years of expertise</span>
+          <span class="footer-text">Head Office: {{ headOffice }}</span>
+          <span class="footer-text">Sales Office: {{ salesOffice }}</span>
         </div>
       </article>
 
       <article class="footer-block footer-block--contact">
         <span class="footer-kicker">Contact</span>
         <div class="footer-list">
-          <a class="footer-link footer-link--strong" href="tel:+919000500600">+91 9000500600</a>
-          <a class="footer-link" href="mailto:info@kkreative.in">info@kkreative.in</a>
-          <a class="footer-link" href="mailto:hr@kkreative.in">hr@kkreative.in</a>
+          <a class="footer-link footer-link--strong" [href]="phonePrimaryHref">{{ phonePrimaryDisplay }}</a>
+          <a class="footer-link footer-link--strong" [href]="phoneSecondaryHref">{{ phoneSecondaryDisplay }}</a>
+          <a class="footer-link" [href]="'mailto:' + companyEmail">{{ companyEmail }}</a>
+          <a class="footer-link" [href]="'mailto:' + companyHrEmail">{{ companyHrEmail }}</a>
+          <a class="footer-link" [href]="'mailto:' + companyDirectEmail">{{ companyDirectEmail }}</a>
         </div>
       </article>
 
       <article class="footer-block footer-block--links">
+        <span class="footer-kicker">Quick Links</span>
         <nav class="footer-links-nav" aria-label="Footer navigation">
           <a
             class="footer-link"
             *ngFor="let item of quickLinks"
             [routerLink]="item.to"
-            [fragment]="item.fragment ?? null">
+            [fragment]="item.fragment">
             {{ item.label }}
           </a>
         </nav>
-        <div class="footer-list footer-list--meta">
-          <span class="footer-text">Mon-Sat, 10:00 AM to 6:00 PM</span>
-          <a class="footer-link" [href]="linkedinUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
       </article>
     </section>
+
+    <div class="footer-legal">
+      <span>© 2016-{{ currentYear }} Kozy Kreative Concepts Private Limited.</span>
+    </div>
   </div>
 </footer>

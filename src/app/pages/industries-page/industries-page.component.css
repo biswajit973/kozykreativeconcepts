@@ -8,10 +8,11 @@
 }
 
 .industries-hero {
-  padding: 8.4rem 0 2.8rem;
+  padding: 8.4rem 0 3.8rem;
   background:
-    radial-gradient(circle at 14% 14%, rgba(136, 212, 171, 0.12), transparent 42%),
-    radial-gradient(circle at 86% 86%, rgba(17, 75, 95, 0.12), transparent 44%),
+    linear-gradient(90deg, rgba(250, 248, 244, 0.96) 0%, rgba(250, 248, 244, 0.86) 54%, rgba(250, 248, 244, 0.7) 100%),
+    url('/hannover-messe_16-9.jpg') right center / cover no-repeat,
+    radial-gradient(circle at 14% 14%, rgba(200, 16, 46, 0.1), transparent 42%),
     linear-gradient(180deg, rgba(250, 248, 244, 0.96) 0%, rgba(247, 245, 240, 0.9) 100%);
 }
 
@@ -29,7 +30,7 @@
 }
 
 .industries-main {
-  padding: 0 0 3rem;
+  padding: 2.2rem 0 3rem;
 }
 
 .main-head {
@@ -55,11 +56,49 @@
 }
 
 .industry-case {
-  border-radius: 18px;
+  border-radius: 10px;
   border: 1px solid rgba(11, 32, 39, 0.08);
   background: rgba(255, 255, 255, 0.84);
   box-shadow: 0 12px 28px rgba(11, 32, 39, 0.08);
-  padding: 1.05rem 1.15rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.industry-media {
+  position: relative;
+  margin: -1rem -1rem 1rem;
+  height: 146px;
+  overflow: hidden;
+  background: #080b0f;
+}
+
+.industry-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 11, 15, 0.08), rgba(8, 11, 15, 0.72)),
+    radial-gradient(circle at 82% 22%, rgba(239, 51, 64, 0.28), transparent 44%);
+  pointer-events: none;
+}
+
+.industry-media video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.industry-media span {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.75rem;
+  z-index: 1;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .industry-case h3 {
@@ -135,7 +174,19 @@
 
 @media (max-width: 768px) {
   .industries-hero {
-    padding-top: 7.8rem;
+    padding: 7.8rem 0 3rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .industries-hero h1 {
+    max-width: 11ch;
+    font-size: 1.92rem;
+    line-height: 1.08;
+  }
+
+  .industries-hero p {
+    max-width: 30ch;
   }
 }
 

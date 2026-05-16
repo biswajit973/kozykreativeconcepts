@@ -3,22 +3,32 @@
   <app-mobile-menu mode="route"></app-mobile-menu>
 
   <section class="who-hero">
-    <div class="container">
-      <div class="overline">Who We Are</div>
-      <h1>{{ yearsOfExperience }} Years of Steady Work Through Changing Tech Cycles.</h1>
-      <p class="hero-sub">
-        We started in {{ foundingYear }}. Since then, tools have changed many times, but our job has stayed the same: build useful systems, stay dependable for the client, and keep improving with the market.
-      </p>
-      <p class="legal-line">{{ legalIdentity }}</p>
+    <div class="container who-hero-layout">
+      <div class="who-hero-copy">
+        <div class="overline">Who We Are</div>
+        <h1>Young Innovative Thinking, Built Around Simple Customer Solutions.</h1>
+        <p class="hero-sub">
+          Kozy Kreative develops cutting-edge technology for customers across telecom, ecommerce, healthcare, media, and other business verticals.
+        </p>
+        <p class="legal-line">{{ legalIdentity }}</p>
+      </div>
+
+      <figure class="who-hero-media">
+        <img src="/bold_ideas_teams_16_9.jpg" alt="Collaborative consulting team discussion" loading="eager" decoding="async">
+        <figcaption>
+          <span>Build Relation</span>
+          <strong>Serve Customer -> Happy Customer</strong>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="journey-section">
     <div class="container">
       <header class="section-head">
-        <h2>How Our Work Grew Over Time</h2>
+        <h2>How We Work With Customers</h2>
         <p>
-          We kept working through each technology shift and learned what actually helps a business move forward.
+          Our model is innovative, simple, and service-oriented, with a process built around relationship and customer happiness.
         </p>
       </header>
 
@@ -36,9 +46,9 @@
   <section class="promise-section">
     <div class="container promise-layout">
       <article class="promise-card">
-        <h2>Our Goal Has Not Changed</h2>
+        <h2>Our Process Is Easy</h2>
         <p>
-          Technology changes fast, but clients still want the same things: clear communication, dependable work, and systems that make their business easier to run.
+          Build Relation -> Serve Customer -> Happy Customer. That simple flow shapes how we plan, build, support, and improve the work.
         </p>
         <ul>
           <li *ngFor="let point of promisePoints">{{ point }}</li>
@@ -46,9 +56,9 @@
       </article>
 
       <aside class="promise-action">
-        <h3>Need a team that can understand both old systems and new tools?</h3>
+        <h3>Need a team with web and mobile development capability?</h3>
         <p>
-          That is where our experience helps. We can work with what you already have and still move the business forward.
+          We bring a growing, dynamic team and practical experience across multiple business verticals.
         </p>
         <div class="action-row">
           <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>

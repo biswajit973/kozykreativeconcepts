@@ -40,48 +40,48 @@ export class WhoWeArePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'About KKREATIVE | Hyderabad Software Development Company Since 2014',
+      title: 'About Kkreative | Kozy Kreative Concepts',
       description:
-        'Learn about KKREATIVE CONCEPTS PRIVATE LIMITED, a Hyderabad software development company working since 2014 across websites, cloud, AI, automation, testing, and business systems.',
+        'Kozy Kreative is a young innovative company developing cutting-edge technology for customers across telecom, ecommerce, healthcare, media, web, and mobile development.',
       path: '/who-we-are',
       keywords:
-        'about software company Hyderabad, KKREATIVE Hyderabad, software company since 2014 Hyderabad, technology consulting Hyderabad'
+        'Kozy Kreative Concepts, Kkreative about us, web development Hyderabad, mobile development Hyderabad, innovative technology company Hyderabad'
     });
   }
 
-  readonly legalIdentity = 'KOZY KREATIVE CONCEPTS PRIVATE LIMITED (CIN: U74140TG2014PTC095318)';
+  readonly legalIdentity = 'KOZY KREATIVE CONCEPTS PRIVATE LIMITED';
 
   readonly tracks: EvolutionTrack[] = [
     {
-      period: '2014–2016',
-      title: 'Strong Foundation Years',
-      focus: 'We started when many businesses were first moving from offline work to websites and basic digital systems.',
-      delivery: 'We helped clients launch their first dependable online presence and simple web workflows.'
+      period: 'Company Intro',
+      title: 'Young, Innovative, And Practical',
+      focus: 'Kozy Kreative is a young innovative company with the idea of developing cutting-edge technology for its customers.',
+      delivery: 'We keep technology useful by making business problems easier to understand and easier to solve.'
     },
     {
-      period: '2017–2020',
-      title: 'Cloud and Product Expansion',
-      focus: 'As backend stacks, APIs, and cloud tools became more common, our work moved with them.',
-      delivery: 'We built stronger web systems and better backend foundations for growing teams.'
+      period: 'Experience',
+      title: '10+ Years Across Business Verticals',
+      focus: 'Our experience spans telecom, ecommerce, healthcare, media, and other operating environments.',
+      delivery: 'That exposure helps us understand different workflows, customer journeys, and delivery pressures.'
     },
     {
-      period: '2021–2023',
-      title: 'Full-Stack Maturity',
-      focus: 'We spent these years doing more full-stack work across web, cloud, testing, and release processes.',
-      delivery: 'Clients got more stable products, clearer workflows, and fewer release issues.'
+      period: 'Team',
+      title: 'A Growing Dynamic Team',
+      focus: 'We are a growing team of dynamic members with multifaceted capabilities.',
+      delivery: 'Our strengths include Web Development, Mobile Development, and service-oriented technology delivery.'
     },
     {
-      period: '2024–2026',
-      title: 'AI and GenAI Execution',
-      focus: 'Now we also help clients use AI, automation, and newer tools in ways that actually fit their work.',
-      delivery: 'That means faster support, less repeated manual work, and more confident technology decisions.'
+      period: 'Model',
+      title: 'Innovative, Simple, And Service-Oriented',
+      focus: 'Our process is easy: Build Relation -> Serve Customer -> Happy Customer.',
+      delivery: 'We focus on relationships first, service throughout, and outcomes clients can feel in daily work.'
     }
   ];
 
   readonly promisePoints: string[] = [
-    'We keep learning, but we do not chase every fad.',
-    'We speak clearly and build things people can actually use.',
-    'We care about reliability after launch, not only launch day.',
-    'We work with the same seriousness whether the client is small or large.'
+    'Innovative thinking applied to real business needs.',
+    'Simple execution that keeps the customer comfortable.',
+    'Service-oriented delivery from first conversation to support.',
+    'Web and mobile capability shaped around the client workflow.'
   ];
 }

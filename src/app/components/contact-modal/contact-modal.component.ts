@@ -2,7 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, inject } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { UiStateService } from '../../shared/services/ui-state.service';
-import { COMPANY_EMAIL, COMPANY_HR_EMAIL, COMPANY_PHONE } from '../../shared/constants/brand.constants';
+import {
+  COMPANY_DIRECT_EMAIL,
+  COMPANY_EMAIL,
+  COMPANY_HR_EMAIL,
+  COMPANY_PHONE,
+  COMPANY_SECONDARY_PHONE
+} from '../../shared/constants/brand.constants';
 
 interface ContactRequestForm {
   name: string;
@@ -24,17 +30,21 @@ export class ContactModalComponent implements OnDestroy {
 
   readonly companyEmail = COMPANY_EMAIL;
   readonly companyHrEmail = COMPANY_HR_EMAIL;
+  readonly companyDirectEmail = COMPANY_DIRECT_EMAIL;
   readonly companyPhoneDisplay = '+91 9000500600';
   readonly companyPhoneHref = `tel:${COMPANY_PHONE}`;
+  readonly companySecondaryPhoneDisplay = '+91 9642424545';
+  readonly companySecondaryPhoneHref = `tel:${COMPANY_SECONDARY_PHONE}`;
   readonly serviceOptions = [
-    'App Development',
-    'Web Development',
-    'Chatbots and Automation',
-    'Cloud and DevOps',
-    'QA Testing and Cybersecurity',
+    'Software Development',
+    'Research and Business Consulting',
+    'Training and Skill Development',
+    'Resource Consulting',
     'Digital Marketing',
-    'Business Consulting and Digitalisation',
-    'Software Trainings',
+    'Startup Advisory and Incubator Setup Help',
+    'Quickorder',
+    'Safehome',
+    'Telecom Product Suite',
     'Other'
   ];
 
@@ -117,7 +127,7 @@ export class ContactModalComponent implements OnDestroy {
       ].join('\n')
     );
 
-    return `mailto:${this.companyEmail}?cc=${this.companyHrEmail}&subject=${subject}&body=${body}`;
+    return `mailto:${this.companyEmail}?cc=${this.companyHrEmail},${this.companyDirectEmail}&subject=${subject}&body=${body}`;
   }
 
   private isPhoneValid(value: string): boolean {

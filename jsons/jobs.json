@@ -13,7 +13,7 @@
         "category": "Engineering",
         "type": "new",
         "experienceMinYears": 5,
-        "locations": ["Hyderabad", "Secundarabad", "Remote-India", "Hybrid-Hyderabad"],
+        "locations": ["Hyderabad", "Secunderabad", "Remote-India", "Hybrid-Hyderabad"],
         "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
         "workMode": ["Hybrid", "WFO", "Remote"],
         "titleVariants": [
@@ -188,7 +188,7 @@
         "category": "Engineering",
         "type": "3 vacancies",
         "experienceMinYears": 5,
-        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secundarabad", "Hyderabad"],
+        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secunderabad", "Hyderabad"],
         "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
         "workMode": ["Hybrid", "Remote", "WFO"],
         "titleVariants": [
@@ -523,7 +523,7 @@
         "category": "Marketing",
         "type": "new",
         "experienceMinYears": 5,
-        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secundarabad"],
+        "locations": ["Hyderabad", "Remote-India", "Hybrid-Hyderabad", "Secunderabad"],
         "employmentType": ["Full Time, Permanent", "Contract (6–12 months)"],
         "workMode": ["Hybrid", "Remote", "WFO"],
         "titleVariants": [

@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./pages/services-page/services-page.component').then((m) => m.ServicesPageComponent)
   },
   {
+    path: 'products',
+    loadComponent: () =>
+      import('./pages/products-page/products-page.component').then((m) => m.ProductsPageComponent)
+  },
+  {
     path: 'who-we-are',
     loadComponent: () =>
       import('./pages/who-we-are-page/who-we-are-page.component').then((m) => m.WhoWeArePageComponent)

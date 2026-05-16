@@ -73,41 +73,41 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   readonly scannerCards: HeroScannerCard[] = [
     {
       id: 'portfolio-growth',
-      title: 'App Development',
-      badge: 'Android • iOS • Desktop',
+      title: 'Software Development',
+      badge: 'Web • Mobile',
       badgeTone: 'mint',
       kind: 'bars',
-      metric: 'Android, iOS, Windows, Mac',
-      subline: 'Apps built for customers, staff, and day-to-day business work.',
+      metric: 'Custom web and mobile apps',
+      subline: 'Software built around customer and business workflows.',
       bars: [36, 52, 44, 66, 58, 82, 74, 92]
     },
     {
       id: 'capital-protected',
-      title: 'Web and AI Solutions',
-      badge: 'Web • Portal • AI',
+      title: 'Business Consulting',
+      badge: 'SWOT • Feasibility',
       badgeTone: 'gold',
       kind: 'shield',
-      metric: 'Websites, portals, AI features',
-      subline: 'Web systems that explain the business clearly and support real work.'
+      metric: 'Feasibility, SWOT, Market Mindset',
+      subline: 'Consulting that makes decisions easier before teams build.'
     },
     {
       id: 'retirement',
-      title: 'Chatbots and Automation',
-      badge: 'Support • Workflow',
+      title: 'Products',
+      badge: 'Quickorder • Safehome',
       badgeTone: 'teal',
       kind: 'progress',
-      metric: 'Chat, follow-up, internal tasks',
-      subline: 'Useful automation for repeated work that slows teams down.',
+      metric: 'Restaurant, society, telecom platforms',
+      subline: 'Practical product suites for real operational needs.',
       progress: 78
     },
     {
       id: 'goal-health',
-      title: 'Cloud and DevOps',
-      badge: 'AWS · Azure · GCP',
+      title: 'Technology Capability',
+      badge: 'SOA • AWS • Azure',
       badgeTone: 'mint',
       kind: 'ring',
-      metric: 'Deployments, monitoring, uptime',
-      subline: 'Cloud setup and release flow that teams can trust.',
+      metric: 'SOA, scalable architecture, cloud',
+      subline: 'Robust architecture and platform choices for the job.',
       progress: 84
     }
   ];

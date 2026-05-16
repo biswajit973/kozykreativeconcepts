@@ -109,6 +109,7 @@
     align-items: flex-start;
     padding: 1.5rem;
     gap: 1.5rem;
+    bottom: 8rem;
   }
   .cc-actions {
     width: 100%;

@@ -1,0 +1,94 @@
+:host {
+  display: block;
+}
+
+.products-section {
+  padding: 4.5rem 0;
+  background:
+    linear-gradient(180deg, rgba(250, 248, 244, 0.93), rgba(247, 245, 240, 0.92)),
+    url('/test1.webp') right 16% / min(680px, 56vw) auto no-repeat,
+    radial-gradient(circle at 14% 14%, rgba(200, 16, 46, 0.08), transparent 38%),
+    linear-gradient(180deg, rgba(250, 248, 244, 0.96), rgba(247, 245, 240, 0.92));
+}
+
+.products-head-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.products-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  min-height: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(11, 32, 39, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 14px 32px rgba(11, 32, 39, 0.08);
+  padding: 1.15rem 1.2rem;
+}
+
+.product-kicker {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(200, 16, 46, 0.08);
+  color: var(--c-teal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.68rem;
+}
+
+.product-card h3 {
+  margin: 0.78rem 0 0;
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  line-height: 1.42;
+  color: var(--c-deep);
+}
+
+.product-card ul {
+  margin: 0.85rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.product-card li {
+  color: var(--c-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 960px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+:host-context([data-theme='dark']) .products-section {
+  background:
+    radial-gradient(circle at 14% 14%, rgba(0, 209, 247, 0.08), transparent 38%),
+    linear-gradient(180deg, #000, #000);
+}
+
+:host-context([data-theme='dark']) .product-card {
+  border-color: rgba(150, 218, 236, 0.22);
+  background: linear-gradient(180deg, rgba(8, 17, 26, 0.94), rgba(3, 9, 14, 0.95));
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.52);
+}
+
+:host-context([data-theme='dark']) .product-card h3 {
+  color: #ebf8ff;
+}
+
+:host-context([data-theme='dark']) .product-card li {
+  color: #b8d5e1;
+}

@@ -11,7 +11,7 @@ import { IndustriesSectionComponent } from '../../components/industries-section/
 import { LightboxComponent } from '../../components/lightbox/lightbox.component';
 import { MobileMenuComponent } from '../../components/mobile-menu/mobile-menu.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { OptionPerksSectionComponent } from '../../components/option-perks-section/option-perks-section.component';
+import { ProductsSectionComponent } from '../../components/products-section/products-section.component';
 import { ServicesSectionComponent } from '../../components/services-section/services-section.component';
 import { TestimonialsSectionComponent } from '../../components/testimonials-section/testimonials-section.component';
 import { TickerComponent } from '../../components/ticker/ticker.component';
@@ -32,7 +32,7 @@ import { UiStateService } from '../../shared/services/ui-state.service';
     IndustriesSectionComponent,
     TestimonialsSectionComponent,
     CompaniesSectionComponent,
-    OptionPerksSectionComponent,
+    ProductsSectionComponent,
     ConnectSectionComponent,
     FooterComponent,
     ContactModalComponent,
@@ -55,12 +55,12 @@ export class HomePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'KKreative — Top Software Development Company in Hyderabad | Kozy Kreative Concepts Pvt Ltd',
+      title: 'Kkreative | Bigger Problems, Simple Solutions | Kozy Kreative Concepts',
       description:
-        'KKREATIVE CONCEPTS PRIVATE LIMITED (Kozy Kreative Concepts) is a top software development company in Hyderabad since 2014. Apps, websites, AI, cloud, DevOps, digital marketing, and IT consulting. Visit kkreative.in or call +91 9000500600.',
+        'Kozy Kreative Concepts does it in its own unique style and makes problems easier. Kkreative builds innovative technology with simple, service-oriented solutions.',
       path: '/',
       keywords:
-        'KKreative, Kkreative.in, Kozy Kreative Concepts, Kozy Kreative Concepts Pvt Ltd, Kozy Kreative Hyderabad, KKreative Concepts, KKREATIVE CONCEPTS PRIVATE LIMITED, Option Perks, software development company Hyderabad, web development company Hyderabad, app development company Hyderabad, AI company Hyderabad, cloud consulting Hyderabad, DevOps Hyderabad, digital marketing Hyderabad, IT company Hyderabad, best software company Telangana, Khairatabad IT company, software company India since 2014'
+        'Kkreative, Kozy Kreative Concepts, Inspiring Innovations, bigger problems simple solutions, Kozy Kreative Hyderabad, software development company Hyderabad, web development company Hyderabad, app development company Hyderabad, technology consulting Hyderabad'
     });
   }
 

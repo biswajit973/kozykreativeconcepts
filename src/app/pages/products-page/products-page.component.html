@@ -1,0 +1,45 @@
+<div class="products-page">
+  <app-navbar mode="route"></app-navbar>
+  <app-mobile-menu mode="route"></app-mobile-menu>
+
+  <section class="products-hero">
+    <div class="container">
+      <div class="overline">Our Products</div>
+      <h1>Practical Product Platforms For Restaurants, Communities, And Telecom Teams.</h1>
+      <p>
+        Kozy Kreative Concepts builds products that make daily operations easier to manage, track, and improve.
+      </p>
+    </div>
+  </section>
+
+  <section class="products-detail">
+    <div class="container">
+      <div class="products-grid">
+        <article class="product-card" *ngFor="let product of products; trackBy: trackProduct">
+          <h2>{{ product.title }}</h2>
+          <p class="product-summary">{{ product.summary }}</p>
+          <ul>
+            <li *ngFor="let point of product.points">{{ point }}</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-cta">
+    <div class="container cta-box">
+      <div>
+        <h3>Want to understand which product fits your operation?</h3>
+        <p>Tell us about the business workflow. We will help map the right product or telecom module.</p>
+      </div>
+      <div class="cta-actions">
+        <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
+        <a routerLink="/our-work" class="btn btn-out">See Featured Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+  <app-contact-modal></app-contact-modal>
+  <app-chatbot-widget></app-chatbot-widget>
+</div>

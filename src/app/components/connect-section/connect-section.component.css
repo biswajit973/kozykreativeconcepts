@@ -9,6 +9,13 @@
 
 .cta-box {
   isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2.4rem;
+  background:
+    linear-gradient(100deg, rgba(8, 11, 15, 0.96), rgba(22, 26, 32, 0.9) 52%, rgba(120, 12, 30, 0.76)),
+    url('/test2.webp') center / cover no-repeat;
 }
 
 .cta-fx {
@@ -26,6 +33,54 @@
 .cta-actions {
   position: relative;
   z-index: 1;
+}
+
+.cta-content {
+  min-width: 0;
+}
+
+.cta-content > p {
+  max-width: 760px;
+}
+
+.cta-contact-info {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, max-content));
+  align-items: start;
+  gap: 1rem 2rem;
+  margin-top: 3.1rem;
+}
+
+.cta-ci {
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.cta-ci svg {
+  flex: 0 0 16px;
+  margin-top: 0.18rem;
+}
+
+.cta-ci:not(:last-child) {
+  white-space: nowrap;
+}
+
+.cta-ci:last-child {
+  grid-column: 1 / -1;
+  max-width: 760px;
+}
+
+.cta-actions {
+  align-self: center;
+  justify-self: end;
+}
+
+.cta-actions .btn {
+  white-space: nowrap;
 }
 
 .cta-culture {
@@ -62,4 +117,45 @@
 
 :host-context([data-theme='dark']) .cta-culture span {
   color: rgba(216, 250, 255, 0.76);
+}
+
+@media (max-width: 1180px) {
+  .cta-box {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .cta-actions {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .cta-box {
+    text-align: left;
+  }
+
+  .cta-contact-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .cta-ci:not(:last-child) {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .cta-contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-actions,
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    justify-content: center;
+  }
 }

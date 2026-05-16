@@ -26,46 +26,53 @@ export class IndustriesSectionComponent {
 
   readonly industryHighlights: IndustryItem[] = [
     {
-      id: 'finance',
-      title: 'Finance and Banking',
-      focusLine: 'Approval flows, reporting, and support processes that need accuracy.',
-      businessWin: 'Faster internal processing and clearer visibility for leadership.',
+      id: 'ecommerce',
+      title: 'E-Commerce',
+      focusLine: 'Digital buying journeys, catalog flows, and customer-facing operations.',
+      businessWin: 'Simpler shopping experiences and stronger order visibility.',
       accent: 'teal'
+    },
+    {
+      id: 'telecom',
+      title: 'Telecom',
+      focusLine: 'Activation, messaging, IVRS, support tools, and customer engagement systems.',
+      businessWin: 'Better service control and easier telecom process management.',
+      accent: 'mint'
     },
     {
       id: 'healthcare',
       title: 'Healthcare',
-      focusLine: 'Systems that need privacy, reliability, and role-based access.',
-      businessWin: 'Less operational friction and better day-to-day control.',
-      accent: 'mint'
-    },
-    {
-      id: 'edtech',
-      title: 'EdTech',
-      focusLine: 'Learning products, admin workflows, and student communication.',
-      businessWin: 'Better learner experience and less manual admin effort.',
+      focusLine: 'Reliable systems for healthcare operations, access, and service coordination.',
+      businessWin: 'More dependable workflows and better day-to-day management.',
       accent: 'gold'
     },
     {
-      id: 'ecommerce',
-      title: 'E-commerce',
-      focusLine: 'Website flow, support load, and campaign tracking.',
-      businessWin: 'Better enquiry quality and smoother buying journeys.',
+      id: 'banking-finance',
+      title: 'Banking and Finance',
+      focusLine: 'Loan, payment, reporting, and approval workflows that need accuracy.',
+      businessWin: 'Clearer processing and stronger financial workflow visibility.',
       accent: 'teal'
     },
     {
-      id: 'manufacturing',
-      title: 'Manufacturing',
-      focusLine: 'Production updates, approvals, dashboards, and internal tracking.',
-      businessWin: 'Better team coordination and faster decisions.',
+      id: 'retail',
+      title: 'Retail',
+      focusLine: 'Store, order, customer, and operational processes across retail teams.',
+      businessWin: 'Cleaner customer journeys and easier business control.',
       accent: 'mint'
     },
     {
-      id: 'trading',
-      title: 'Trading and Risk Ops',
-      focusLine: 'Fast-moving operations that depend on alerts and control points.',
-      businessWin: 'Quicker response when timing and accuracy matter.',
+      id: 'insurance',
+      title: 'Insurance',
+      focusLine: 'Policy, customer, claims, and support workflows that need clarity.',
+      businessWin: 'Better tracking and simpler service experiences.',
       accent: 'gold'
+    },
+    {
+      id: 'automation',
+      title: 'Automation',
+      focusLine: 'Repeated business processes that can be simplified through software.',
+      businessWin: 'Less manual effort and faster operational turnaround.',
+      accent: 'teal'
     }
   ];
 

@@ -117,8 +117,7 @@ export class SeoService {
           'Kkreative.in',
           'Kozy Kreative',
           'Kozy Kreative Concepts Pvt Ltd',
-          'Kozy Kreative Hyderabad',
-          'Option Perks'
+          'Kozy Kreative Hyderabad'
         ],
         url: SITE_URL,
         telephone: COMPANY_PHONE,
@@ -128,11 +127,12 @@ export class SeoService {
         logo: new URL(DEFAULT_OG_IMAGE_PATH, SITE_URL).toString(),
         sameAs: [LINKEDIN_URL],
         description:
-          'KKREATIVE CONCEPTS PRIVATE LIMITED (Kozy Kreative Concepts, KKreative, kkreative.in) is a top software development company in Hyderabad, India since 2014. Services include apps, websites, AI, cloud, DevOps, QA, cybersecurity, digital marketing, and IT consulting. Also known as Option Perks.',
+          'KOZY KREATIVE CONCEPTS PRIVATE LIMITED (Kkreative) is a young innovative company in Hyderabad that develops cutting-edge technology and makes business problems easier through software development, consulting, training, products, digital marketing, and startup advisory.',
         knowsAbout: [
           'Software Development', 'Web Development', 'Mobile App Development',
-          'Artificial Intelligence', 'Cloud Computing', 'DevOps', 'QA Testing',
-          'Cybersecurity', 'Digital Marketing', 'SEO', 'UI/UX Design', 'IT Consulting'
+          'Business Consulting', 'Feasibility Study', 'SWOT Analysis',
+          'Training and Skill Development', 'Resource Consulting', 'Digital Marketing',
+          'Startup Advisory', 'Quickorder', 'Safehome', 'Telecom Product Suite'
         ],
         areaServed: [
           {

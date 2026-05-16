@@ -5,38 +5,35 @@
   <section class="work-hero">
     <div class="container">
       <div class="overline">Our Work</div>
-      <h1>Companies and Teams We Have Worked With.</h1>
+      <h1>Featured Projects And Global Clients.</h1>
       <p>
-        We try to keep the work clear, dependable, and useful for the business instead of making it more complicated.
+        Kozy Kreative Concepts has supported product, telecom, marketplace, delivery, payment, vendor, feedback, and integration systems across multiple regions.
       </p>
     </div>
   </section>
 
   <section class="company-section">
     <div class="container">
+      <div class="work-media-banner">
+        <img src="/hannover-messe_16-9.jpg" alt="Fast light trails representing connected project delivery" loading="lazy" decoding="async">
+        <div>
+          <span>Projects Across Regions</span>
+          <strong>Systems for loans, marketplaces, delivery, payments, vendors, feedback, and integrations.</strong>
+        </div>
+      </div>
+
       <header class="section-head">
-        <h2>Some Of The Teams We Have Worked With</h2>
+        <h2>Our Global Clients</h2>
         <p>
-          These logos reflect businesses and teams we have supported across different kinds of work.
+          Client relationships across India, USA, Singapore, and South Africa.
         </p>
       </header>
 
-      <div class="company-grid">
-        <div class="company-marquee">
-          <div class="company-track">
-            <article class="company-item" aria-hidden="true" *ngFor="let item of rowOneLoop; trackBy: trackLogo">
-              <img class="company-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
-            </article>
-          </div>
-        </div>
-
-        <div class="company-marquee company-marquee--reverse">
-          <div class="company-track">
-            <article class="company-item" aria-hidden="true" *ngFor="let item of rowTwoLoop; trackBy: trackLogo">
-              <img class="company-logo-image" [src]="item.src" alt="" loading="lazy" decoding="async" />
-            </article>
-          </div>
-        </div>
+      <div class="client-country-grid">
+        <article class="client-country-card" *ngFor="let group of clientGroups">
+          <h3>{{ group.country }}</h3>
+          <p>{{ group.clients.join(', ') }}</p>
+        </article>
       </div>
     </div>
   </section>
@@ -44,9 +41,9 @@
   <section class="snapshot-section">
     <div class="container">
       <header class="section-head">
-        <h2>Where We Commonly Add Value</h2>
+        <h2>Featured Projects</h2>
         <p>
-          Clients usually come to us when they need clearer systems, better digital journeys, or more dependable delivery.
+          Selected work includes banking integration, textile marketplace, pickup and delivery apps, South African regional systems, and platform integrations.
         </p>
       </header>
 

@@ -5,15 +5,39 @@
   <section class="services-hero">
     <div class="container">
       <div class="overline">What We Offer</div>
-      <h1>Services Built Around Real Business Needs.</h1>
+      <h1>Innovative, Simple, And Service-Oriented Services.</h1>
       <p>
-        We handle product development, cloud work, AI, automation, testing, marketing, and training in a way business teams can understand.
+        Kozy Kreative Concepts supports software development, consulting, training, resources, digital marketing, and startup advisory with a practical customer-first model.
       </p>
     </div>
   </section>
 
   <section class="services-detail">
     <div class="container">
+      <div class="services-media-grid" aria-label="Service visual highlights">
+        <article class="services-media-card services-media-card--wide">
+          <img src="/44466_agenteconomy-brief1-hero_1440x810-16-9.webp" alt="AI and technology wave visual" loading="lazy" decoding="async">
+          <div>
+            <span>Research + Consulting</span>
+            <strong>Turn early ideas into practical decisions.</strong>
+          </div>
+        </article>
+        <article class="services-media-card">
+          <video src="/video2.mp4" poster="/test2.webp" autoplay muted loop playsinline preload="metadata"></video>
+          <div>
+            <span>Software Delivery</span>
+            <strong>Build systems that are easy to use.</strong>
+          </div>
+        </article>
+        <article class="services-media-card">
+          <video src="/video3.mp4" poster="/test1.webp" autoplay muted loop playsinline preload="metadata"></video>
+          <div>
+            <span>Digital Growth</span>
+            <strong>Make products easier to find and manage.</strong>
+          </div>
+        </article>
+      </div>
+
       <div class="services-grid">
         <article class="service-card" *ngFor="let item of services">
           <h2>{{ item.title }}</h2>
@@ -31,7 +55,7 @@
     <div class="container cta-box">
       <div>
         <h3>Need a service mix that fits your business stage?</h3>
-        <p>Tell us where the business is stuck or what you want to launch. We will help you choose the right mix.</p>
+        <p>Tell us the problem you want to simplify. We will help you choose the right service path.</p>
       </div>
       <div class="cta-actions">
         <button type="button" class="btn btn-pri" (click)="ui.openModal('contactModal')">Let's Connect</button>
