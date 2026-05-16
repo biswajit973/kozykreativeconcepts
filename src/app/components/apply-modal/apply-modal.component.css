@@ -124,6 +124,12 @@
   border-color: #ff5e5e;
 }
 
+.error-msg {
+  color: #ff5e5e;
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
+}
+
 .file-upload-wrapper {
   position: relative;
   display: flex;
@@ -275,8 +281,18 @@
 @media (max-width: 600px) {
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
   .modal-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
+    max-height: 95vh;
+  }
+  .apply-form {
+    gap: 0.75rem;
+  }
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
   }
 }
+

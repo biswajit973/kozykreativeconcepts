@@ -1,0 +1,20 @@
+[
+  {
+    "empCode": "KKC700",
+    "candidateName": "Biswajit Panda",
+    "aadhaar": "543485737875",
+    "startDate": "2020-03-11",
+    "endDate": "2022-05-02",
+    "location": "Hyderabad",
+    "positionTitle": "Software Engineer",
+    "department": "Engineering",
+    "duties": "Developing and maintaining software applications",
+    "domain": "Software Application Development",
+    "reasonForLeaving": "Growth",
+    "leftVoluntarily": true,
+    "eligibleForRehire": true,
+    "pfDeduction": false,
+    "reportingManager": "HR Department",
+    "employmentType": "Full-Time"
+  }
+]

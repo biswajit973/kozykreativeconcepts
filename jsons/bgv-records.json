@@ -1,0 +1,25 @@
+[
+  {
+    "empCode": "KKC700",
+    "candidateName": "Biswajit Panda",
+    "aadhaar": "543485737875",
+    "startDate": "2020-03-11",
+    "endDate": "2022-05-02",
+    "location": "Hyderabad",
+    "workMode": "Remote / Hybrid",
+    "positionTitle": "Software Engineer",
+    "department": "Engineering",
+    "reportingManager": "Naveen T",
+    "duties": "Developing and maintaining software applications",
+    "domain": "Software Application Development",
+    "reasonForLeaving": "Growth",
+    "leftVoluntarily": true,
+    "eligibleForRehire": true,
+    "overallReview": "Good",
+    "pfDeduction": false,
+    "pfExemptionReason": "Our company is legally exempt from the Employees' Provident Funds (EPF) Act because our total headcount was less than the statutory requirement of 20 or more employees during this tenure.",
+    "form16Issued": false,
+    "form16ExemptionReason": "The employee's annual income was well below the taxable threshold during this tenure. Since no TDS was required or deducted, generating a Form 16 is not legally applicable.",
+    "employmentType": "Full-Time"
+  }
+]

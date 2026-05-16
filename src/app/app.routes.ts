@@ -51,5 +51,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/careers-page/careers-page.component').then((m) => m.CareersPageComponent)
   },
+  {
+    path: 'verify',
+    loadComponent: () =>
+      import('./pages/bgv-page/bgv-page.component').then((m) => m.BgvPageComponent)
+  },
   { path: '**', redirectTo: '' }
 ];

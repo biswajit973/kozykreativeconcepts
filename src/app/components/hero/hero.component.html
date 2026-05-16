@@ -1,6 +1,6 @@
 <section class="hero">
   <div class="hero-bg">
-    <video class="hero-bg-video" src="/video2.mp4" poster="/test2.webp" autoplay muted loop playsinline></video>
+    <img class="hero-bg-video" src="/test2.webp" alt="Kozy Kreative Background">
   </div>
   <div class="container hero-grid">
     <div class="hero-copy">
@@ -24,11 +24,13 @@
           Let's Connect
         </button>
         <a href="#services" class="btn btn-out">See Our Services</a>
+        <a href="/KOZY_Portfolio_251222_134157.pdf" target="_blank" download class="btn btn-ghost">Download Brochure</a>
       </div>
       <div class="hero-stats reveal d3 app-reveal">
         <div class="h-stat h-stat--active"><h4>{{ yearsOfExperience }}+</h4><span>Years of Expertise</span></div>
         <div class="h-stat"><h4>Apps + AI</h4><span>Product and Automation</span></div>
         <div class="h-stat"><h4>Cloud + Growth</h4><span>Build and Scale Support</span></div>
+        <div class="h-stat"><h4>Gen AI</h4><span>Agentic AI & ML Models</span></div>
       </div>
     </div>
     <!-- LEGACY HERO VISUAL - DO NOT DELETE -->
@@ -50,7 +52,7 @@
     </div>
 
     <div class="hero-visual hero-visual--scanner reveal d3 app-reveal" *ngIf="heroVisualVariant === 'scanner'" #scannerRoot>
-      <video class="hero-media-video" src="/video1.mp4" poster="/test2.webp" autoplay muted loop playsinline></video>
+      <img class="hero-media-video" src="/test2.webp" alt="Hero Media">
       <div class="hero-media-shade"></div>
       <div class="hero-media-label">
         <span>Kozy Kreative Concepts</span>

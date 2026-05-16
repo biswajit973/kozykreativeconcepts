@@ -1,0 +1,310 @@
+<section class="bgv-page">
+
+  <!-- ═══ CONSENT GATE ═══ -->
+  <div class="consent-overlay" *ngIf="state === 'consent'">
+    <div class="consent-card">
+      <div class="consent-brand">
+        <img src="/work-logos/Logo.png" alt="Kkreative" class="consent-logo" />
+        <div>
+          <span class="consent-brand-name">KKREATIVE</span>
+          <span class="consent-brand-sub">Background Verification Portal</span>
+        </div>
+      </div>
+      <div class="consent-divider"></div>
+
+      <h2 class="consent-title">Authorized Access Only</h2>
+      <p class="consent-desc">
+        This portal is restricted to authorized Background Verification agencies,
+        legal professionals, and HR representatives. Unauthorized access is strictly prohibited.
+      </p>
+
+      <div class="consent-terms">
+        <div class="term-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Your identity and session details will be recorded for audit purposes.</span>
+        </div>
+        <div class="term-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span>A photograph of the verifier will be captured for secure identity verification.</span>
+        </div>
+        <div class="term-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>This session is encrypted and compliant with IT Act 2000 and DPDP Act 2023.</span>
+        </div>
+      </div>
+
+      <div class="consent-fields">
+        <div class="consent-field">
+          <label>Your Full Name <span class="req">*</span></label>
+          <input type="text" [(ngModel)]="verifierName" placeholder="Full name" autocomplete="name" />
+        </div>
+        <div class="consent-field">
+          <label>Organization / Agency <span class="req">*</span></label>
+          <input type="text" [(ngModel)]="verifierOrg" placeholder="Company or firm name" autocomplete="organization" />
+        </div>
+      </div>
+
+      <label class="consent-check">
+        <input type="checkbox" [(ngModel)]="consentAgreed" />
+        <span>I confirm that I am an authorized representative of a BGV agency, legal firm, or HR department and I agree to the terms of use.</span>
+      </label>
+
+      <button class="consent-btn" [disabled]="!consentAgreed || !verifierName.trim() || !verifierOrg.trim()" (click)="proceedToCamera()">
+        Proceed to Verification
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ CAMERA CAPTURE ═══ -->
+  <div class="consent-overlay" *ngIf="state === 'camera'">
+    <div class="consent-card camera-card">
+      <h2 class="consent-title">Verifier Identity Capture</h2>
+      <p class="consent-desc">Please allow camera access to capture a passport-size photograph of the verifier for security records.</p>
+
+      <div class="camera-box" *ngIf="!capturedPhoto">
+        <div class="camera-viewport">
+          <video #videoEl autoplay playsinline muted class="camera-feed" *ngIf="!cameraError"></video>
+          <div class="camera-fallback" *ngIf="cameraError">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            <span>Camera access denied or unavailable</span>
+          </div>
+        </div>
+        <div class="camera-actions">
+          <button class="consent-btn" (click)="capturePhoto()" *ngIf="!cameraError">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            Capture Photo
+          </button>
+          <button class="consent-btn consent-btn--ghost" (click)="skipCamera()">Skip & Continue</button>
+        </div>
+      </div>
+
+      <div class="camera-result" *ngIf="capturedPhoto">
+        <img [src]="capturedPhoto" alt="Verifier photo" class="captured-img" />
+        <span class="capture-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M20 6L9 17l-5-5"/></svg>
+          Photo Captured Successfully
+        </span>
+        <button class="consent-btn" (click)="proceedToSearch()" style="margin-top:1.25rem">
+          Continue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <canvas #canvasEl style="display:none"></canvas>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <div class="bgv-main" *ngIf="state !== 'consent' && state !== 'camera'">
+
+    <!-- Header -->
+    <header class="bgv-header" *ngIf="state !== 'found'">
+      <div class="bgv-brand">
+        <img src="/work-logos/Logo.png" alt="Kkreative" class="bgv-logo" />
+        <div class="bgv-brand-text">
+          <span class="bgv-brand-name">KKREATIVE</span>
+          <span class="bgv-brand-tag">INSPIRING INNOVATIONS</span>
+        </div>
+      </div>
+      <div class="header-line"></div>
+      <h1 class="bgv-title">Employment Verification</h1>
+    </header>
+
+
+
+    <!-- ─── SEARCH ─── -->
+    <div class="search-card" *ngIf="state === 'idle'">
+      <div class="search-tabs">
+        <button [class.active]="searchType === 'empCode'" (click)="searchType = 'empCode'; searchQuery = ''">Employee Code</button>
+        <button [class.active]="searchType === 'aadhaar'" (click)="searchType = 'aadhaar'; searchQuery = ''">Aadhaar Number</button>
+      </div>
+      <form (ngSubmit)="onSearch()" class="search-form">
+        <input type="text" [(ngModel)]="searchQuery" name="q" [placeholder]="searchType === 'empCode' ? 'Enter employee code' : 'Enter last 6 digits of Aadhaar'" class="search-input" autocomplete="off" required />
+        <button type="submit" class="search-btn" [disabled]="!searchQuery.trim()">Verify</button>
+      </form>
+      <div class="search-info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <span>This system is built for HR verification and financial background checks. If you have also sent an email request, please allow 2–3 business days for our team to respond.</span>
+          <div style="margin-top: 0.4rem; font-weight: 600;">Note: It may take up to 30 days from an employee's last working day for their record to be updated in this portal.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── SCANNING ─── -->
+    <div class="scan-panel" *ngIf="state === 'searching'">
+      <div class="scan-spinner"></div>
+      <div class="scan-steps">
+        <div class="scan-step" *ngFor="let step of scanSteps" [class.done]="step.done" [class.active]="step.active">
+          <div class="step-icon">
+            <svg *ngIf="step.done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><path d="M20 6L9 17l-5-5"/></svg>
+            <span class="dot" *ngIf="!step.done && !step.active"></span>
+            <span class="dot-spin" *ngIf="step.active"></span>
+          </div>
+          <span>{{ step.label }}</span>
+        </div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" [style.width.%]="scanProgress"></div></div>
+    </div>
+
+    <!-- ─── NOT FOUND ─── -->
+    <div class="nf-panel" *ngIf="state === 'not-found'">
+      <div class="nf-icon">✕</div>
+      <h2>No Record Found</h2>
+      <p>The {{ searchType === 'empCode' ? 'employee code' : 'Aadhaar number' }} "<strong>{{ searchQuery }}</strong>" does not match any employment record in our system.</p>
+      
+      <div class="nf-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Please Note:</strong> It can take up to 30 days from an employee's last working day for their record to reflect here. If the employee left within the last 30 days, or if you suspect a technical issue, you can still verify them by emailing <a [href]="'mailto:' + hrEmail">{{ hrEmail }}</a>.</span>
+      </div>
+
+      <button class="search-btn" (click)="resetSearch()">Search Again</button>
+    </div>
+
+    <!-- ─── RESULT ─── -->
+    <div class="result-panel" *ngIf="state === 'found' && result">
+
+      <div id="verification-report-content" class="report-export-area">
+        <div class="report-header">
+          <div class="bgv-brand" style="margin-bottom: 1.25rem;">
+            <img src="/work-logos/Logo.png" alt="Kkreative" class="bgv-logo" />
+            <div class="bgv-brand-text">
+              <span class="bgv-brand-name">KKREATIVE</span>
+              <span class="bgv-brand-tag">INSPIRING INNOVATIONS</span>
+            </div>
+          </div>
+          <div class="header-line"></div>
+          <h2 class="report-main-title">Employment Verification Report</h2>
+          <p class="report-subtitle">Official statement of professional history and statutory compliance.</p>
+        </div>
+
+        <!-- Verified Banner -->
+        <div class="verified-banner">
+          <div class="vb-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24"><path d="M20 6L9 17l-5-5" class="check-draw"/></svg>
+          </div>
+          <div class="vb-text">
+            <span class="vb-label">Record Verified & Authenticated</span>
+            <span class="vb-sub">Ref Code: {{ verificationCode }}</span>
+          </div>
+          <div class="vb-date">
+            <span class="vb-date-label">Verification Date</span>
+            <span class="vb-date-val">{{ verificationTimestamp }}</span>
+          </div>
+        </div>
+
+        <h2 class="section-title">Ex-Employee Details</h2>
+      <!-- Full-width Result Grid -->
+      <div class="result-card">
+        <div class="report-watermark">
+          <img src="work-logos/Logo.png" alt="Kozy Logo" />
+        </div>
+        <div class="wm" aria-hidden="true">{{ watermarkText }}</div>
+        <div class="wm wm--b" aria-hidden="true">{{ watermarkText }}</div>
+
+        <div class="result-grid">
+
+          <!-- Col 1: Employee Details -->
+          <div class="rg-col">
+            <h3 class="rg-title">Employee Details</h3>
+            <div class="rg-table">
+              <div class="rg-tr"><div class="rg-td-k">Employee Code</div><div class="rg-td-v mono">{{ result.empCode }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Full Name</div><div class="rg-td-v">{{ result.candidateName }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Aadhaar</div><div class="rg-td-v mono">{{ maskedAadhaar }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Position</div><div class="rg-td-v">{{ result.positionTitle }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Department</div><div class="rg-td-v">{{ result.department }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Reporting To</div><div class="rg-td-v">{{ result.reportingManager }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Domain</div><div class="rg-td-v">{{ result.domain }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Type</div><div class="rg-td-v">{{ result.employmentType }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Location</div><div class="rg-td-v">{{ result.location }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Work Mode</div><div class="rg-td-v">{{ result.workMode }}</div></div>
+            </div>
+          </div>
+
+          <!-- Col 2: Employment Period -->
+          <div class="rg-col">
+            <h3 class="rg-title">Employment Period</h3>
+            <div class="rg-table">
+              <div class="rg-tr"><div class="rg-td-k">Start Date</div><div class="rg-td-v">{{ formatDate(result.startDate) }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">End Date</div><div class="rg-td-v">{{ formatDate(result.endDate) }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Tenure</div><div class="rg-td-v accent">{{ tenure }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Duties</div><div class="rg-td-v">{{ result.duties }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Leaving Reason</div><div class="rg-td-v">{{ result.reasonForLeaving }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Voluntary</div><div class="rg-td-v"><span class="pill pill--yes" *ngIf="result.leftVoluntarily">Yes</span><span class="pill pill--no" *ngIf="!result.leftVoluntarily">No</span></div></div>
+              <div class="rg-tr"><div class="rg-td-k">Rehire</div><div class="rg-td-v"><span class="pill pill--yes" *ngIf="result.eligibleForRehire">Yes</span><span class="pill pill--no" *ngIf="!result.eligibleForRehire">No</span></div></div>
+              <div class="rg-tr"><div class="rg-td-k">Review</div><div class="rg-td-v accent">{{ result.overallReview }}</div></div>
+            </div>
+          </div>
+
+          <!-- Col 3: Compliance -->
+          <div class="rg-col">
+            <h3 class="rg-title">Compliance</h3>
+            <div class="rg-table">
+              <div class="rg-tr"><div class="rg-td-k">PF Deduction</div><div class="rg-td-v"><span class="pill pill--neutral">No</span></div></div>
+              <div class="rg-tr" *ngIf="result.pfExemptionReason"><div class="rg-td-k">PF Note</div><div class="rg-td-v note">{{ result.pfExemptionReason }}</div></div>
+              <div class="rg-tr"><div class="rg-td-k">Form 16</div><div class="rg-td-v"><span class="pill pill--neutral">No</span></div></div>
+              <div class="rg-tr" *ngIf="result.form16ExemptionReason"><div class="rg-td-k">Tax Note</div><div class="rg-td-v note">{{ result.form16ExemptionReason }}</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <h2 class="section-title">Certification & Authorization</h2>
+      <!-- Authorization & Certification Summary -->
+      <div class="auth-card">
+        <div class="auth-grid">
+          
+          <!-- Column A: Requested By -->
+          <div class="auth-col">
+            <h3 class="auth-title">Requested By</h3>
+            <div class="requested-info">
+              <img [src]="capturedPhoto" alt="Verifier Photo" class="verifier-photo-mini" *ngIf="capturedPhoto" />
+              <div class="requested-text">
+                <div class="auth-row"><span class="auth-lbl">Verifier:</span> <span class="auth-val">{{ verifierName }}</span></div>
+                <div class="auth-row"><span class="auth-lbl">Organization:</span> <span class="auth-val">{{ verifierOrg }}</span></div>
+                <div class="auth-row"><span class="auth-lbl">Consent:</span> <span class="auth-val auth-ok">✓ Digitally Agreed</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column B: Issued By -->
+          <div class="auth-col">
+            <h3 class="auth-title">Issued By</h3>
+            <div class="issued-text">
+              <div class="auth-row"><span class="auth-lbl">Authority:</span> <span class="auth-val">Kozy Kreative Concepts Pvt. Ltd.</span></div>
+              <div class="auth-row"><span class="auth-lbl">HR Admin:</span> <span class="auth-val">{{ hrAdminManager }}</span></div>
+              <div class="auth-row"><span class="auth-lbl">Signature:</span> <span class="auth-val sig-hash">{{ digitalSignature }}</span></div>
+              <div class="auth-row"><span class="auth-lbl">Cert Status:</span> <span class="auth-val auth-ok">✓ Active & Valid</span></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="auth-footer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" style="margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>This is an official, digitally signed verification report. No physical signature or verifier sign-off is required for this certificate to be valid. For discrepancies, please contact {{ hrEmail }}.</span>
+        </div>
+      </div>
+      </div> <!-- End verification-report-content -->
+
+      <!-- Actions -->
+      <div class="result-actions">
+        <button class="dl-btn" (click)="downloadReport()" [disabled]="isDownloading">
+          <ng-container *ngIf="!isDownloading">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Report
+          </ng-container>
+          <ng-container *ngIf="isDownloading">
+            <span class="dl-spinner"></span>
+            Preparing report...
+          </ng-container>
+        </button>
+        <button class="outline-btn" (click)="resetSearch()" [disabled]="isDownloading">New Verification</button>
+      </div>
+
+      <p class="result-contact">Questions? Reach out to <a [href]="'mailto:' + hrEmail">{{ hrEmail }}</a> or <a [href]="'mailto:' + companyEmail">{{ companyEmail }}</a></p>
+    </div>
+
+    <p class="bgv-footer">© {{ currentYear }} Kozy Kreative Concepts Pvt. Ltd. — Confidential & Proprietary</p>
+  </div>
+</section>

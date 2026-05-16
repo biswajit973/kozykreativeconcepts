@@ -47,6 +47,7 @@ export class FooterComponent {
     { label: 'Our Work', to: '/our-work' },
     { label: 'Blogs', to: '/blogs' },
     { label: 'Careers', to: '/careers' },
+    { label: 'Verify Employment', to: '/verify' },
     { label: 'Contact', to: '/', fragment: 'contact-section' }
   ];
 }
